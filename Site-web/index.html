@@ -1,0 +1,124 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="Maquette web du projet"> <!-- Description du site -->
+        <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- Ajustement du viewport pour les terminaux mobiles -->
+        <!-- Titre de la page -->
+        <title>Maquette Web - Projet</title>
+        <!-- Importation de la feuille de style générale -->
+        <link rel="stylesheet" href="style.css"> 
+        <!-- Importation de la librairie d'icônes "Font Awesome" -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+		<!-- Importation des polices de caractères "Dosis", Poppins" et "Quicksand" via Google Fonts -->
+		<link href="https://fonts.googleapis.com/css?family=Dosis|Poppins|Quicksand" rel="stylesheet">
+		<!-- Importation de la police de caractère "Didact" via Google Fonts -->
+		<link href="https://fonts.googleapis.com/css?family=Didact+Gothic" rel="stylesheet"> 
+		<!-- Importation de la librairie css concernant le datepicker -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datedropper/2.0/datedropper.css" />
+    </head>
+
+    <!-- Corps général de la page -->
+
+    <body>
+
+	<!-- Barre de naviguation du site -->
+
+	<nav>
+		<img src="img/logo.png" alt="Logo"/>
+		<ul>
+		    <li>Accueil</li>
+		    <li>Types de véhicules</li>
+		    <li>Partenaires</li>
+		    <li>Contact</li>
+		</ul>
+	</nav>
+
+    <!-- Header du site -->
+
+	<header>
+		<h2>Vous êtes à la bonne adresse !</h2>
+		<img src="img/voiture.jpg" alt="Voiture"/>
+		<h3><i>Partons à la recherche de votre véhicule..</i></h3>
+		<div id="search">
+			<form class="form" id="form1">
+			  <br/>
+		      <i class="fa fa-calendar fa-2x" aria-hidden="true" "></i><input class="date feedback-input" type="text" placeholder="Date de départ" />
+
+		      <i class="fa fa-calendar fa-2x" aria-hidden="true"></i><input class="date feedback-input" type="text" placeholder="Date d'arrivée" />
+
+			  <div class="content">
+				<label for="toggle" class="admin-text"><div class="admin-panel">Types de véhicules</div></label>
+				<input type="checkbox" id="toggle">
+				<div class="menu">
+					<a href="#">Moto <img src="ico/motorcycle.png" alt="Moto"></a>
+					<a href="#">Citadine <img src="ico/car.png" alt="Citadine"></a>
+					<a href="#">Berline <img src="ico/car.png" alt="Berline"></a></a>
+					<a href="#">Utilitaire <img src="ico/van.png" alt="Utilitaire"></a></a>
+					<a href="#">SUV <img src="ico/car-2.png" alt="SUV"></a></span></a>
+					<a href="#">Luxe <img src="ico/car.png" alt="Luxe"></a></span></a>
+					<a href="#">Sport <img src="ico/car-1.png" alt="Sport"></a></span></a>
+				</div>
+			  </div>
+				
+			  <br/>
+		      <div class="submit">
+		        <input type="submit" value="Lancer la recherche" id="button-blue"/>
+		      </div>
+
+			</form>
+		</div>
+	</header>
+	
+	<!-- Première section de page -->
+
+	<div id="section1">
+		<article>
+			<h3>Détendez-vous, nous nous occupons de tout !</h3>
+			<p><i>Vous n'avez qu'à chosir votre véhicule ...</i></p>
+		</article>
+
+		<aside>
+			<h3><i>Choisissez le véhicule qui vous correspond ...</i></h3>
+			<img src="img/horizon.jpg" alt="Horizon">
+		</aside>
+	</div>
+
+	<!-- Deuxième section de page -->
+
+	<div id="section2">
+		<article>
+			<p>Bloc 1</p>
+		</article>
+
+		<aside>
+			<p>Bloc 2</p>
+		</aside>
+	</div>
+
+    </body>
+
+	<!-- Footer section du bas de page -->
+
+    <footer>
+    	<div id="footer1">
+    		<h4>Copyrights 2017 / 2018 - 404 Location - Agence de location de véhicule</h4>
+    	</div>
+    	<div id="footer2">
+    		<a href="#"><h3>Qui sommes-nous ?</h3></a>
+			<a href="#"><p>Foire aux questions</p></a>
+			<a href="#"><p>Nos partenaires</p></a>
+    	</div>
+		<div id="footer-bottom">
+    		<a href="#"><p>Plan du site</p></a> - <a href="#"><p>Mentions légales</p></a> - Copyrights 2017 / 2018 - 404 Location - Agence de location de véhicule</p>
+    	</div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="js/datedropper.js"></script>
+    <script src="https://cdn.jsdelivr.net/leaflet/1/leaflet.js"></script>
+    <script type="text/javascript">
+		$('.date').dateDropper();
+	</script>
+
+</html>
