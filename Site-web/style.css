@@ -222,7 +222,7 @@ header img{
 
 #section-black #categories{
 	width: 84%;
-	margin-left: 12%;
+	margin-left: 8%;
 	margin-right: 8%;
 	color: #ffffff;
 }
@@ -244,62 +244,24 @@ header img{
   transition: all 0.5s;
 }
 
-.box:hover{
-	color: #ffffff;
+.box:hover h3{
+  color: #ffffff;
 }
 
-.box1:hover {
+.box1:hover, .box1.selected {
   background: url(img/citadine.png);
-  color: #ffffff;
   background-repeat: no-repeat;
   background-size: cover;
+  font-weight: bold;
   transition: all 0.5s;
 }
 
-.box2:hover {
+.box2:hover, .box2.selected {
   background: url(img/berline.png);
-  color: #ffffff;
   background-repeat: no-repeat;
   background-size: cover;
+  font-weight: bold;
   transition: all 0.5s;
-}
-
-.box .icon-cont {
-  border: 6px solid rgba(255,255,255,0.3);
-  border-radius: 50%;
-  width: 75px;
-  height: 75px;
-  margin: 20px auto;
-  display: block; 
-  text-align: center;
-  color: black;
-  position: absolute;
-  top: 10px;
-  left: 0;
-  right: 0;
-  z-index: 5;
-  transition: all 0.5s;
-  box-shadow: 0 0 0 0px rgba(255,255,255,0.5), 0 0 0 0px rgba(3, 108, 129, 0.5);
-}
-.box .icon-cont i {
-  color: #ec1c24;
-  opacity: 0.8;
-  font-size: 2.5em;
-  line-height: 75px;
-  transition: all 0.5s;
-}
-.box:hover .icon-cont {
-  animation: shady 4s linear infinite;
-}
-
-@keyframes shady {
-  0% {box-shadow: 0 0 0 0px rgba(255,255,255,0), 0 0 0 0px rgba(0, 6, 0, 0.2);}
-  20% {box-shadow: 0 0 0 100px rgba(255,255,255,0), 0 0 0 0px rgba(0, 6, 0, 0.2));}
-  20.1% {box-shadow: 0 0 0 0px rgba(255,255,255,0.5), 0 0 0 0px rgba(0, 6, 0, 0.2);}
-  50% {box-shadow: 0 0 0 0px rgba(255,255,255,0.5), 0 0 0 0px rgba(0, 6, 0, 0.2);}
-  70% {box-shadow: 0 0 0 100px rgba(255,255,255,0), 0 0 0 0px rgba(0, 6, 0, 0.2));}
-  70.1% {box-shadow: 0 0 0 0px rgba(255,255,255,0.5), 0 0 0 0px rgba(0, 6, 0, 0.2);}
-  100% {box-shadow: 0 0 0 0px rgba(255,255,255,0.5), 0 0 0 0px rgba(0, 6, 0, 0.2);}
 }
 
 .box h3 {
@@ -324,7 +286,7 @@ header img{
 .box ul {
   font-family: 'Quicksand', sans-serif;
   color: black;
-  font-size: 13px;
+  font-size: 16px;
   line-height: 28px;
   text-indent: 14px;
   margin: 25px;
@@ -362,6 +324,11 @@ header img{
   color: #ffffff;
   transition: all 0.5s;
 }
+
+.box span.plus {
+  padding-bottom: 10px;
+}
+
 .box a.expand span.plus {
   opacity: 1;
   font-size: 30px;
@@ -369,6 +336,7 @@ header img{
   margin-bottom: 30px;
   transition: all 0.5s;
 }
+
 .box.selected a.expand {
   opacity: 0.8;
   display: block;
@@ -419,17 +387,22 @@ header img{
   transition: all 0.5s;
 }
 .box.selected h3 {
-  padding: 10px 15px 15px 40px;
-  border-bottom: 1px solid rgba(255,255,255,0.3);
+  padding: 30px 5px 25px 5px;
+  margin-bottom: 20px;
+  border-bottom: 1.5px solid rgba(255,255,255,0.3);
+  font-weight: bold;
   transition: all 0.5s;
   width: 70%;
-  top: 16px;
-  left: 10%;
+  top: 30px;
+  left: 15%;
+  color: white;
   transition: all 0.5s;
 }
 .box.selected ul.hidden {
   opacity: 1;
-  margin-top: 95px;
+  padding-top: 20px;
+  margin-top: 80px;
+  color: white;
   transition: all 0.5s;
 }
 
