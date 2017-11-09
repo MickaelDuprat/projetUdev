@@ -31,8 +31,23 @@
 		    <li>Types de véhicules</li>
 		    <li>Partenaires</li>
 		    <li>Contact</li>
+		    <li><a href="#" id="loginform">Connexion</a> | <a href="#">Inscription</a>
+			    <div class="login">
+			      <div class="formholder">
+			        <div class="randompad">
+			           <fieldset>
+			             <label name="email">Email</label>
+			             <input type="email" placeholder="example@example.com" />
+			             <label name="password">Password</label>
+			             <input type="password" placeholder="••••••••••" />
+			             <input type="submit" value="Connexion" />
+			           </fieldset>
+			        </div>
+			      </div>
+			    </div>
+			</li>
 		</ul>
-	</nav>
+	</nav>	
 
     <!-- Header du site -->
 	<header>
@@ -49,6 +64,7 @@
 			  <div class="content">
 				<label for="toggle" class="admin-text"><div class="admin-panel">Types de véhicules</div></label>
 				<input type="checkbox" id="toggle">
+
 				<div class="menu">
 					<a href="#">Moto <img src="ico/motorcycle.png" alt="Moto"></a>
 					<a href="#">Citadine <img src="ico/car.png" alt="Citadine"></a>
@@ -230,6 +246,32 @@
 		$('.box').click(function() {
 		$(this).toggleClass('selected');
 		});
+
+		$('input[type="submit"]').mousedown(function(){
+		  $(this).css('background', '#2ecc71');
+		});
+		$('input[type="submit"]').mouseup(function(){
+		  $(this).css('background', '#1abc9c');
+		});
+
+		$('#loginform').click(function(){
+		  $('.login').fadeToggle('slow');
+		});
+
+
+		function affiche(element)
+{
+    var targetElement;
+    targetElement = document.getElementById(element) ;
+    if (targetElement.style.display == "none")
+    {
+        targetElement.style.display = "" ;
+    }
+        else
+        {
+        targetElement.style.display = "none" ;
+    }
+}
 	</script>
 	<script src="https://s.codepen.io/assets/libs/modernizr.js" type="text/javascript"></script>
 
