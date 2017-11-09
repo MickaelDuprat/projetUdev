@@ -1,3 +1,5 @@
+/** ALL CSS **/
+
 html{
 	margin: 0px;
 	padding: 0px;
@@ -14,6 +16,7 @@ body{
 	width: 100%;
 }
 
+<<<<<<< HEAD
 .login {
 	width: 25%;
 	z-index: 99;
@@ -24,6 +27,9 @@ body{
 	background-color: #ffffff;
 	display: inline-block;
 }
+=======
+/** NAVBAR **/
+>>>>>>> 9a2ff7134a2d61a9eac17cea98d6ef9c9802d330
 
 nav{
 	text-align: center;
@@ -51,8 +57,8 @@ nav ul{
 
 nav ul li{
 	display: inline;
-	margin-left: 3%;
-	margin-right: 3%;
+	margin-left: 2.5%;
+	margin-right: 2.5%;
 	font-size: 1.2em;
 	padding: 10px;
 	font-family: 'Quicksand', sans-serif;
@@ -63,6 +69,71 @@ nav ul li:hover{
 	border-bottom : 4px solid #1e1d1d;
 	color: #ec1c24;
 }
+
+nav ul li > a{
+	text-decoration: none;
+	color: black;
+}
+
+nav ul li > a:hover{
+	color: #ec1c24;
+}
+/** LOGIN FORM **/
+
+fieldset {
+  border: none;
+}
+
+.login {
+  display: none;
+}
+
+.formholder {
+  background: #ffffff;
+  width: 350px;
+  border-radius: 0px 0px 5px 5px;
+  padding-top: 5px;
+  position: absolute;
+  right: 105px;
+  top: 75px;
+}
+
+.formholder input[type="email"], .formholder input[type="password"] {
+  padding: 7px 5px;
+  margin: 10px 0;
+  width: 96%;
+  display: block;
+  font-size: 18px;
+  border-radius: 5px;
+  border: none;
+  -webkit-transition: 0.3s linear;
+  -moz-transition: 0.3s linear;
+  -o-transition: 0.3s linear;
+  transition: 0.3s linear;
+}
+.formholder input[type="email"]:focus, .formholder input[type="password"]:focus {
+  outline: none;
+  box-shadow: 0 0 1px 1px #ec1c24;
+}
+.formholder input[type="submit"] {
+  background: black;
+  padding: 10px;
+  font-size: 20px;
+  display: block;
+  width: 100%;
+  border: none;
+  color: #fff;
+  border-radius: 5px;
+}
+.formholder input[type="submit"]:hover {
+  background: #ec1c24;
+}
+
+.randompad {
+  padding: 10px;
+}
+
+/** HEADER **/
 
 header{
 	width: 100%;
@@ -89,6 +160,8 @@ header h3{
 	display: inline;
 	font-family: 'Quicksand', sans-serif;
 }
+
+/** HEADER SEARCH VEHICULE **/
 
 header #search{
 	float: left;
@@ -175,6 +248,9 @@ header img{
 	float: right;
 }
 
+
+/** WHITE SECTION **/
+
 #section-white{
 	width: 95%;
 	height: auto;
@@ -224,6 +300,8 @@ header img{
 	border-radius: 10px;
 }
 
+/** BLACK SECTION **/
+
 #section-black{
 	width: 100%;
 	height: auto;
@@ -234,10 +312,12 @@ header img{
 }
 
 #section-black #categories{
-	width: 84%;
+	margin-left: 12%;
+	margin-right: 8%;
 	color: #ffffff;
 }
 
+/** BOX OF SECTION TYPE OF VEHICULE **/
 
 .box{
   width: 24%;
@@ -417,6 +497,8 @@ header img{
   transition: all 0.5s;
 }
 
+/** FOOTER **/
+
 #footer{
 	padding-right: 1%;
 	padding-left: 5%;
@@ -451,7 +533,7 @@ header img{
 	display: block;
 }
 
-/* DATE PICKER */
+/** DATE PICKER **/
 
 #container {
   display: flex;
@@ -599,12 +681,12 @@ input#toggle { display: none; }
 input#toggle ~ .menu { display: none; }
 input#toggle:checked ~ .menu { display: block; }
 
-
 .menu
 {
 	width: 50%;
 	margin-right: 25%;
 	margin-left: 25%;
+	position: absolute;
 }
 
 
@@ -631,8 +713,8 @@ input#toggle:checked ~ .menu { display: block; }
 	float: right;
 	display: inline-block;
 	position: relative;
-	padding-top: 10px;
-	padding-right: 30px;
+	padding-top: 5px;
+	padding-right: 12px;
 }
 
 .menu a:nth-child( 2 )
