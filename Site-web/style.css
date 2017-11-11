@@ -55,14 +55,15 @@ nav ul li:hover{
 	border-bottom : 4px solid #1e1d1d;
 }
 
-nav ul li > a{
+nav ul a{
 	text-decoration: none;
 	color: black;
 }
 
-nav ul li > a:hover{
+nav ul a > li:hover{
 	color: #ec1c24;
 }
+
 /** LOGIN FORM **/
 
 fieldset {
@@ -402,7 +403,9 @@ header img{
 }
 
 .box span.plus {
-  padding-bottom: 10px;
+  position: absolute;
+  top: -5px;
+  left: 11px;
 }
 
 .box a.expand span.plus {

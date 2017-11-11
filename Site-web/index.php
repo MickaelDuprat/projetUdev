@@ -9,7 +9,7 @@
         <!-- Titre de la page -->
         <title>Maquette Web - Projet</title>
         <!-- Importation de la feuille de style générale -->
-        <link rel="stylesheet" href="style.css"> 
+        <link rel="stylesheet" href="css/style.css"> 
         <!-- Importation de la librairie d'icônes "Font Awesome" -->
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 		<!-- Importation des polices de caractères "Dosis", Poppins" et "Quicksand" via Google Fonts -->
@@ -24,67 +24,11 @@
     <body>
 
 	<!-- Barre de naviguation du site -->
-	<nav>
-		<img src="img/logo.png" alt="Logo"/>
-		<ul>
-		    <a href="#"><li>Accueil</li></a>
-		    <a href="#"><li>Types de véhicules</li></a>
-		    <a href="#"><li>Partenaires</li></a>
-		    <a href="#"><li>Contact</li></a>
-		    <li><a href="#" id="loginform">Connexion</a> | <a href="#">Inscription</a>
-			    <div class="login">
-			      <div class="formholder">
-			        <div class="randompad">
-			           <fieldset>
-			             <label name="email">Email</label>
-			             <input type="email" placeholder="example@example.com" />
-			             <label name="password">Password</label>
-			             <input type="password" placeholder="••••••••••" />
-			             <input type="submit" value="Connexion" />
-			           </fieldset>
-			        </div>
-			      </div>
-			    </div>
-			</li>
-		</ul>
-	</nav>	
+	<?php include_once('include/nav.php'); ?>
 
     <!-- Header du site -->  
-	<header>
-		<h2>Vous êtes à la bonne adresse !</h2>
-		<img src="img/voiture.jpg" alt="Voiture"/>
-		<h3><i>Partons à la recherche de votre véhicule..</i></h3>
-		<div id="search">
-			<form class="form" id="form1">
-			  <br/>
-		      <i class="fa fa-calendar fa-2x" aria-hidden="true" "></i><input class="date feedback-input" type="text" placeholder="Date de départ" />
+	<?php include_once('include/header.php'); ?>
 
-		      <i class="fa fa-calendar fa-2x" aria-hidden="true"></i><input class="date feedback-input" type="text" placeholder="Date d'arrivée" />
-
-			  <div class="content">
-				<label for="toggle" class="admin-text"><div class="admin-panel">Types de véhicules</div></label>
-				<input type="checkbox" id="toggle">
-
-				<div class="menu">
-					<a href="#">Moto <img src="ico/motorcycle.png" alt="Moto"></a>
-					<a href="#">Citadine <img src="ico/car.png" alt="Citadine"></a>
-					<a href="#">Berline <img src="ico/car.png" alt="Berline"></a></a>
-					<a href="#">Utilitaire <img src="ico/van.png" alt="Utilitaire"></a></a>
-					<a href="#">SUV <img src="ico/car-2.png" alt="SUV"></a></span></a>
-					<a href="#">Luxe <img src="ico/car.png" alt="Luxe"></a></span></a>
-					<a href="#">Sport <img src="ico/car-1.png" alt="Sport"></a></span></a>
-				</div>
-			  </div>
-				
-			  <br/>
-		      <div class="submit">
-		        <input type="submit" value="Lancer la recherche" id="button-blue"/>
-		      </div>
-
-			</form>
-		</div>
-	</header>
-	
 	<!-- Première section de page -->
 	<div id="section-white">
 		<article>
@@ -222,20 +166,7 @@
     </body>
 
 	<!-- Footer section du bas de page -->
-    <div id="footer">
-    	<div id="footer-left">
-    		<h3>Qui sommes-nous ?</h3>
-    		<p>404 Locatione est une agence de location de véhicule, vélo, moto, citadine, berline, luxe ou en encore sport. Vous trouverez forcément ce que vous rechercher.</p>
-    	</div>
-    	<div id="footer-right">
-    		<a href="#"><p>Nous contacter</p></a>
-			<a href="#"><p>Foire aux questions</p></a>
-			<a href="#"><p>Liens partenaires</p></a>
-    	</div>
-		<div id="footer-bottom">
-    		<p><a href="#">Plan du site</a> - <a href="#">Mentions légales</a> - Copyrights 2017 / 2018 - 404 Location - Agence de location de véhicule</p>
-    	</div>
-    </div>
+	<?php include_once('include/footer.php'); ?>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<script src="js/datedropper.js"></script>
@@ -260,18 +191,19 @@
 
 
 		function affiche(element)
-{
-    var targetElement;
-    targetElement = document.getElementById(element) ;
-    if (targetElement.style.display == "none")
-    {
-        targetElement.style.display = "" ;
-    }
-        else
-        {
-        targetElement.style.display = "none" ;
-    }
-}
+		{
+		    var targetElement;
+		    targetElement = document.getElementById(element) ;
+		    if (targetElement.style.display == "none")
+		    {
+		        targetElement.style.display = "" ;
+		    }
+		        else
+		        {
+		        targetElement.style.display = "none" ;
+		    }
+		}
+		
 	</script>
 	<script src="https://s.codepen.io/assets/libs/modernizr.js" type="text/javascript"></script>
 
