@@ -205,7 +205,7 @@
 		}
 		
 	</script>
-	<script src="https://s.codepen.io/assets/libs/modernizr.js" type="text/javascript"></script>
 
+	<script src="https://s.codepen.io/assets/libs/modernizr.js" type="text/javascript"></script>
 
 </html>
