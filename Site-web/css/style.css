@@ -326,7 +326,7 @@ header img{
 }
 
 .box1:hover, .box1.selected {
-  background: url(img/citadine.png);
+  background: url(../img/citadine.png);
   background-repeat: no-repeat;
   background-size: cover;
   font-weight: bold;
@@ -334,7 +334,7 @@ header img{
 }
 
 .box2:hover, .box2.selected {
-  background: url(img/berline.png);
+  background: url(../img/berline.png);
   background-repeat: no-repeat;
   background-size: cover;
   font-weight: bold;
