@@ -1,0 +1,56 @@
+#search-form{
+	margin: 0 auto;
+	width: 70%;
+	margin-top: 5%;
+	margin-bottom: 3%;
+	border-bottom: 2px dashed #333333;
+}
+
+#search-list{
+	margin: 0 auto;
+	width: 100%;
+	height: auto;
+	padding-left: 5%;
+	padding-right: 5%;
+}
+
+#search-list .vehicule{
+	width: 25%;
+	height: auto;
+	margin-left: 2%;
+	margin-right: 2%;
+	margin-top: 50px;
+	margin-bottom: 50px;
+	padding: 5px 5px 5px 5px;
+	display: inline-block;
+	background-color: #333333;
+	color: white;
+}
+
+#search-list .vehicule .title{
+	width: 100%;
+	display: block;
+}
+
+#search-list .vehicule .descriptif{
+	margin: 0 auto;
+	display: block;
+}
+
+#search-list .vehicule .descriptif img{
+	width: 85%;
+	float: left;
+	display: inline-block;
+}
+
+#search-list .vehicule .descriptif .infos{
+	width: 15%;
+	float: right;
+	display: inline-block;
+}
+
+#search-list .vehicule .footer{
+	width: 100%;
+	height: 50px;
+	display: block;
+}

@@ -15,16 +15,17 @@
 			<input type="checkbox" id="toggle">
 
 			<div class="menu">
-				<a href="#">Moto <img src="ico/motorcycle.png" alt="Moto"></a>
-				<a href="#">Citadine <img src="ico/car.png" alt="Citadine"></a>
-				<a href="#">Berline <img src="ico/car.png" alt="Berline"></a></a>
-				<a href="#">Utilitaire <img src="ico/van.png" alt="Utilitaire"></a></a>
-				<a href="#">SUV <img src="ico/car-2.png" alt="SUV"></a></span></a>
-				<a href="#">Luxe <img src="ico/car.png" alt="Luxe"></a></span></a>
-				<a href="#">Sport <img src="ico/car-1.png" alt="Sport"></a></span></a>
+				<a href="#">Citadine <span class="citadine" /></a>
+				<a href="#">Berline <img src="ico/car.png" alt="Berline"/></a>
+				<a href="#">Utilitaire <img src="ico/van.png" alt="Utilitaire"/></a>
+				<a href="#">SUV <img src="ico/car-2.png" alt="SUV"/></a>
+				<a href="#">Luxe <img src="ico/car.png" alt="Luxe"/></a>
+				<a href="#">Sport <img src="ico/car-1.png" alt="Sport"/></a>
+				<a href="#">Moto <img src="ico/motorcycle.png" alt="Moto"/></a>
+				<a href="#">Vélo <img src="ico/bicycle.png" alt="Vélo"/></a>
 			</div>
 		  </div>
-			
+
 		  <br/>
 		  
 	      <div class="submit">
