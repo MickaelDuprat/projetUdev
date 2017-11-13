@@ -10,6 +10,8 @@
         <title>Maquette Web - Projet</title>
         <!-- Importation de la feuille de style générale -->
         <link rel="stylesheet" href="css/style.css"> 
+        <!-- Importation de la feuille de style formIndex (formulaire de recherche de l'index) -->
+        <link rel="stylesheet" href="css/formIndex.css"> 
         <!-- Importation de la librairie d'icônes "Font Awesome" -->
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 		<!-- Importation des polices de caractères "Dosis", Poppins" et "Quicksand" via Google Fonts -->
@@ -73,7 +75,7 @@
 			    <a class="expand"><span class="plus">+</span><span class="minus">-</span></a>
 			  </div>
 			  
-			  <div class="box">
+			  <div class="box box3">
 			    
 			    <h3>Utilitaire</h3>
 			    
@@ -87,7 +89,7 @@
 			    <a class="expand"><span class="plus">+</span><span class="minus">-</span></a>
 			  </div>
 			  
-			  <div class="box">
+			  <div class="box box4">
 			    
 			    <h3>SUV</h3>
 			    
@@ -101,7 +103,7 @@
 			    <a class="expand"><span class="plus">+</span><span class="minus">-</span></a>
 			  </div>
 
-			  <div class="box">
+			  <div class="box box5">
 			    
 			    <h3>Luxe</h3>
 			    
@@ -115,7 +117,7 @@
 			    <a class="expand"><span class="plus">+</span><span class="minus">-</span></a>
 			  </div>
 
-			  <div class="box">
+			  <div class="box box6">
 			    
 			    <h3>Sport</h3>
 			    
@@ -129,7 +131,7 @@
 			    <a class="expand"><span class="plus">+</span><span class="minus">-</span></a>
 			  </div>
 			  
-			  <div class="box">
+			  <div class="box box7">
 			    
 			    <h3>Moto</h3>
 			    
@@ -143,7 +145,7 @@
 			    <a class="expand"><span class="plus">+</span><span class="minus">-</span></a>
 			  </div>
 			  
-			  <div class="box">
+			  <div class="box box8">
 			    
 			    <h3>Vélo</h3>
 			    
@@ -169,27 +171,11 @@
 	<?php include_once('include/footer.php'); ?>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-	<script src="js/datedropper.js"></script>
     <script src="https://cdn.jsdelivr.net/leaflet/1/leaflet.js"></script>
+	<script src="js/datedropper.js"></script>
+	<script src="js/formLogin.js"></script>
+   
     <script type="text/javascript">
-		$('.date').dateDropper();
-
-		$('.box').click(function() {
-		$(this).toggleClass('selected');
-		});
-
-		$('input[type="submit"]').mousedown(function(){
-		  $(this).css('background', '#2ecc71');
-		});
-		$('input[type="submit"]').mouseup(function(){
-		  $(this).css('background', '#1abc9c');
-		});
-
-		$('#loginform').click(function(){
-		  $('.login').fadeToggle('slow');
-		});
-
-
 		function affiche(element)
 		{
 		    var targetElement;
@@ -203,9 +189,8 @@
 		        targetElement.style.display = "none" ;
 		    }
 		}
-		
 	</script>
-	<script src="https://s.codepen.io/assets/libs/modernizr.js" type="text/javascript"></script>
 
+	<script src="https://s.codepen.io/assets/libs/modernizr.js" type="text/javascript"></script>
 
 </html>
