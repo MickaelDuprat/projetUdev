@@ -10,7 +10,6 @@
         <title>Maquette Web - Projet</title>
         <!-- Importation de la feuille de style générale -->
         <link rel="stylesheet" href="css/style.css"> 
-        <link rel="stylesheet" href="css/formInscription.css">
         <!-- Importation de la librairie d'icônes "Font Awesome" -->
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 		<!-- Importation des polices de caractères "Dosis", Poppins" et "Quicksand" via Google Fonts -->
@@ -19,93 +18,98 @@
 		<link href="https://fonts.googleapis.com/css?family=Didact+Gothic" rel="stylesheet"> 
 		<!-- Importation de la librairie css concernant le datepicker -->
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datedropper/2.0/datedropper.css" />
+		<!-- Importation de la librairie css concernant le formulaire du profil -->
+		<link rel="stylesheet" href="css/formProfil.css" />
+		<!-- Importation de la librairie css concernant la police d'écriture FontAwesonne -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     </head>
 
     <!-- Corps général de la page -->
     <body>
 
 	<!-- Barre de naviguation du site -->
-	<nav>
-		<img src="img/logo.png" alt="Logo"/>
-		<ul>
-		    <li>Accueil</li>
-		    <li>Types de véhicules</li>
-		    <li>Partenaires</li>
-		    <li>Contact</li>
-		    <li><a href="#" id="loginform">Connexion</a> | <a href="#">Inscription</a>
-			    <div class="login">
-			      <div class="formholder">
-			        <div class="randompad">
-			           <fieldset>
-			             <label name="email">Email</label>
-			             <input type="email" placeholder="example@example.com" />
-			             <label name="password">Password</label>
-			             <input type="password" placeholder="••••••••••" />
-			             <input type="submit" value="Connexion" />
-			           </fieldset>
-			        </div>
-			      </div>
-			    </div>
-			</li>
-		</ul>
-	</nav>	
+	<?php include_once('include/nav.php'); ?>
 
-	<div class="formulaire">
-		<div class="infoPerso">
-			<h3> informations personnels </h3>
-			<form method="post" name="infoperso">
-   			 	<select id="civ" name="Civilité">
-    				<option> civilité* </option><br />
-     				<option value="">Mademoiselle</option>
-      				<option value="">Madame</option>
-     				<option value="">Monsieur</option>
-    			</select><br/>
-
-				<label>Nom*:</label><input type="text" name="Nom" placeholder="Entrez votre nom ici.." value="" /><br/>
-
-				<label>Prenom*:</label><input type="text" name="Prenom" placeholder="Entrez votre prénom ici.."value="" /><br/>
-
-				<label for="dateNaissance">Date de naissance*:</label>
-					<select> Jour 
-						<option> Jour </option>
-					</select>
-
-					<select> Mois 
-						<option> Mois </option>
-					</select>
-						
-					<select> Années
-						<option> Années </option>
-					</select>
-			</form>
-		</div>
-
-		<div class="infoMdp">
-			<form method="post" name="infoMdp">
-				<h3> choix mot de passe </h3>
-					<label>Mot de passe*</label><input type="password" name="mdp" placeholder="Choisir un mot de passe (6/15 caractères)" value=""></input><br/>
-					<label>Confirmation mot de passe</label><input type="password" name="mdp" placeholder="Confirmer votre mot de passe"  value=""><br/>
-			</form>
-		</div>
-			
-		<div class="infoAdresse">
-			<form method="post" name="infoAdresse">
-				<h3> adresse </h3>
-					<label>Adresse1*</label><input type="text" name="Add1" placeholder="Entrez votre adresse ici..." value=""><br/>
-					<label>Adresse2</label><input type="text" name="Add2" placeholder="complément d'adresse (facultatif)" value=""><br/>
-					<label> Code Postal*</label><input type="text" name="Codecp" placeholder="Votre code postal ici.." value=""><br/>
-					<label> Ville*</label><input type="text" name="Ville" placeholder="Ville"  value=""><br/>
-					<label>Pays*</label><input type="text" name="Pays" placeholder="Pays" value="" /><br/>
-			</form>
-		</div>
-
-		<div class="infoContact">
-			<form method="post" name="infoContact">
-				<h3> contact </h3>
-					<label>E-mail*</label><input type="text" name="email" placeholder= "example@mail.com" value=""><br/>
-					<label>Telephone*</label><input type="text" name="tel" placeholder="xx.xx.xx.xx.xx" value="">
-			</form>
-		</div>		
+	<!-- Première section de page -->
+	<div id="section-black">
+		<h2>Compléter votre profil ...</h2>
 	</div>
-	</body>
+
+	<div id="section-white">
+		<div id="profil-form">
+			<div class='sign-up'>
+				<div class='step-list'>
+					<div class='step current'><i class="fa fa-user" aria-hidden="true"></i></div>
+					<div class='step'><i class="fa fa-key" aria-hidden="true"></i></div>
+					<div class='step'><i class="fa fa-envelope-o" aria-hidden="true"></i></div>
+					<div class='step fin'><i class="fa fa-check" aria-hidden="true"></i></div>		
+				</div>
+				<div class='steps'>
+					<form>
+						<div class='step active'>
+							<h1 class='title'>Informations personnelles</h1>
+							<div class='field'>
+								<label for='fname'>Nom</label>
+								<input type='text' name='fname' id='fname' data-minCharLength='1'/>
+							</div>
+							<div class='field'>
+								<label for='uname'>Prénom</label>
+								<input type='text' name='uname' id='uname' data-minCharLength='1' data-maxCharLength='35'/>
+							</div>
+							<div class='field'>
+								<label for='email'>Adresse mail</label>
+								<input type='email' name='email' id='email' />
+							</div>
+							<div class='field next'>
+								<button disabled>Suivant</button>
+							</div>
+						</div>
+						<div class='step'>
+							<h1 class='title'>Informations conernant votre compte</h1>
+							<div class='field'>
+								<label for='pass1'>Mot de passe</label>
+								<input type='Password' name='pass1' id='pass1' data-minCharLength='8'/>
+							</div>
+							<div class='field'>
+								<label for='pass2'>Confirmation</label>
+								<input type='Password' name='pass2' id='pass2' data-minCharLength='8'/>
+							</div>
+							<div class='field next'>
+								<button disabled>Suivant</button>
+							</div>
+						</div>
+						<div class='step'>
+							<h1 class='title' style='margin: 0'>Confirm email address</h1>
+							<p style='color: #999; font-size: 15px; margin: 0'>Enter the 8 digit pin sent to:<br /> sa********es@i****d.com</p>
+							<div class='field'>
+								<label for='checkemail'>Confirmation Pin</label>
+								<input type='text' name='checkemail' id='checkemail' data-minCharLength='8' data-maxCharLength='8'/>
+							</div>	
+							<div class='field next'>
+								<button disabled>Continue</button>
+							</div>
+						</div>
+						<div class='step fi'>
+							<h1 class='title'>Finaliser</h1>
+							<a href='#' class='btn'>Retour sur la page d'accueil</a>
+						</div>
+					</form>	
+				</div>	
+			</div>	
+		</div>
+	</div>
+
+    </body>
+
+	<!-- Footer section du bas de page -->
+	<?php include_once('include/footer.php'); ?>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/leaflet/1/leaflet.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/zxcvbn/4.2.0/zxcvbn.js"></script>
+
+    <!-- Importation de la librairie js concernant le formulaire du profil -->
+    <script src="js/profil.js"></script>
+   	<script src="js/formLogin.js"></script>
+
 </html>
