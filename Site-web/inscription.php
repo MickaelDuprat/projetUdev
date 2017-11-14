@@ -9,7 +9,8 @@
         <!-- Titre de la page -->
         <title>Maquette Web - Projet</title>
         <!-- Importation de la feuille de style générale -->
-        <link rel="stylesheet" href="style.css"> 
+        <link rel="stylesheet" href="css/style.css"> 
+        <link rel="stylesheet" href="css/formInscription.css">
         <!-- Importation de la librairie d'icônes "Font Awesome" -->
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 		<!-- Importation des polices de caractères "Dosis", Poppins" et "Quicksand" via Google Fonts -->
@@ -47,51 +48,64 @@
 			    </div>
 			</li>
 		</ul>
-
 	</nav>	
 
-	<div class = pageForm>
-
+	<div class="formulaire">
 		<div class="infoPerso">
-			<h3> Informations Personnels </h3>
+			<h3> informations personnels </h3>
 			<form method="post" name="infoperso">
-   			 	<select id="civ" name="Civilité" class="form-control">
+   			 	<select id="civ" name="Civilité">
     				<option> civilité* </option><br />
      				<option value="">Mademoiselle</option>
       				<option value="">Madame</option>
      				<option value="">Monsieur</option>
     			</select><br/>
 
-				<label class="label">Nom*:</label><input type="text" name="Nom" value="" /><br/>
+				<label>Nom*:</label><input type="text" name="Nom" placeholder="Entrez votre nom ici.." value="" /><br/>
 
-				<label class="label">Prenom*:</label><input type="text" name="Prenom" value="" /><br/>
+				<label>Prenom*:</label><input type="text" name="Prenom" placeholder="Entrez votre prénom ici.."value="" /><br/>
 
-				<label class="label" for="dateNaissance">Date de naissance*:</label>
-					<select> Jour </select>
-					<select> Mois </select>
-					<select> Années </select>
+				<label for="dateNaissance">Date de naissance*:</label>
+					<select> Jour 
+						<option> Jour </option>
+					</select>
+
+					<select> Mois 
+						<option> Mois </option>
+					</select>
+						
+					<select> Années
+						<option> Années </option>
+					</select>
 			</form>
 		</div>
 
+		<div class="infoMdp">
+			<form method="post" name="infoMdp">
+				<h3> choix mot de passe </h3>
+					<label>Mot de passe*</label><input type="password" name="mdp" placeholder="Choisir un mot de passe (6/15 caractères)" value=""></input><br/>
+					<label>Confirmation mot de passe</label><input type="password" name="mdp" placeholder="Confirmer votre mot de passe"  value=""><br/>
+			</form>
+		</div>
+			
 		<div class="infoAdresse">
 			<form method="post" name="infoAdresse">
-				<h3> Adresse </h3>
-					<label class="label">Adresse1*</label><input type="text" name="Add1" value="" /><br/>
-					<label class="label">Adresse2</label><input type="text" name="Add2" value="" /><br/>
-					<label class="label"> Code Postal*</label><input type="text" name="Codecp" value="" /><br/>
-					<label class="label"> Ville*</label><input type="text" name="Ville" value="" /><br/>
-					<label class="label">Pays*</label><input type="text" name="Pays" value="" /><br/>
+				<h3> adresse </h3>
+					<label>Adresse1*</label><input type="text" name="Add1" placeholder="Entrez votre adresse ici..." value=""><br/>
+					<label>Adresse2</label><input type="text" name="Add2" placeholder="complément d'adresse (facultatif)" value=""><br/>
+					<label> Code Postal*</label><input type="text" name="Codecp" placeholder="Votre code postal ici.." value=""><br/>
+					<label> Ville*</label><input type="text" name="Ville" placeholder="Ville"  value=""><br/>
+					<label>Pays*</label><input type="text" name="Pays" placeholder="Pays" value="" /><br/>
 			</form>
 		</div>
 
 		<div class="infoContact">
 			<form method="post" name="infoContact">
-				<h3> Contact </h3>
-					<label class="label">E-mail*</label><input type="text" name="email" value="example@gmail.com" /><br/>
-					<label class="label">Telephone</label><input type="text" name="tel" value="XX.XX.XX.XX.XX"/>
+				<h3> contact </h3>
+					<label>E-mail*</label><input type="text" name="email" placeholder= "example@mail.com" value=""><br/>
+					<label>Telephone*</label><input type="text" name="tel" placeholder="xx.xx.xx.xx.xx" value="">
 			</form>
-		</div>
-	</div>			
-
+		</div>		
+	</div>
 	</body>
 </html>

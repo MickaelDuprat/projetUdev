@@ -1,0 +1,26 @@
+.formulaire {
+	margin-top: 100px;
+	display: block;
+}
+/* PLACEHOLDER */
+
+/* do not group these rules */
+::-webkit-input-placeholder {
+    text-align: left;
+    color: black;
+	    
+}
+::-moz-placeholder {
+    /* FF 4-18 */
+    text-align: left;
+    color: black;
+}
+::-moz-placeholder {
+    /* FF 19+ */
+    text-align: left;
+    color: black;
+}
+::-ms-input-placeholder {
+    /* IE 10+ */
+    text-align: left;
+}

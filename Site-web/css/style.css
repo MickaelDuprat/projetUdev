@@ -70,53 +70,6 @@ fieldset {
   border: none;
 }
 
-
-h3 { 
-	color:#ec1c24;
-	width:200px;
-	border-bottom: 2px solid #dedede;
-	padding-right: 150px;
-	margin-bottom: : 10px;
-}
-
-.pageForm {
- background-color: black;
- color: #ffffff;
- float: right;
- padding-right: 200px;
- border: 5px solid #dedede;
-}
-
-.pageForm label {
-	padding: 20px;
-	text-align: left;
-	font-size: 12px;
-}
-
-.pageForm input {
-	margin-top: 10px;
-	margin-bottom: 10px;
-	padding: 10px;
-	width: 60%;
-	height: 5s%;
-	border-radius: 10px;
-}
-
-.infoPerso {
-	width: 300px;
-	height: 300px;	
-}
-
-.infoAdresse{
-	width: 300px;
-	height: 300px;
-}
-
-.infoContact {
-	width: 300px;
-	height: 300px;
-}
-
 .login {
   display: none;
 }
