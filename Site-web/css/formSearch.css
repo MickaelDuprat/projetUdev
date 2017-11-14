@@ -8,49 +8,150 @@
 
 #search-list{
 	margin: 0 auto;
-	width: 100%;
+	width: 90%;
 	height: auto;
 	padding-left: 5%;
 	padding-right: 5%;
 }
 
 #search-list .vehicule{
-	width: 25%;
+	width: 30%;
 	height: auto;
-	margin-left: 2%;
-	margin-right: 2%;
-	margin-top: 50px;
-	margin-bottom: 50px;
-	padding: 5px 5px 5px 5px;
+	margin-left: 1%;
+	margin-right: 1%;
+	margin-top: 14px;
+	margin-bottom: 14px;
 	display: inline-block;
-	background-color: #333333;
+	background-color: #3f3f3f;
+	border-radius: 5px 5px 0px 0px;
 	color: white;
+	overflow: hidden;
 }
 
-#search-list .vehicule .title{
+#search-list .vehicule .title h3{
 	width: 100%;
+	text-align: center;
+	font-size: 21px;
+	padding-bottom: 19px;
+	margin-bottom: 5%;
+	border-bottom: 1px solid white;
 	display: block;
+	color: white;
 }
 
 #search-list .vehicule .descriptif{
 	margin: 0 auto;
-	display: block;
+	width: 100%;
+	display: inline-block;
 }
 
 #search-list .vehicule .descriptif img{
-	width: 85%;
+	width: 67%;
+	padding-top: 20px;
 	float: left;
 	display: inline-block;
 }
 
 #search-list .vehicule .descriptif .infos{
-	width: 15%;
+	width: 31%;
 	float: right;
 	display: inline-block;
+	padding-left: 5px;
+}
+
+#search-list .vehicule .descriptif .infos p{
+	font-size: 17px;
+	font-weight: bold;
+}
+
+#search-list .vehicule .descriptif .infos p img{
+	width: 19px;
+	height: 22px;
+	margin-top: -20px;
+	margin-right: 10px;
+}
+
+#search-list .vehicule a{
+	cursor: pointer;
+}
+
+#search-list .vehicule a .inclu{
+	margin-top: 25px;
+	margin-left: -5px;
+	width: 100%;
+	display: inline-block;
+	padding: 16px 5px 16px 5px;
+	font-size: 18px;
+	text-align: center;
+	font-weight: bold;
+	background-color: #4f4d4d; 
+	color: #ffffff;
+	transition: all 0.4s;
+}
+
+#search-list .vehicule a .inclu .fa{
+	font-size: 15px;
+	vertical-align: 3px;
+	padding-left: 5px;
+}
+
+#search-list .vehicule a .inclu p{
+	display: none;
+}
+
+#search-list .vehicule a .inclu:hover{
+	background-color: #ffffff; 
+	color: black;
 }
 
 #search-list .vehicule .footer{
 	width: 100%;
-	height: 50px;
-	display: block;
+	background: url(../img/search-prix.png);
+	background-repeat: no-repeat;
+	background-position: 80% 0%;
+	transition: all 0.5s;
 }
+
+#search-list .vehicule .footer:hover{
+	opacity: 0.8;
+	transition: all 0.3s;
+}
+
+#search-list .vehicule .footer a{
+	width: 100%;
+	height: 50px;
+	display: inline-block;
+	margin-left: -5px;
+	margin-right: -15px;
+	color: white;
+	text-align: center;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+#search-list .vehicule .footer a .bouton{
+	width: 72%;
+	display: inline-block;
+	padding: 16px 5px 16px 5px;
+	font-size: 18px;
+	float: left;
+	color: #ffffff;
+	transition: all 0.4s;
+}
+
+#search-list .vehicule .footer a .prix{
+	width: 18%;
+	z-index: 999;
+	font-weight: bold;
+	float: right;
+	margin-top: -5px;
+	display: inline-block;
+}
+
+#search-list .vehicule .footer a .prix p{
+	color: black;
+	font-size: 21px;
+	text-align: center;
+	z-index: 999;
+}
+

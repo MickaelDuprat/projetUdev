@@ -28,7 +28,6 @@
 	<!-- Barre de naviguation du site -->
 	<?php include_once('include/nav.php'); ?>
 
-
     <!-- Header du site -->  
 	<?php include_once('include/header.php'); ?>
 
@@ -77,8 +76,8 @@
 			  </div>
 			  
 			  <div class="box box3">
-			    
-			    <h3>Utilitaire</h3>
+			   
+			    <h3>SUV</h3>
 			    
 			    <ul class="hidden">
 			      <li>Lorem ipsum dolor</li>
@@ -92,7 +91,7 @@
 			  
 			  <div class="box box4">
 			    
-			    <h3>SUV</h3>
+			    <h3>Sport</h3>
 			    
 			    <ul class="hidden">
 			      <li>Lorem ipsum dolor</li>
@@ -100,7 +99,7 @@
 			      <li>Lorem ipsum dolor</li>
 			      <li>Set amet consecuter</li>
 			    </ul>
-			        
+			      
 			    <a class="expand"><span class="plus">+</span><span class="minus">-</span></a>
 			  </div>
 
@@ -120,7 +119,7 @@
 
 			  <div class="box box6">
 			    
-			    <h3>Sport</h3>
+			    <h3>Utilitaire</h3>
 			    
 			    <ul class="hidden">
 			      <li>Lorem ipsum dolor</li>
@@ -169,9 +168,7 @@
     </body>
 
 	<!-- Footer section du bas de page -->
-
 	<?php include_once('include/footer.php'); ?>
-
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/leaflet/1/leaflet.js"></script>
