@@ -6,7 +6,7 @@
 	    <a href="#"><li>Types de véhicules</li></a>
 	    <a href="#"><li>Partenaires</li></a>
 	    <a href="#"><li>Contact</li></a>
-	    <li><a href="#" id="loginform">Connexion</a> | <a href="#">Inscription</a>
+	    <li><a href="#" id="loginform">Connexion</a> | <a href="inscription.php">Inscription</a>
 		    <div class="login">
 		      <div class="formholder">
 		        <div class="randompad">

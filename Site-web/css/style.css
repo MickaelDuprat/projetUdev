@@ -238,9 +238,11 @@ header img{
 /** WHITE SECTION **/
 
 #section-white{
-	width: 95%;
+	width: 100%;
+	margin: 0 auto;
+	padding-top: 2%;
+	padding-bottom: 2%;
 	height: auto;
-	padding: 2% 2% 2% 2%;
 	display: inline-block;
 }
 
@@ -306,7 +308,7 @@ header img{
 }
 
 #section-black #categories{
-	margin-left: 12%;
+	margin-left: 8%;
 	margin-right: 8%;
 	color: #ffffff;
 }
@@ -352,8 +354,8 @@ header img{
 }
 
 .box3:hover, .box3.selected {
-  background: url(../img/slide-utilitaire.png);
-  background-position-x: -90px;
+  background: url(../img/slide-suv.png);
+  background-position-x: -20px;
   background-repeat: no-repeat;
   background-size: cover;
   font-weight: bold;
@@ -361,8 +363,8 @@ header img{
 }
 
 .box4:hover, .box4.selected {
-  background: url(../img/slide-suv.png);
-  background-position-x: -20px;
+  background: url(../img/slide-sport.png);
+  background-position-x: -100px;
   background-repeat: no-repeat;
   background-size: cover;
   font-weight: bold;
@@ -379,8 +381,8 @@ header img{
 }
 
 .box6:hover, .box6.selected {
-  background: url(../img/slide-sport.png);
-  background-position-x: -100px;
+  background: url(../img/slide-utilitaire.png);
+  background-position-x: -90px;
   background-repeat: no-repeat;
   background-size: cover;
   font-weight: bold;

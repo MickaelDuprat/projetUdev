@@ -76,8 +76,8 @@
 			  </div>
 			  
 			  <div class="box box3">
-			    
-			    <h3>Utilitaire</h3>
+			   
+			    <h3>SUV</h3>
 			    
 			    <ul class="hidden">
 			      <li>Lorem ipsum dolor</li>
@@ -91,7 +91,7 @@
 			  
 			  <div class="box box4">
 			    
-			    <h3>SUV</h3>
+			    <h3>Sport</h3>
 			    
 			    <ul class="hidden">
 			      <li>Lorem ipsum dolor</li>
@@ -99,7 +99,7 @@
 			      <li>Lorem ipsum dolor</li>
 			      <li>Set amet consecuter</li>
 			    </ul>
-			        
+			      
 			    <a class="expand"><span class="plus">+</span><span class="minus">-</span></a>
 			  </div>
 
@@ -119,7 +119,7 @@
 
 			  <div class="box box6">
 			    
-			    <h3>Sport</h3>
+			    <h3>Utilitaire</h3>
 			    
 			    <ul class="hidden">
 			      <li>Lorem ipsum dolor</li>
