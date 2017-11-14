@@ -16,7 +16,20 @@ body{
 	width: 100%;
 }
 
+<<<<<<< HEAD
+.login {
+	width: 25%;
+	z-index: 99;
+	text-align: center;
+	margin: 0;
+	float: top-right;
+	border-bottom: 1px solid #dedede;
+	background-color: #ffffff;
+	display: inline-block;
+}
+=======
 /** NAVBAR **/
+>>>>>>> 9a2ff7134a2d61a9eac17cea98d6ef9c9802d330
 
 nav{
 	text-align: center;
@@ -52,7 +65,9 @@ nav ul li{
 }
 
 nav ul li:hover{
+	text-decoration: none;
 	border-bottom : 4px solid #1e1d1d;
+	color: #ec1c24;
 }
 
 nav ul a{
@@ -68,6 +83,53 @@ nav ul a > li:hover{
 
 fieldset {
   border: none;
+}
+
+
+h3 { 
+	color:#ec1c24;
+	width:200px;
+	border-bottom: 2px solid #dedede;
+	padding-right: 150px;
+	margin-bottom: : 10px;
+}
+
+.pageForm {
+ background-color: black;
+ color: #ffffff;
+ float: right;
+ padding-right: 200px;
+ border: 5px solid #dedede;
+}
+
+.pageForm label {
+	padding: 20px;
+	text-align: left;
+	font-size: 12px;
+}
+
+.pageForm input {
+	margin-top: 10px;
+	margin-bottom: 10px;
+	padding: 10px;
+	width: 60%;
+	height: 5s%;
+	border-radius: 10px;
+}
+
+.infoPerso {
+	width: 300px;
+	height: 300px;	
+}
+
+.infoAdresse{
+	width: 300px;
+	height: 300px;
+}
+
+.infoContact {
+	width: 300px;
+	height: 300px;
 }
 
 .login {
@@ -585,4 +647,221 @@ header img{
 	display: block;
 }
 
+<<<<<<< HEAD:Site-web/style.css
+/** DATE PICKER **/
+
+#container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 500px;
+  margin: 50px auto;
+}
+
+.dd-c{
+	margin-top: 10px !important;
+}
+
+.box {
+  width: 300px;
+  margin: 5px;
+  text-align: center;
+}
+
+input {
+  padding: 20px;
+  text-align: center;
+  display: inline;
+}
+
+div.datedropper.my-style {
+  border-radius: 4px;
+  width: 200px;
+}
+
+div.datedropper.my-style .picker {
+  border-radius: 4px;
+  box-shadow: 0 0 24px 0px rgba(0, 0, 0, 0.58);
+}
+
+div.datedropper.my-style .pick-l {
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
+div.datedropper.my-style:before,
+div.datedropper.my-style .pick-submit,
+div.datedropper.my-style .pick-lg-b .pick-sl:before,
+div.datedropper.my-style .pick-m,
+div.datedropper.my-style .pick-lg-h {
+  background-color: #fd4741;
+}
+
+div.datedropper.my-style .pick-y.pick-jump,
+div.datedropper.my-style .pick li span,
+div.datedropper.my-style .pick-lg-b .pick-wke,
+div.datedropper.my-style .pick-btn {
+  color: #fd4741;
+}
+
+div.datedropper.my-style .picker,
+div.datedropper.my-style .pick-l {
+  background-color: #FFF;
+}
+
+div.datedropper.my-style .picker,
+div.datedropper.my-style .pick-arw,
+div.datedropper.my-style .pick-l {
+  color: #4D4D4D;
+}
+
+div.datedropper.my-style .pick-m,
+div.datedropper.my-style .pick-m .pick-arw,
+div.datedropper.my-style .pick-lg-h,
+div.datedropper.my-style .pick-lg-b .pick-sl,
+div.datedropper.my-style .pick-submit {
+  color: #FFF;
+}
+
+div.datedropper.my-style.picker-tiny:before,
+div.datedropper.my-style.picker-tiny .pick-m {
+  background-color: #FFF;
+}
+
+div.datedropper.my-style.picker-tiny .pick-m,
+div.datedropper.my-style.picker-tiny .pick-m .pick-arw {
+  color: #4D4D4D;
+}
+
+div.datedropper.my-style.picker-lkd .pick-submit {
+  background-color: #FFF;
+  color: #4D4D4D;
+}
+
+
+.content
+{
+	position: relative;
+	top: 5px;
+	width: 480px;
+	text-align: center;
+}
+
+.admin-panel
+{
+	width: 480px;
+	height: 45px;
+	padding-top: 4px;
+	color: #888888;
+	border: none;
+	border-radius: 3px;
+	line-height: 41px;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-o-user-select: none;
+	user-select: none;
+	margin-bottom: 7px;
+	cursor: pointer;
+	font-family: 'Dosis', sans-serif;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.admin-panel:hover
+{
+	width: 100%;
+	box-shadow: 0;
+	font-weight: bold;
+	background-color: #f7f7f7;
+	outline: none;
+    font-family: 'Dosis', sans-serif;
+    font-weight: bold;
+}
+
+.cog
+{
+	padding: 5px;
+	margin-top: 8px;
+	margin-right: 6px;
+	border: none;
+	color: #888888;
+	font-size: 20px;
+}
+
+.admin-text:hover, .cog:hover { cursor: pointer; color: #555555; }
+
+input#toggle { display: none; }
+input#toggle ~ .menu { display: none; }
+input#toggle:checked ~ .menu { display: block; }
+
+.menu
+{
+	width: 50%;
+	margin-right: 25%;
+	margin-left: 25%;
+	position: absolute;
+}
+
+
+.menu a
+{
+	background: #F8F8F8;
+	width: 100%;
+	height: 40px;
+	padding: 0 0 0 0;
+	font: bold 13px Helvetica, sans-serif;
+	text-transform: uppercase;
+	text-decoration: none;
+	color: #000000;
+	color: rgba( 0, 0, 0, 0.4 );
+	line-height: 40px;
+	box-shadow: 0 1px 1px rgba( 0, 0, 0, 0.2 );
+	float: left;
+}
+
+.menu a > img
+{
+	width: 20px;
+	height: 20px;
+	float: right;
+	display: inline-block;
+	position: relative;
+	padding-top: 5px;
+	padding-right: 12px;
+}
+
+.menu a:nth-child( 2 )
+{
+	border-top-left-radius: 3px;
+	border-top-right-radius: 3px;
+}
+
+.menu a:last-child
+{
+	border-bottom-left-radius: 3px;
+	border-bottom-right-radius: 3px;
+}
+
+.menu a:hover { color: #ec1c24; }
+
+.menu a:hover > .octicon { color: #ec1c24; }
+
+.icon
+{
+	float: right;
+	margin-top: 10px;
+	font-size: 20px;
+	color: #000000;
+	color: rgba( 0, 0, 0, 0.4 );
+	opacity: 0.8;
+}
+
+.octicon-person { margin-right: 16px; }
+.octicon-graph { margin-right: 11px; }
+.octicon-cloud-upload { margin-right: 11px; }
+.octicon-pencil { margin-right: 13px; }
+=======
+>>>>>>> ca4d115a23170f73c757c4c93065549ecc4d1558:Site-web/css/style.css
 
