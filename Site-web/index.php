@@ -26,35 +26,8 @@
     <body>
 
 	<!-- Barre de naviguation du site -->
-<<<<<<< HEAD:Site-web/index.html
-	<nav>
-		<img src="img/logo.png" alt="Logo"/>
-		<ul>
-		    <li>Accueil</li>
-		    <li>Types de véhicules</li>
-		    <li>Partenaires</li>
-		    <li>Contact</li>
-		    <li><a href="#" id="loginform">Connexion</a> | <a href="#">Inscription</a>
-			    <div class="login">
-			      <div class="formholder">
-			        <div class="randompad">
-			           <fieldset>
-			             <label name="email">Email</label>
-			             <input type="email" placeholder="example@example.com" />
-			             <label name="password">Password</label>
-			             <input type="password" placeholder="••••••••••" />
-			             <input type="submit" value="Connexion" />
-			           </fieldset>
-			        </div>
-			      </div>
-			    </div>
-			</li>
-		</ul>
-
-	</nav>	
-=======
 	<?php include_once('include/nav.php'); ?>
->>>>>>> ca4d115a23170f73c757c4c93065549ecc4d1558:Site-web/index.php
+
 
     <!-- Header du site -->  
 	<?php include_once('include/header.php'); ?>
@@ -196,24 +169,9 @@
     </body>
 
 	<!-- Footer section du bas de page -->
-<<<<<<< HEAD:Site-web/index.html
-    <div id="footer">
-    	<div id="footer-left">
-    		<h3>Qui sommes-nous ?</h3>
-    		<p>404 Location est une agence de location de véhicule, vélo, moto, citadine, berline, luxe ou en encore sport. Vous trouverez forcément ce que vous rechercher.</p>
-    	</div>
-    	<div id="footer-right">
-    		<a href="#"><p>Nous contacter</p></a>
-			<a href="#"><p>Foire aux questions</p></a>
-			<a href="#"><p>Liens partenaires</p></a>
-    	</div>
-		<div id="footer-bottom">
-    		<p><a href="#">Plan du site</a> - <a href="#">Mentions légales</a> - Copyrights 2017 / 2018 - 404 Location - Agence de location de véhicule</p>
-    	</div>
-    </div>
-=======
+
 	<?php include_once('include/footer.php'); ?>
->>>>>>> ca4d115a23170f73c757c4c93065549ecc4d1558:Site-web/index.php
+
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/leaflet/1/leaflet.js"></script>
