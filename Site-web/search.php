@@ -70,16 +70,16 @@
 							RÉSERVER
 						</div>
 						<div class="prix">
-							<p>152€/j</p>
+							<p>123€/j</p>
 						</div>
 					</a>
 				</div>
 			</div>
 
 			<div class="vehicule">
-				<div class="title"><h3>BMW SÉRIE 3</h3></div>
+				<div class="title"><h3>FIAT 500</h3></div>
 				<div class="descriptif">
-					<img src="https://www.sixt.fr/fileadmin/files/global/user_upload/fleet/png/350x200/bmw-3er-gt-4d-silber-2013.png" alt="BMW Série 3">
+					<img src="https://www.sixt.fr/fileadmin/files/global/user_upload/fleet/png/350x200/fiat-500-2d-silber-2013.png" alt="BMW Série 3">
 					<div class="infos">
 						<p><img src="ico/personne.png" alt="Personne"> 5 personnes</p>
 						<p><img src="ico/voiture.png" alt="Porte"> 5 portes</p>
@@ -95,16 +95,16 @@
 							RÉSERVER
 						</div>
 						<div class="prix">
-							<p>152€/j</p>
+							<p>105€/j</p>
 						</div>
 					</a>
 				</div>
 			</div>
 
 			<div class="vehicule">
-				<div class="title"><h3>BMW SÉRIE 3</h3></div>
+				<div class="title"><h3>PEUGEOT 308</h3></div>
 				<div class="descriptif">
-					<img src="https://www.sixt.fr/fileadmin/files/global/user_upload/fleet/png/350x200/bmw-3er-gt-4d-silber-2013.png" alt="BMW Série 3">
+					<img src="https://www.sixt.fr/fileadmin/files/global/user_upload/fleet/png/350x200/peugeot-308-5d-weiss-2014.png" alt="BMW Série 3">
 					<div class="infos">
 						<p><img src="ico/personne.png" alt="Personne"> 5 personnes</p>
 						<p><img src="ico/voiture.png" alt="Porte"> 5 portes</p>
@@ -120,16 +120,16 @@
 							RÉSERVER
 						</div>
 						<div class="prix">
-							<p>152€/j</p>
+							<p>140€/j</p>
 						</div>
 					</a>
 				</div>
 			</div>
 
 			<div class="vehicule">
-				<div class="title"><h3>BMW SÉRIE 3</h3></div>
+				<div class="title"><h3>MINI</h3></div>
 				<div class="descriptif">
-					<img src="https://www.sixt.fr/fileadmin/files/global/user_upload/fleet/png/350x200/bmw-3er-gt-4d-silber-2013.png" alt="BMW Série 3">
+					<img src="https://www.sixt.fr/fileadmin/files/global/user_upload/fleet/png/350x200/mini-cooper-3d-schwarz-2014.png" alt="BMW Série 3">
 					<div class="infos">
 						<p><img src="ico/personne.png" alt="Personne"> 5 personnes</p>
 						<p><img src="ico/voiture.png" alt="Porte"> 5 portes</p>
@@ -145,16 +145,16 @@
 							RÉSERVER
 						</div>
 						<div class="prix">
-							<p>152€/j</p>
+							<p>135€/j</p>
 						</div>
 					</a>
 				</div>
 			</div>
 
 			<div class="vehicule">
-				<div class="title"><h3>BMW SÉRIE 3</h3></div>
+				<div class="title"><h3>BMW SERIE 1</h3></div>
 				<div class="descriptif">
-					<img src="https://www.sixt.fr/fileadmin/files/global/user_upload/fleet/png/350x200/bmw-3er-gt-4d-silber-2013.png" alt="BMW Série 3">
+					<img src="https://www.sixt.fr/fileadmin/files/global/user_upload/fleet/png/350x200/bmw-1er-5d-weiss-2017.png" alt="BMW Série 3">
 					<div class="infos">
 						<p><img src="ico/personne.png" alt="Personne"> 5 personnes</p>
 						<p><img src="ico/voiture.png" alt="Porte"> 5 portes</p>
@@ -170,16 +170,16 @@
 							RÉSERVER
 						</div>
 						<div class="prix">
-							<p>152€/j</p>
+							<p>145€/j</p>
 						</div>
 					</a>
 				</div>
 			</div>
 
 			<div class="vehicule">
-				<div class="title"><h3>BMW SÉRIE 3</h3></div>
+				<div class="title"><h3>RENAULT TRAFIC</h3></div>
 				<div class="descriptif">
-					<img src="https://www.sixt.fr/fileadmin/files/global/user_upload/fleet/png/350x200/bmw-3er-gt-4d-silber-2013.png" alt="BMW Série 3">
+					<img src="https://www.sixt.fr/fileadmin/files/global/user_upload/fleet/png/350x200/renault-trafic-van-brown-2015.png" alt="BMW Série 3">
 					<div class="infos">
 						<p><img src="ico/personne.png" alt="Personne"> 5 personnes</p>
 						<p><img src="ico/voiture.png" alt="Porte"> 5 portes</p>
@@ -208,45 +208,45 @@
 	<!-- Footer section du bas de page -->
 	<?php include_once('include/footer.php'); ?>
 
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function(){
-    $(".slide-down1").click(function(){
-        $(".option1").slideToggle();
-    });
-});
+		    $(".slide-down1").click(function(){
+		        $(".option1").slideToggle();
+		    });
+		});
 
-$(document).ready(function(){
-    $(".slide-down2").click(function(){
-        $(".option2").slideToggle();
-    });
-});
+		$(document).ready(function(){
+		    $(".slide-down2").click(function(){
+		        $(".option2").slideToggle();
+		    });
+		});
 
-$(document).ready(function(){
-    $(".slide-down3").click(function(){
-        $(".option3").slideToggle();
-    });
-});
+		$(document).ready(function(){
+		    $(".slide-down3").click(function(){
+		        $(".option3").slideToggle();
+		    });
+		});
 
-$(document).ready(function(){
-    $(".slide-down4").click(function(){
-        $(".option4").slideToggle();
-    });
-});
+		$(document).ready(function(){
+		    $(".slide-down4").click(function(){
+		        $(".option4").slideToggle();
+		    });
+		});
 
-$(document).ready(function(){
-    $(".slide-down5").click(function(){
-        $(".option5").slideToggle();
-    });
-});
+		$(document).ready(function(){
+		    $(".slide-down5").click(function(){
+		        $(".option5").slideToggle();
+		    });
+		});
 
-$(document).ready(function(){
-    $(".slide-down6").click(function(){
-        $(".option6").slideToggle();
-    });
-});
+		$(document).ready(function(){
+		    $(".slide-down6").click(function(){
+		        $(".option6").slideToggle();
+		    });
+		});
 	</script>
-	<script type="text/javascript" src="js/formSearch.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	
     <script src="https://cdn.jsdelivr.net/leaflet/1/leaflet.js"> </script>
    
 </html>
