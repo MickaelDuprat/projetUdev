@@ -1,0 +1,213 @@
+.btn {
+  padding: 15px 40px;
+  margin: 10px 0;
+  background: #8FBC94;
+  outline: 0;
+  border: none;
+  border-radius: 30px;
+  color: white;
+  transition: 0.15s ease-in-out;
+  cursor: pointer;
+  display: inline-block;
+  text-decoration: none;
+}
+.btn:hover {
+  background: #9fc6a3;
+}
+
+.loader {
+  display: flex;
+  animation: rotate 1s ease-in-out infinite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+.loader .dot {
+  width: 30px;
+  height: 30px;
+  background: #ec1c24;
+  border-radius: 50%;
+}
+.loader .dot.first {
+  animation: dot-1 1s ease-in-out infinite;
+}
+.loader .dot.second {
+  animation: dot-2 1s ease-in-out infinite;
+}
+
+.sign-up {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.sign-up .step-list {
+  height: 5px;
+  background: rgba(255, 255, 255, 0.35);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+.sign-up .step-list .step {
+  width: 40px;
+  height: 40px;
+  border-radius: 40px;
+  background: white;
+  margin-right: 50px;
+  position: relative;
+  text-align: center;
+  line-height: 40px;
+  transition: 0.35s ease-in-out;
+}
+.sign-up .step-list .step.current {
+  box-shadow: 0px 0px 10px 2px rgba(255, 255, 255, 0.75);
+}
+.sign-up .step-list .step.fin.current {
+  box-shadow: 0px 0px 0px 0px rgba(255, 255, 255, 0);
+  background: #ec1c24;
+  color: white;
+}
+.sign-up .step-list .step.done {
+  background: #ec1c24;
+  color: white;
+}
+.sign-up .step-list .step.done:after {
+  width: 50px;
+}
+.sign-up .step-list .step:last-child {
+  margin-right: 0;
+}
+.sign-up .step-list .step:last-child.done:after {
+  width: 0px;
+}
+.sign-up .step-list .step:last-child:after {
+  content: "";
+  width: 0px;
+  height: 0px;
+  display: inherit;
+  background: none;
+  position: inherit;
+  top: inherit;
+  right: inherit;
+  transform: inherit;
+  transition: inherit;
+}
+.sign-up .step-list .step:after {
+  content: "";
+  width: 0px;
+  height: 5px;
+  display: block;
+  background: #ec1c24;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translate(100%, -50%);
+  transition: 0.35s ease-in-out;
+}
+.sign-up .steps .step {
+  width: 300px;
+  background: white;
+  padding: 20px;
+  text-align: center;
+  border-radius: 5px;
+  display: none;
+  position: relative;
+}
+.sign-up .steps .step.active {
+  display: block;
+}
+.sign-up .steps .step .title {
+  margin: 0;
+  margin-bottom: 20px;
+}
+.sign-up .steps .step .field {
+  padding: 10px 0;
+  text-align: left;
+}
+.sign-up .steps .step .field .error-label {
+  border: 1px solid #ec1c24;
+  background: #fdecef;
+  border-radius: 5px;
+  margin: 10px 0;
+  padding: 10px;
+}
+.sign-up .steps .step .field .error-label p.error-count {
+  margin: 0;
+}
+.sign-up .steps .step .field:first-child {
+  padding-top: 0;
+}
+.sign-up .steps .step .field label, .sign-up .steps .step .field input {
+  display: block;
+  widtH: 100%;
+  transition: 0.15s ease-in-out;
+}
+.sign-up .steps .step .field input {
+  outline: 0;
+  padding: 5px 0;
+  border: none;
+  border-bottom: 1px solid #ddd;
+}
+.sign-up .steps .step .field input:focus {
+  border-bottom: 1px solid #ec1c24;
+}
+.sign-up .steps .step .field.next, .sign-up .steps .step .field.fin {
+  text-align: center;
+}
+.sign-up .steps .step .field.next button, .sign-up .steps .step .field.fin button {
+  padding: 15px 40px;
+  background: black;
+  outline: 0;
+  border: none;
+  border-radius: 30px;
+  color: white;
+  transition: 0.15s ease-in-out;
+  cursor: pointer;
+}
+.sign-up .steps .step .field.next button:hover, .sign-up .steps .step .field.fin button:hover {
+  background: #ec1c24;
+}
+.sign-up .steps .step .field.next button:disabled, .sign-up .steps .step .field.fin button:disabled {
+  background: #ccc;
+  color: #999;
+  cursor: inherit;
+}
+.sign-up .steps .step .field.next button:disabled:hover, .sign-up .steps .step .field.fin button:disabled:hover {
+  background: #ccc;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes dot-1 {
+  0% {
+    transform: translate(0px, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate(-50px, 0) rotate(180deg);
+  }
+  100% {
+    transform: translate(0px, 0) rotate(360deg);
+  }
+}
+@keyframes dot-2 {
+  0% {
+    transform: translate(0px, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate(50px, 0) rotate(180deg);
+  }
+  100% {
+    transform: translate(0px, 0) rotate(360deg);
+  }
+}
