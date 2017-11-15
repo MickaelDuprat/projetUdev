@@ -35,17 +35,31 @@
 	</div>
 
 	<div id="section-white">
+
 		<div id="search-form">
-			<!-- <form action="POST">
-				<label for="marque">
-					<select name="marque" id="marque">
-						<option value="Renault">Renault</option>
-						<option value="Peugeot">Peugeot</option>
-						<option value="Audi">Audi</option>
-						<option value="Mercedes">Mercedes</option>
-					</select>
-				</label>
-			</form> -->
+			<a class="slide-down1">
+				<div class="inclu">Type de véhicule <i class="fa fa-chevron-down fa-lg"></i>
+					<p class="option1">
+						<input type="checkbox" class="hidden-box" id="first" checked/>
+					    <label for="first" class="check--label">
+					      <span class="check--label-box"></span>
+					      <span class="check--label-text">Citadine</span>
+					    </label>
+
+					    <input type="checkbox" class="hidden-box" id="second"/>
+					    <label for="second" class="check--label">
+					      <span class="check--label-box"></span>
+					      <span class="check--label-text">Berline</span>
+					    </label>
+
+					    <input type="checkbox" class="hidden-box" id="third"/>
+					    <label for="third" class="check--label">
+					      <span class="check--label-box"></span>
+					      <span class="check--label-text">SUV</span>
+					    </label>
+					</p>
+				</div>
+			</a>
 		</div>
 
 		<!-- La search list représente la liste des résultats de recherche de véhicule -->
@@ -209,43 +223,7 @@
 	<?php include_once('include/footer.php'); ?>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<script type="text/javascript">
-		$(document).ready(function(){
-		    $(".slide-down1").click(function(){
-		        $(".option1").slideToggle();
-		    });
-		});
-
-		$(document).ready(function(){
-		    $(".slide-down2").click(function(){
-		        $(".option2").slideToggle();
-		    });
-		});
-
-		$(document).ready(function(){
-		    $(".slide-down3").click(function(){
-		        $(".option3").slideToggle();
-		    });
-		});
-
-		$(document).ready(function(){
-		    $(".slide-down4").click(function(){
-		        $(".option4").slideToggle();
-		    });
-		});
-
-		$(document).ready(function(){
-		    $(".slide-down5").click(function(){
-		        $(".option5").slideToggle();
-		    });
-		});
-
-		$(document).ready(function(){
-		    $(".slide-down6").click(function(){
-		        $(".option6").slideToggle();
-		    });
-		});
-	</script>
+	<script src="js/formSearch.js"></script>
 	
     <script src="https://cdn.jsdelivr.net/leaflet/1/leaflet.js"> </script>
    
