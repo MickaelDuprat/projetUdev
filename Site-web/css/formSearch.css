@@ -1,4 +1,153 @@
+/** SEARCH FORM **/
+
+#search-form a{
+	cursor: pointer;
+}
+
+#search-form .inclu{
+	font-size: 22px;
+	margin-left: 20px;
+	margin-right: 20px;
+	display: inline-block;
+}
+
+#search-form p{
+	margin-top: 8px;
+	display: none;
+	width: auto;
+    height: 150px;
+    overflow: scroll;
+}
+
+.hidden-box {
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+  appearance: none;
+  opacity: 0;
+}
+
+.check--label {
+  font-size: 20px;
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.check--label-box {
+  display: flex;
+  align-self: center;
+  position: relative;
+  height: 12px;
+  width: 12px;
+  padding: 4px 1px -2px 2px;
+  margin: 0px 20px 0 8px;
+  border: 2px solid #ec1c24;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.check--label-text {
+  display: flex;
+  align-self: center;
+  position: relative;
+  cursor: pointer;
+  padding: 4px;
+  border-left: 1px solid #ecf0f1;
+}
+
+.hidden-box:checked + .check--label {
+  background-color: #F2F2F2;
+}
+
+.hidden-box:checked + .check--label .check--label-box {
+  background-color: #ecf0f1;
+}
+
+.hidden-box:checked + .check--label .check--label-box:after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: -1px;
+  left: 3px;
+  width: 4px;
+  height: 8px;
+  border: solid #000;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.hidden-box:checked + .check--label .check--label-text:after {
+  width: 85%;
+}
+
+.hidden-box:checked + .check--label .check--label-text:after {
+  width: 85%;
+}
+
+/** SEARCH FORM CHECKBOX (Boite de vitesse) **/
+
+#search-form #boiteVitesse{
+	display: inline-block;
+	margin-left: 15px;
+}
+
+#search-form #boiteVitesse .check--label-text{
+	font-size: 17px;
+}
+
+/** SEARCH FORM RANGE **/
+
+#search-form #range-prix{
+	display: inline-block;
+	float: right;
+	margin-top: 5px;
+	width: 40%;
+}
+
+#search-form #slider{
+	margin-top: 10px;
+}
+
+.value {
+  position: absolute;
+  top: 30px;
+  left: 50%;
+  margin: 0 0 0 -20px;
+  width: 40px;
+  text-align: center;
+  display: block;
+  
+  /* optional */
+  
+  font-weight: normal;
+  font-family: Verdana,Arial,sans-serif;
+  font-size: 14px;
+  color: #333;
+}
+
+.price-range-both.value {
+  width: 100px;
+  margin: 0 0 0 -50px;
+  background-color: #ecf0f1;
+  top: 26px;
+}
+
+.price-range-both {
+  display: none; 
+}
+
+.value i {
+  font-style: normal;
+}
+
+/** SEARCH LIST **/
+
 #search-form{
+	padding-bottom: 30px;
 	margin: 0 auto;
 	width: 70%;
 	margin-top: 5%;
@@ -11,7 +160,7 @@
 	width: 90%;
 	height: auto;
 	padding-left: 5%;
-	padding-right: 5%;
+	padding-right: 3%;
 }
 
 #search-list .vehicule{
