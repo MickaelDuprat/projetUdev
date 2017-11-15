@@ -21,6 +21,7 @@
 		<!-- Importation de la librairie css concernant le datepicker -->
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datedropper/2.0/datedropper.css" />
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+		<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css" />
     </head>
 
     <!-- Corps général de la page -->
@@ -35,11 +36,108 @@
 	</div>
 
 	<div id="section-white">
-
+ 
 		<div id="search-form">
-			<a class="slide-down1">
-				<div class="inclu">Type de véhicule <i class="fa fa-chevron-down fa-lg"></i>
-					<p class="option1">
+			<a class="checkbox-type1">
+				<div class="inclu">Type de véhicule <i class="fa fa-chevron-down fa-1x"></i>
+			</a>
+					<p class="checkbox-option1">
+						<input type="checkbox" class="hidden-box" id="Citadine"/>
+					    <label for="Citadine" class="check--label">
+					      <span class="check--label-box"></span>
+					      <span class="check--label-text">Citadine</span>
+					    </label>
+
+					    <input type="checkbox" class="hidden-box" id="Berline"/>
+					    <label for="Berline" class="check--label">
+					      <span class="check--label-box"></span>
+					      <span class="check--label-text">Berline</span>
+					    </label>
+
+					    <input type="checkbox" class="hidden-box" id="SUV"/>
+					    <label for="SUV" class="check--label">
+					      <span class="check--label-box"></span>
+					      <span class="check--label-text">SUV</span>
+					    </label>
+
+					    <input type="checkbox" class="hidden-box" id="Sport"/>
+					    <label for="Sport" class="check--label">
+					      <span class="check--label-box"></span>
+					      <span class="check--label-text">Sport</span>
+					    </label>
+
+					    <input type="checkbox" class="hidden-box" id="Luxe"/>
+					    <label for="Luxe" class="check--label">
+					      <span class="check--label-box"></span>
+					      <span class="check--label-text">Luxe</span>
+					    </label>
+
+					    <input type="checkbox" class="hidden-box" id="Utilitaire"/>
+					    <label for="Utilitaire" class="check--label">
+					      <span class="check--label-box"></span>
+					      <span class="check--label-text">Utilitaire</span>
+					    </label>
+
+					    <input type="checkbox" class="hidden-box" id="Moto"/>
+					    <label for="Moto" class="check--label">
+					      <span class="check--label-box"></span>
+					      <span class="check--label-text">Moto</span>
+					    </label>
+
+					    <input type="checkbox" class="hidden-box" id="Vélo"/>
+					    <label for="Vélo" class="check--label">
+					      <span class="check--label-box"></span>
+					      <span class="check--label-text">Vélo</span>
+					    </label>
+					</p>
+				</div>
+
+			<a class="checkbox-type2">
+				<div class="inclu">Marque <i class="fa fa-chevron-down fa-1x"></i>
+			</a>
+					<p class="checkbox-option2">
+						<input type="checkbox" class="hidden-box" id="Peugeot"/>
+					    <label for="Peugeot" class="check--label">
+					      <span class="check--label-box"></span>
+					      <span class="check--label-text">Peugeot</span>
+					    </label>
+
+					    <input type="checkbox" class="hidden-box" id="Fiat"/>
+					    <label for="Fiat" class="check--label">
+					      <span class="check--label-box"></span>
+					      <span class="check--label-text">Fiat</span>
+					    </label>
+
+					    <input type="checkbox" class="hidden-box" id="Renault"/>
+					    <label for="Renault" class="check--label">
+					      <span class="check--label-box"></span>
+					      <span class="check--label-text">Renault</span>
+					    </label>
+
+					    <input type="checkbox" class="hidden-box" id="Ford"/>
+					    <label for="Ford" class="check--label">
+					      <span class="check--label-box"></span>
+					      <span class="check--label-text">Ford</span>
+					    </label>
+
+					    <input type="checkbox" class="hidden-box" id="BMW"/>
+					    <label for="BMW" class="check--label">
+					      <span class="check--label-box"></span>
+					      <span class="check--label-text">BMW</span>
+					    </label>
+
+					    <input type="checkbox" class="hidden-box" id="Audi"/>
+					    <label for="Audi" class="check--label">
+					      <span class="check--label-box"></span>
+					      <span class="check--label-text">Audi</span>
+					    </label>
+					</p>
+				</div>
+
+			<a class="checkbox-type3">
+				<div class="inclu">Modèle <i class="fa fa-chevron-down fa-1x"></i>
+			</a>
+					<p class="checkbox-option3">
 						<input type="checkbox" class="hidden-box" id="first" checked/>
 					    <label for="first" class="check--label">
 					      <span class="check--label-box"></span>
@@ -58,8 +156,26 @@
 					      <span class="check--label-text">SUV</span>
 					    </label>
 					</p>
+
+					<div id="boiteVitesse">
+						<input type="checkbox" class="hidden-box" id="Automatique"/>
+						    <label for="Automatique" class="check--label">
+						      <span class="check--label-box"></span>
+						      <span class="check--label-text">Automatique</span>
+						    </label>
+
+						<input type="checkbox" class="hidden-box" id="Manuelle"/>
+						    <label for="Manuelle" class="check--label">
+						      <span class="check--label-box"></span>
+						      <span class="check--label-text">Manuelle</span>
+						    </label>
+					</div>
 				</div>
-			</a>
+
+			<div id="range-prix">
+				<span>Prix journalier</span>
+				<div id="slider"></div>
+			</div>
 		</div>
 
 		<!-- La search list représente la liste des résultats de recherche de véhicule -->
@@ -223,6 +339,8 @@
 	<?php include_once('include/footer.php'); ?>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+	
 	<script src="js/formSearch.js"></script>
 	
     <script src="https://cdn.jsdelivr.net/leaflet/1/leaflet.js"> </script>
