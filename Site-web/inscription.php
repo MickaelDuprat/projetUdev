@@ -32,7 +32,7 @@
 
 	<!-- Première section de page -->
 	<div id="section-black">
-		<h2>Compléter votre profil ...</h2>
+		<h2>Informations</h2>
 	</div>
 
 	<div id="section-white">
