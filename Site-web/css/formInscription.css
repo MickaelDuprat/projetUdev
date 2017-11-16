@@ -4,6 +4,7 @@
 	color: red;
 }
 
+/* boutons */
 .btn {
   padding-bottom: 30px;
   margin: 0px 0px 40px 70px;
@@ -22,49 +23,52 @@
   background: #ec1c24;
 }
 
-    #formulaire {
-      padding: 20px;
-      margin-left: 300px;
-      margin-right: 200px;
-      border: 2px solid white;
-    }
+/* Formulaire */
 
-    #hautform {
-      margin: 50px;
-      padding-bottom: 10px;
-    }
-
-     #mid1form {
-      margin: 50px;
-    }
-
-    #mid2form {
-      margin: 50px;
-      padding-bottom: 10px;
-    }
-
-     #basform {
-      margin: 50px;
-      padding-bottom: 10px;
-    }
-
-    input {
-      padding: 5px;
-      width: 150px;
-      height: 20px;
-      border-radius: 10px;
-
+#formulaire {
+  padding: 20px;
+  margin-left: 300px;
+  margin-right: 200px;
+  border: 2px solid white;
 }
-    select {
-      padding: 100px;
-      margin: 10px
-      width: 300px;
-    }
 
-    label {
-      margin: 10px;
-      padding: 10px;
-      size: 100px;
-      text-align: left;
-      font-size: 22px;
-    }
+#hautform {
+  margin: 50px;
+  padding-bottom: 10px;
+}
+
+#mid1form {
+  margin: 50px;
+}
+
+#mid2form {
+  margin: 50px;
+  padding-bottom: 10px;
+}
+
+#basform {
+  margin: 50px;
+  padding-bottom: 10px;
+}
+
+/* balise formulaire */
+
+input {
+  padding: 5px;
+  width: 150px;
+  height: 20px;
+  border-radius: 10px;
+}
+
+select {
+  margin: 10px
+  width: 300px;
+}
+
+label {
+  margin: 10px;
+  padding: 10px;
+  size: 100px;
+  text-align: left;
+  font-size: 22px;
+}
