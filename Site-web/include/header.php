@@ -6,25 +6,26 @@
 	<div id="search">
 		<form class="form" id="form1">
 		  <br/>
+		  <i class="fa fa-map-marker" style="font-size: 45px;" aria-hidden="true" "></i>
+			
+		  <div class="select" tabindex="1">
+			  <input class="selectopt" name="test" type="radio" id="opt1">
+			  <label for="opt1" class="option">Agence de Bordeaux</label>
+			  <input class="selectopt" name="test" type="radio" id="opt2">
+			  <label for="opt2" class="option">Agence de Niort</label>
+			  <input class="selectopt" name="test" type="radio" id="opt3">
+			  <label for="opt3" class="option">Agence de Courçon</label>
+			  <input class="selectopt" name="test" type="radio" id="opt4">
+			  <label for="opt4" class="option">Agence de Châtellerault</label>
+			  <input class="selectopt" name="test" type="radio" id="opt5">
+			  <label for="opt5" class="option">Agence de Poey d'Oloron</label>
+			  <input class="selectopt" name="test" type="radio" id="opt6">
+			  <label for="opt6" class="option">Choisissez une agence</label>
+		  </div>
+
 	      <i class="fa fa-calendar fa-2x" aria-hidden="true" "></i><input class="date feedback-input" type="text" placeholder="Date de départ" />
 
 	      <i class="fa fa-calendar fa-2x" aria-hidden="true"></i><input class="date feedback-input" type="text" placeholder="Date d'arrivée" />
-
-		  <div class="content">
-			<label for="toggle" class="admin-text"><div class="admin-panel">Types de véhicules</div></label>
-			<input type="checkbox" id="toggle">
-
-			<div class="menu">
-				<a href="#">Citadine <span class="citadine" /></a>
-				<a href="#">Berline <img src="ico/car.png" alt="Berline"/></a>
-				<a href="#">Utilitaire <img src="ico/van.png" alt="Utilitaire"/></a>
-				<a href="#">SUV <img src="ico/car-2.png" alt="SUV"/></a>
-				<a href="#">Luxe <img src="ico/car.png" alt="Luxe"/></a>
-				<a href="#">Sport <img src="ico/car-1.png" alt="Sport"/></a>
-				<a href="#">Moto <img src="ico/motorcycle.png" alt="Moto"/></a>
-				<a href="#">Vélo <img src="ico/bicycle.png" alt="Vélo"/></a>
-			</div>
-		  </div>
 
 		  <br/>
 		  
