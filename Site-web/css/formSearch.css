@@ -1,7 +1,39 @@
+/** GLOBAL CSS **/
+
+#head-black{
+	width: 100%;
+	height: auto;
+	padding-top: 60px;
+	padding-bottom: 54px;
+	margin-bottom: -55px;
+	background-color: #2b2a2a;
+	display: block;
+}
+
+#head-black h2{
+	text-align: center;
+	color: #ffffff;
+	padding-top: 40px;
+	text-align: center;
+	margin-bottom: -35px;
+	font-size: 1.2em;
+}
+
+#head-black h2 span{
+	color: #ec1c24;
+}
+
 /** SEARCH FORM **/
+
+#section-white h2{
+	padding-top: 40px;
+	margin-bottom: -30px;
+	text-align: center;
+}
 
 #search-form a{
 	cursor: pointer;
+	margin-top: -20px;
 }
 
 #search-form .inclu{
@@ -92,7 +124,8 @@
 
 #search-form #boiteVitesse{
 	display: inline-block;
-	margin-left: 15px;
+	margin-left: 20px;
+	margin-top: 15px;
 }
 
 #search-form #boiteVitesse .check--label-text{

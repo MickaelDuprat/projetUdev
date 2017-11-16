@@ -21,7 +21,7 @@
 		<!-- Importation de la librairie css concernant le datepicker -->
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datedropper/2.0/datedropper.css" />
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-		<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css" />
+		<link rel="stylesheet" href="css/jquery-ui.css" />
     </head>
 
     <!-- Corps général de la page -->
@@ -31,12 +31,14 @@
 	<?php include_once('include/nav.php'); ?>
 
 	<!-- Première section de page -->
-	<div id="section-black">
-		<h2>Nom de l'agence et date départ -> Nom de l'agence et date d'arrivée -> Période de location (en jour)</h2>
+	<div id="head-black">
+		<h2><span>Sélection du véhicule</span>  &nbsp;&nbsp;&nbsp; - &nbsp;&nbsp;&nbsp; Choix des options &nbsp;&nbsp;&nbsp; - &nbsp;&nbsp;&nbsp; Paiement</h2>
 	</div>
 
 	<div id="section-white">
  
+		<h2>Nom de l'agence et date de départ -> Nom de l'agence et date d'arrivée -> Période de location (en jour)</h2>
+
 		<div id="search-form">
 			<a class="checkbox-type1">
 				<div class="inclu">Type de véhicule <i class="fa fa-chevron-down fa-1x"></i>
