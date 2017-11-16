@@ -1,4 +1,4 @@
-/** ALL CSS **/
+/** GLOBAL CSS **/
 
 html{
 	margin: 0px;
@@ -47,18 +47,20 @@ nav ul li{
 	font-size: 1.2em;
 	padding: 10px;
 	font-family: 'Quicksand', sans-serif;
-	transition: all 0.3s;
 }
 
-nav ul li:hover{
+nav a:hover{
 	text-decoration: none;
 	color: #ec1c24;
+	transition: all 0.4s;
 }
 
 nav ul a{
 	text-decoration: none;
 	color: black;
+	transition: all 0.4s;
 }
+
 
 /** LOGIN FORM **/
 
@@ -112,6 +114,7 @@ fieldset {
 
 .formholder input[type="submit"]:hover {
   background: #ec1c24;
+  transition: all 0.3s;
 }
 
 .randompad {
@@ -248,7 +251,7 @@ header img{
 #section-white article{
 	width: 48%;
 	margin-right: 2%;
-	padding-top: 10%;
+	padding-top: 7%;
 	float: left;
 	text-align: center;
 	box-sizing: border-box;
