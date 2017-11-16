@@ -1,3 +1,8 @@
+<?php 
+
+include_once('auth/cnx.php'); 
+
+?>
 <!doctype html>
 <html>
     <head>

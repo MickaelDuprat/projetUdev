@@ -22,12 +22,12 @@
 		<link rel="stylesheet" href="css/formInscription.css" />
 		<!-- Importation de la librairie css concernant la police d'écriture FontAwesonne -->
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-		<!--Import de la library css datepicker -->
+		<!--Import de la library css jquery datepicker -->
 		<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css"/>
     </head>
 
     <!-- Corps général de la page -->
-    <body>
+<body>
 
 	<!-- Barre de naviguation du site -->
 	<?php include_once('include/nav.php'); ?>
@@ -38,56 +38,70 @@
 	</div>
 
 	<div id="section-white">
-		<div id="formulaire">			
-	<form method="" action="">
-		<div id="erreur">
-    		<p>Vous n'avez pas rempli correctement les champs du formulaire !</p>
-		</div>
-		<div id="hautform">
-		<label for="civ"> Civilité </label>
-				<select name="civ" id="civ">
-					<option value="off"> </option>
-					<option value="0"> Mademoiselle </option>
-					<option value="1"> Madame </option>
-					<option value="2"> Monsieur </option>
-				</select><br />
-    	<label for="nom">Nom</label> <input type="text" id="nom" class="champ" />
-		<label for="prenom">Prénom</label> <input type="text" id="prenom" class="champ"/><br />
-		<label for="ddn"> Date de naissance </label>
-			<input type="text" id="datepicker" value=""/>
-		</div>	
-		<div id="mid1form">
-			<label for="add1">Adresse</label>
-				<input type="text" id="add1" class="champ"/><br />
-			<label for="add2">Complément adresse</label>
-					<input type="text" id="add2" class="champ"/><br />
-			<label for="cp">Code postal</label>
-					<input type="text" id="villecp" class="champ"/><br />
-			<label for="ville">Ville</label>
-					<input type="text" id="ville" class="champ"/><br />			
-			<label for='pays'>Pays</label>
-					<select name="pays" id="pays" class="champ">
-						<option value="">Pays</option>
-					</select><br />
-		</div>
-
-		<div id="mid2form">
-    	<label for="mdp">Mot de passe</label> <input type="password" id="mdp" class="champ" /><br />
-    	<label for="confirmation">Confirmation</label>  <input type="password" id="confirmation" class="champ" /><br />
-   		 </div>
-   		 <div id="basform">
-    	<label for="tel">Téléphone</label> <input type="tel" id="tel" class="champ"/>
-    	<label for="mail">E-mail</label> <input type="text" id="mail" class="champ" /><br />
-   		</div>
-    	<input class='btn' type="submit" id="envoi" value="Envoyer" /> <input class='btn' type="reset" id="reset" value="Reset" />
-		</form>
-		</div>
+		<!-- Formulaire -->	
+	<div id="formulaire">		
+		<form method="" action="">
+		<!-- Div message erreur -->
+			<div id="erreur">
+    			<p>Vous n'avez pas rempli correctement les champs du formulaire !</p>
 			</div>
-    </body>
+
+			<!-- haut du formulaire -->
+				<div id="hautform">
+					<label for="civ"> Civilité </label>
+						<select name="civ" id="civ">
+							<option value="off"> </option>
+							<option value="0"> Mademoiselle </option>
+							<option value="1"> Madame </option>
+							<option value="2"> Monsieur </option>
+						</select><br />
+	    			<label for="nom">Nom</label> <input type="text" id="nom" class="champ" />
+					<label for="prenom">Prénom</label> <input type="text" id="prenom" class="champ"/><br />
+					<!-- datepicker pour la date de naissance -->
+					<label for="ddn"> Date de naissance </label>
+						<input type="text" id="datepicker" value=""/>
+				</div>
+			<!-- partie information adresse -->	
+				<div id="mid1form">
+						<label for="add1">Adresse</label>
+							<input type="text" id="add1" class="champ"/><br />
+						<label for="add2">Complément adresse</label>
+							<input type="text" id="add2" class="champ"/><br />
+						<label for="cp">Code postal</label>
+							<input type="text" id="villecp" class="champ"/><br />
+						<label for="ville">Ville</label>
+							<input type="text" id="ville" class="champ"/><br />			
+						<label for='pays'>Pays</label>
+							<select name="pays" id="pays" class="champ">
+								<option value="">Pays</option>
+							</select><br />
+				</div>
+			<!-- partie information mdp -->
+				<div id="mid2form">
+	    			<label for="mdp">Mot de passe</label>
+	    				<input type="password" id="mdp" class="champ" /><br />
+	    			<label for="confirmation">Confirmation</label>
+	    				<input type="password" id="confirmation" class="champ" /><br />
+	   		 	</div>
+
+	   		 <!-- partie information contact -->
+	   		 	<div id="basform">
+	    			<label for="tel">Téléphone</label>
+	    				<input type="tel" id="tel" class="champ"/>
+	    			<label for="mail">E-mail</label>
+	    				<input type="text" id="mail" class="champ" /><br />
+	   			</div>
+	   			<!-- boutons -->
+	    			<input class='btn' type="submit" id="envoi" value="Envoyer" /> <input class='btn' type="reset" id="reset" value="Reset" />
+			</form>
+				</div>
+					</div>
+</body>
 
 	<!-- Footer section du bas de page -->
 	<?php include_once('include/footer.php'); ?>
 
+	<!-- importations des librairies Js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="//code.jquery.com/jquery-1.12.4.js"></script>
   	<script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
