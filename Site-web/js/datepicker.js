@@ -1,5 +1,5 @@
 
-// datepicker
+//  datepicker pour la date de naissance //
         $( function() {
     $("#datepicker" ).datepicker({
         changeMonth: true,
