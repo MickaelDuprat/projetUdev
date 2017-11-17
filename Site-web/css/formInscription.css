@@ -1,0 +1,74 @@
+#erreur {
+	display: none;
+	font-style: bold;
+	color: red;
+}
+
+/* boutons */
+.btn {
+  padding-bottom: 30px;
+  margin: 0px 0px 40px 70px;
+  background: #960018;
+  outline: 0;
+  border: none;
+  border-radius: 30px;
+  color: white;
+  transition: 0.15s ease-in-out;
+  cursor: pointer;
+  display: inline-block;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background: #ec1c24;
+}
+
+/* Formulaire */
+
+#formulaire {
+  padding: 20px;
+  margin-left: 300px;
+  margin-right: 200px;
+  border: 2px solid white;
+}
+
+#hautform {
+  margin: 50px;
+  padding-bottom: 10px;
+}
+
+#mid1form {
+  margin: 50px;
+}
+
+#mid2form {
+  margin: 50px;
+  padding-bottom: 10px;
+}
+
+#basform {
+  margin: 50px;
+  padding-bottom: 10px;
+}
+
+/* balise formulaire */
+
+input {
+  padding: 5px;
+  width: 150px;
+  height: 20px;
+  border-radius: 10px;
+}
+
+select {
+  margin: 10px
+  width: 300px;
+}
+
+label {
+  margin: 10px;
+  padding: 10px;
+  size: 100px;
+  text-align: left;
+  font-size: 22px;
+}
