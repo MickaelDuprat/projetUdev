@@ -18,3 +18,9 @@ $('#loginform').click(function(){
 $('#compteform').click(function(){
   $('.compte').fadeToggle('slow');
 });
+
+window.setTimeout(function alert() {
+    $(".alert").fadeTo(500, 0).slideUp(500, function(){
+        $(this).remove();
+    });
+}, 4000);

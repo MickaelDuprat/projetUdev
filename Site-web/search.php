@@ -1,3 +1,17 @@
+<?php 
+session_start();
+
+include_once('root.php');
+include_once(ROOT.'/controller/AuthentificationController.php');
+
+$message = '';
+
+if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
+	session_destroy();
+	header('Location: index.php');    
+}
+
+?>
 <!doctype html>
 <html>
     <head>
@@ -22,6 +36,7 @@
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datedropper/2.0/datedropper.css" />
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 		<link rel="stylesheet" href="css/jquery-ui.css" />
+
     </head>
 
     <!-- Corps général de la page -->
@@ -197,7 +212,7 @@
 				</div>
 				<a class="slide-down1"><div class="inclu">OPTIONS <i class="fa fa-chevron-down fa-lg"></i><p class="option1">option 1...</p><p class="option1">option 2...</p><p class="option1">option 3...</p></div></a>
 				<div class="footer">
-					<a href="#">
+					<a href="fiche.php">
 						<div class="bouton">
 							RÉSERVER
 						</div>
@@ -222,7 +237,7 @@
 				</div>
 				<a class="slide-down2"><div class="inclu">OPTIONS <i class="fa fa-chevron-down fa-lg"></i><p class="option2">option 1...</p><p class="option2">option 2...</p><p class="option2">option 3...</p></div></a>
 				<div class="footer">
-					<a href="#">
+					<a href="fiche.php">
 						<div class="bouton">
 							RÉSERVER
 						</div>
@@ -247,7 +262,7 @@
 				</div>
 				<a class="slide-down3"><div class="inclu">OPTIONS <i class="fa fa-chevron-down fa-lg"></i><p class="option3">option 1...</p><p class="option3">option 2...</p><p class="option3">option 3...</p></div></a>
 				<div class="footer">
-					<a href="#">
+					<a href="fiche.php">
 						<div class="bouton">
 							RÉSERVER
 						</div>
@@ -272,7 +287,7 @@
 				</div>
 				<a class="slide-down4"><div class="inclu">OPTIONS <i class="fa fa-chevron-down fa-lg"></i><p class="option4">option 1...</p><p class="option4">option 2...</p><p class="option4">option 3...</p></div></a>
 				<div class="footer">
-					<a href="#">
+					<a href="fiche.php">
 						<div class="bouton">
 							RÉSERVER
 						</div>
@@ -297,7 +312,7 @@
 				</div>
 				<a class="slide-down5"><div class="inclu">OPTIONS <i class="fa fa-chevron-down fa-lg"></i><p class="option5">option 1...</p><p class="option5">option 2...</p><p class="option5">option 3...</p></div></a>
 				<div class="footer">
-					<a href="#">
+					<a href="fiche.php">
 						<div class="bouton">
 							RÉSERVER
 						</div>
@@ -342,9 +357,10 @@
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
-	
+	<script src="https://cdn.jsdelivr.net/leaflet/1/leaflet.js"></script>
 	<script src="js/formSearch.js"></script>
-	
-    <script src="https://cdn.jsdelivr.net/leaflet/1/leaflet.js"> </script>
-   
+	<script src="js/datedropper.js"></script>
+	<script src="js/formLogin.js"></script>
+
+
 </html>

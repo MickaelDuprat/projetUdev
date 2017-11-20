@@ -1,3 +1,17 @@
+<?php 
+session_start();
+
+include_once('root.php');
+include_once(ROOT.'/controller/AuthentificationController.php');
+
+$message = '';
+
+if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
+	session_destroy();
+	header('Location: index.php');    
+}
+
+?>
 <!doctype html>
 <html>
     <head>
@@ -29,38 +43,110 @@
 	<!-- Barre de naviguation du site -->
 	<?php include_once('include/nav.php'); ?>
 
-	<!-- Première section de page -->
-	<div id="head-black">
-		<h2>Sélection du véhicule &nbsp;&nbsp;&nbsp;  -  &nbsp;&nbsp;&nbsp;<span>Choix des options</span> &nbsp;&nbsp;&nbsp; - &nbsp;&nbsp;&nbsp; Paiement</h2>
-	</div>
-
+	!-- Première section de page -->
+    <div id="head-black">
+        <h2>Sélection du véhicule &nbsp;&nbsp;&nbsp; - &nbsp;&nbsp;&nbsp; <span>Choix des options</span>  &nbsp;&nbsp;&nbsp; - &nbsp;&nbsp;&nbsp; Paiement</h2>
+    </div>
 
 	<div id="section-white">
-		<div id="cadre">
-			<div id="bandeau">
-				<img src="" alt="">
-				<h1></h1>
-				<h3></h3>
-				<div class="info">
-					<div class="title"></div>
-					<div class="description"></div>
-				</div>
-				<div class="info">
-					<div class="title"></div>
-					<div class="description"></div>
-				</div>
-				<div class="info">
-					<div class="title"></div>
-					<div class="description"></div>
-				</div>
-			</div>
+	    <aside id="resume-voiture">
+	        <img id="vehselect" src="img/bmw-1.png" alt="bmw-1">
+	        <h3> Départ </h3>
+	        <p> Agence de départ </p>
+	        <h3> Retour </h3>
+	        <p> Agence de retour </p>
+	        <h3> Période de location </h3>
+	        <p> 1 jour </p>
+	        <h3> Equipement du véhicule </h3>
+	            <p><img id="iconeporte" src="ico/voiture.png" alt="Porte"> 5 portes</p>
+	            <p><img id="iconeboitev" src="ico/boiteVitesse.png" alt="BoiteVitesse"> Manuelle</p>
+	            <p><img id="iconeclim" src="ico/clim.png" alt="Climatisation"> Climatisation</p>
+	        <h3> Capacité </h3>
+	            <p><img id="iconenbpers" src="ico/personne.png" alt="Personne"> 5 personnes
+	            <p><img id="iconebagage" src="ico/bagage.png" alt="Bagage"> 3 bagages</p>
+	        <h3> Conditions générales </h3>
+	        <p> informations relatives à la location chez Error 404 </p>     
+	    </aside>
 
-			<div id="contenu">
-				<div class="title"></div>
-				<div class="form"></div>
-			</div>
-		</div>
-	</div>
+	    <div id="liste-option">
+	                <p> Tarif de base de la location* : </p> <b> 115 € </b>
+	            <ul>
+	                <li> <img id="conducteur-supp" src="img/conducteur-supp.png" alt="Conducteur Supplémentaire">
+	                <p>  Conducteur supplémentaire </p> 
+	                    <select name="NbcondcteurSupp">
+	                        <option value='0' selected>0</option>                       
+	                        <option value='1'>1</option>
+	                        <option value='2'>2</option>
+	                        <option value='3'>3</option>
+	                        <option value='4'>4</option>
+	                        <option value='5'>5</option>                       
+	                     </select>
+
+	                <span> 11,00 € </span>
+	                </li>
+
+	                <li> <img id="gps" src="img/GPS.png" alt="GPS">
+	                 <p> Système de navigation GPS </p> 
+	                    <select name="NbGPS">
+	                        <option value='0' selected>0</option>                        
+	                        <option value='1'>1</option>
+	                     </select>
+	                <span> 13,00 € </span>
+	                </li>  
+
+	                <li> <img id="siege-enfant" src="img/siege-enfant.png" alt="Siège enfant">
+	                 <p> <span class="gauche"> Siège enfant </span> </p>
+	                    <select name="NbSiegeEnfant">
+	                        <option value='0' selected>0</option>  
+	                        <option value='1'>1</option>
+	                        <option value='2'>2</option>
+	                        <option value='3'>3</option>
+	                        <option value='4'>4</option>
+	                    </select>
+	                 <span> 10,99 € </span>
+	                </li>  
+
+	                 <li> <img id="nacelle-bebe" src="img/nacelle-bebe.png" alt="Nacelle bébé">
+	                <p> Nacelle bébé </p>
+	                    <select name="NbNacelleBebe">
+	                        <option value='0' selected>0</option> 
+	                        <option value='1'>1</option>
+	                        <option value='2'>2</option>
+	                        <option value='3'>3</option>
+	                        <option value='4'>4</option>   
+	                        </select>
+	                 <span> 10,00 € </span>
+	                </li>
+
+	                <li> <img id="rehausseur-integral" src="img/rehausseur-integral.png" alt="Réhausseur intégral">
+	                 <p> Réhausseur intégral </p> 
+	                    <select name="NbRehausseurIntegral">
+	                        <option value='0' selected>0</option> 
+	                        <option value='1'>1</option>
+	                        <option value='2'>2</option>
+	                        <option value='3'>3</option>
+	                        <option value='4'>4</option>
+	                        </select>
+	                <span> 7,99 € </span>
+	                </li>
+
+	                <li> <img id="fact-courrier" src="img/fact-courrier.png" alt="Facturation par courrier">
+	                <p> Facturation par courrier </p> 
+	                        <input type="checkbox" id="subscribefactcourrier" name="factcourrier">
+	               <span> 2,99 € </span>
+	                </li>
+	            </ul>
+	    </div>
+	    
+	    <div id="section-paiement">
+	        <p>  Prix Total* : </p> <b> 115 € </b>
+	        <input type="submit" id="validepaiement" value = "J'accepte le tarif et les options"/>
+	        <small> *Prix total TTC incluant la TVA </small>
+	        <small> Veuillez noter que l'affichage de l'image et les spécifications du véhicule n'est qu'un exemple illustratif des actes de classe de véhicule (sauf erreur). Une réservation est possible uniquement pour une catégorie de véhicule, mais pas pour un véhicule particulier. </small>
+	        <small> Toutes les informations sur les dimensions, le poids, etc. sont basés sur les plus petits modèles disponibles de la catégorie. </small>
+	    </div>
+
+    </div>
 
     </body>
 
