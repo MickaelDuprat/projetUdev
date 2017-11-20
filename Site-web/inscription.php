@@ -30,7 +30,8 @@
 <body>
 
 	<!-- Barre de naviguation du site -->
-	<?php include_once('include/nav.php'); ?>
+	<?php include_once('include/nav.php');
+	?>
 
 	<!-- Première section de page -->
 	<div id="section-black">
@@ -41,34 +42,71 @@
 		<!-- Formulaire -->	
 	<div id="formulaire">		
 		<form method="" action="">
-		<!-- Div message erreur -->
+			<!-- Div message erreur -->
 			<div id="erreur">
     			<p>Vous n'avez pas rempli correctement les champs du formulaire !</p>
 			</div>
+			<!-- choix client pro ou part -->	
+			<div id="typeClient">
+				<form id="choixClient">
+					<label type="text"> Êtes vous un </label><br /><br />
+					<label for="oui"> Professionnel ? </label>
+						<input type="radio" name="typeClient" value="pro">
+					<label for="oui"> Particulier ? </label>
+  						<input type="radio" name="typeClient" value="part"> 
+  				</form>
+  			</div>	
 
-			<!-- haut du formulaire -->
+  			<!-- demande si présence d'un code promo -->
+  			<div id="codePromo">
+  				<form id="choixPromo">
+  						<label type="text"> Avez vous un code promotionnel </label><br /><br />
+  						<label for="oui"> oui </label>
+					<input type="radio" name="choixPromo" value="oui">
+						<label for="non"> non</label>
+  					<input type="radio" name="choixPromo" value="non"> 
+  				</form>
+  			</div>
+  			<!-- partie coupon -->
+  				<div id="coupon">
+  					<label for="codeCoupon">Code coupon</label>
+					<input type="text" id="codeCoupon" class="champ"/><br />
+  				</div>
+			<!-- haut du formulaire -->	
 				<div id="hautform">
 					<label for="civ"> Civilité </label>
-						<select name="civ" id="civ">
-							<option value="off"> </option>
+						<select name="civ" id="civ" class="champ">
+							<option value=""> </option>
 							<option value="0"> Mademoiselle </option>
 							<option value="1"> Madame </option>
 							<option value="2"> Monsieur </option>
 						</select><br />
-	    			<label for="nom">Nom</label> <input type="text" id="nom" class="champ" />
-					<label for="prenom">Prénom</label> <input type="text" id="prenom" class="champ"/><br />
+	    			<label for="nom">Nom</label>
+	    				<input type="text" id="nom" class="champ" />
+					<label for="prenom">Prénom</label>
+						<input type="text" id="prenom" class="champ"/><br />
 					<!-- datepicker pour la date de naissance -->
 					<label for="ddn"> Date de naissance </label>
-						<input type="text" id="datepicker" value=""/>
+						<input type="text" id="datepicker" class="champ" value=""/>
+							<div id="erreurddn">
+    							<p>date de naissance invalide
+    							</p>
+							</div>
 				</div>
 			<!-- partie information adresse -->	
 				<div id="mid1form">
 						<label for="add1">Adresse</label>
 							<input type="text" id="add1" class="champ"/><br />
 						<label for="add2">Complément adresse</label>
-							<input type="text" id="add2" class="champ"/><br />
+							<input type="text" id="add2"/><br />
+						<label for="addfact">Adresse de facturation</label>
+							<input type="text" id="addfact" class="champ"/><br />
 						<label for="cp">Code postal</label>
 							<input type="text" id="villecp" class="champ"/><br />
+							<div id="erreurvillecp">
+    							<p>code postale invalide
+    							</p>
+							</div>
 						<label for="ville">Ville</label>
 							<input type="text" id="ville" class="champ"/><br />			
 						<label for='pays'>Pays</label>
@@ -82,15 +120,41 @@
 	    				<input type="password" id="mdp" class="champ" /><br />
 	    			<label for="confirmation">Confirmation</label>
 	    				<input type="password" id="confirmation" class="champ" /><br />
+	    				<div id="erreurpwd">
+    					<p> Le mot de passe doit contenir
+   							• Au moins une lettre minuscule
+   							• Au moins une lettre majuscule
+   							• Au moins un chiffre
+   							• Au moins huit caractères
+   						</p>
+					</div>
 	   		 	</div>
 
 	   		 <!-- partie information contact -->
 	   		 	<div id="basform">
 	    			<label for="tel">Téléphone</label>
 	    				<input type="tel" id="tel" class="champ"/>
+	    				<div id="erreurtel">
+    						<p>numéro de télépone invalide
+    						</p>
+						</div>
 	    			<label for="mail">E-mail</label>
 	    				<input type="text" id="mail" class="champ" /><br />
+    					<div id="erreurmail">
+    						<p>adresse e-mail invalide
+    						</p>
+						</div>
 	   			</div>
+
+	   		 <!-- partie client pro -->
+	   		 	<div id="proform">
+	   		 		<label for="raisonSociale">Raison sociale</label>
+	    				<input type="text" id="raisonSociale" class="champ"/>
+	    			<label for="siret">Numéro SIRET</label>
+	    				<input type="text" id="siret" class="champ" /><br />
+	    			<label for="nomCSociete">Nom contact société</label>
+	    				<input type="text" id="nomCSociete" class="champ" /><br />
+	    		</div>
 	   			<!-- boutons -->
 	    			<input class='btn' type="submit" id="envoi" value="Envoyer" /> <input class='btn' type="reset" id="reset" value="Reset" />
 			</form>

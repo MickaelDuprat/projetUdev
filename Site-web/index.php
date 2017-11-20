@@ -1,8 +1,3 @@
-<?php 
-
-include_once('auth/cnx.php'); 
-
-?>
 <!doctype html>
 <html>
     <head>
@@ -25,6 +20,7 @@ include_once('auth/cnx.php');
 		<link href="https://fonts.googleapis.com/css?family=Didact+Gothic" rel="stylesheet"> 
 		<!-- Importation de la librairie css concernant le datepicker -->
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datedropper/2.0/datedropper.css" />
+		<link rel=""
     </head>
 
     <!-- Corps général de la page -->
@@ -37,17 +33,18 @@ include_once('auth/cnx.php');
 	<?php include_once('include/header.php'); ?>
 
 	<!-- Première section de page -->
-	<div id="section-white">
-		<article>
-			<h3>Détendez-vous, nous nous occupons de tout !</h3>
-			<p><i>Vous n'avez qu'à chosir votre véhicule ...</i></p>
-		</article>
+		<div id="section-white">
+			<article>
+				<h3>Détendez-vous, nous nous occupons de tout !</h3>
+				<p><i>Vous n'avez qu'à chosir votre véhicule ...</i></p>
+			</article>
 
-		<aside>
-			<h3><i>Choisissez le véhicule qui vous correspond ...</i></h3>
-			<img src="img/horizon.jpg" alt="Horizon">
-		</aside>
-	</div>
+			<aside>
+				<h3><i>Choisissez le véhicule qui vous correspond ...</i></h3>
+				<img src="img/horizon.jpg" alt="Horizon">
+			</aside>
+		</div>
+	
 
 	<!-- Deuxième section de page -->
 	<div id="section-black">
@@ -176,11 +173,9 @@ include_once('auth/cnx.php');
 	<?php include_once('include/footer.php'); ?>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<<<<<<< HEAD:Site-web/index.html
     <script src="js/voiture.js" type="text/javascript"></script>
 	<script src="js/datedropper.js"></script>
-=======
->>>>>>> ca4d115a23170f73c757c4c93065549ecc4d1558:Site-web/index.php
+
     <script src="https://cdn.jsdelivr.net/leaflet/1/leaflet.js"></script>
 	<script src="js/datedropper.js"></script>
 	<script src="js/formLogin.js"></script>
@@ -201,9 +196,6 @@ include_once('auth/cnx.php');
 		}
 	</script>
 
-<<<<<<< HEAD:Site-web/index.html
-=======
 	<script src="https://s.codepen.io/assets/libs/modernizr.js" type="text/javascript"></script>
 
->>>>>>> ca4d115a23170f73c757c4c93065549ecc4d1558:Site-web/index.php
 </html>
