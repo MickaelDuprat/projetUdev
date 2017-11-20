@@ -44,8 +44,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
     <body>
 
 	<!-- Barre de naviguation du site -->
-	<?php include_once('include/nav.php');
-	?>
+	<?php include_once('include/nav.php'); ?>
 
 	<!-- Première section de page -->
 	<div id="section-black">
@@ -90,8 +89,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 			<!-- haut du formulaire -->	
 				<div id="hautform">
 					<label for="civ"> Civilité </label>
-
-						<select name="civ" id="civ" class="champ">
+						<select name="civ" id="civ">
 							<option value=""> </option>
 							<option value="0"> Mademoiselle </option>
 							<option value="1"> Madame </option>
@@ -184,14 +182,14 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 
     <!-- importations des librairies Js -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  	<script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+      <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="https://cdn.jsdelivr.net/leaflet/1/leaflet.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/zxcvbn/4.2.0/zxcvbn.js"></script>
 
-	<!-- Importation de la librairie js concernant le formulaire du profil -->
-	<script src="js/datedropper.js"></script>
-	<script src="js/formLogin.js"></script>
+    <!-- Importation de la librairie js concernant le formulaire du profil -->
+    <script src="js/datedropper.js"></script>
+    <script src="js/formLogin.js"></script>
     <script src="js/inscription.js"></script>
-   	<script src="js/datepicker.js"></script>
-	
+    <script src="js/datepicker.js"></script>
+
 </html>
