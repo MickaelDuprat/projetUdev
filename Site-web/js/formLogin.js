@@ -14,3 +14,7 @@ $('input[type="submit"]').mouseup(function(){
 $('#loginform').click(function(){
   $('.login').fadeToggle('slow');
 });
+
+$('#compteform').click(function(){
+  $('.compte').fadeToggle('slow');
+});

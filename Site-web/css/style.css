@@ -61,6 +61,14 @@ nav ul a{
 	transition: all 0.4s;
 }
 
+nav ul li i{
+  padding-right: 10px;
+  color: #ec1c24;
+}
+
+.redText{
+  color: #ec1c24;
+}
 
 /** LOGIN FORM **/
 
@@ -87,6 +95,10 @@ fieldset {
   display: none;
 }
 
+.compte {
+  display: none;
+}
+
 .formholder {
   background: #ffffff;
   width: 350px;
@@ -97,7 +109,7 @@ fieldset {
   top: 75px;
 }
 
-.formholder input[type="email"], .formholder input[type="password"] {
+.formholder input[type="text"], .formholder input[type="password"] {
   padding: 7px 5px;
   margin: 10px 0;
   width: 96%;
@@ -111,7 +123,7 @@ fieldset {
   transition: 0.3s linear;
 }
 
-.formholder input[type="email"]:focus, .formholder input[type="password"]:focus {
+.formholder input[type="text"]:focus, .formholder input[type="password"]:focus {
   outline: none;
   box-shadow: 0 0 1px 1px #ec1c24;
 }
