@@ -69,10 +69,9 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 			    <h3>Citadine</h3>
 			    
 			    <ul class="hidden">
-			      <li>Lorem ipsum dolor</li>
-			      <li>Set amet consecuter</li>
-			      <li>Lorem ipsum dolor</li>
-			      <li>Set amet consecuter</li>
+			      <li>
+			      	Adapté aux déplacement en milieu urbain
+			  	  </li>
 			    </ul>
 			        
 			    <a class="expand"><span class="plus">+</span><span class="minus">-</span></a>
@@ -83,10 +82,9 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 			    <h3>Berline</h3>
 			    
 			    <ul class="hidden">
-			      <li>Lorem ipsum dolor</li>
-			      <li>Set amet consecuter</li>
-			      <li>Lorem ipsum dolor</li>
-			      <li>Set amet consecuter</li>
+			      <li>
+			      	Pratique, polyvalente et confortable
+			      </li>
 			    </ul>
 			        
 			    <a class="expand"><span class="plus">+</span><span class="minus">-</span></a>
@@ -97,10 +95,8 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 			    <h3>SUV</h3>
 			    
 			    <ul class="hidden">
-			      <li>Lorem ipsum dolor</li>
-			      <li>Set amet consecuter</li>
-			      <li>Lorem ipsum dolor</li>
-			      <li>Set amet consecuter</li>
+			      <li>Spacieux, Pratique,  Adapté à tous les milieux
+			      </li>
 			    </ul>
 			        
 			    <a class="expand"><span class="plus">+</span><span class="minus">-</span></a>
@@ -111,10 +107,9 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 			    <h3>Sport</h3>
 			    
 			    <ul class="hidden">
-			      <li>Lorem ipsum dolor</li>
-			      <li>Set amet consecuter</li>
-			      <li>Lorem ipsum dolor</li>
-			      <li>Set amet consecuter</li>
+			      <li>
+			      	La performance avant tout
+			      </li>
 			    </ul>
 			      
 			    <a class="expand"><span class="plus">+</span><span class="minus">-</span></a>
@@ -125,10 +120,8 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 			    <h3>Luxe</h3>
 			    
 			    <ul class="hidden">
-			      <li>Lorem ipsum dolor</li>
-			      <li>Set amet consecuter</li>
-			      <li>Lorem ipsum dolor</li>
-			      <li>Set amet consecuter</li>
+			      <li>
+			      Allie confort intérieur avec sensations de conduites</li>
 			    </ul>
 			        
 			    <a class="expand"><span class="plus">+</span><span class="minus">-</span></a>
@@ -139,10 +132,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 			    <h3>Utilitaire</h3>
 			    
 			    <ul class="hidden">
-			      <li>Lorem ipsum dolor</li>
-			      <li>Set amet consecuter</li>
-			      <li>Lorem ipsum dolor</li>
-			      <li>Set amet consecuter</li>
+			      <li> Idéale pour vos déménagements et transports de marchandises</li>
 			    </ul>
 			        
 			    <a class="expand"><span class="plus">+</span><span class="minus">-</span></a>
@@ -153,10 +143,9 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 			    <h3>Moto</h3>
 			    
 			    <ul class="hidden">
-			      <li>Lorem ipsum dolor</li>
-			      <li>Set amet consecuter</li>
-			      <li>Lorem ipsum dolor</li>
-			      <li>Set amet consecuter</li>
+			      <li>
+			      	Parfait pour s'évader 
+			      </li>
 			    </ul>
 			        
 			    <a class="expand"><span class="plus">+</span><span class="minus">-</span></a>
@@ -167,10 +156,9 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 			    <h3>Vélo</h3>
 			    
 			    <ul class="hidden">
-			      <li>Lorem ipsum dolor</li>
-			      <li>Set amet consecuter</li>
-			      <li>Lorem ipsum dolor</li>
-			      <li>Set amet consecuter</li>
+			      <li>
+			      	Déplacez-vous où vous le souhaitez sans contraintes des embouteillages ou du stationnement
+			      </li>
 			    </ul>
 			        
 			    <a class="expand"><span class="plus">+</span><span class="minus">-</span></a>
@@ -179,7 +167,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 	</div>
 
 	<div id="section-white">
-		<p style="text-align: center;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias aspernatur, ducimus laborum, molestias voluptas recusandae hic obcaecati suscipit doloribus illum dolores fugiat quos sapiente. Corrupti itaque vero ratione beatae necessitatibus!</p>
+		<iframe src="https://www.google.com/maps/d/u/0/embed?mid=1LbHksYOSFHPVv_lcOKlCRGAlzerjbiE7" width="640" height="480"></iframe>
 	</div>
 
     </body>

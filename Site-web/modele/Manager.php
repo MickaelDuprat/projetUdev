@@ -6,7 +6,7 @@ abstract class Manager {
     public function __construct() {
 
         // Paramètres de connexion à la base de données
-        $_HOST = "localhost";
+        $_HOST = "localhost:3306";
         $_DB = "projetudev";
         $_USER = "root";
         $_PASSWORD = "root";
