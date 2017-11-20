@@ -13,7 +13,7 @@
 #head-black h2{
 	text-align: center;
 	color: #ffffff;
-	padding-top: 40px;
+	padding-top: 20px;
 	text-align: center;
 	margin-bottom: -35px;
 	font-size: 1.2em;
@@ -25,6 +25,149 @@
 
 /** CADRE FICHE **/
 
+#section-white #resume-voiture {
+	display: inline-block;
+	width: 28%;
+	float: left;
+	margin-left: -4%;
+	margin-top: 5%;
+	border-radius: 15px 15px 15px 15px;
+}
 
+#section-white #resume-voiture p {
+	display: block;
+	padding-left: 5px;
+}
 
-/** OPTIONS FICHE **/
+#section-white #resume-voiture h3 {
+	display : block;
+	margin-right: 50%;
+	padding-left: 5px;
+}
+
+#section-white #resume-voiture  img#vehselect {
+	width : 80%;
+	height : 60%;
+	display : block;
+}
+
+#section-white #resume-voiture img {
+	width : 25px;
+	height : 25px;
+	float : left;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+#section-white #liste-option {
+	width : 68%;
+	height : 25%;
+	display: inline-block;
+	float: right;
+	margin-top: 3%;
+	margin-left: 2%;
+	padding-right: 6%;
+}
+
+#section-white #liste-option ul > li {
+	display: block;
+	list-style: none;
+	margin-bottom: 100px;
+}
+
+#section-white #liste-option p {
+	left-padding : 10%;
+	display: inline-block;
+	font-family : sans-serif;
+	font-size: 150%;
+}
+
+#section-white #liste-option b {
+	padding-left: 60%;
+	display: inline-block;
+	font-family : sans-serif;
+	font-size: 200%;
+}
+
+#section-white #liste-option ul > li > p {
+	display: inline-block;
+	margin-bottom: 5%;
+	padding-left: 12%;
+	padding-right: 10%;
+	font-family : sans-serif;
+	font-size: 130%;
+	margin-top: 5%;
+}
+
+#section-white #liste-option ul > li > select {
+	display : inline-block;
+	float : center;
+	right-padding : 20%;
+}
+
+#section-white #liste-option ul > li > span {
+	float : right;
+	font-size: 130%;
+	padding-right: 2%;
+	font-family : sans-serif;
+	margin-top: 5%;
+}
+
+#section-white #liste-option ul > li > img {
+	display: inline-block;
+	width : 15%;
+	height : 15%;
+	float : left;
+}
+
+#section-white #section-paiement {
+	float : right;
+	width: 68%;
+	margin-left: 2%;
+	margin-right: 2%;
+	padding-right: 2%;
+}
+
+#section-white #section-paiement small {
+	text-align: left;
+	display: inline-block;
+	margin-bottom: 1%;
+}
+
+#section-white #validepaiement {
+	font-family : 'Verdana';
+	font-size : 160%;
+	display: block;
+	margin: 0 auto;
+	background-color: #960018;
+	color : white;
+	cursor: pointer;
+	padding: 10px;
+    transition: 0.15s
+	outline: 0;
+	padding : 5px;
+	border: none;
+    border-radius: 30px;
+    margin-bottom: 2%;
+    transition: 1s;
+}
+
+#section-white #section-paiement p {
+	padding-left: 10%;
+	display: inline-block;
+	font-family : sans-serif;
+	font-size: 150%;
+}
+
+#section-white #validepaiement:hover {
+	background-color: #ec1c24;
+	transition: 0.3s;
+}
+
+#section-white #section-paiement b {
+	padding-left: 60%;
+	display: inline-block;
+	font-family : sans-serif;
+	font-size: 200%;
+	margin-bottom: 3%;
+}

@@ -1,3 +1,17 @@
+<?php 
+session_start();
+
+include_once('root.php');
+include_once(ROOT.'/controller/AuthentificationController.php');
+
+$message = '';
+
+if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
+	session_destroy();
+	header('Location: index.php');    
+}
+
+?>
 <!doctype html>
 <html>
     <head>
@@ -10,6 +24,8 @@
         <title>Maquette Web - Projet</title>
         <!-- Importation de la feuille de style générale -->
         <link rel="stylesheet" href="css/style.css"> 
+        <!-- Importation de la feuille de style formIndex (formulaire de recherche de l'index) -->
+        <link rel="stylesheet" href="css/formIndex.css"> 
         <!-- Importation de la librairie d'icônes "Font Awesome" -->
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 		<!-- Importation des polices de caractères "Dosis", Poppins" et "Quicksand" via Google Fonts -->
@@ -20,14 +36,12 @@
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datedropper/2.0/datedropper.css" />
 		<!-- Importation de la librairie css concernant le formulaire du profil -->
 		<link rel="stylesheet" href="css/formInscription.css" />
-		<!-- Importation de la librairie css concernant la police d'écriture FontAwesonne -->
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 		<!--Import de la library css jquery datepicker -->
 		<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css"/>
     </head>
 
     <!-- Corps général de la page -->
-<body>
+    <body>
 
 	<!-- Barre de naviguation du site -->
 	<?php include_once('include/nav.php');
@@ -35,11 +49,12 @@
 
 	<!-- Première section de page -->
 	<div id="section-black">
-		<h2> Création de votre profil</h2>
+		<h2>Création du profil</h2>
 	</div>
 
+	<!-- Première section de page -->
 	<div id="section-white">
-		<!-- Formulaire -->	
+			<!-- Formulaire -->	
 	<div id="formulaire">		
 		<form method="" action="">
 			<!-- Div message erreur -->
@@ -75,7 +90,11 @@
 			<!-- haut du formulaire -->	
 				<div id="hautform">
 					<label for="civ"> Civilité </label>
+<<<<<<< HEAD
 						<select name="civ" id="civ" class="champ">
+=======
+						<select name="civ" id="civ">
+>>>>>>> 24c7ce5420daace19405d81cbc01c4983c495053
 							<option value=""> </option>
 							<option value="0"> Mademoiselle </option>
 							<option value="1"> Madame </option>
@@ -158,23 +177,24 @@
 	   			<!-- boutons -->
 	    			<input class='btn' type="submit" id="envoi" value="Envoyer" /> <input class='btn' type="reset" id="reset" value="Reset" />
 			</form>
-				</div>
-					</div>
-</body>
+		</div>
+	</div>
+
+    </body>
 
 	<!-- Footer section du bas de page -->
 	<?php include_once('include/footer.php'); ?>
 
-	<!-- importations des librairies Js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="//code.jquery.com/jquery-1.12.4.js"></script>
+    <!-- importations des librairies Js -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   	<script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="https://cdn.jsdelivr.net/leaflet/1/leaflet.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/zxcvbn/4.2.0/zxcvbn.js"></script>
 
-    <!-- Importation de la librairie js concernant le formulaire du profil -->
+	<!-- Importation de la librairie js concernant le formulaire du profil -->
+	<script src="js/datedropper.js"></script>
+	<script src="js/formLogin.js"></script>
     <script src="js/inscription.js"></script>
-   	<script src="js/formLogin.js"></script>
    	<script src="js/datepicker.js"></script>
-
+	
 </html>

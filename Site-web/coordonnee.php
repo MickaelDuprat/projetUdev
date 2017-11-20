@@ -181,15 +181,15 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 	<?php include_once('include/footer.php'); ?>
 
     <!-- importations des librairies Js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="//code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   	<script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="https://cdn.jsdelivr.net/leaflet/1/leaflet.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/zxcvbn/4.2.0/zxcvbn.js"></script>
 
 	<!-- Importation de la librairie js concernant le formulaire du profil -->
+	<script src="js/datedropper.js"></script>
+	<script src="js/formLogin.js"></script>
     <script src="js/inscription.js"></script>
-   	<script src="js/formLogin.js"></script>
    	<script src="js/datepicker.js"></script>
 
 </html>
