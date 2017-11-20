@@ -188,23 +188,5 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
     <script src="https://cdn.jsdelivr.net/leaflet/1/leaflet.js"></script>
 	<script src="js/datedropper.js"></script>
 	<script src="js/formLogin.js"></script>
-   
-    <script type="text/javascript">
-		function affiche(element)
-		{
-		    var targetElement;
-		    targetElement = document.getElementById(element) ;
-		    if (targetElement.style.display == "none")
-		    {
-		        targetElement.style.display = "" ;
-		    }
-		        else
-		        {
-		        targetElement.style.display = "none" ;
-		    }
-		}
-	</script>
-
-	<script src="https://s.codepen.io/assets/libs/modernizr.js" type="text/javascript"></script>
-
+	
 </html>
