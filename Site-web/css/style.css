@@ -61,6 +61,14 @@ nav ul a{
 	transition: all 0.4s;
 }
 
+nav ul li i{
+  padding-right: 10px;
+  color: #ec1c24;
+}
+
+.redText{
+  color: #ec1c24;
+}
 
 /** LOGIN FORM **/
 
@@ -68,22 +76,11 @@ fieldset {
   border: none;
 }
 
-.infoPerso {
-	width: 300px;
-	height: 300px;	
-}
-
-.infoAdresse{
-	width: 300px;
-	height: 300px;
-}
-
-.infoContact {
-	width: 300px;
-	height: 300px;
-}
-
 .login {
+  display: none;
+}
+
+.compte {
   display: none;
 }
 
@@ -97,7 +94,7 @@ fieldset {
   top: 75px;
 }
 
-.formholder input[type="email"], .formholder input[type="password"] {
+.formholder input[type="text"], .formholder input[type="password"] {
   padding: 7px 5px;
   margin: 10px 0;
   width: 96%;
@@ -111,7 +108,7 @@ fieldset {
   transition: 0.3s linear;
 }
 
-.formholder input[type="email"]:focus, .formholder input[type="password"]:focus {
+.formholder input[type="text"]:focus, .formholder input[type="password"]:focus {
   outline: none;
   box-shadow: 0 0 1px 1px #ec1c24;
 }
@@ -446,9 +443,8 @@ header img{
 .box ul {
   font-family: 'Quicksand', sans-serif;
   color: black;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 28px;
-  text-indent: 14px;
   margin: 25px;
   margin-top: 380px;
   list-style-type: disc;
@@ -568,15 +564,29 @@ header img{
   transition: all 0.5s;
 }
 
+#carte{ 
+  margin-left: 3%; 
+  float: left;
+  display: inline-block;
+}
+
+#agences {
+  padding-top: 5%;
+  float: right;
+  width: 40%;
+  display: inline-block;
+  margin-right: 3%;
+  font-size: 20px;
+}
+
 /** FOOTER **/
 
 #footer{
 	padding-right: 1%;
 	padding-left: 5%;
-	width: 94%;
-	display: block;
-	height: auto;
-	bottom: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
 	color: #ffffff;
 	text-align: center;
 	line-height: 40px;

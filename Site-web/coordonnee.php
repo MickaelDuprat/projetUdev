@@ -48,7 +48,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 
 	<!-- Première section de page -->
 	<div id="section-black">
-		<h2>Création du profil</h2>
+		<h2>Mes informations</h2>
 	</div>
 
 	<!-- Première section de page -->
@@ -143,7 +143,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
    						</p>
 					</div>
 	   		 	</div>
-
+ 
 	   		 <!-- partie information contact -->
 	   		 	<div id="basform">
 	    			<label for="tel">Téléphone</label>
@@ -190,6 +190,5 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
     <script src="js/datedropper.js"></script>
     <script src="js/formLogin.js"></script>
     <script src="js/inscription.js"></script>
-    <script src="js/datepicker.js"></script>
-
+       <script src="js/datepicker.js"></script>
 </html>

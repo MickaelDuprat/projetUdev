@@ -1,8 +1,18 @@
 <?php 
+session_start();
 
-include_once('auth/cnx.php'); 
+include_once('root.php');
+include_once(ROOT.'/controller/AuthentificationController.php');
+
+$message = '';
+
+if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
+	session_destroy();
+	header('Location: index.php');    
+}
 
 ?>
+
 <!doctype html>
 <html>
     <head>
@@ -25,6 +35,7 @@ include_once('auth/cnx.php');
 		<link href="https://fonts.googleapis.com/css?family=Didact+Gothic" rel="stylesheet"> 
 		<!-- Importation de la librairie css concernant le datepicker -->
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datedropper/2.0/datedropper.css" />
+		<link rel=""
     </head>
 
     <!-- Corps général de la page -->
@@ -37,17 +48,18 @@ include_once('auth/cnx.php');
 	<?php include_once('include/header.php'); ?>
 
 	<!-- Première section de page -->
-	<div id="section-white">
-		<article>
-			<h3>Détendez-vous, nous nous occupons de tout !</h3>
-			<p><i>Vous n'avez qu'à chosir votre véhicule ...</i></p>
-		</article>
+		<div id="section-white">
+			<article>
+				<h3>Détendez-vous, nous nous occupons de tout !</h3>
+				<p><i>Vous n'avez qu'à chosir votre véhicule ...</i></p>
+			</article>
 
-		<aside>
-			<h3><i>Choisissez le véhicule qui vous correspond ...</i></h3>
-			<img src="img/horizon.jpg" alt="Horizon">
-		</aside>
-	</div>
+			<aside>
+				<h3><i>Choisissez le véhicule qui vous correspond ...</i></h3>
+				<img src="img/horizon.jpg" alt="Horizon">
+			</aside>
+		</div>
+	
 
 	<!-- Deuxième section de page -->
 	<div id="section-black">
@@ -57,10 +69,9 @@ include_once('auth/cnx.php');
 			    <h3>Citadine</h3>
 			    
 			    <ul class="hidden">
-			      <li>Lorem ipsum dolor</li>
-			      <li>Set amet consecuter</li>
-			      <li>Lorem ipsum dolor</li>
-			      <li>Set amet consecuter</li>
+			      <li>
+			      	Adaptée aux déplacements en milieu urbain
+			  	  </li>
 			    </ul>
 			        
 			    <a class="expand"><span class="plus">+</span><span class="minus">-</span></a>
@@ -71,10 +82,9 @@ include_once('auth/cnx.php');
 			    <h3>Berline</h3>
 			    
 			    <ul class="hidden">
-			      <li>Lorem ipsum dolor</li>
-			      <li>Set amet consecuter</li>
-			      <li>Lorem ipsum dolor</li>
-			      <li>Set amet consecuter</li>
+			      <li>
+			      	Pratique, polyvalente et confortable
+			      </li>
 			    </ul>
 			        
 			    <a class="expand"><span class="plus">+</span><span class="minus">-</span></a>
@@ -85,10 +95,8 @@ include_once('auth/cnx.php');
 			    <h3>SUV</h3>
 			    
 			    <ul class="hidden">
-			      <li>Lorem ipsum dolor</li>
-			      <li>Set amet consecuter</li>
-			      <li>Lorem ipsum dolor</li>
-			      <li>Set amet consecuter</li>
+			      <li>Spacieux, Pratique,  Adapté à tous les milieux
+			      </li>
 			    </ul>
 			        
 			    <a class="expand"><span class="plus">+</span><span class="minus">-</span></a>
@@ -99,10 +107,9 @@ include_once('auth/cnx.php');
 			    <h3>Sport</h3>
 			    
 			    <ul class="hidden">
-			      <li>Lorem ipsum dolor</li>
-			      <li>Set amet consecuter</li>
-			      <li>Lorem ipsum dolor</li>
-			      <li>Set amet consecuter</li>
+			      <li>
+			      	La performance avant tout
+			      </li>
 			    </ul>
 			      
 			    <a class="expand"><span class="plus">+</span><span class="minus">-</span></a>
@@ -113,10 +120,8 @@ include_once('auth/cnx.php');
 			    <h3>Luxe</h3>
 			    
 			    <ul class="hidden">
-			      <li>Lorem ipsum dolor</li>
-			      <li>Set amet consecuter</li>
-			      <li>Lorem ipsum dolor</li>
-			      <li>Set amet consecuter</li>
+			      <li>
+			      Allie confort intérieur avec sensations de conduites</li>
 			    </ul>
 			        
 			    <a class="expand"><span class="plus">+</span><span class="minus">-</span></a>
@@ -127,10 +132,7 @@ include_once('auth/cnx.php');
 			    <h3>Utilitaire</h3>
 			    
 			    <ul class="hidden">
-			      <li>Lorem ipsum dolor</li>
-			      <li>Set amet consecuter</li>
-			      <li>Lorem ipsum dolor</li>
-			      <li>Set amet consecuter</li>
+			      <li> Idéal pour vos déménagements et transports de marchandises</li>
 			    </ul>
 			        
 			    <a class="expand"><span class="plus">+</span><span class="minus">-</span></a>
@@ -141,10 +143,9 @@ include_once('auth/cnx.php');
 			    <h3>Moto</h3>
 			    
 			    <ul class="hidden">
-			      <li>Lorem ipsum dolor</li>
-			      <li>Set amet consecuter</li>
-			      <li>Lorem ipsum dolor</li>
-			      <li>Set amet consecuter</li>
+			      <li>
+			      	Parfait pour s'évader 
+			      </li>
 			    </ul>
 			        
 			    <a class="expand"><span class="plus">+</span><span class="minus">-</span></a>
@@ -155,10 +156,9 @@ include_once('auth/cnx.php');
 			    <h3>Vélo</h3>
 			    
 			    <ul class="hidden">
-			      <li>Lorem ipsum dolor</li>
-			      <li>Set amet consecuter</li>
-			      <li>Lorem ipsum dolor</li>
-			      <li>Set amet consecuter</li>
+			      <li>
+			      	Déplacez-vous où vous le souhaitez sans contraintes des embouteillages ou du stationnement
+			      </li>
 			    </ul>
 			        
 			    <a class="expand"><span class="plus">+</span><span class="minus">-</span></a>
@@ -167,7 +167,26 @@ include_once('auth/cnx.php');
 	</div>
 
 	<div id="section-white">
-		<p style="text-align: center;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias aspernatur, ducimus laborum, molestias voluptas recusandae hic obcaecati suscipit doloribus illum dolores fugiat quos sapiente. Corrupti itaque vero ratione beatae necessitatibus!</p>
+		<iframe id="carte" src="https://www.google.com/maps/d/u/0/embed?mid=1LbHksYOSFHPVv_lcOKlCRGAlzerjbiE7" width="640" height="480"></iframe>
+
+		<div id="agences">
+					<h2> Nos agences en France </h2>
+					<br /> 
+					Retrouvez nous sur nos 5 sites localisés sur
+					<br />
+						<ul>
+							<li>Châtellerault</li>
+							<li>Niort</li>
+							<li>Bordeaux</li>
+							<li>Courçon</li>
+							<li>Poey-d'Oloron</li>
+						</ul>
+					
+
+				 	Une équipe de professionnelle à votre disposition et à votre écoute 
+					pour vous accompagnez tout au long de
+					votre location.
+		</div>
 	</div>
 
     </body>
@@ -175,27 +194,13 @@ include_once('auth/cnx.php');
 	<!-- Footer section du bas de page -->
 	<?php include_once('include/footer.php'); ?>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
     <script src="https://cdn.jsdelivr.net/leaflet/1/leaflet.js"></script>
-	<script src="js/datedropper.js"></script>
+    <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/zxcvbn/4.2.0/zxcvbn.js"></script>
+    <script src="js/voiture.js" type="text/javascript"></script>
+    <script src="js/datedropper.js"></script>
 	<script src="js/formLogin.js"></script>
-   
-    <script type="text/javascript">
-		function affiche(element)
-		{
-		    var targetElement;
-		    targetElement = document.getElementById(element) ;
-		    if (targetElement.style.display == "none")
-		    {
-		        targetElement.style.display = "" ;
-		    }
-		        else
-		        {
-		        targetElement.style.display = "none" ;
-		    }
-		}
-	</script>
-
-	<script src="https://s.codepen.io/assets/libs/modernizr.js" type="text/javascript"></script>
-
+	
 </html>

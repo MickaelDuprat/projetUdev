@@ -26,7 +26,7 @@ class AgenceController{
 
       $selectedAgence = $this->manager->read($IdAgence);
 
-      $tabSelectedJustificatif = [
+      $tabSelectedAgence = [
       'IdAgence' => $selectedAgence->getIdAgence(),
       'LibelleAgence' => $selectedAgence->getLibelleAgence(),
       'AdresseAgence' => $selectedAgence->getAdresseAgence(),
@@ -34,7 +34,7 @@ class AgenceController{
       'IdAgenceVilleCp' => $selectedAgence->getIdAgenceVilleCp()
       ];
 
-      $json = json_encode($tabSelectedJustificatif);
+      $json = json_encode($tabSelectedAgence);
       return ['agence' => $json];
 
   }
