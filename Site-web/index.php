@@ -168,6 +168,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 
 	<div id="section-white">
 		<iframe src="https://www.google.com/maps/d/u/0/embed?mid=1LbHksYOSFHPVv_lcOKlCRGAlzerjbiE7" width="640" height="480"></iframe>
+		<h3> Nos agences </h3>
 	</div>
 
     </body>
