@@ -2,10 +2,10 @@
 <nav>
 	<img src="img/logo.png" alt="Logo"/>
 	<ul>
-	    <a href="#"><li>Accueil</li></a>
-	    <a href="#"><li>Types de véhicules</li></a>
-	    <a href="#"><li>Partenaires</li></a>
-	    <a href="#"><li>Contact</li></a>
+	    <a href="index.php"><li>Accueil</li></a>
+	    <a href="search.php"><li>Recherche</li></a>
+	    <a href="fiche.php"><li>Fiche</li></a>
+	    <a href="inscription.php"><li>Inscription</li></a>
 	    <li>
 	    <?php 
 	    	if(isset($_SESSION['login'])){
