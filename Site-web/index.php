@@ -70,7 +70,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 			    
 			    <ul class="hidden">
 			      <li>
-			      	Adapté aux déplacement en milieu urbain
+			      	Adaptée aux déplacements en milieu urbain
 			  	  </li>
 			    </ul>
 			        
@@ -132,7 +132,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 			    <h3>Utilitaire</h3>
 			    
 			    <ul class="hidden">
-			      <li> Idéale pour vos déménagements et transports de marchandises</li>
+			      <li> Idéal pour vos déménagements et transports de marchandises</li>
 			    </ul>
 			        
 			    <a class="expand"><span class="plus">+</span><span class="minus">-</span></a>
@@ -167,8 +167,26 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 	</div>
 
 	<div id="section-white">
-		<iframe src="https://www.google.com/maps/d/u/0/embed?mid=1LbHksYOSFHPVv_lcOKlCRGAlzerjbiE7" width="640" height="480"></iframe>
-		<h3> Nos agences </h3>
+		<iframe id="carte" src="https://www.google.com/maps/d/u/0/embed?mid=1LbHksYOSFHPVv_lcOKlCRGAlzerjbiE7" width="640" height="480"></iframe>
+
+		<div id="agences">
+					<h2> Nos agences en France </h2>
+					<br /> 
+					Retrouvez nous sur nos 5 sites localisés sur
+					<br />
+						<ul>
+							<li>Châtellerault</li>
+							<li>Niort</li>
+							<li>Bordeaux</li>
+							<li>Courçon</li>
+							<li>Poey-d'Oloron</li>
+						</ul>
+					
+
+				 	Une équipe de professionnelle à votre disposition et à votre écoute 
+					pour vous accompagnez tout au long de
+					votre location.
+		</div>
 	</div>
 
     </body>
