@@ -176,12 +176,13 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 	<!-- Footer section du bas de page -->
 	<?php include_once('include/footer.php'); ?>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="js/voiture.js" type="text/javascript"></script>
-	<script src="js/datedropper.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
     <script src="https://cdn.jsdelivr.net/leaflet/1/leaflet.js"></script>
-	<script src="js/datedropper.js"></script>
+    <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/zxcvbn/4.2.0/zxcvbn.js"></script>
+    <script src="js/voiture.js" type="text/javascript"></script>
+    <script src="js/datedropper.js"></script>
 	<script src="js/formLogin.js"></script>
 	
 </html>

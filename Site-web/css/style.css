@@ -569,10 +569,9 @@ header img{
 #footer{
 	padding-right: 1%;
 	padding-left: 5%;
-	width: 94%;
-	display: block;
-	height: auto;
-	bottom: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
 	color: #ffffff;
 	text-align: center;
 	line-height: 40px;
