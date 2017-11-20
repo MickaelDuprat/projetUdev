@@ -2,10 +2,10 @@
 //  datepicker pour la date de naissance //
         $( function() {
     $("#datepicker" ).datepicker({
-        changeMonth: true,
-        changeYear: true,
-        yearRange: '1920:2001',
-        dateFormat : 'dd-mm-yy',
-        defaultDate: new Date(2000,01,01)
+        dateFormat : 'dd/mm/yy',
+        changeMonth : true,
+        changeYear : true,
+        yearRange: '1900:2000',
+        maxDate: '-1d, -18y ',
     });
 });

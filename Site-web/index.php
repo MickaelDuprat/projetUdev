@@ -1,6 +1,15 @@
 <?php 
+session_start();
 
-include_once('auth/cnx.php'); 
+include_once('root.php');
+include_once(ROOT.'/controller/AuthentificationController.php');
+
+$message = '';
+
+if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
+	session_destroy();
+	header('Location: index.php');    
+}
 
 ?>
 <!doctype html>
