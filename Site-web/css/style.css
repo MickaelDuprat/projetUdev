@@ -564,6 +564,21 @@ header img{
   transition: all 0.5s;
 }
 
+#carte{ 
+  margin-left: 3%; 
+  float: left;
+  display: inline-block;
+}
+
+#agences {
+  padding-top: 5%;
+  float: right;
+  width: 40%;
+  display: inline-block;
+  margin-right: 3%;
+  font-size: 20px;
+}
+
 /** FOOTER **/
 
 #footer{
