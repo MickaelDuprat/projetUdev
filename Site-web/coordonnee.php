@@ -143,7 +143,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
    						</p>
 					</div>
 	   		 	</div>
-
+ 
 	   		 <!-- partie information contact -->
 	   		 	<div id="basform">
 	    			<label for="tel">Téléphone</label>
