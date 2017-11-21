@@ -34,9 +34,15 @@ foreach ($tabInfos as $value) {
 }
 
 if (isset($siret)) {
-	$checked = "checked";
+	$res = '<label for="oui"> Professionnel ? </label>
+				<input type="radio" name="typeClient" value="pro" checked>
+			<label for="oui"> Particulier ? </label>
+				<input type="radio" name="typeClient" value="part">';
 } else {
-	$checked = "";
+	$res = '<label for="oui"> Professionnel ? </label>
+				<input type="radio" name="typeClient" value="pro">
+			<label for="oui"> Particulier ? </label>
+				<input type="radio" name="typeClient" value="part" checked>';
 }
 
 // var_dump($tabInfos);
@@ -94,12 +100,9 @@ if (isset($siret)) {
 			<div id="typeClient">
 				<form id="choixClient">
 					<label type="text"> Êtes vous un </label><br /><br />
-					<label for="oui"> Professionnel ? </label>
-						<input type="radio" name="typeClient" value="pro" <?php print($checked); ?>>
-					<label for="oui"> Particulier ? </label>
-  						<input type="radio" name="typeClient" value="part" <?php print($checked); ?>> 
+					<?php print($res); ?>
   				</form>
-  			</div>	
+  			</div>
 
   			<!-- demande si présence d'un code promo -->
   			<div id="codePromo">
