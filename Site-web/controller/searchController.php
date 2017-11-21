@@ -10,9 +10,11 @@ class SearchController{
     *
     **/
 
+  private $manager;
+
   // Constructeur qui initalise un objet manager instance de la classe AgenceModel 
   public function __construct(){
-    $this->manager = new AgenceModel();
+    $this->manager = new SearchModel();
   }
 
   /** 
