@@ -18,11 +18,6 @@ class CoordonneeModel extends Manager {
       parent::__construct();
   }
 
-   /** 
-    * Exemple
-    * de CRUD (Afficher, Créer, Modifier, Supprimer)
-    *
-    **/
 
   // Fonction de lecture des informations liées à l'utilisateur
   public function informations($id) {
