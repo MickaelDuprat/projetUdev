@@ -1,5 +1,11 @@
 <?php
 
+include_once(ROOT .'/root.php');
+
+include_once(ROOT . '/modele/SearchModel.php');
+
+$srch = new SearchController();
+
 // Classe controller de recherche Index.php
 
 class SearchController{
@@ -9,20 +15,34 @@ class SearchController{
     * private $variables
     *
     **/
+  private $manager;
 
-  // Constructeur qui initalise un objet manager instance de la classe AgenceModel 
+  // Constructeur qui initalise un objet manager instance de la classe SearchModel
+
   public function __construct(){
-    $this->manager = new AgenceModel();
+    $this->manager = new SearchModel();
   }
 
-  /** 
+
+    /** 
     * Exemple
     * de CRUD (Afficher, Afficher tous, Créer, Modifier, Supprimer)
     *
     **/
+    
+  function search($json) {
+
+    if($jsonTab['sucess'] == true) {
+      foreach ($jsonTab as $value) {
+        $_SESSION['id'] = $value['id_agence'];
+        $_SESSION['dateDebut'] = $value['dateDebut'];
+        $_SESSION['dateFin'] = $value['dateFin'];
+      }
+    }
+  }
 
     // Fonction de lecture d'une seule agence
-  public function getOneAgence($IdAgence){
+  public function getVehiculeByAgence($IdAgence){
 
       $selectedAgence = $this->manager->read($IdAgence);
 

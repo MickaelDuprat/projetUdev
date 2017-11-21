@@ -209,6 +209,13 @@ $(document).ready(function(){
             })
         }
     });
+
+/* function affichage Pro */
+    function afficherPro() {
+            $proform.css({
+                display : 'block'
+            });
+    }
     
     /* fonction du bouton reset */
     $reset.click(function(){

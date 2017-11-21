@@ -23,7 +23,7 @@ class SearchModel extends Manager {
     * de CRUD (Afficher, Créer, Modifier, Supprimer)
     *
     **/
-
+   
   // Fonction de lecture d'une information
   public function read($login, $password) {
     $this->pdoStatement = $this->pdo->prepare("SELECT id_membre, login_membre FROM membre WHERE login_membre = :login AND password_membre = :password");
