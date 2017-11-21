@@ -359,9 +359,7 @@ INSERT INTO client (nom_client, prenom_client, dateN_client, email_client, tel_c
 INSERT INTO client (nom_client, prenom_client, dateN_client, email_client, tel_client, taux_remise, add_facturation, add1_client, add2_client, raisonS_societe, siret_societe, nomC_societe, id_client_civ, id_client_villecp) VALUES ('Remy ', 'Agathe ', '1961-10-21', 'agatheremy@live.fr ', '06 59 06 05 31 ', null, '74 Rue de l''Indre ', '74 Rue de l''Indre ', '', '', '', '', 1, 4083);
 INSERT INTO client (nom_client, prenom_client, dateN_client, email_client, tel_client, taux_remise, add_facturation, add1_client, add2_client, raisonS_societe, siret_societe, nomC_societe, id_client_civ, id_client_villecp) VALUES ('Adam ', 'Nina ', '1956-03-16', 'ninaadam@live.fr ', '06 01 42 15 61 ', null, '124 Rue Henri-Robert ', '124 Rue Henri-Robert ', '', '', '', '', 1, 16955);
 INSERT INTO client (nom_client, prenom_client, dateN_client, email_client, tel_client, taux_remise, add_facturation, add1_client, add2_client, raisonS_societe, siret_societe, nomC_societe, id_client_civ, id_client_villecp) VALUES ('Peron ', 'Yohan ', '1995-01-17', 'yohanperon@live.fr ', '06 49 49 74 38 ', 1.2, '170 Place de Barcelone ', '170 Place de Barcelone ', '', '', '', '', 1, 20338);
-INSERT INTO client (nom_client, prenom_client, dateN_client, email_client, tel_client, taux_remise, add_facturation, add1_client, add2_client, raisonS_societe, siret_societe, nomC_societe, id_client_civ, id_client_villecp) VALUES ('Duprat ', 'Mickaël', '1996-09-29', 'mickaelduprat@udev.fr ', '06 49 49 74 38 ', 1.2, '170 Place de Barcelone ', '', '', '', '', '', 1, 26035);
-INSERT INTO client (nom_client, prenom_client, dateN_client, email_client, tel_client, taux_remise, add_facturation, add1_client, add2_client, raisonS_societe, siret_societe, nomC_societe, id_client_civ, id_client_villecp) VALUES ('Lostis ', 'Bruce ', '1990-10-24', 'brucelostis@udev.fr ', '06 49 49 74 38 ', 1.2, '170 Place de Barcelone ', '', '', '', '', '', 1, 34299);
-INSERT INTO client (nom_client, prenom_client, dateN_client, email_client, tel_client, taux_remise, add_facturation, add1_client, add2_client, raisonS_societe, siret_societe, nomC_societe, id_client_civ, id_client_villecp) VALUES ('De sousa ', 'Rodolphe ', '1984-06-17', 'rodolphedesousa@udev.fr ', '06 49 49 74 38 ', 1.2, '170 Place de Barcelone ', '', '', '', '', '', 1, 6157);
+INSERT INTO client (nom_client, prenom_client, dateN_client, email_client, tel_client, taux_remise, add_facturation, add1_client, add2_client, raisonS_societe, siret_societe, nomC_societe, id_client_civ, id_client_villecp) VALUES ('Cornille ', 'Marie-José', '1990-01-01', 'mjcornille@epsi.com ', '05 56 43 13 13 ', 1.5, '114 rue Lucien Faure', '', '', '', '', '', 2, 12681);
 
 
 
@@ -372,8 +370,9 @@ insert into agence (lib_agence, add_agence, id_agence_villecp) values ("Agence d
 insert into agence (lib_agence, add_agence, id_agence_villecp) values ("Agence de Poey d'Oloron", "7, rue de la mairie", 26035);
 
 insert into membre (login_membre, password_membre, id_membre_client) values ('mickaelduprat', 'password', 250);
-insert into membre (login_membre, password_membre, id_membre_client) values ('brucelostis', 'password', 251);
-insert into membre (login_membre, password_membre, id_membre_client) values ('rodolphedesousa', 'password', 252);
+insert into membre (login_membre, password_membre, id_membre_client) values ('brucelostis', 'password', 250);
+insert into membre (login_membre, password_membre, id_membre_client) values ('rodolphedesousa', 'password', 250);
+insert into membre (login_membre, password_membre, id_membre_client) values ('utilisateur', 'motdepasse', 250);)
 
 
 insert into tva (tva_lib) values ("1.2");
