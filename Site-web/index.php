@@ -3,14 +3,14 @@ session_start();
 
 include_once('root.php');
 include_once(ROOT.'/controller/AuthentificationController.php');
-
+include_once(ROOT.'/controller/SearchController.php');
 $message = '';
 
 if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 	session_destroy();
 	header('Location: index.php');    
 }
-
+	var_dump($srch->searchVehicle());
 ?>
 
 <!doctype html>
