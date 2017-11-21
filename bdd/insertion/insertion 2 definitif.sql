@@ -372,8 +372,7 @@ insert into agence (lib_agence, add_agence, id_agence_villecp) values ("Agence d
 insert into membre (login_membre, password_membre, id_membre_client) values ('mickaelduprat', 'password', 250);
 insert into membre (login_membre, password_membre, id_membre_client) values ('brucelostis', 'password', 250);
 insert into membre (login_membre, password_membre, id_membre_client) values ('rodolphedesousa', 'password', 250);
-insert into membre (login_membre, password_membre, id_membre_client) values ('utilisateur', 'motdepasse', 250);)
-
+insert into membre (login_membre, password_membre, id_membre_client) values ('utilisateur', 'motdepasse', 250);
 
 insert into tva (tva_lib) values ("1.2");
 insert into tva (tva_lib) values ("1.1");
