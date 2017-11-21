@@ -23,11 +23,6 @@ class CoordonneeController{
     $this->manager = new CoordonneeModel();
   }
 
-  /** 
-    * Exemple
-    * de CRUD (Afficher, Afficher tous, Créer, Modifier, Supprimer)
-    *
-    **/
 
   // Fonction d'authentification d'une utilisateur
 
