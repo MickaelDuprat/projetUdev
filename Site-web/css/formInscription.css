@@ -46,12 +46,13 @@ label {
 
 /* boutons */
 .btn {
-  padding-bottom: 30px;
+  padding: 10px 10px 30px 10px;
   margin: 0px 0px 40px 70px;
-  background: #960018;
+  background: #960018 !important;
   outline: 0;
   border: none;
   border-radius: 30px;
+  font-size: 18px;
   color: white;
   transition: 0.15s ease-in-out;
   cursor: pointer;
@@ -59,8 +60,12 @@ label {
   text-decoration: none;
 }
 
-.btn:hover {
-  background: #ec1c24;
+.btn:hover, .btn:active, .btn:focus{
+  background: #ec1c24 !important;
+}
+
+element.style {
+    background: #ec1c24 !important;
 }
 
 /* Formulaire */
