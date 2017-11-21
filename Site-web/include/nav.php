@@ -46,7 +46,7 @@
 			          			 print('<li>Bienvenue <b class="redText">'.ucfirst($_SESSION['login']).'</b></li><br/><br/>');
 			          		}
 		          		?>
-		             	<li><a href="informations.php">Mes informations</a></li>
+		             	<li><a href="coordonnee.php">Mes informations</a></li>
 		             	<li><a href="?action=deconnexion">Déconnexion</a></li>
 		           </fieldset>
 		        </div>

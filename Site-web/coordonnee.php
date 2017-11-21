@@ -2,7 +2,7 @@
 session_start();
 
 include_once('root.php');
-include_once(ROOT.'/controller/AuthentificationController.php');
+include_once(ROOT.'/controller/CoordonneeController.php');
 
 $message = '';
 
@@ -10,6 +10,36 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 	session_destroy();
 	header('Location: index.php');    
 }
+
+$ctrl = new CoordonneeController();
+
+$tabInfos = json_decode($ctrl->informationsUser($_SESSION['id']), true);
+
+
+foreach ($tabInfos as $value) {
+	$nom = $value['nom_client'];
+	$prenom = $value['prenom_client'];
+	$dateN = $value['dateN_client'];
+	$adresseFact = $value['add_facturation'];
+	$adresse1 = $value['add1_client'];
+	$adresse2 = $value['add2_client'];
+	$cpVille = $value['cp_villecp'];
+	$ville = $value['ville_villecp'];
+	$tel = $value['tel_client'];
+	$email = $value['email_client'];
+	$raison = $value['raisonS_societe'];
+	$siret = $value['siret_societe'];
+	$nomS = $value['nomC_societe'];
+	$civilite = $value['lib_civ'];
+}
+
+if (isset($siret)) {
+	$checked = "checked";
+} else {
+	$checked = "";
+}
+
+// var_dump($tabInfos);
 
 ?>
 <!doctype html>
@@ -65,9 +95,9 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 				<form id="choixClient">
 					<label type="text"> Êtes vous un </label><br /><br />
 					<label for="oui"> Professionnel ? </label>
-						<input type="radio" name="typeClient" value="pro">
+						<input type="radio" name="typeClient" value="pro" <?php print($checked); ?>>
 					<label for="oui"> Particulier ? </label>
-  						<input type="radio" name="typeClient" value="part"> 
+  						<input type="radio" name="typeClient" value="part" <?php print($checked); ?>> 
   				</form>
   			</div>	
 
@@ -90,18 +120,18 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 				<div id="hautform">
 					<label for="civ"> Civilité </label>
 						<select name="civ" id="civ">
-							<option value=""> </option>
-							<option value="0"> Mademoiselle </option>
-							<option value="1"> Madame </option>
-							<option value="2"> Monsieur </option>
-						</select><br />
+							<option value="<?php print($civilite); ?>" selected><?php print(ucfirst($civilite)); ?></option>
+							<option value="monsieur"> Mademoiselle </option>
+							<option value="madame"> Madame </option>
+							<option value="mademoiselle"> Monsieur </option>
+						</select><br/><br/>
 	    			<label for="nom">Nom</label>
-	    				<input type="text" id="nom" class="champ" />
+	    				<input type="text" id="nom" value="<?php print($nom); ?>" class="champ" />
 					<label for="prenom">Prénom</label>
-						<input type="text" id="prenom" class="champ"/><br />
+						<input type="text" id="prenom" value="<?php print($prenom); ?>" class="champ"/><br />
 					<!-- datepicker pour la date de naissance -->
 					<label for="ddn"> Date de naissance </label>
-						<input type="text" id="datepicker" class="champ" value=""/>
+						<input type="text" id="datepicker" value="<?php print($dateN); ?>" class="champ" value=""/>
 							<div id="erreurddn">
     							<p>date de naissance invalide
     							</p>
@@ -110,19 +140,19 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 			<!-- partie information adresse -->	
 				<div id="mid1form">
 						<label for="add1">Adresse</label>
-							<input type="text" id="add1" class="champ"/><br />
+							<input type="text" id="add1" value="<?php print($adresse1); ?>" class="champ"/><br />
 						<label for="add2">Complément adresse</label>
-							<input type="text" id="add2"/><br />
+							<input type="text" value="<?php print($adresse2); ?>" id="add2"/><br />
 						<label for="addfact">Adresse de facturation</label>
-							<input type="text" id="addfact" class="champ"/><br />
+							<input type="text" id="addfact" value="<?php print($adresseFact); ?>" class="champ"/><br />
 						<label for="cp">Code postal</label>
-							<input type="text" id="villecp" class="champ"/><br />
+							<input type="text" id="villecp" value="<?php print($cpVille); ?>" class="champ"/><br />
 							<div id="erreurvillecp">
     							<p>code postale invalide
     							</p>
 							</div>
 						<label for="ville">Ville</label>
-							<input type="text" id="ville" class="champ"/><br />			
+							<input type="text" id="ville" value="<?php print($ville); ?>" class="champ"/><br />			
 						<label for='pays'>Pays</label>
 							<select name="pays" id="pays" class="champ">
 								<option value="">Pays</option>
@@ -147,13 +177,13 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 	   		 <!-- partie information contact -->
 	   		 	<div id="basform">
 	    			<label for="tel">Téléphone</label>
-	    				<input type="tel" id="tel" class="champ"/>
+	    				<input type="tel" id="tel" value="<?php print($tel); ?>" class="champ"/>
 	    				<div id="erreurtel">
     						<p>numéro de télépone invalide
     						</p>
 						</div>
 	    			<label for="mail">E-mail</label>
-	    				<input type="text" id="mail" class="champ" /><br />
+	    				<input type="text" id="mail" value="<?php print($email); ?>" class="champ" /><br />
     					<div id="erreurmail">
     						<p>adresse e-mail invalide
     						</p>
@@ -163,11 +193,11 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 	   		 <!-- partie client pro -->
 	   		 	<div id="proform">
 	   		 		<label for="raisonSociale">Raison sociale</label>
-	    				<input type="text" id="raisonSociale" class="champ"/>
+	    				<input type="text" id="raisonSociale" value="<?php print($raison); ?>" class="champ"/>
 	    			<label for="siret">Numéro SIRET</label>
-	    				<input type="text" id="siret" class="champ" /><br />
+	    				<input type="text" id="siret" value="<?php print($siret); ?>" class="champ" /><br />
 	    			<label for="nomCSociete">Nom contact société</label>
-	    				<input type="text" id="nomCSociete" class="champ" /><br />
+	    				<input type="text" id="nomCSociete" value="<?php print($nomS); ?>" class="champ" /><br />
 	    		</div>
 	   			<!-- boutons -->
 	    			<input class='btn' type="submit" id="envoi" value="Envoyer" /> <input class='btn' type="reset" id="reset" value="Reset" />

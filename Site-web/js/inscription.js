@@ -39,7 +39,7 @@ $(document).ready(function(){
  /* validation de la date de naissance par rapport au format */
   $ddn.on('change', function(){
     try {
-    var dateParse = $.datepicker.parseDate("dd/mm/yy", $(this).val());
+    var dateParse = $.datepicker.parseDate("yy-mm-dd", $(this).val());
     }
      catch (e) {}
     if (dateParse) {
