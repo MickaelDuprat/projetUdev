@@ -170,7 +170,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 	    				<input type="text" id="nomCSociete" class="champ" /><br />
 	    		</div>
 	   			<!-- boutons -->
-	    			<input class='btn' type="submit" id="envoi" value="Envoyer" /> <input class='btn' type="reset" id="reset" value="Reset" />
+	    			<input class="btn" type="submit" id="envoi" value="Envoyer" /> <input class="btn" type="reset" id="reset" value="Reset" />
 			</form>
 		</div>
 	</div>
