@@ -6,7 +6,6 @@ include_once(ROOT .'/modele/AuthentificationModel.php');
 
 $ctrl = new AuthentificationController();
 
-
 function cnx($json){
 
   // On va boucler sur un tableau
@@ -14,6 +13,7 @@ function cnx($json){
 
   if ($jsonTab['success'] == true) {
     foreach ($jsonTab as $value) {
+      $_SESSION['id'] = $value['id_membre'];
       $_SESSION['login'] = $value['login_membre'];
     }
   }
@@ -49,14 +49,13 @@ class AuthentificationController{
     *
     **/
 
-  // Fonction de lecture d'une seule agence
+  // Fonction d'authentification d'une utilisateur
 
     public function connexion(){
       
       $login = $_POST['login'];
       $password = $_POST['password'];
  
-     
       $membre = $this->manager->read($login, $password);
 
       if($membre){
