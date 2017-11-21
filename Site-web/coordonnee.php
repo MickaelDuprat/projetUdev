@@ -2,7 +2,7 @@
 session_start();
 
 include_once('root.php');
-include_once(ROOT.'/controller/CoordonneController.php');
+include_once(ROOT.'/controller/CoordonneeController.php');
 
 $message = '';
 
@@ -11,7 +11,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 	header('Location: index.php');    
 }
 
-$ctrl = new CoordonneController();
+$ctrl = new CoordonneeController();
 
 $tabInfos = json_decode($ctrl->informationsUser($_SESSION['id']), true);
 
