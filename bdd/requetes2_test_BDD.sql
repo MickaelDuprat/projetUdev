@@ -131,3 +131,47 @@ where id_penalite in (SELECT id_contrat_loc_penalite from contrat_loc
 ) as total;
 
 
+/* véhicule disponible à la location aujourd'hui */
+select distinct id_veh, lib_modele, lib_marque, lib_agence
+from vehicule
+left join agence on agence.id_agence = vehicule.id_agence_vehicule
+left join modele on modele.id_modele = vehicule.id_modele_vehicule
+left join marque on marque.id_marque = modele.id_marque_modele
+left join contrat_loc on contrat_loc.id_contrat_loc_vehicule = vehicule.id_veh
+where id_veh not in (select id_veh from vehicule inner join contrat_loc
+    on contrat_loc.id_contrat_loc_vehicule = vehicule.id_veh where statut_facturation = 0);
+
+/* véhicule en location parti en location a la date d'aujourd'hui */
+    select id_veh from vehicule inner join contrat_loc
+    on contrat_loc.id_contrat_loc_vehicule = vehicule.id_veh where statut_facturation = 0 and ;
+    
+    
+
+/* véhicule disponible pour une location du 24 au 28 novembre  */
+    
+select distinct id_veh, lib_modele, lib_marque, lib_agence
+from vehicule
+left join agence on agence.id_agence = vehicule.id_agence_vehicule
+left join modele on modele.id_modele = vehicule.id_modele_vehicule
+left join marque on marque.id_marque = modele.id_marque_modele
+left join contrat_loc on contrat_loc.id_contrat_loc_vehicule = vehicule.id_veh
+where id_veh not in (select id_veh from vehicule inner join contrat_loc
+    on contrat_loc.id_contrat_loc_vehicule = vehicule.id_veh 
+    where statut_facturation = 0
+    and contrat_loc.date_debut < '2017-11-28' and contrat_loc.date_fin > '2017-11-24');
+    
+/* véhicule disponible pour une location du 24 au 28 novembre pour l'agence 1  ! a recuperer en php l'agence sélectionnée par l'internaute, sa date de début de location et sa date de fin de location */
+    
+select distinct id_veh, lib_modele, lib_marque, id_cat_veh_vehicule, nbre_bagage_veh, nbre_passager_veh, nbre_portes_veh, lib_agence, id_agence, id_boiteV_vehicule
+from vehicule
+left join agence on agence.id_agence = vehicule.id_agence_vehicule
+left join modele on modele.id_modele = vehicule.id_modele_vehicule
+left join marque on marque.id_marque = modele.id_marque_modele
+left join contrat_loc on contrat_loc.id_contrat_loc_vehicule = vehicule.id_veh
+where id_agence = 1 /* info internaute */ and id_veh not in (select id_veh from vehicule inner join contrat_loc
+    on contrat_loc.id_contrat_loc_vehicule = vehicule.id_veh 
+    where statut_facturation = 0 /* pas touche au 0 */
+    and contrat_loc.date_debut < '2017-11-28' /*info internaute */ and contrat_loc.date_fin > '2017-11-24' /* info internaute */);
+    
+    alter table modele alter column img_modele type varchar(60);
+    
