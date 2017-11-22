@@ -11,6 +11,8 @@ function searchResult($json){
   // On va boucler sur un tableau
   $jsonTab = json_decode($json, true);
 
+  $list = "";
+
   if ($jsonTab['success'] == true) {
     foreach ($jsonTab as $value) {
       $marque = $value['lib_marque'];
@@ -20,6 +22,32 @@ function searchResult($json){
       $bagage = $value['nbre_bagage_veh'];
       $boiteV = $value['lib_boiteV'];
       $clim = $value['lib_clim_veh'];
+      $prixJ = $value['prix_journalier_veh'];
+
+      $list = 
+      '<div class="vehicule">
+        <div class="title"><h3>BMW SÉRIE 3</h3></div>
+        <div class="descriptif">
+          <img src="https://www.sixt.fr/fileadmin/files/global/user_upload/fleet/png/350x200/bmw-3er-gt-4d-silber-2013.png" alt="'.$marque.' '.$modele.'">
+          <div class="infos">
+            <p><img src="ico/personne.png" alt="Personne"> '.$personne.' personnes</p>
+            <p><img src="ico/voiture.png" alt="Porte"> '.$porte.' portes</p>
+            <p><img src="ico/bagage.png" alt="Bagage"> '.$bagage.' bagages</p>
+            <p><img src="ico/boiteVitesse.png" alt="BoiteVitesse"> '.$boiteV.'</p>
+            <p><img src="ico/clim.png" alt="Climatisation"> '.$clim.'</p>
+          </div>
+        </div>
+        <div class="footer">
+          <a href="fiche.php">
+            <div class="bouton">
+              RÉSERVER
+            </div>
+            <div class="prix">
+              <p>'.$prixJ.'€/j</p>
+            </div>
+          </a>
+        </div>
+      </div>';
     }
   }
 
@@ -58,7 +86,7 @@ class SearchController{
       var_dump($dateDepart);
       var_dump($dateArrivee);
 
-      $agences = $this->manager->read($idAgence);
+      $agences = $this->manager->read($idAgence, $dateDepart, $dateArrivee);
 
       if($agences){
         $json = json_encode(['success' => true, 'result' => $agences]);
