@@ -20,7 +20,7 @@ function cnx($json){
 
 }
 
-if ($_POST) {
+if (isset($_POST['connexion'])) {
   $message = cnx($ctrl->connexion());
 }
 
