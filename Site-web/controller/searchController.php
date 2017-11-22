@@ -53,9 +53,9 @@ function searchResult($json){
 
 }
 
-if (isset($_POST['search'])) {
-  searchResult($srch->getVehiculeByAgence());
-}
+// if (isset($_POST['search'])) {
+//   searchResult($srch->getVehiculeByAgence());
+// }
 
 // Classe controller de recherche Index.php
 
@@ -84,9 +84,9 @@ class SearchController{
       $dateDepart = $_POST['dateDepart'];
       $dateArrivee = $_POST['dateArrivee'];
 
-      var_dump($idAgence);
-      var_dump($dateDepart);
-      var_dump($dateArrivee);
+      // var_dump($idAgence);
+      // var_dump($dateDepart);
+      // var_dump($dateArrivee);
 
     $recherche = $this->manager->read($idAgence, $dateDepart, $dateArrive);
 
