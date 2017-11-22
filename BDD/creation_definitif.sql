@@ -1,3 +1,4 @@
+DROP database projetudev;
 create database projetudev;
 use projetudev;
 set names 'utf8';
@@ -8,6 +9,7 @@ create table contrat_loc (
 	date_debut date NOT NULL,
 	date_fin date NOT NULL,
 	caution double(6,2) NOT NULL,
+	statut_facturation boolean NOT NULL,
 	id_contrat_loc_client int NOT NULL,
 	id_contrat_loc_vehicule int NOT NULL,
 	id_contrat_loc_agence int NOT NULL,
@@ -57,20 +59,20 @@ CREATE TABLE type_etat_lieux (
 
 CREATE TABLE changer (
 	qte_piece int not null,
-	id_entretien int NOT NULL,
-	id_piece int NOT NULL,
+	pk_id_entretien int NOT NULL,
+	pk_id_piece int NOT NULL,
 	id_changer_entretien int NOT NULL,
 	id_changer_piece int NOT NULL,
-	CONSTRAINT pk_changer PRIMARY KEY (id_entretien, id_piece)
+	CONSTRAINT pk_changer PRIMARY KEY (pk_id_entretien, pk_id_piece)
 );
 
 CREATE TABLE repertorie (
 	qtite_piece int default null,
-	id_etat_lieux int NOT NULL,
-	id_entretien int NOT NULL,
+	pk_id_etat_lieux int NOT NULL,
+	pk_id_entretien int NOT NULL,
 	id_repertorie_etat_lieux int NOT NULL,
 	id_repertorie_entretien int NOT NULL,
-	CONSTRAINT pk_repertorie PRIMARY KEY (id_etat_lieux, id_entretien)
+	CONSTRAINT pk_repertorie PRIMARY KEY (pk_id_etat_lieux, pk_id_entretien)
 );
 
 CREATE TABLE accessoire (
@@ -135,8 +137,13 @@ CREATE TABLE client (
 	nomC_societe varchar(50) DEFAULT NULL,
 	id_client_civ int NOT NULL,
 	id_client_villecp int NOT NULL,
-	
 	CONSTRAINT Pk_client PRIMARY KEY (id_client)
+);
+
+create table statut_membre(
+	id_statut_membre int not null auto_increment,
+	lib_statut_membre varchar(50) not null,
+	CONSTRAINT Pk_statut_membre PRIMARY KEY (id_statut_membre)
 );
 
 CREATE TABLE membre(
@@ -144,9 +151,9 @@ CREATE TABLE membre(
     login_membre VARCHAR(60) NOT null,
     password_membre VARCHAR(60) NOT null,
     id_membre_client int NOT NULL,
+    id_membre_statut_membre int not null,
     constraint Pk_id_membre primary key (id_membre)
 );
-
 
 CREATE TABLE type_carb(
     id_type_carb int NOT NULL AUTO_INCREMENT,
@@ -240,45 +247,45 @@ CREATE TABLE vehicule(
  );
 
 	create table travaille (
-	id_agence int not null,
-	id_pers int not null,
+	pk_id_agence int not null,
+	pk_id_pers int not null,
 	id_travaille_agence int NOT NULL,
 	id_travaille_pers int not null,
-	constraint Pk_travaille primary key(id_agence, id_pers)
+	constraint Pk_travaille primary key(pk_id_agence, pk_id_pers)
 	);
 	
 	create table intervient (
 	statut_entretien boolean not null,
-	id_entretien int not null,
-	id_pers int not null,
+	pk_id_entretien int not null,
+	pk_id_pers int not null,
 	id_intervient_entretien int not null,
 	id_intervient_pers int not null,
-	constraint pk_intervient PRIMARY KEY (id_entretien, id_pers)
+	constraint pk_intervient PRIMARY KEY (pk_id_entretien, pk_id_pers)
 	);
 	
 	create table concerne (
-	id_veh int not null,
-	id_entretien int not null,
+	pk_id_veh int not null,
+	pk_id_entretien int not null,
 	id_concerne_veh int not null,
 	id_concerne_entretien int not null,
-	constraint pk_intervient PRIMARY KEY (id_veh, id_entretien)
+	constraint pk_intervient PRIMARY KEY (pk_id_veh, pk_id_entretien)
 	);
 	
 	create table choisit (
 	qtite int default null,
-	id_contrat_loc int not null,
-	id_accessoire int not null,
+	pk_id_contrat_loc int not null,
+	pk_id_accessoire int not null,
 	id_choisit_contrat_loc int not null,
 	id_choisit_accessoire int not null,
-	constraint pk_choisit PRIMARY KEY (id_contrat_loc, id_accessoire)
+	constraint pk_choisit PRIMARY KEY (pk_id_contrat_loc, pk_id_accessoire)
 	);
 	
 	create table applique (
-	num_fact int not null,
-	id_penalite int not null,
+	pk_num_fact int not null,
+	pk_id_penalite int not null,
 	id_applique_facture int not null,
 	id_applique_penalite int not null,
-	constraint pk_applique PRIMARY KEY (num_fact, id_penalite)
+	constraint pk_applique PRIMARY KEY (pk_num_fact, pk_id_penalite)
 	);
 	
 	create table type_ligneF (
@@ -297,6 +304,7 @@ CREATE TABLE vehicule(
 	id_modele int not null auto_increment,
 	lib_modele varchar(100) not null,
 	id_marque_modele int not null,
+	path_img varchar(60) default null,
 	constraint pk_modele PRIMARY key (id_modele)
 	);
 
@@ -353,7 +361,6 @@ CREATE TABLE vehicule(
 	add constraint Fk_changer_id_piece foreign key (id_changer_piece) references piece (id_piece);
 	
 	alter table repertorie
-
 	add constraint Fk_repertorie_etat_lieux foreign key (id_repertorie_etat_lieux) references etat_lieux (id_etat_lieux),
 	add constraint Fk_repertorie_id_entretien foreign key (id_repertorie_entretien) references entretien (id_entretien);
 	
@@ -380,5 +387,6 @@ CREATE TABLE vehicule(
     add constraint Fk_id_service_fonction_pers foreign key (id_service_fonction_pers) references service (id_service);
     
     alter table membre
-	add CONSTRAINT Fk_id_membre_client FOREIGN key (id_membre_client) REFERENCES client (id_client);
+	add CONSTRAINT Fk_id_membre_client FOREIGN key (id_membre_client) REFERENCES client (id_client),
+	add CONSTRAINT Fk_id_membre_statut_membre FOREIGN key (id_membre_statut_membre) REFERENCES statut_membre (id_statut_membre);
     
