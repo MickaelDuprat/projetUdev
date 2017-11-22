@@ -30,8 +30,6 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 		<!-- Importation des polices de caractères "Dosis", Poppins" et "Quicksand" via Google Fonts -->
 		<link href="https://fonts.googleapis.com/css?family=Dosis|Poppins|Quicksand" rel="stylesheet">
-		<!-- Importation css bootstrap -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 		<!-- Importation de la police de caractère "Didact" via Google Fonts -->
 		<link href="https://fonts.googleapis.com/css?family=Didact+Gothic" rel="stylesheet"> 
 		<!-- Importation de la librairie css concernant le datepicker -->
@@ -49,9 +47,9 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 	<?php include_once('include/nav.php'); ?>
                 
 	<!-- Première section de page -->
-	<div id="section-black">
-		<h2>Finalisation paiement</h2>
-	</div>
+	<div id="head-black">
+        <h2><a href="search.php">Sélection du véhicule</a> - <a href="fiche.php">Choix des options</a> - <span><a href="paiement.php">Paiement</a></span></h2>
+    </div>
 
 		<div id="section-white">        
                     <!--page paiement-->

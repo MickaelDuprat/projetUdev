@@ -5,7 +5,6 @@
 	    <a href="index.php"><li>Accueil</li></a>
 	    <a href="search.php"><li>Recherche</li></a>
 	    <a href="fiche.php"><li>Fiche</li></a>
-	    <a href="inscription.php"><li>Inscription</li></a>
 	    <a href="contact.php"><li>Contact</li></a>
 	    <li>
 	    <?php 
