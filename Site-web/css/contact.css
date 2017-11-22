@@ -1,0 +1,32 @@
+#formulairecontact {
+	width : 60%;
+	margin: auto;
+}
+
+#formulairecontact>input {
+margin-top: 3%;
+}
+
+#formulairecontact>textarea {
+margin-top: 3%;
+}
+
+#formulairecontact>label {
+vertical-align : center;
+}
+
+#formContact {
+margin-left : 30%;
+margin-top: 3%;
+padding: 10px 10px 30px 10px;
+background: #960018 !important;
+outline: 0;
+border: none;
+border-radius: 30px;
+font-size: 18px;
+color: white;
+transition: 0.15s ease-in-out;
+cursor: pointer;
+display: block;
+text-decoration: none;
+}
