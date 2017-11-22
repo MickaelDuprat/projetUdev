@@ -6,6 +6,30 @@ include_once(ROOT . '/modele/SearchModel.php');
 
 $srch = new SearchController();
 
+function searchResult($json){
+
+  // On va boucler sur un tableau
+  $jsonTab = json_decode($json, true);
+
+  if ($jsonTab['success'] == true) {
+    foreach ($jsonTab as $value) {
+      $marque = $value['lib_marque'];
+      $modele = $value['lib_modele'];
+      $personne = $value['nbre_passager_veh'];
+      $porte = $value['nbre_portes_veh'];
+      $bagage = $value['nbre_bagage_veh'];
+      $boiteV = $value['lib_boiteV'];
+      $clim = $value['lib_clim_veh'];
+    }
+  }
+
+}
+
+if (isset($_POST['search'])) {
+  searchResult($srch->getVehiculeByAgence());
+}
+
+
 // Classe controller de recherche Index.php
 
 class SearchController{
@@ -23,42 +47,27 @@ class SearchController{
     $this->manager = new SearchModel();
   }
 
+  // Fonction de lecture d'une seule agence
+  public function getVehiculeByAgence(){
 
-    /** 
-    * Exemple
-    * de CRUD (Afficher, Afficher tous, Créer, Modifier, Supprimer)
-    *
-    **/
-    
-  function search($json) {
+      $idAgence = $_POST['agence'];
+      $dateDepart = $_POST['dateDepart'];
+      $dateArrivee = $_POST['dateArrivee'];
 
-    if($jsonTab['sucess'] == true) {
-      foreach ($jsonTab as $value) {
-        $_SESSION['id'] = $value['id_agence'];
-        $_SESSION['dateDebut'] = $value['dateDebut'];
-        $_SESSION['dateFin'] = $value['dateFin'];
+      var_dump($idAgence);
+      var_dump($dateDepart);
+      var_dump($dateArrivee);
+
+      $agences = $this->manager->read($idAgence);
+
+      if($agences){
+        $json = json_encode(['success' => true, 'result' => $agences]);
+      } else {
+        $json = json_encode(['success' => false]);
       }
-    }
-  }
 
-    // Fonction de lecture d'une seule agence
-  public function getVehiculeByAgence($IdAgence){
-
-      $selectedAgence = $this->manager->read($IdAgence);
-
-      $tabSelectedAgence = [
-      'IdAgence' => $selectedAgence->getIdAgence(),
-      'LibelleAgence' => $selectedAgence->getLibelleAgence(),
-      'AdresseAgence' => $selectedAgence->getAdresseAgence(),
-      'IdAgenceVehicule' => $selectedAgence->getIdAgenceVehicule(),
-      'IdAgenceVilleCp' => $selectedAgence->getIdAgenceVilleCp()
-      ];
-
-      $json = json_encode($tabSelectedAgence);
-      return ['agence' => $json];
+      return $json;
 
   }
-
-
 
 }

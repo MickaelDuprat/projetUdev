@@ -3,6 +3,7 @@ session_start();
 
 include_once('root.php');
 include_once(ROOT.'/controller/AuthentificationController.php');
+include_once(ROOT.'/controller/SearchController.php');
 
 $message = '';
 

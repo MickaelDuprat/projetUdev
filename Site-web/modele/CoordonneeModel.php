@@ -38,8 +38,8 @@ class CoordonneeModel extends Manager {
   public function pays() {
     $this->pdoStatement = $this->pdo->prepare("SELECT nom_pays FROM pays ORDER BY nom_pays ASC");
     $this->pdoStatement->execute();
-    $pays = $this->pdoStatement->fetch(PDO::FETCH_ASSOC);
-
+    $pays = $this->pdoStatement->fetchAll(PDO::FETCH_ASSOC);
+    
     return $pays;
   }
 

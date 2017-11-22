@@ -32,6 +32,7 @@ foreach ($tabInfos as $value) {
 	$nomS = $value['nomC_societe'];
 	$civilite = $value['lib_civ'];
 	$password = $value['password_membre'];
+	$pays = $value['nom_pays'];
 }
 
 if (isset($siret)) {
@@ -47,12 +48,9 @@ if (isset($siret)) {
 				<input type="radio" name="typeClient" value="part" checked>';
 }
 
-$tabPays = json_decode($ctrl->getPays(), true);
+$tabPays = json_decode($ctrl->getPays(), true);					
 
-
-var_dump($tabPays);
-
-// var_dump($tabInfos);
+//var_dump($tabPays);
 
 ?>
 <!doctype html>
@@ -165,9 +163,13 @@ var_dump($tabPays);
 						<label for='pays'>Pays</label>
 							<select name="pays" id="pays" class="champ">
 								<?php 
-									foreach ($tabPays as $value) {
-										print('<option value='.$value.'>'.$value.'</option>');
-									}
+									foreach ($tabPays['result'] as $value) {
+										if ($pays == $value['nom_pays']){
+											print('<option value="'.$value['nom_pays'].' selected>'.$value['nom_pays'].'</option>');
+										} else {
+											print('<option value="'.$value['nom_pays'].'>'.$value['nom_pays'].'</option>');
+										}	
+									}	
 								 ?>
 							</select><br />
 				</div>

@@ -17,12 +17,6 @@ class SearchModel extends Manager {
   public function __construct() {
       parent::__construct();
   }
-
-   /** 
-    * Exemple
-    * de CRUD (Afficher, Créer, Modifier, Supprimer)
-    *
-    **/
    
   // Fonction de lecture d'une information
   public function read($login, $password) {
