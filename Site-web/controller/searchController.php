@@ -6,7 +6,7 @@ include_once(ROOT . '/modele/SearchModel.php');
 
 $srch = new SearchController();
 
-<<<<<<< HEAD
+
   function search($json) {
 
  // itération sur un tableau
@@ -21,7 +21,7 @@ $srch = new SearchController();
     }
   }
 
-=======
+
 function searchResult($json){
 
   // On va boucler sur un tableau
@@ -74,7 +74,6 @@ if (isset($_POST['search'])) {
 }
 
 
->>>>>>> e52e18e71220274305b7fb16b7873dfade17b024
 // Classe controller de recherche Index.php
 
 class SearchController{
@@ -95,7 +94,6 @@ class SearchController{
     $this->manager = new SearchModel();
   }
 
-<<<<<<< HEAD
    /** 
     * Exemple
     * de CRUD (Afficher, Afficher tous, Créer, Modifier, Supprimer)
@@ -103,39 +101,16 @@ class SearchController{
     **/
 
 
-                      /* a Modifier */
-
-  // fonction recherche authentification d'un utilisateur
-
+                     
   public function searchVehicle(){
-=======
-  // Fonction de lecture d'une seule agence
-  public function getVehiculeByAgence(){
 
-      $idAgence = $_POST['agence'];
-      $dateDepart = $_POST['dateDepart'];
-      $dateArrivee = $_POST['dateArrivee'];
 
-      var_dump($idAgence);
-      var_dump($dateDepart);
-      var_dump($dateArrivee);
-
-      $agences = $this->manager->read($idAgence, $dateDepart, $dateArrivee);
-
-      if($agences){
-        $json = json_encode(['success' => true, 'result' => $agences]);
-      } else {
-        $json = json_encode(['success' => false]);
-      }
-
-      return $json;
->>>>>>> e52e18e71220274305b7fb16b7873dfade17b024
 
     $agence = $_POST['id_agence'];
     $dateDepart = $_POST['dateDepart'];
     $dateArrive = $_POST['dateArrive'];
 
-<<<<<<< HEAD
+
     $recherche = $this->manager->read($agence, $dateDepart, $dateArrive);
 
     if($recherche){
@@ -146,7 +121,5 @@ class SearchController{
 
     return $json;
   } 
-=======
->>>>>>> e52e18e71220274305b7fb16b7873dfade17b024
 }
 

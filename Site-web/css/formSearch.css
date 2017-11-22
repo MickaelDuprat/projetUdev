@@ -10,18 +10,6 @@
 	display: block;
 }
 
-#head-black h2{
-	text-align: center;
-	color: #ffffff;
-	padding-top: 40px;
-	text-align: center;
-	margin-bottom: -35px;
-	font-size: 1.2em;
-}
-
-#head-black h2 span{
-	color: #ec1c24;
-}
 
 /** SEARCH FORM **/
 
