@@ -31,6 +31,7 @@ foreach ($tabInfos as $value) {
 	$siret = $value['siret_societe'];
 	$nomS = $value['nomC_societe'];
 	$civilite = $value['lib_civ'];
+	$password = $value['password_membre'];
 }
 
 if (isset($siret)) {
@@ -38,12 +39,18 @@ if (isset($siret)) {
 				<input type="radio" name="typeClient" value="pro" checked>
 			<label for="oui"> Particulier ? </label>
 				<input type="radio" name="typeClient" value="part">';
+
 } else {
 	$res = '<label for="oui"> Professionnel ? </label>
 				<input type="radio" name="typeClient" value="pro">
 			<label for="oui"> Particulier ? </label>
 				<input type="radio" name="typeClient" value="part" checked>';
 }
+
+$tabPays = json_decode($ctrl->getPays(), true);
+
+
+var_dump($tabPays);
 
 // var_dump($tabInfos);
 
@@ -123,10 +130,9 @@ if (isset($siret)) {
 				<div id="hautform">
 					<label for="civ"> Civilité </label>
 						<select name="civ" id="civ">
-							<option value="<?php print($civilite); ?>" selected><?php print(ucfirst($civilite)); ?></option>
-							<option value="monsieur"> Mademoiselle </option>
-							<option value="madame"> Madame </option>
-							<option value="mademoiselle"> Monsieur </option>
+							<option value="mademoiselle" <?php if ($civilite == "mademoiselle"){print("selected");} ?>> Mademoiselle </option>
+							<option value="madame" <?php if ($civilite == "madame"){print("selected");} ?>> Madame </option>
+							<option value="monsieur" <?php if ($civilite == "monsieur"){print("selected");} ?>> Monsieur </option>
 						</select><br/><br/>
 	    			<label for="nom">Nom</label>
 	    				<input type="text" id="nom" value="<?php print($nom); ?>" class="champ" />
@@ -158,15 +164,19 @@ if (isset($siret)) {
 							<input type="text" id="ville" value="<?php print($ville); ?>" class="champ"/><br />			
 						<label for='pays'>Pays</label>
 							<select name="pays" id="pays" class="champ">
-								<option value="">Pays</option>
+								<?php 
+									foreach ($tabPays as $value) {
+										print('<option value='.$value.'>'.$value.'</option>');
+									}
+								 ?>
 							</select><br />
 				</div>
 			<!-- partie information mdp -->
 				<div id="mid2form">
 	    			<label for="mdp">Mot de passe</label>
-	    				<input type="password" id="mdp" class="champ" /><br />
+	    				<input type="password" id="mdp" value="<?php print($password); ?>" class="champ" /><br />
 	    			<label for="confirmation">Confirmation</label>
-	    				<input type="password" id="confirmation" class="champ" /><br />
+	    				<input type="password" id="confirmation" value="<?php print($password); ?>" class="champ" /><br />
 	    				<div id="erreurpwd">
     					<p> Le mot de passe doit contenir
    							• Au moins une lettre minuscule
@@ -223,5 +233,18 @@ if (isset($siret)) {
     <script src="js/datedropper.js"></script>
     <script src="js/formLogin.js"></script>
     <script src="js/inscription.js"></script>
-       <script src="js/datepicker.js"></script>
+    <script src="js/datepicker.js"></script>
+	<script>
+		var pro = false;
+		<?php
+			if (isset($siret) AND trim($siret) != ''){
+				print('pro = true;');
+			}
+		?>
+		$(document).ready(function(){
+			if (pro){
+				$('#proform').show();
+			}
+		});
+	</script>
 </html>

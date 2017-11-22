@@ -211,7 +211,7 @@ $(document).ready(function(){
     });
 
 /* function affichage Pro */
-    function afficherPro() {
+    function afficherPro($proform) {
             $proform.css({
                 display : 'block'
             });

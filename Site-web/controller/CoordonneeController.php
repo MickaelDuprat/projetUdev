@@ -26,12 +26,29 @@ class CoordonneeController{
 
   // Fonction d'authentification d'une utilisateur
 
-    public function informationsUser($id){
+  public function informationsUser($id){
      
       $infos = $this->manager->informations($id);
 
       if($infos){
         $json = json_encode(['success' => true, 'result' => $infos]);
+      } else {
+        $json = json_encode(['success' => false]);
+      }
+      
+      return $json;
+
+  }
+
+
+  // Fonction de lecture de l'ensemble des pays
+
+  public function getPays(){
+     
+      $pays = $this->manager->pays();
+
+      if($pays){
+        $json = json_encode(['success' => true, 'result' => $pays]);
       } else {
         $json = json_encode(['success' => false]);
       }

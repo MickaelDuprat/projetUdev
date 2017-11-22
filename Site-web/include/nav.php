@@ -43,7 +43,7 @@
 		           <fieldset>
 		          		<?php 
 			           		if(isset($_SESSION['login'])){
-			          			 print('<li>Bienvenue <b class="redText">'.ucfirst($_SESSION['login']).'</b></li><br/><br/>');
+			          			 print('<p>Bienvenue<br/><b class="redText">'.ucfirst($_SESSION['login']).'</b></p>');
 			          		}
 		          		?>
 		             	<li><a href="coordonnee.php">Mes informations</a></li>
