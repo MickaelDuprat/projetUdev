@@ -9,6 +9,7 @@
 		  <i class="fa fa-map-marker" style="font-size: 45px;" aria-hidden="true" "></i>
 			
 		  <div class="select" tabindex="1">
+
 			  <input class="selectopt" name="agence" value="1" type="radio" id="opt1">
 			  <label for="opt1" class="option">Agence de Bordeaux</label>
 			  <input class="selectopt" name="agence" value="2" type="radio" id="opt2">

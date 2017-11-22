@@ -3,7 +3,7 @@ include_once(ROOT .'/root.php');
 
 include_once(ROOT .'/modele/Manager.php');
 
-// Classe modèle des agences de locations
+// Classe modèle de la recherche
 
 class SearchModel extends Manager {
   
@@ -17,6 +17,14 @@ class SearchModel extends Manager {
   public function __construct() {
       parent::__construct();
   }
+
+   /** 
+    * Exemple
+    * de CRUD (Afficher, Créer, Modifier, Supprimer)
+    *
+    **/
+
+        /* revoir la requete : */
    
   // Fonction de lecture d'une information
   public function read($agence, $dateDepart, $dateArrivee) {
@@ -36,12 +44,14 @@ class SearchModel extends Manager {
     $this->pdoStatement->bindValue(':dateDepart', $dateDepart, PDO::PARAM_STR);
     $this->pdoStatement->bindValue(':dateArrivee', $dateArrivee, PDO::PARAM_STR);
     $this->pdoStatement->execute();
-    $membre = $this->pdoStatement->fetch(PDO::FETCH_ASSOC);
+    $recherche = $this->pdoStatement->fetch(PDO::FETCH_ASSOC);
 
-    return $membre;
+    return $recherche;
   }
+      
 
 }
+
 
 
 
