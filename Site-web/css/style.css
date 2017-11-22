@@ -84,6 +84,20 @@ fieldset {
   display: none;
 }
 
+.compte p {
+  font-size: 19px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.compte li {
+  font-size: 19px;
+}
+
+.compte li:hover {
+  color: #ec1c24;
+}
+
 .formholder {
   background: #ffffff;
   width: 350px;
