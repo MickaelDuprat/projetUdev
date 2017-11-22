@@ -13,7 +13,7 @@
 	    		print('<b><i class="fa fa-user fa-1x"></i><a href="#" id="compteform">Mon compte</a></b>');
 	    	} else {
 	    		print('<b><a href="#" id="loginform">Connexion</a> | <a href="inscription.php">Inscription</a></b>');
-	    	}
+	    	} 
 
 	    	// var_dump($_SESSION);
 	    ?>
