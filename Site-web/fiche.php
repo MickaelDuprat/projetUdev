@@ -137,10 +137,11 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 	                </li>
 	            </ul>
 	    </div>
-	    
+	    <form method="POST" action="paiement.php">
 	    <div id="section-paiement">
 	        <p>  Prix Total* : </p> <b> 115 € </b>
 	        <input type="submit" id="validepaiement" value = "J'accepte le tarif et les options"/>
+	    </form>
 	        <small> *Prix total TTC incluant la TVA </small>
 	        <small> Veuillez noter que l'affichage de l'image et les spécifications du véhicule n'est qu'un exemple illustratif des actes de classe de véhicule (sauf erreur). Une réservation est possible uniquement pour une catégorie de véhicule, mais pas pour un véhicule particulier. </small>
 	        <small> Toutes les informations sur les dimensions, le poids, etc. sont basés sur les plus petits modèles disponibles de la catégorie. </small>

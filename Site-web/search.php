@@ -337,7 +337,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 				</div>
 				<a class="slide-down6"><div class="inclu">OPTIONS <i class="fa fa-chevron-down fa-lg"></i><p class="option6">option 1...</p><p class="option6">option 2...</p><p class="option6">option 3...</p></div></a>
 				<div class="footer">
-					<a href="#">
+					<a href="#fiche.php">
 						<div class="bouton">
 							RÉSERVER
 						</div>

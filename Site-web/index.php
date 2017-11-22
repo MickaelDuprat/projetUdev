@@ -10,7 +10,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 	session_destroy();
 	header('Location: index.php');    
 }
-	var_dump($srch->searchVehicle());
+	/* var_dump($srch->searchVehicle()); */
 ?>
 
 <!doctype html>

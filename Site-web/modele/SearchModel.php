@@ -24,14 +24,12 @@ class SearchModel extends Manager {
     *
     **/
 
+        /* revoir la requete : */
+
+       /* 
   // Fonction de lecture d'une information
   public function read($agence, $dateDepart, $dateArrive) {
-    $this->pdoStatement = $this->pdo->prepare("SELECT lib_modele, lib_marque, lib_agence FROM vehicule
-      left join agence on agence.id_agence = vehicule.id_agence_vehicule
-      left join modele on modele.id_modele = vehicule.id_modele_vehicule
-      left join marque on marque.id_marque = modele.id_marque_modele
-      left join contrat_loc on contrat_loc.id_contrat_loc_vehicule = vehicule.id_veh
-      where contrat_loc.date_fin < now()"); 
+    $this->pdoStatement = $this->pdo->prepare("")
     $this->pdoStatement->bindValue(':lib_agence', $agence, PDO::PARAM_STR);
     $this->pdoStatement->bindValue(':dateDepart', $dateDepart, PDO::PARAM_STR);
     $this->pdoStatement->bindValue(':dateArrive', $dateArrive, PDO::PARAM_STR);
@@ -40,6 +38,7 @@ class SearchModel extends Manager {
 
     return $recherche;
   }
+      */
 
 }
 
