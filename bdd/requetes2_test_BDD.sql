@@ -131,3 +131,68 @@ where id_penalite in (SELECT id_contrat_loc_penalite from contrat_loc
 ) as total;
 
 
+/* véhicule disponible à la location aujourd'hui */
+select distinct id_veh, lib_modele, lib_marque, lib_agence
+from vehicule
+left join agence on agence.id_agence = vehicule.id_agence_vehicule
+left join modele on modele.id_modele = vehicule.id_modele_vehicule
+left join marque on marque.id_marque = modele.id_marque_modele
+left join contrat_loc on contrat_loc.id_contrat_loc_vehicule = vehicule.id_veh
+where id_veh not in (select id_veh from vehicule inner join contrat_loc
+    on contrat_loc.id_contrat_loc_vehicule = vehicule.id_veh where statut_facturation = 0 and contrat_loc.date_debut <= now());
+    
+
+/* véhicule en location parti en location a la date d'aujourd'hui */
+    select id_veh from vehicule inner join contrat_loc
+    on contrat_loc.id_contrat_loc_vehicule = vehicule.id_veh where statut_facturation = 0 and contrat_loc.date_debut <= now();
+    
+    
+/* véhicule en location qui vont partir en location a la date  après aujourd'hui */
+    
+    select id_veh from vehicule inner join contrat_loc
+    on contrat_loc.id_contrat_loc_vehicule = vehicule.id_veh where statut_facturation = 0 and contrat_loc.date_debut > now();
+    
+    
+/* véhicule disponible à la location aujourd'hui et jusquau 26 novembre 2017  sauf contrat loc entre temps*/
+    
+select distinct id_veh, lib_modele, lib_marque, lib_agence
+from vehicule
+left join agence on agence.id_agence = vehicule.id_agence_vehicule
+left join modele on modele.id_modele = vehicule.id_modele_vehicule
+left join marque on marque.id_marque = modele.id_marque_modele
+left join contrat_loc on contrat_loc.id_contrat_loc_vehicule = vehicule.id_veh
+where id_veh not in (select id_veh from vehicule inner join contrat_loc
+    on contrat_loc.id_contrat_loc_vehicule = vehicule.id_veh where statut_facturation = 0 and contrat_loc.date_debut <= '2017-11-22' or contrat_loc.date_fin >= '2017-11-26');
+
+    /* véhicule non disponible à la location aujourd'hui et jusquau 26 novembre 2017 */
+select id_veh from vehicule inner join contrat_loc
+    on contrat_loc.id_contrat_loc_vehicule = vehicule.id_veh where statut_facturation = 0 and contrat_loc.date_debut <= '2017-11-22' or contrat_loc.date_fin >= '2017-11-26';
+    
+   /* véhicule non disponible qui auront une location entre aujourd'hui et le 26 novembre 2017 */
+select id_veh from vehicule inner join contrat_loc
+    on contrat_loc.id_contrat_loc_vehicule = vehicule.id_veh where statut_facturation = 0 and (contrat_loc.date_debut between '2017-11-22' and '2017-11-26');
+    
+
+select id_veh from vehicule inner join contrat_loc
+    on contrat_loc.id_contrat_loc_vehicule = vehicule.id_veh where statut_facturation = 0 and ((contrat_loc.date_debut between '2017-11-22' and '2017-11-26') or contrat_loc.date_debut <= '2017-11-22');
+    
+select id_veh from vehicule inner join contrat_loc
+    on contrat_loc.id_contrat_loc_vehicule = vehicule.id_veh 
+    where statut_facturation = 0 
+    and (((contrat_loc.date_debut between '2017-11-22' and '2017-11-26') or contrat_loc.date_debut <= '2017-11-22') or contrat_loc.date_fin >= '2017-11-26');
+    
+/* véhicule disponible à la location aujourd'hui et jusquau 26 novembre 2017 */
+    
+select distinct id_veh, lib_modele, lib_marque, lib_agence
+from vehicule
+left join agence on agence.id_agence = vehicule.id_agence_vehicule
+left join modele on modele.id_modele = vehicule.id_modele_vehicule
+left join marque on marque.id_marque = modele.id_marque_modele
+left join contrat_loc on contrat_loc.id_contrat_loc_vehicule = vehicule.id_veh
+where id_veh not in (select id_veh from vehicule inner join contrat_loc
+    on contrat_loc.id_contrat_loc_vehicule = vehicule.id_veh 
+    where statut_facturation = 0
+    and (((contrat_loc.date_debut between '2017-11-22' and '2017-11-26') or contrat_loc.date_debut <= '2017-11-22') or contrat_loc.date_fin >= '2017-11-26'));
+    
+    
+    
