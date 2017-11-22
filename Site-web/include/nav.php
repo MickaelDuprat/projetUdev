@@ -6,13 +6,14 @@
 	    <a href="search.php"><li>Recherche</li></a>
 	    <a href="fiche.php"><li>Fiche</li></a>
 	    <a href="inscription.php"><li>Inscription</li></a>
+	    <a href="contact.php"><li>Contact</li></a>
 	    <li>
 	    <?php 
 	    	if(isset($_SESSION['login'])){
 	    		print('<b><i class="fa fa-user fa-1x"></i><a href="#" id="compteform">Mon compte</a></b>');
 	    	} else {
 	    		print('<b><a href="#" id="loginform">Connexion</a> | <a href="inscription.php">Inscription</a></b>');
-	    	}
+	    	} 
 
 	    	// var_dump($_SESSION);
 	    ?>

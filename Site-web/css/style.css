@@ -85,7 +85,8 @@ fieldset {
 }
 
 .compte p {
-  font-size: 19px;
+  margin-top: -5px;
+  font-size: 20px;
   text-align: center;
   margin-bottom: 20px;
 }
@@ -104,7 +105,7 @@ fieldset {
   border-radius: 0px 0px 5px 5px;
   padding-top: 5px;
   position: absolute;
-  right: 105px;
+  right: 95px;
   top: 75px;
 }
 
