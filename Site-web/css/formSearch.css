@@ -178,6 +178,7 @@
 #search-list .vehicule{
 	width: 30%;
 	height: auto;
+	min-height: 377px;
 	margin-left: 1%;
 	margin-right: 1%;
 	margin-top: 14px;
@@ -207,7 +208,7 @@
 }
 
 #search-list .vehicule .descriptif img{
-	width: 67%;
+	width: 60%;
 	padding-top: 20px;
 	float: left;
 	display: inline-block;

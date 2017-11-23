@@ -58,7 +58,7 @@ class CoordonneeController{
   }
 
 
- // fonction de modifications des coordonnées du client
+ // Fonction de modifications des coordonnées du client
 
   public function modifierInfos(){
 
@@ -81,7 +81,8 @@ class CoordonneeController{
       $_POST['nom_pays']];
 
     foreach ($tabform as $values) {
-      $tab[$values] = new CoordonneeController();
+      $tab[] = new CoordonneeController();
+      $tab[] .= $values;
     }
 
     if($tabform){
@@ -90,7 +91,7 @@ class CoordonneeController{
         $tab = json_encode(['success' => false]);
       }
 
-      return $tab;
+    return $tab;
 
       $tabform = $this->manager->updateInfo($id);
   }
