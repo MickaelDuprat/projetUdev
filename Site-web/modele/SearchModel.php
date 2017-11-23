@@ -20,8 +20,9 @@ class SearchModel extends Manager {
 
   // Fonction de lecture d'une information
   public function read($agence, $dateDepart, $dateArrivee) {
-    $this->pdoStatement = $this->pdo->prepare("SELECT DISTINCT id_veh, lib_modele, path_img, lib_marque, prix_journalier_veh, id_cat_veh_vehicule, nbre_bagage_veh, nbre_passager_veh, lib_boiteV, lib_clim_veh, nbre_portes_veh, lib_agence, id_agence
+    $this->pdoStatement = $this->pdo->prepare("SELECT DISTINCT id_veh, id_cat_veh, lib_modele, path_img, lib_marque, prix_journalier_veh, id_cat_veh_vehicule, nbre_bagage_veh, nbre_passager_veh, lib_boiteV, lib_clim_veh, nbre_portes_veh, lib_agence, id_agence
     FROM vehicule
+    LEFT JOIN cat_veh ON cat_veh.id_cat_veh = vehicule.id_cat_veh_vehicule
     LEFT JOIN clim_veh ON clim_veh.id_clim_veh = vehicule.id_clim_veh_vehicule
     LEFT JOIN boitev ON boitev.id_boiteV = vehicule.id_boiteV_vehicule
     LEFT JOIN agence ON agence.id_agence = vehicule.id_agence_vehicule
