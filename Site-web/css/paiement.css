@@ -1,12 +1,9 @@
-html,body,.wrapper{
-    background: #f7f7f7;
+#formulairePaiement{
+  width: 50%;
+  margin-left: 25%;
+  margin-right: 25%;
 }
 
-
-/* images*/
-ol, ul {
-  list-style: none;
-}
 .hand {
   cursor: pointer;
   cursor: pointer;
@@ -127,45 +124,14 @@ hr{
     margin-top: 10px;
 }
 
-/** MEDIA QUERIES **/
-@media only screen and (max-width: 989px){
-    .span1{
-        margin-bottom: 15px;
-        clear:both;
-    }
-}
-
-@media only screen and (max-width: 764px){
-    .inverse-1{
-        float:right;
-    }
-}
-
-@media only screen and (max-width: 586px){
-    .cart-titles{
-        display:none;
-    }
-    .panel {
-        margin-bottom: 1px;
-    }
-}
-
 .form-control {
     border-radius: 1px;
 }
 
-@media only screen and (max-width: 486px){
-    .col-xss-12{
-        width:100%;
-    }
-    .cart-img-show{
-        display: none;
-    }
-    .btn-submit-fix{
-        width:100%;
-    }
-    
-}
+
+
+
+
 /*
 @media only screen and (max-width: 777px){
     .container{

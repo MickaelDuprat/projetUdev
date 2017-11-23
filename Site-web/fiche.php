@@ -43,9 +43,9 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 	<!-- Barre de naviguation du site -->
 	<?php include_once('include/nav.php'); ?>
 
-	!-- Première section de page -->
-    <div id="head-black">
-        <h2>Sélection du véhicule &nbsp;&nbsp;&nbsp; - &nbsp;&nbsp;&nbsp; <span>Choix des options</span>  &nbsp;&nbsp;&nbsp; - &nbsp;&nbsp;&nbsp; Paiement</h2>
+	<!-- Première section de page -->
+	<div id="head-black">
+      <h2><a href="search.php">Sélection du véhicule</a>  - <span><a href="fiche.php">Choix des options</a></span> - <a href="paiement.php">Paiement</a></h2>
     </div>
 
 	<div id="section-white">
