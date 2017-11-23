@@ -1,21 +1,24 @@
 <?php
 
+date_default_timezone_set('Europe/Paris');
+
 include_once(ROOT .'/root.php');
 
 include_once(ROOT . '/modele/SearchModel.php');
 
 $srch = new SearchController();
 
-
-function searchResult($json){
+if (isset($_POST['search'])) {
 
   // On va boucler sur un tableau
-  $jsonTab = json_decode($json, true);
+  $jsonTab = json_decode($srch->getVehiculeByAgence(), true);
 
-  $list = "";
-
+  $list = '';
+  $marque = '';
+  
   if ($jsonTab['success'] == true) {
-    foreach ($jsonTab as $value) {
+    foreach ($jsonTab['result'] as $value) {
+      $id = $value['id_veh'];
       $marque = $value['lib_marque'];
       $modele = $value['lib_modele'];
       $personne = $value['nbre_passager_veh'];
@@ -24,14 +27,23 @@ function searchResult($json){
       $boiteV = $value['lib_boiteV'];
       $clim = $value['lib_clim_veh'];
       $prixJ = $value['prix_journalier_veh'];
+      $path = $value['path_img'];
 
-      $list = 
+      $pers = '';
+
+      if($marque != 'AUTRE'){
+        $pers = '<p><img src="ico/personne.png" alt="Personne"> '.$personne.' personnes</p>';
+      } else {
+        $pers = '';
+      }
+
+       $list .= 
       '<div class="vehicule">
-        <div class="title"><h3>BMW SÉRIE 3</h3></div>
+        <div class="title"><h3>'.$marque.' '.$modele.'</h3></div>
         <div class="descriptif">
-          <img src="https://www.sixt.fr/fileadmin/files/global/user_upload/fleet/png/350x200/bmw-3er-gt-4d-silber-2013.png" alt="'.$marque.' '.$modele.'">
+          <img src="'.$path.'" alt="'.$marque.' '.$modele.'">
           <div class="infos">
-            <p><img src="ico/personne.png" alt="Personne"> '.$personne.' personnes</p>
+            '.$pers.'
             <p><img src="ico/voiture.png" alt="Porte"> '.$porte.' portes</p>
             <p><img src="ico/bagage.png" alt="Bagage"> '.$bagage.' bagages</p>
             <p><img src="ico/boiteVitesse.png" alt="BoiteVitesse"> '.$boiteV.'</p>
@@ -39,7 +51,7 @@ function searchResult($json){
           </div>
         </div>
         <div class="footer">
-          <a href="fiche.php">
+          <a href="fiche.php?='.$id.'">
             <div class="bouton">
               RÉSERVER
             </div>
@@ -52,10 +64,15 @@ function searchResult($json){
     }
   }
 
-}
+      $dateDepart = implode('-', array_reverse(explode('/',$_POST['dateDepart']), FALSE));
+      $dateArrivee = implode('-', array_reverse(explode('/',$_POST['dateArrivee']), FALSE));
 
-if (isset($_POST['search'])) {
-  searchResult($srch->getVehiculeByAgence());
+      $agence = $_POST['agence'];
+      $dateD = new DateTime($dateDepart);
+      $datreA = new DateTime($dateArrivee);
+      $interval = $dateD->diff($datreA);
+
+      
 }
 
 
@@ -83,12 +100,16 @@ class SearchController{
   public function getVehiculeByAgence(){
 
 
-    $idAgence = $_POST['id_agence'];
-    $dateDepart = $_POST['dateDepart'];
-    $dateArrive = $_POST['dateArrive'];
+      $idAgence = $_POST['agence'];
+      $dateDepart = implode('-', array_reverse(explode('/',$_POST['dateDepart']), FALSE));
+      $dateArrivee = implode('-', array_reverse(explode('/',$_POST['dateArrivee']), FALSE));
+
+      // var_dump($idAgence);
+      // var_dump($dateDepart);
+      // var_dump($dateArrivee);
 
 
-    $recherche = $this->manager->read($idAgence, $dateDepart, $dateArrive);
+    $recherche = $this->manager->read($idAgence, $dateDepart, $dateArrivee);
 
     if($recherche){
       $json = json_encode(['success' => true, 'result' => $recherche]);

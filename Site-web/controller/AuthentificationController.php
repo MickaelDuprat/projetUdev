@@ -21,7 +21,7 @@ function cnx($json){
 }
 
 if (isset($_POST['connexion'])) {
-  $message = cnx($ctrl->connexion());
+   cnx($ctrl->connexion());
 }
 
 // Classe controller des agences de locations

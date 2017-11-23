@@ -2,7 +2,7 @@
 <div id="footer">
 	<div id="footer-left">
 		<h3>Qui sommes-nous ?</h3>
-		<p>404 Locatione est une agence de location de véhicule, vélo, moto, citadine, berline, luxe ou en encore sport. Vous trouverez forcément ce que vous rechercher.</p>
+		<p>404 Location est une agence de location de véhicule, vélo, moto, citadine, berline, luxe ou encore sport. Vous trouverez forcément ce que vous recherchez.</p>
 	</div>
 	<div id="footer-right">
 		<a href="#"><p>Nous contacter</p></a>

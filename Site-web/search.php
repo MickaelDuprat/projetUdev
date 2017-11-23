@@ -1,11 +1,12 @@
 <?php 
 session_start();
 
+
+$message = '';
+
 include_once('root.php');
 include_once(ROOT.'/controller/AuthentificationController.php');
 include_once(ROOT.'/controller/SearchController.php');
-
-$message = '';
 
 if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 	session_destroy();
@@ -53,7 +54,31 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 
 	<div id="section-white">
  
-		<h2>Nom de l'agence et date de départ -> Nom de l'agence et date d'arrivée -> Période de location (en jour)</h2>
+		<h2><?php 
+
+		switch ($agence) {
+			case 1:
+				$agence = "Bordeaux";
+				break;
+			case 2:
+				$agence = "Niort";
+				break;
+			case 3:
+				$agence = "Courçon";
+				break;
+			case 4:
+				$agence = "Châtellerault";
+				break;
+			case 5:
+				$agence = "Poey D'oloron";
+				break;
+			default:
+				$agence = "";
+				break;
+		}
+
+
+		print($agence); ?> -> Période de location : <?php print($interval->format('%d')); ?> jours</h2>
 
 		<div id="search-form">
 			<a class="checkbox-type1">
@@ -198,8 +223,10 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 
 		<!-- La search list représente la liste des résultats de recherche de véhicule -->
 		<div id="search-list">
+
+			<?php print($list); ?>
 			<!-- Les divs de classes "vehicule" représentent les blocs de la liste -->
-			<div class="vehicule">
+			<!-- <div class="vehicule">
 				<div class="title"><h3>BMW SÉRIE 3</h3></div>
 				<div class="descriptif">
 					<img src="https://www.sixt.fr/fileadmin/files/global/user_upload/fleet/png/350x200/bmw-3er-gt-4d-silber-2013.png" alt="BMW Série 3">
@@ -338,7 +365,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 				</div>
 				<a class="slide-down6"><div class="inclu">OPTIONS <i class="fa fa-chevron-down fa-lg"></i><p class="option6">option 1...</p><p class="option6">option 2...</p><p class="option6">option 3...</p></div></a>
 				<div class="footer">
-					<a href="#fiche.php">
+					<a href="fiche.php">
 						<div class="bouton">
 							RÉSERVER
 						</div>
@@ -347,7 +374,9 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 						</div>
 					</a>
 				</div>
+				-->
 			</div>
+
 		</div>
 	</div>
 
