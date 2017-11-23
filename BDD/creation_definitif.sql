@@ -263,6 +263,7 @@ CREATE TABLE vehicule(
 	constraint pk_intervient PRIMARY KEY (pk_id_entretien, pk_id_pers)
 	);
 	
+    
 	create table concerne (
 	pk_id_veh int not null,
 	pk_id_entretien int not null,
@@ -273,11 +274,11 @@ CREATE TABLE vehicule(
 	
 	create table choisit (
 	qtite int default null,
-	pk_id_contrat_loc int not null,
+	pk_num_contrat_loc int not null,
 	pk_id_accessoire int not null,
 	id_choisit_contrat_loc int not null,
 	id_choisit_accessoire int not null,
-	constraint pk_choisit PRIMARY KEY (pk_id_contrat_loc, pk_id_accessoire)
+	constraint pk_choisit PRIMARY KEY (pk_num_contrat_loc, pk_id_accessoire)
 	);
 	
 	create table applique (
