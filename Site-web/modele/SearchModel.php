@@ -28,7 +28,7 @@ class SearchModel extends Manager {
    
   // Fonction de lecture d'une information
   public function read($agence, $dateDepart, $dateArrivee) {
-    $this->pdoStatement = $this->pdo->prepare("SELECT DISTINCT id_veh, lib_modele, lib_marque, prix_journalier_veh, id_cat_veh_vehicule, nbre_bagage_veh, nbre_passager_veh, lib_boiteV, lib_clim_veh, nbre_portes_veh, lib_agence, id_agence
+    $this->pdoStatement = $this->pdo->prepare("SELECT DISTINCT id_veh, lib_modele, path_img, lib_marque, prix_journalier_veh, id_cat_veh_vehicule, nbre_bagage_veh, nbre_passager_veh, lib_boiteV, lib_clim_veh, nbre_portes_veh, lib_agence, id_agence
     FROM vehicule
     LEFT JOIN clim_veh ON clim_veh.id_clim_veh = vehicule.id_clim_veh_vehicule
     LEFT JOIN boitev ON boitev.id_boiteV = vehicule.id_boiteV_vehicule
@@ -39,13 +39,13 @@ class SearchModel extends Manager {
     WHERE id_agence = :agence AND id_veh NOT IN (SELECT id_veh FROM vehicule INNER JOIN contrat_loc
     ON contrat_loc.id_contrat_loc_vehicule = vehicule.id_veh 
     WHERE statut_facturation = 0
-    AND contrat_loc.date_debut < ':dateArrivee' AND contrat_loc.date_fin > ':dateDepart')");
+    AND contrat_loc.date_debut < :dateArrivee AND contrat_loc.date_fin > :dateDepart)");
     $this->pdoStatement->bindValue(':agence', $agence, PDO::PARAM_STR);
     $this->pdoStatement->bindValue(':dateDepart', $dateDepart, PDO::PARAM_STR);
     $this->pdoStatement->bindValue(':dateArrivee', $dateArrivee, PDO::PARAM_STR);
     $this->pdoStatement->execute();
-    $recherche = $this->pdoStatement->fetch(PDO::FETCH_ASSOC);
-
+    $recherche = $this->pdoStatement->fetchAll(PDO::FETCH_ASSOC);
+    // var_dump($recherche);
     return $recherche;
   }
       
