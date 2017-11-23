@@ -64,21 +64,21 @@ class CoordonneeController{
 
 
 
-    $tabform = [$nom = $_POST['nom_client'];
-      $prenom = $_POST['prenom_client'];
-      $dateN = $_POST['dateN_client'];
-      $adresseFact = $_POST['add_facturation'];
-      $adresse1 = $_POST['add1_client'];
-      $adresse2 = $_POST['add2_client'];
-      $cpVille = $_POST['cp_villecp'];
-      $ville = $_POST['ville_villecp'];
-      $tel = $_POST['tel_client'];
-      $email = $_POST['email_client'];
-      $raison = $_POST['raisonS_societe'];
-      $siret = $_POST['siret_societe'];
-      $nomS = $_POST['nomC_societe'];
-      $civilite = $_POST['lib_civ'];
-      $pays = $_POST['nom_pays'];]
+    $tabform = [$_POST['nom_client'],
+      $_POST['prenom_client'],
+      $_POST['dateN_client'],
+      $_POST['add_facturation'],
+      $_POST['add1_client'],
+      $_POST['add2_client'],
+      $_POST['cp_villecp'],
+      $_POST['ville_villecp'],
+      $_POST['tel_client'],
+      $_POST['email_client'],
+      $_POST['raisonS_societe'],
+      $_POST['siret_societe'],
+      $_POST['nomC_societe'],
+      $_POST['lib_civ'],
+      $_POST['nom_pays']];
 
     foreach ($tabform as $values) {
       $tab[$values] = new CoordonneeController();

@@ -47,7 +47,7 @@ class CoordonneeModel extends Manager {
 
   public function updateInfo($id) {
     $this->pdoStatement = $this->pdo->prepare("UPDATE client, civilite, villecp, pays SET raisonS_societe = :raison AND siret_societe = :siret AND nomC_societe = :nomS AND lib_civ = :civilite AND nom_client = :nom AND prenom_client = :prenom AND add_facturation = :adresseFact AND dateN_client = :dateN AND add1_client = :adresse1 AND add2_client = :adresse2 AND cp_villecp =:cpVille AND ville_villecp := ville AND nom_pays := pays AND tel_client = :tel AND email_client = :email 
-      WHERE id_membre = :id");)
+      WHERE id_membre = :id");
       $this->pdoStatement->bindValue(':id', $id_membre, PDO::PARAM_INT);
       $this->pdoStatement->execute();
       $tab = $this->pdoStatement->fetchAll(PDO::FETCH_ASSOC);
