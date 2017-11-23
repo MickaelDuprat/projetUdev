@@ -1510,7 +1510,11 @@ INSERT INTO modele (lib_modele, id_marque_modele, path_img) VALUES ('807', 38, '
 INSERT INTO modele (lib_modele, id_marque_modele, path_img) VALUES ('807 AFFAIRE', 38, '');
 INSERT INTO modele (lib_modele, id_marque_modele, path_img) VALUES ('BIPPER', 38, '');
 INSERT INTO modele (lib_modele, id_marque_modele, path_img) VALUES ('BIPPER TEPEE', 38, '');
+<<<<<<< HEAD
 INSERT INTO modele (lib_modele, id_marque_modele, path_img) VALUES ('BOXER', 38, 'img/peugeot-boxer.png');
+=======
+INSERT INTO modele (lib_modele, id_marque_modele, path_img) VALUES ('BOXER', 38, '\img\peugeot-boxer');
+>>>>>>> d852799c460cd17d1aa5cefd6899a612469a7171
 INSERT INTO modele (lib_modele, id_marque_modele, path_img) VALUES ('EXPERT', 38, '');
 INSERT INTO modele (lib_modele, id_marque_modele, path_img) VALUES ('EXPERT TEPEE', 38, '');
 INSERT INTO modele (lib_modele, id_marque_modele, path_img) VALUES ('ION', 38, '');
