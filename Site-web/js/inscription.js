@@ -36,6 +36,27 @@ $(document).ready(function(){
 
 
 
+        /* fonction isValide (si champs valide) */
+
+        function isValide() {
+            $(this).css({
+                borderColor : 'green',
+                color : 'green'
+            });
+            $erreur.css('display', 'none');
+        }
+
+
+        /* fonction isNotValide (si champs non valide) */
+        function isNotValide() {
+            $(this).css({
+                borderColor : 'red',
+                color : 'red'
+            });
+            $erreur.css('display', 'block');
+        }
+        
+
  /* validation de la date de naissance par rapport au format */
   $ddn.on('change', function(){
     try {
@@ -43,16 +64,10 @@ $(document).ready(function(){
     }
      catch (e) {}
     if (dateParse) {
-        $(this).css({ 
-                    borderColor : 'green',
-                    color : 'green'
-                });
+        $(this).isValide();
                 $erreurddn.css('display', 'none');
     } else {
-      $(this).css({ 
-                borderColor : 'red',
-                color : 'red'
-            });
+      $(this).isNotValide();
                 $erreurddn.css('display', 'block');
     }
 });
@@ -60,10 +75,7 @@ $(document).ready(function(){
      /* verifier si la civilité est bien sélectionné */
     $civ.on('click', function(){
     if($(this).val() == ""){
-            $(this).css({ 
-                    borderColor : 'red',
-                    color : 'red'
-                    }); 
+            $(this).isNotValide(); 
           } else {
           $(this).css({
                     borderColor : '#ccc',
@@ -77,38 +89,23 @@ $(document).ready(function(){
         $villecp.filter(function(){
             var regex = /^(([0-8][0-9])|(9[0-5]))[0-9]{3}$/;
             if( !regex.test( $(this).val() ) ) {
-                $(this).css({ 
-                borderColor : 'red',
-                color : 'red' 
-            });
-                $erreurvillecp.css('display', 'block');
+                $(this).isNotValide();
+                 $erreurvillecp.css('display', 'block');
             } else {
-                $(this).css({ 
-                    borderColor : 'green',
-                    color : 'green'
-            });            
+                $(this).isValide();         
                 $erreurvillecp.css('display', 'none');
             }    
         });
-    });
 
     /* verifier téléphone regex */
     $tel.keyup(function(){
         $tel.filter(function(){
             var regex = /^0[1-9]\d{8}$/;
             if( !regex.test( $(this).val() ) ) {
-                $(this).css({ 
-                borderColor : 'red',
-                color : 'red' 
-            });
-
+                $(this).isNotValide();
                 $erreurtel.css('display', 'block');
-
             } else {
-                $(this).css({ 
-                    borderColor : 'green',
-                    color : 'green'
-            });            
+                $(this).isValide();          
                 $erreurtel.css('display', 'none');
             }    
         });
@@ -119,16 +116,10 @@ $(document).ready(function(){
         $mail.filter(function(){
             var regex = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
             if( !regex.test( $(this).val() ) ) {
-                $(this).css({ 
-                borderColor : 'red',
-                color : 'red' 
-            });
+                $(this).isNotValide();
                 $erreurmail.css('display', 'block'); 
                 } else {
-                    $(this).css({ 
-                borderColor : 'green',
-                color : 'green', 
-            });
+                    $(this).isValide();
                 $erreurmail.css('display', 'none');
             } 
         });
@@ -137,25 +128,24 @@ $(document).ready(function(){
     /* fonction verification si mdp identique */
     $confirmation.keyup(function(){
         var regex = /(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
-        if($(this).val() != $mdp.val() && (!regex.test( $(this).val() ) ) ){ 
-            $(this).css({ 
-                borderColor : 'red',
-                color : 'red', 
-            });
-            $mdp.css({ 
-            borderColor : 'red',
-            color : 'red'
-        });
+        if($(this).val() != $mdp.val()){ 
+            $(this).isNotValide();
             $erreurpwd.css('display', 'block');
         } else {
-            $(this).css({ 
-            borderColor : 'green',
-            color : 'green'
-        });
-            $mdp.css({ 
-            borderColor : 'green',
-            color : 'green'
-        });
+            $(this).isValide();
+            }
+            $erreurpwd.css('display', 'none');
+        }
+    });
+
+    $mdp.keyup(function(){
+        var regex = /(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
+        if($(this).val() != $confirmation.val()){ 
+            $(this).isNotValide();
+            $erreurpwd.css('display', 'block');
+        } else {
+            $(this).isValide();
+            }
             $erreurpwd.css('display', 'none');
         }
     });
@@ -234,13 +224,9 @@ $(document).ready(function(){
     /* verifie si les champs sont bien remplis, si ils ne le sont pas afficher message erreur */
     function verifier(champ){
         if(champ.val() == ""){ 
-            $erreur.css('display', 'block'); 
-            champ.css({ 
-                borderColor : 'red',
-                color : 'red'
-            });
+            champ.isNotValide();
+            }
         }
-    }
 
 });
 

@@ -48,7 +48,8 @@ if (isset($siret)) {
 				<input type="radio" name="typeClient" value="part" checked>';
 }
 
-$tabPays = json_decode($ctrl->getPays(), true);					
+$tabPays = json_decode($ctrl->getPays(), true);		
+			
 
 //var_dump($tabPays);
 
@@ -96,7 +97,7 @@ $tabPays = json_decode($ctrl->getPays(), true);
 	<div id="section-white">
 			<!-- Formulaire -->	
 	<div id="formulaire">		
-		<form method="" action="">
+		<form method="POST" action="coordonnee.php">
 			<!-- Div message erreur -->
 			<div id="erreur">
     			<p>Vous n'avez pas rempli correctement les champs du formulaire !</p>
