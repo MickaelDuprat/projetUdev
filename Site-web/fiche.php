@@ -72,7 +72,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 	                <p> Tarif de base de la location* : </p> <b> 115 € </b>
 	            <ul>
 	                <li> <img id="conducteur-supp" src="img/conducteur-supp.png" alt="Conducteur Supplémentaire">
-	                <p>  Conducteur supplémentaire </p> 
+	                <p>  Conducteur supplémentaire </p> <span> 11,00 € </span>
 	                    <select name="NbcondcteurSupp">
 	                        <option value='0' selected>0</option>                       
 	                        <option value='1'>1</option>
@@ -82,20 +82,20 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 	                        <option value='5'>5</option>                       
 	                     </select>
 
-	                <span> 11,00 € </span>
+
 	                </li>
 
 	                <li> <img id="gps" src="img/GPS.png" alt="GPS">
-	                 <p> Système de navigation GPS </p> 
+	                 <p> Système de navigation GPS </p> <span> 13,00 € </span>
 	                    <select name="NbGPS">
 	                        <option value='0' selected>0</option>                        
 	                        <option value='1'>1</option>
 	                     </select>
-	                <span> 13,00 € </span>
+
 	                </li>  
 
 	                <li> <img id="siege-enfant" src="img/siege-enfant.png" alt="Siège enfant">
-	                 <p> <span class="gauche"> Siège enfant </span> </p>
+	                 <p> Siège enfant </p> <span> 10,99 € </span>
 	                    <select name="NbSiegeEnfant">
 	                        <option value='0' selected>0</option>  
 	                        <option value='1'>1</option>
@@ -103,11 +103,10 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 	                        <option value='3'>3</option>
 	                        <option value='4'>4</option>
 	                    </select>
-	                 <span> 10,99 € </span>
 	                </li>  
 
 	                 <li> <img id="nacelle-bebe" src="img/nacelle-bebe.png" alt="Nacelle bébé">
-	                <p> Nacelle bébé </p>
+	                <p> Nacelle bébé </p> <span> 10,00 € </span>
 	                    <select name="NbNacelleBebe">
 	                        <option value='0' selected>0</option> 
 	                        <option value='1'>1</option>
@@ -115,11 +114,11 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 	                        <option value='3'>3</option>
 	                        <option value='4'>4</option>   
 	                        </select>
-	                 <span> 10,00 € </span>
+	                 
 	                </li>
 
 	                <li> <img id="rehausseur-integral" src="img/rehausseur-integral.png" alt="Réhausseur intégral">
-	                 <p> Réhausseur intégral </p> 
+	                 <p> Réhausseur intégral </p> <span> 7,99 € </span>
 	                    <select name="NbRehausseurIntegral">
 	                        <option value='0' selected>0</option> 
 	                        <option value='1'>1</option>
@@ -127,13 +126,11 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 	                        <option value='3'>3</option>
 	                        <option value='4'>4</option>
 	                        </select>
-	                <span> 7,99 € </span>
 	                </li>
 
 	                <li> <img id="fact-courrier" src="img/fact-courrier.png" alt="Facturation par courrier">
-	                <p> Facturation par courrier </p> 
+	                <p> Facturation par courrier </p> <span> 2,99 € </span>
 	                        <input type="checkbox" id="subscribefactcourrier" name="factcourrier">
-	               <span> 2,99 € </span>
 	                </li>
 	            </ul>
 	    </div>

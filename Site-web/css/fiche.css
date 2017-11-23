@@ -41,7 +41,7 @@
 }
 
 #section-white #liste-option {
-	width : 60%;
+	width : 62%;
 	height : 25%;
 	display: inline-block;
 	float: right;
@@ -53,18 +53,18 @@
 #section-white #liste-option ul > li {
 	display: block;
 	list-style: none;
-	margin-bottom: 100px;
+	margin-bottom: 15%;
 }
 
 #section-white #liste-option p {
-	left-padding : 10%;
+	left-padding : 3%;
 	display: inline-block;
 	font-family : sans-serif;
 	font-size: 150%;
 }
 
 #section-white #liste-option b {
-	padding-left: 60%;
+	padding-left: 62%;
 	display: inline-block;
 	font-family : sans-serif;
 	font-size: 200%;
@@ -73,25 +73,42 @@
 #section-white #liste-option ul > li > p {
 	display: inline-block;
 	margin-bottom: 5%;
-	padding-left: 12%;
-	padding-right: 10%;
+	margin-left: 10%;
 	font-family : sans-serif;
-	font-size: 130%;
+	font-size: 150%;
 	margin-top: 5%;
 }
 
 #section-white #liste-option ul > li > select {
+	outline: none;
+	-webkit-appearance: none;
+	margin-bottom: 5%;
+	margin-top: 4%;
+	margin-right: 20%;
+	padding : 1% 1% 1% 1%;
+	transition: border-color 0.2s;
+	border: 2px solid;
+	border-radius: 5px;
+	background: #fff;
+	color: #555;
+	line-height: normal;
+	font-family: inherit;
+	font-size: inherit;
+	line-height: inherit;
+
 	display : inline-block;
-	float : center;
-	right-padding : 20%;
+	float : right;
 }
 
 #section-white #liste-option ul > li > span {
 	float : right;
 	font-size: 130%;
-	padding-right: 2%;
-	font-family : sans-serif;
 	margin-top: 5%;
+	margin-bottom: 5%;	
+	margin-left: 0%;
+	font-family : sans-serif;
+	display : inline-block;
+	vertical-align: center;
 }
 
 #section-white #liste-option ul > li > img {
@@ -99,6 +116,14 @@
 	width : 15%;
 	height : 15%;
 	float : left;
+}
+
+#section-white #liste-option ul > li > input {
+	margin-bottom: 5%;
+	margin-top: 4%;
+	margin-right: 20%;
+	display : inline-block;
+	float : right;
 }
 
 #section-white #section-paiement {
