@@ -28,37 +28,34 @@ if (isset($_POST['search'])) {
       $clim = $value['lib_clim_veh'];
       $prixJ = $value['prix_journalier_veh'];
       $path = $value['path_img'];
+      $id_cat = $value['id_cat_veh'];
 
       $pers = '';
 
-      if($marque != "VELO"){
-        $info1 = '<p><img src="ico/personne.png" alt="Personne"> '.$personne.' personnes</p>';
-        $info2 = '<p><img src="ico/voiture.png" alt="Porte"> '.$porte.' portes</p>';
-        $info3 = '<p><img src="ico/bagage.png" alt="Bagage"> '.$bagage.' bagages</p>';
-        $info4 = '<p><img src="ico/boiteVitesse.png" alt="BoiteVitesse"> '.$boiteV.'</p>';
-        $info5 = '<p><img src="ico/clim.png" alt="Climatisation"> '.$clim.'</p>';
-      } else {
-        $info1 = "";
-        $info2 = "";
-        $info3 = "";
-        $info4 = "";
-        $info5 = "";
-      }
-
-       $list .= 
-      '<div class="vehicule">
-        <div class="title"><h3>'.$marque.' '.$modele.'</h3></div>
+      if($id_cat != 8 && $id_cat != 7){
+        $infos = '
         <div class="descriptif">
-
           <img src="'.$path.'" alt="'.$marque.' '.$modele.'">
           <div class="infos">
-            '.$info1.'
-            '.$info2.'
-            '.$info3.'
-            '.$info4.'
-            '.$info5.'
+            <p><img src="ico/personne.png" alt="Personne"> '.$personne.' personnes</p>
+            <p><img src="ico/voiture.png" alt="Porte"> '.$porte.' portes</p>
+            <p><img src="ico/bagage.png" alt="Bagage"> '.$bagage.' bagages</p>
+            <p><img src="ico/boiteVitesse.png" alt="BoiteVitesse"> '.$boiteV.'</p>
+            <p><img src="ico/clim.png" alt="Climatisation"> '.$clim.'</p>
           </div>
-        </div>
+        </div>';
+      } else {
+        $infos = '
+        <div class="descriptif" style="width:100% !important;">
+          <img src="'.$path.'" alt="'.$marque.' '.$modele.'" style="width:80%; padding-left: 8%; padding-right: 6%; padding-bottom: 7.3%; max-height: 182px;">
+          <div class="infos" style="display: none;"></div>
+        </div>';
+      }
+
+      $list .= 
+      '<div class="vehicule">
+        <div class="title"><h3>'.$marque.' '.$modele.'</h3></div>
+        '.$infos.'
         <div class="footer">
           <a href="fiche.php?='.$id.'">
             <div class="bouton">
@@ -67,9 +64,9 @@ if (isset($_POST['search'])) {
             <div class="prix">
               <p>'.$prixJ.'€/j</p>
             </div>
-          </a>
-        </div>
-      </div>';
+           </a>
+         </div>
+       </div>';
     }
   }
 
