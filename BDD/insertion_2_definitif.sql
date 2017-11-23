@@ -441,7 +441,7 @@ INSERT INTO marque (lib_marque) VALUES ('ALFA ROMEO');
 INSERT INTO marque (lib_marque) VALUES ('ASTON MARTIN');
 INSERT INTO marque (lib_marque) VALUES ('AUDI');
 INSERT INTO marque (lib_marque) VALUES ('AUSTIN');
-INSERT INTO marque (lib_marque) VALUES ('AUTRE');
+INSERT INTO marque (lib_marque) VALUES ('BTWIN');
 INSERT INTO marque (lib_marque) VALUES ('BENTLEY');
 INSERT INTO marque (lib_marque) VALUES ('BMW');
 INSERT INTO marque (lib_marque) VALUES ('CHEVROLET');
@@ -590,7 +590,7 @@ INSERT INTO modele (lib_modele, id_marque_modele, path_img) VALUES ('MONTEGO', 4
 INSERT INTO modele (lib_modele, id_marque_modele, path_img) VALUES ('PRINCESS', 4, '');
 INSERT INTO modele (lib_modele, id_marque_modele, path_img) VALUES ('SHERPA', 4, '');
 INSERT INTO modele (lib_modele, id_marque_modele, path_img) VALUES ('AUTRE', 4, '');
-INSERT INTO modele (lib_modele, id_marque_modele, path_img) VALUES ('AUTRE', 5, 'img/velo-electrique.png');
+INSERT INTO modele (lib_modele, id_marque_modele, path_img) VALUES ('VELO ELECTRIQUE', 5, 'img/velo-electrique.png');
 INSERT INTO modele (lib_modele, id_marque_modele, path_img) VALUES ('MULSANNE', 6, '');
 INSERT INTO modele (lib_modele, id_marque_modele, path_img) VALUES ('AUTRE', 6, '');
 INSERT INTO modele (lib_modele, id_marque_modele, path_img) VALUES ('116', 7, '');
@@ -1582,7 +1582,7 @@ INSERT INTO modele (lib_modele, id_marque_modele, path_img) VALUES ('KANGOO', 41
 INSERT INTO modele (lib_modele, id_marque_modele, path_img) VALUES ('KANGOO BEBOP', 41, '');
 INSERT INTO modele (lib_modele, id_marque_modele, path_img) VALUES ('KANGOO EXPRESS', 41, '');
 INSERT INTO modele (lib_modele, id_marque_modele, path_img) VALUES ('KANGOO EXPRESSII', 41, '');
-INSERT INTO modele (lib_modele, id_marque_modele, path_img) VALUES ('KANGOO II', 41, '');
+INSERT INTO modele (lib_modele, id_marque_modele, path_img) VALUES ('KANGOO II', 41, 'img/renault-kangoo.png');
 INSERT INTO modele (lib_modele, id_marque_modele, path_img) VALUES ('KOLEOS', 41, '');
 INSERT INTO modele (lib_modele, id_marque_modele, path_img) VALUES ('LAGUNA', 41, '');
 INSERT INTO modele (lib_modele, id_marque_modele, path_img) VALUES ('LAGUNA BACCARA', 41, '');
@@ -1593,7 +1593,7 @@ INSERT INTO modele (lib_modele, id_marque_modele, path_img) VALUES ('LAGUNA INIT
 INSERT INTO modele (lib_modele, id_marque_modele, path_img) VALUES ('LATITUDE', 41, '');
 INSERT INTO modele (lib_modele, id_marque_modele, path_img) VALUES ('MASCOTT', 41, '');
 INSERT INTO modele (lib_modele, id_marque_modele, path_img) VALUES ('MASTER', 41, '');
-INSERT INTO modele (lib_modele, id_marque_modele, path_img) VALUES ('MASTER III', 41, '');
+INSERT INTO modele (lib_modele, id_marque_modele, path_img) VALUES ('MASTER III', 41, 'img/renault-master.png');
 INSERT INTO modele (lib_modele, id_marque_modele, path_img) VALUES ('MAXITY', 41, '');
 INSERT INTO modele (lib_modele, id_marque_modele, path_img) VALUES ('MEGANE', 41, '');
 INSERT INTO modele (lib_modele, id_marque_modele, path_img) VALUES ('MEGANE COUPECABRIO', 41, '');
@@ -1796,7 +1796,7 @@ INSERT INTO modele (lib_modele, id_marque_modele, path_img) VALUES ('COROLLA', 5
 INSERT INTO modele (lib_modele, id_marque_modele, path_img) VALUES ('COROLLA VERSO', 51, '');
 INSERT INTO modele (lib_modele, id_marque_modele, path_img) VALUES ('CRESSIDA', 51, '');
 INSERT INTO modele (lib_modele, id_marque_modele, path_img) VALUES ('CROWN', 51, '');
-INSERT INTO modele (lib_modele, id_marque_modele, path_img) VALUES ('DYNA', 51, '');
+INSERT INTO modele (lib_modele, id_marque_modele, path_img) VALUES ('DYNA', 51, 'img/harley-dina.png');
 INSERT INTO modele (lib_modele, id_marque_modele, path_img) VALUES ('FUN CRUISER', 51, '');
 INSERT INTO modele (lib_modele, id_marque_modele, path_img) VALUES ('GT86', 51, '');
 INSERT INTO modele (lib_modele, id_marque_modele, path_img) VALUES ('HI ACE', 51, '');
@@ -2396,7 +2396,7 @@ INSERT INTO modele (lib_modele, id_marque_modele, path_img) VALUES ('GS', 49, ''
 INSERT INTO modele (lib_modele, id_marque_modele, path_img) VALUES ('GS E', 49, '');
 INSERT INTO modele (lib_modele, id_marque_modele, path_img) VALUES ('GSF', 49, '');
 INSERT INTO modele (lib_modele, id_marque_modele, path_img) VALUES ('GSR', 49, '');
-INSERT INTO modele (lib_modele, id_marque_modele, path_img) VALUES ('GSX', 49, 'img/suzuki-gsxr.png');
+INSERT INTO modele (lib_modele, id_marque_modele, path_img) VALUES ('GSX', 49, 'img/suzuki-gsx.png');
 INSERT INTO modele (lib_modele, id_marque_modele, path_img) VALUES ('GT', 49, '');
 INSERT INTO modele (lib_modele, id_marque_modele, path_img) VALUES ('GZ', 49, '');
 INSERT INTO modele (lib_modele, id_marque_modele, path_img) VALUES ('INAZUMA', 49, '');
