@@ -18,14 +18,6 @@ class SearchModel extends Manager {
       parent::__construct();
   }
 
-   /** 
-    * Exemple
-    * de CRUD (Afficher, Créer, Modifier, Supprimer)
-    *
-    **/
-
-        /* revoir la requete : */
-   
   // Fonction de lecture d'une information
   public function read($agence, $dateDepart, $dateArrivee) {
     $this->pdoStatement = $this->pdo->prepare("SELECT DISTINCT id_veh, lib_modele, path_img, lib_marque, prix_journalier_veh, id_cat_veh_vehicule, nbre_bagage_veh, nbre_passager_veh, lib_boiteV, lib_clim_veh, nbre_portes_veh, lib_agence, id_agence
@@ -48,8 +40,7 @@ class SearchModel extends Manager {
     // var_dump($recherche);
     return $recherche;
   }
-      
-
+    
 }
 
 

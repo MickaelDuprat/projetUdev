@@ -57,4 +57,42 @@ class CoordonneeController{
 
   }
 
+
+ // fonction de modifications des coordonnées du client
+
+  public function modifierInfos(){
+
+
+
+    $tabform = [$nom = $_POST['nom_client'];
+      $prenom = $_POST['prenom_client'];
+      $dateN = $_POST['dateN_client'];
+      $adresseFact = $_POST['add_facturation'];
+      $adresse1 = $_POST['add1_client'];
+      $adresse2 = $_POST['add2_client'];
+      $cpVille = $_POST['cp_villecp'];
+      $ville = $_POST['ville_villecp'];
+      $tel = $_POST['tel_client'];
+      $email = $_POST['email_client'];
+      $raison = $_POST['raisonS_societe'];
+      $siret = $_POST['siret_societe'];
+      $nomS = $_POST['nomC_societe'];
+      $civilite = $_POST['lib_civ'];
+      $pays = $_POST['nom_pays'];]
+
+    foreach ($tabform as $values) {
+      $tab[$values] = new CoordonneeController();
+    }
+
+    if($tabform){
+        $tab = json_encode(['success' => true, 'result' => $tabform]);
+      } else {
+        $tab = json_encode(['success' => false]);
+      }
+
+      return $tab;
+
+      $tabform = $this->manager->updateInfo($id);
+  }
+
 }

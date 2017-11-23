@@ -35,7 +35,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 		<link href="https://fonts.googleapis.com/css?family=Didact+Gothic" rel="stylesheet"> 
 		<!-- Importation de la librairie css concernant le datepicker -->
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datedropper/2.0/datedropper.css" />
-		<link rel=""
+		<link rel="">
     </head>
 
     <!-- Corps général de la page -->

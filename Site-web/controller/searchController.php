@@ -9,6 +9,7 @@ include_once(ROOT . '/modele/SearchModel.php');
 $srch = new SearchController();
 
 if (isset($_POST['search'])) {
+
   // On va boucler sur un tableau
   $jsonTab = json_decode($srch->getVehiculeByAgence(), true);
 
@@ -30,23 +31,32 @@ if (isset($_POST['search'])) {
 
       $pers = '';
 
-      if($marque != 'AUTRE'){
-        $pers = '<p><img src="ico/personne.png" alt="Personne"> '.$personne.' personnes</p>';
+      if($marque != "VELO"){
+        $info1 = '<p><img src="ico/personne.png" alt="Personne"> '.$personne.' personnes</p>';
+        $info2 = '<p><img src="ico/voiture.png" alt="Porte"> '.$porte.' portes</p>';
+        $info3 = '<p><img src="ico/bagage.png" alt="Bagage"> '.$bagage.' bagages</p>';
+        $info4 = '<p><img src="ico/boiteVitesse.png" alt="BoiteVitesse"> '.$boiteV.'</p>';
+        $info5 = '<p><img src="ico/clim.png" alt="Climatisation"> '.$clim.'</p>';
       } else {
-        $pers = '';
+        $info1 = "";
+        $info2 = "";
+        $info3 = "";
+        $info4 = "";
+        $info5 = "";
       }
 
        $list .= 
       '<div class="vehicule">
         <div class="title"><h3>'.$marque.' '.$modele.'</h3></div>
         <div class="descriptif">
+
           <img src="'.$path.'" alt="'.$marque.' '.$modele.'">
           <div class="infos">
-            '.$pers.'
-            <p><img src="ico/voiture.png" alt="Porte"> '.$porte.' portes</p>
-            <p><img src="ico/bagage.png" alt="Bagage"> '.$bagage.' bagages</p>
-            <p><img src="ico/boiteVitesse.png" alt="BoiteVitesse"> '.$boiteV.'</p>
-            <p><img src="ico/clim.png" alt="Climatisation"> '.$clim.'</p>
+            '.$info1.'
+            '.$info2.'
+            '.$info3.'
+            '.$info4.'
+            '.$info5.'
           </div>
         </div>
         <div class="footer">
@@ -98,6 +108,7 @@ class SearchController{
   // Fonction de lecture d'une seule agence
   public function getVehiculeByAgence(){
 
+
       $idAgence = $_POST['agence'];
       $dateDepart = implode('-', array_reverse(explode('/',$_POST['dateDepart']), FALSE));
       $dateArrivee = implode('-', array_reverse(explode('/',$_POST['dateArrivee']), FALSE));
@@ -105,6 +116,7 @@ class SearchController{
       // var_dump($idAgence);
       // var_dump($dateDepart);
       // var_dump($dateArrivee);
+
 
     $recherche = $this->manager->read($idAgence, $dateDepart, $dateArrivee);
 
