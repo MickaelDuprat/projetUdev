@@ -58,19 +58,19 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 
 		switch ($agence) {
 			case 1:
-				$agence = "Bordeaux";
+				$agence = "Agence de Bordeaux";
 				break;
 			case 2:
-				$agence = "Niort";
+				$agence = "Agence de Niort";
 				break;
 			case 3:
-				$agence = "Courçon";
+				$agence = "Agence de Courçon";
 				break;
 			case 4:
-				$agence = "Châtellerault";
+				$agence = "Agence de Châtellerault";
 				break;
 			case 5:
-				$agence = "Poey D'oloron";
+				$agence = "Agence de Poey D'oloron";
 				break;
 			default:
 				$agence = "";
