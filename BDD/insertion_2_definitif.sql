@@ -1813,7 +1813,7 @@ INSERT INTO modele (lib_modele, id_marque_modele, path_img) VALUES ('PASEO', 51,
 INSERT INTO modele (lib_modele, id_marque_modele, path_img) VALUES ('PICNIC', 51, '');
 INSERT INTO modele (lib_modele, id_marque_modele, path_img) VALUES ('PREVIA', 51, '');
 INSERT INTO modele (lib_modele, id_marque_modele, path_img) VALUES ('PRIUS', 51, '');
-INSERT INTO modele (lib_modele, id_marque_modele, path_img) VALUES ('PROACE', 51, '');
+INSERT INTO modele (lib_modele, id_marque_modele, path_img) VALUES ('PROACE', 51, 'img/toyota-proace.png');
 INSERT INTO modele (lib_modele, id_marque_modele, path_img) VALUES ('RAV4', 51, '');
 INSERT INTO modele (lib_modele, id_marque_modele, path_img) VALUES ('RAV4 III', 51, '');
 INSERT INTO modele (lib_modele, id_marque_modele, path_img) VALUES ('RAV4 IV', 51, '');
