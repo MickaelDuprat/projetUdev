@@ -30,23 +30,32 @@ if (isset($_POST['search'])) {
 
       $pers = '';
 
-      if($marque != 'AUTRE'){
-        $pers = '<p><img src="ico/personne.png" alt="Personne"> '.$personne.' personnes</p>';
+      if($marque != "VELO"){
+        $info1 = '<p><img src="ico/personne.png" alt="Personne"> '.$personne.' personnes</p>';
+        $info2 = '<p><img src="ico/voiture.png" alt="Porte"> '.$porte.' portes</p>';
+        $info3 = '<p><img src="ico/bagage.png" alt="Bagage"> '.$bagage.' bagages</p>';
+        $info4 = '<p><img src="ico/boiteVitesse.png" alt="BoiteVitesse"> '.$boiteV.'</p>';
+        $info5 = '<p><img src="ico/clim.png" alt="Climatisation"> '.$clim.'</p>';
       } else {
-        $pers = '';
+        $info1 = "";
+        $info2 = "";
+        $info3 = "";
+        $info4 = "";
+        $info5 = "";
       }
 
        $list .= 
       '<div class="vehicule">
         <div class="title"><h3>'.$marque.' '.$modele.'</h3></div>
         <div class="descriptif">
+
           <img src="'.$path.'" alt="'.$marque.' '.$modele.'">
           <div class="infos">
-            '.$pers.'
-            <p><img src="ico/voiture.png" alt="Porte"> '.$porte.' portes</p>
-            <p><img src="ico/bagage.png" alt="Bagage"> '.$bagage.' bagages</p>
-            <p><img src="ico/boiteVitesse.png" alt="BoiteVitesse"> '.$boiteV.'</p>
-            <p><img src="ico/clim.png" alt="Climatisation"> '.$clim.'</p>
+            '.$info1.'
+            '.$info2.'
+            '.$info3.'
+            '.$info4.'
+            '.$info5.'
           </div>
         </div>
         <div class="footer">
