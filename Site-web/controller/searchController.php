@@ -9,6 +9,7 @@ include_once(ROOT . '/modele/SearchModel.php');
 $srch = new SearchController();
 
 if (isset($_POST['search'])) {
+
   // On va boucler sur un tableau
   $jsonTab = json_decode($srch->getVehiculeByAgence(), true);
 
@@ -98,6 +99,7 @@ class SearchController{
   // Fonction de lecture d'une seule agence
   public function getVehiculeByAgence(){
 
+
       $idAgence = $_POST['agence'];
       $dateDepart = implode('-', array_reverse(explode('/',$_POST['dateDepart']), FALSE));
       $dateArrivee = implode('-', array_reverse(explode('/',$_POST['dateArrivee']), FALSE));
@@ -105,6 +107,7 @@ class SearchController{
       // var_dump($idAgence);
       // var_dump($dateDepart);
       // var_dump($dateArrivee);
+
 
     $recherche = $this->manager->read($idAgence, $dateDepart, $dateArrivee);
 
