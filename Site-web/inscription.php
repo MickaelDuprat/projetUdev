@@ -90,7 +90,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 				<div id="hautform">
 					<label for="civ"> Civilité </label>
 						<select name="civ" id="civ">
-							<option value=""> </option>
+							<option value=""></option>
 							<option value="0"> Mademoiselle </option>
 							<option value="1"> Madame </option>
 							<option value="2"> Monsieur </option>
