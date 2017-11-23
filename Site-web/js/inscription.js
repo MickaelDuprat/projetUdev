@@ -128,24 +128,23 @@ $(document).ready(function(){
     /* fonction verification si mdp identique */
     $confirmation.keyup(function(){
         var regex = /(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
-        if($(this).val() != $mdp.val()){ 
+        if ($(this).val() != $mdp.val() && ( !regex.test( $(this).val() ) )){ 
             $(this).isNotValide();
             $erreurpwd.css('display', 'block');
         } else {
             $(this).isValide();
             }
             $erreurpwd.css('display', 'none');
-        }
+        });
     });
 
     $mdp.keyup(function(){
         var regex = /(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
-        if($(this).val() != $confirmation.val()){ 
+        if($(this).val() != $confirmation.val() && ( !regex.test( $(this).val() ) )){ 
             $(this).isNotValide();
             $erreurpwd.css('display', 'block');
         } else {
             $(this).isValide();
-            }
             $erreurpwd.css('display', 'none');
         }
     });
