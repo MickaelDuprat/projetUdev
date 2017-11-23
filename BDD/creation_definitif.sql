@@ -278,7 +278,7 @@ CREATE TABLE vehicule(
 	pk_id_accessoire int not null,
 	id_choisit_contrat_loc int not null,
 	id_choisit_accessoire int not null,
-	constraint pk_choisit PRIMARY KEY (pk_id_contrat_loc, pk_id_accessoire)
+	constraint pk_choisit PRIMARY KEY (pk_num_contrat_loc, pk_id_accessoire)
 	);
 	
 	create table applique (
