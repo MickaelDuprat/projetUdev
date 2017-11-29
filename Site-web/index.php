@@ -59,7 +59,6 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 				<img src="img/horizon.jpg" alt="Horizon">
 			</aside>
 		</div>
-	
 
 	<!-- Deuxième section de page -->
 	<div id="section-black">
