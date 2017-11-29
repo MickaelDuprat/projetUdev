@@ -391,6 +391,15 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 	<script src="js/formSearch.js"></script>
 	<script src="js/datedropper.js"></script>
 	<script src="js/formLogin.js"></script>
+	
+	<script>
 
+    $(document).ready(function(){
+	    if($("#Citadine").is(":checked")) {
+	        alert("Checked !");
+	    }
+	});
+
+	</script>
 
 </html>

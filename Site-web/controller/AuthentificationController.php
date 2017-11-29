@@ -15,9 +15,9 @@ function cnx($json){
     foreach ($jsonTab as $value) {
       $_SESSION['id'] = $value['id_membre'];
       $_SESSION['login'] = $value['login_membre'];
+      $_SESSION['statut'] = $value['id_membre_statut_membre'];
     }
   }
-
 }
 
 if (isset($_POST['connexion'])) {
