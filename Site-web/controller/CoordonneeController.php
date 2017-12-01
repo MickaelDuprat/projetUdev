@@ -62,8 +62,6 @@ class CoordonneeController{
 
   public function modifierInfos(){
 
-
-
     $tabform = [$_POST['nom_client'],
       $_POST['prenom_client'],
       $_POST['dateN_client'],

@@ -18,15 +18,9 @@ class AuthentificationModel extends Manager {
       parent::__construct();
   }
 
-   /** 
-    * Exemple
-    * de CRUD (Afficher, Créer, Modifier, Supprimer)
-    *
-    **/
-
   // Fonction de lecture d'une information
   public function read($login, $password) {
-    $this->pdoStatement = $this->pdo->prepare("SELECT id_membre, login_membre FROM membre WHERE login_membre = :login AND password_membre = :password");
+    $this->pdoStatement = $this->pdo->prepare("SELECT id_membre, login_membre, id_membre_statut_membre FROM membre WHERE login_membre = :login AND password_membre = :password");
     $this->pdoStatement->bindValue(':login', $login, PDO::PARAM_STR);
     $this->pdoStatement->bindValue(':password', $password, PDO::PARAM_STR);
     $this->pdoStatement->execute();

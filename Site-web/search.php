@@ -397,7 +397,6 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 	<script src="js/formSearch.js"></script>
 	<script src="js/datedropper.js"></script>
 	<script src="js/formLogin.js"></script>
-	<script src="js/checkbox.js"></script>
 
 
 </html>

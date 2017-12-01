@@ -1,0 +1,32 @@
+@import "https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic&subset=latin,cyrillic";
+
+#section-white h3{
+	font-size: 24px;
+	text-align: center;
+	margin-bottom: 40px;
+}
+
+table{
+	background-color: #FFFFFF;
+	font-family: 'RobotoDraft', 'Roboto', 'Helvetica Neue, Helvetica, Arial', sans-serif;
+	margin: 0 auto;
+}
+
+table #tableHead{
+	font-size: 18px;
+	border-bottom: 2px solid black;
+}
+
+table tr{
+	font-size: 15px;
+	border-bottom: 2px solid black;
+}
+
+table tr td{
+	padding: 10px;
+}
+
+table tr td img{
+	padding-left: 10px;
+	padding-right: 10px;
+}
