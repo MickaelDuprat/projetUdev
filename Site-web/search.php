@@ -221,6 +221,12 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 			</div>
 		</div>
 
+
+
+			<select name="id" id="test1">id</select>
+			<select name="cat_id" id="test2">cat_id</select>
+			<select name="marque" id="test3">marque</select>
+			<select name="modele" id="test4">modele</select>
 		<!-- La search list représente la liste des résultats de recherche de véhicule -->
 		<div id="search-list">
 
@@ -391,6 +397,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 	<script src="js/formSearch.js"></script>
 	<script src="js/datedropper.js"></script>
 	<script src="js/formLogin.js"></script>
+	<script src="js/checkbox.js"></script>
 
 
 </html>
