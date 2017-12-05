@@ -261,5 +261,7 @@ $tabPays = json_decode($ctrl->getPays(), true);
 				$('#proform').show();
 			}
 		});
+
+	
 	</script>
 </html>
