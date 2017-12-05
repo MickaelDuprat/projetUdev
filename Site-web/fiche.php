@@ -45,7 +45,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 
 	<!-- Première section de page -->
 	<div id="head-black">
-      <h2><a href="search.php">Sélection du véhicule</a>  - <span><a href="fiche.php">Choix des options</a></span> - <a href="paiement.php">Paiement</a></h2>
+      <a href="search.php">Sélection du véhicule</a>  - <a class="checked" href="fiche.php">Choix des options</a> - <a href="paiement.php">Paiement</a>
     </div>
 
 	<div id="section-white">

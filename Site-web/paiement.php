@@ -48,14 +48,14 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
                 
 	<!-- Première section de page -->
 	<div id="head-black">
-        <h2><a href="search.php">Sélection du véhicule</a> - <a href="fiche.php">Choix des options</a> - <span><a href="paiement.php">Paiement</a></span></h2>
+        <a href="search.php">Sélection du véhicule</a> - <a href="fiche.php">Choix des options</a> - <a class="checked" href="paiement.php">Paiement</a>
     </div>
 
 		<div id="section-white">        
                     <!--page paiement-->
             <form id="formulairePaiement" method="POST" action="">
 				<div class="panel panel-info">
-                        <div class="panel-heading"><span><i class="glyphicon glyphicon-lock"></i></span> Paiement sécurisé</div>
+                        <div class="panel-heading" style="margin-top: 40px;"><span><i class="glyphicon glyphicon-lock"></i></span> Paiement sécurisé</div>
                         <div class="panel-body">
                             <div class="form-group">
                                 <div class="col-md-12"><strong>Numéro de carte:</strong></div>
