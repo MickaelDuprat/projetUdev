@@ -1,4 +1,5 @@
 <?php
+
 include_once(ROOT .'/root.php');
 
 include_once(ROOT .'/modele/Manager.php');
@@ -18,6 +19,17 @@ class SearchModel extends Manager {
       parent::__construct();
   }
   
+
+  // Fonction de lecture d'une information
+  public function readFiltre($requete) {
+    
+    $this->pdoStatement = $this->pdo->prepare($requete);
+    $this->pdoStatement->execute();
+    $recherche = $this->pdoStatement->fetchAll(PDO::FETCH_ASSOC);
+ 
+    return $recherche;
+  }
+
   // Fonction de lecture d'une information
   public function read($agence, $dateDepart, $dateArrivee) {
     $this->pdoStatement = $this->pdo->prepare("SELECT DISTINCT id_veh, id_cat_veh, lib_modele, path_img, lib_marque, prix_journalier_veh, id_cat_veh_vehicule, nbre_bagage_veh, nbre_passager_veh, lib_boiteV, lib_clim_veh, nbre_portes_veh, lib_agence, id_agence
@@ -38,7 +50,7 @@ class SearchModel extends Manager {
     $this->pdoStatement->bindValue(':dateArrivee', $dateArrivee, PDO::PARAM_STR);
     $this->pdoStatement->execute();
     $recherche = $this->pdoStatement->fetchAll(PDO::FETCH_ASSOC);
-    // var_dump($recherche);
+   
     return $recherche;
   }
     
