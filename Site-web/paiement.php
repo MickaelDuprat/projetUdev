@@ -4,14 +4,15 @@ session_start();
 include_once('root.php');
 include_once(ROOT.'/controller/AuthentificationController.php');
 
-$message = '';
-
 if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 	session_destroy();
 	header('Location: index.php');    
 }
 
+
+
 ?>
+
 <!doctype html>
 <html>
     <head>
@@ -51,95 +52,88 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
         <a href="search.php">Sélection du véhicule</a> - <a href="fiche.php">Choix des options</a> - <a class="checked" href="paiement.php">Paiement</a>
     </div>
 
-		<div id="section-white">        
+		<div id="section-white">
+            </div>     
                     <!--page paiement-->
-            <form id="formulairePaiement" method="POST" action="">
-				<div class="panel panel-info">
-                        <div class="panel-heading" style="margin-top: 40px;"><span><i class="glyphicon glyphicon-lock"></i></span> Paiement sécurisé</div>
-                        <div class="panel-body">
-                            <div class="form-group">
-                                <div class="col-md-12"><strong>Numéro de carte:</strong></div>
-                                <div class="col-md-12">
-                                    <select id="CreditCardType" name="CreditCardType" class="form-control">
-                                        <option value="5">Visa</option>
-                                        <option value="6">MasterCard</option>
-                                        <option value="7">American Express</option>
-                                        <option value="8">Discover</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-md-12"><strong>Numéro de carte:</strong></div>
-                                <div class="col-md-12"><input type="text" class="form-control" name="car_number" value=""/></div>
-                            </div>
-                            
-                            <div class="form-group">
-                                <div class="col-md-12">
-                                    <strong>Date d'expiration:</strong>
-                                </div>
-                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                    <select class="form-control" name="">
-                                        <option value="">Mois</option>
-                                        <option value="01">01</option>
-                                        <option value="02">02</option>
-                                        <option value="03">03</option>
-                                        <option value="04">04</option>
-                                        <option value="05">05</option>
-                                        <option value="06">06</option>
-                                        <option value="07">07</option>
-                                        <option value="08">08</option>
-                                        <option value="09">09</option>
-                                        <option value="10">10</option>
-                                        <option value="11">11</option>
-                                        <option value="12">12</option>
+            <form id="formulairePaiement" method="POST" onsubmit="verification()" action="">
+                <div class="panel panel-info">
+                    <div class="panel-heading" style="margin-top: 40px;"><span><i class="glyphicon glyphicon-lock"></i></span> Paiement sécurisé</div>
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <div class="col-md-12"><strong>Type de carte:</strong></div>
+                            <div class="col-md-12">
+                                <select id="CreditCardType" name="CreditCardType" class="form-control">
+                                    <option value="" align="center" selected>/</option>
+                                    <option value="2">Visa</option>
+                                    <option value="3">MasterCard</option>
+                                    <option value="4">American Express</option>
+                                    <option value="5">Discover</option>
                                 </select>
-                                </div>
-                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                    <select class="form-control" name="">
-                                        <option value="">Année</option>
-                                        <option value="2017">2017</option>
-                                        <option value="2018">2018</option>
-                                        <option value="2019">2019</option>
-                                        <option value="2020">2020</option>
-                                        <option value="2021">2021</option>
-                                        <option value="2022">2022</option>
-                                        <option value="2023">2023</option>
-                                        <option value="2024">2024</option>
-                                        <option value="2025">2025</option>
-                                        <option value="2024">2026</option>
-                                        <option value="2025">2027</option>
-                                        <option value="2024">2028</option>
-                                        <option value="2025">2029</option>
-                                        <option value="2024">2030</option>
-                                        <option value="2025">2031</option>
-                                </select>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <div class="col-md-12"><strong>Cryptogramme CVV:</strong></div>
-                                <div class="col-md-12"><input type="text" class="form-control" name="car_code" value="" required /></div>
-                            </div>
-
-                            <div class="form-group">
-                                <div class="col-md-12">
-                                    <span>Paiement sécurisé avec.</span>
-                                </div>
-                                <div class="col-md-12">
-                                    <ul class="cards">
-                                        <li class="visa hand">Visa</li>
-                                        <li class="mastercard hand">MasterCard</li>
-                                        <li class="Amex">Amex</li>
-                                    </ul>
-                                    <div class="clearfix"></div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <button type="submit" class="btn btn-primary btn-submit-fix">Paiement</button>
-                                </div>
+                                <span id="erreur_CreditCardType" style="visibility: hidden" > Veuillez choisir un type de carte bancaire !</span>
                             </div>
                         </div>
+                        <div class="form-group">
+                            <div class="col-md-12"><strong>Titulaire de la carte bancaire :</strong></div>
+                            <div class="col-md-12"><input type="text" class="form-control" id="car_owner" placeholder="Nom du titulaire de la carte bancaire" value="" onchange="verification_titulaire()"/> </div>
+                            <span id="erreur_car_owner" style="visibility:hidden" > Vous avez mal saisi le nom du titulaire de la carte bancaire !</span>
+                            <div class="col-md-12"><strong>Numéro de carte :</strong></div>
+                            <div class="col-md-12"><input type="text" class="form-control" id="car_number" placeholder="Numéro de carte bancaire" value="" onchange="verification_carte()"/> </div>
+                            <span id="erreur_car_number" style="visibility: hidden" > Vous avez mal saisi le numéro de la carte bancaire !</span>
+                        </div>
+                        
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <strong>Date d'expiration :</strong>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <select class="form-control" id="mois">
+                                    <option value="">Mois</option>
+                                    <?php 
+                                    for ($i= 1; $i < 13; $i++) {
+                                    print('<option value='.$i.'>'.$i.'</option>');
+                                    }
+                                    ?>
+                                </select>
+                                <span id="erreur_mois" style="visibility: hidden" > Veuillez choisir un mois !</span>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <select class="form-control" id="annee">
+                                    <option value="">Année</option>
+                                    <?php 
+                                    for ($i= 2017; $i < 2032; $i++) {
+                                    print('<option value='.$i.'>'.$i.'</option>');
+                                    }
+                                    ?>
+                                </select>
+                                <span id="erreur_annee" style="visibility: hidden" > Veuillez choisir une année !</span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-12"><strong>Cryptogramme CVV :</strong></div>
+                            <div class="col-md-12"><input type="text" class="form-control" id="car_crypto" placeholder="Cryptogramme visuel" value="" onchange="verification_crypto()"/></div>
+                            <span id="erreur_car_crypto" style="visibility: hidden" > Vous avez mal saisi le cryptogramme visuel !</span>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <span>Paiement sécurisé avec.</span>
+                            </div>
+                            <div class="col-md-12">
+                                <ul class="cards">
+                                    <li class="visa hand">Visa</li>
+                                    <li class="mastercard hand">MasterCard</li>
+                                    <li class="Amex">Amex</li>
+                                </ul>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <button type="submit" class="btn btn-primary btn-submit-fix">Paiement</button>
+                            </div>
+                        </div>
+                    </div>
                     </div>
                   
                 </div>
@@ -164,8 +158,188 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
- 
+    <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
+    <script src="http://cdn.jsdelivr.net/jquery.validation/1.14.0/jquery.validate.min.js"></script>
 
+    <script type="text/javascript">
 
+function verification_titulaire() {
+    var car_owner = document.getElementById('car_owner');
+    var car_owner_value = car_owner.value;
+    var saisie_owner = /^[a-zéèàùûêâôë]{1}[a-zéèàùûêâôë \'-]*[a-zéèàùûêâôë]$/; //regex testé 
+    var resultat_owner = saisie_owner.test(car_owner_value);
+    
+    if(car_owner_value == "" || resultat_owner == false) {
+        document.getElementById('erreur_car_owner').style.visibility = "visible";
+        car_owner.focus();
+        return false;
+    }
+    document.getElementById('erreur_car_owner').style.visibility = "hidden";
+    return true;
+}
 
+function verification_carte() {
+    var car_number = document.getElementById('car_number');
+    var car_number_value = car_number.value;
+    var saisie_number = /^[0-9]{16}/; //regex testé 
+    var resultat_number = saisie_number.test(car_number_value);
+    
+    if(car_number_value == "" || resultat_number == false) {
+        document.getElementById('erreur_car_number').style.visibility = "visible";
+        car_number.focus();
+        return false;
+    }
+    document.getElementById('erreur_car_number').style.visibility = "hidden";
+    return true;
+}
+
+function verification_crypto() {
+    var car_crypto = document.getElementById('car_crypto');
+    var car_crypto_value = car_crypto.value;
+    var saisie_crypto = /^[0-9]{3}$/; //regex testé 
+    var resultat_crypto = saisie_crypto.test(car_crypto_value);
+
+    if(car_crypto_value == "" || resultat_crypto == false) {
+        document.getElementById('erreur_car_crypto').style.visibility = "visible";
+        car_crypto.focus();
+        return false;
+    }
+    document.getElementById('erreur_car_crypto').style.visibility = "hidden";
+    return true;
+}
+
+function verification() {
+    // récupération des informations des <input>
+    var car_owner = document.getElementById('car_owner');
+    var car_owner_value = car_owner.value;
+    var saisie_owner = /^[a-zéèàùûêâôë]{1}[a-zéèàùûêâôë \'-]*[a-zéèàùûêâôë]$/; //regex testé 
+    var resultat_owner = saisie_owner.test(car_owner_value);
+
+    var car_number = document.getElementById('car_number');
+    var car_number_value = car_number.value;
+    var saisie_number = /^[0-9]{16}/; //regex testé 
+    var resultat_number = saisie_number.test(car_number_value);
+
+    var car_crypto = document.getElementById('car_crypto');
+    var car_crypto_value = car_crypto.value;
+    var saisie_crypto = /^[0-9]{3}/; //regex testé 
+    var resultat_crypto = saisie_crypto.test(car_crypto_value);
+
+    // récupération des informations des <select>
+    var credit_card_type = document.getElementById('CreditCardType');
+    var mois = document.getElementById('mois');
+    var annee = document.getElementById('annee');
+
+    // on teste les différentes conditions et on affiche ou non les messages d'erreurs
+    //
+    if(credit_card_type.value == "") {
+        document.getElementById('erreur_CreditCardType').style.visibility = "visible";
+        credit_card_type.focus();
+        return false;
+    }
+    if(mois.value == "") {
+        document.getElementById('erreur_mois').style.visibility = "visible";
+        mois.focus();
+        return false;
+    }
+    if(annee.value == "") {
+        document.getElementById('erreur_annee').style.visibility = "visible";
+        annee.focus();
+        return false;
+    }
+
+    if(car_owner == "" || resultat_owner == false) {
+        document.getElementById('erreur_car_owner').style.visibility = "visible";
+        car_owner.focus();
+        return false;
+    }
+    
+    if(car_number == "" || resultat_number == false) {
+        document.getElementById('erreur_car_number').style.visibility = "visible";
+        car_number.focus();
+        return false;
+    }
+
+    if(car_crypto == "" || resultat_crypto == false) {
+        document.getElementById('erreur_car_number').style.visibility = "visible";
+        car_crypto.focus();
+        return false;
+    }
+alert('coucou!');
+return true;
+}
+    </script>
 </html>
+<!--function verification() {
+    // récupération des informations des <input>
+    var car_owner = document.getElementById('car_owner');
+    var car_owner_value = car_owner.value;
+    var saisie_owner = /^[a-zéèàùûêâôë]{1}[a-zéèàùûêâôë \'-]*[a-zéèàùûêâôë]$/; //regex testé 
+    var resultat_owner = saisie_owner.test(car_owner_value);
+
+    var car_number = document.getElementById('car_number');
+    var car_number_value = car_number.value;
+    var saisie_number = /^[0-9]{16}/; //regex testé 
+    var resultat_number = saisie_number.test(car_number_value);
+
+    var car_crypto = document.getElementById('car_crypto');
+    var car_crypto_value = car_crypto.value;
+    var saisie_crypto = /^[0-9]{3}/; //regex testé 
+    var resultat_crypto = saisie_crypto.test(car_crypto_value);
+
+    // récupération des informations des <select>
+    var credit_card_type = document.getElementById('CreditCardType');
+    var mois = document.getElementById('mois');
+    var annee = document.getElementById('annee');
+
+    // on teste les différentes conditions et on affiche ou non les messages d'erreurs
+    //
+    if(credit_card_type.value == ""){
+        alert ('Veuillez saisir un type de carte bancaire');
+        credit_card_type.focus();
+        return false;
+    }
+    if(mois.value == ""){
+        alert ('Veuillez saisir un mois');
+        mois.focus();
+        return false;
+    }
+    if(annee.value == ""){
+        alert ('Veuillez saisir une année');
+        annee.focus();
+        return false;
+    }
+
+    if(car_owner == ""){
+        alert ('Veuillez saisir le nom du titulaire de la carte bancaire');
+        car_owner.focus();
+        return false;
+    }
+    if(car_number == ""){
+        alert ('Veuillez saisir le numéro de la carte bancaire');
+        car_number.focus();
+        return false;
+    }
+    if(car_crypto == ""){
+        alert ('Veuillez saisir le cryptogramme visuel');
+        car_crypto.focus();
+        return false;
+    }
+
+    if(resultat_owner == false){
+        alert ('Vous avez mal saisi le nom du titulaire de la carte bancaire');
+        car_owner.focus();
+        return false;
+    }
+    if(resultat_number == false){
+        alert ('Vous avez mal saisi le numéro de la carte bancaire');
+        car_number.focus();
+        return false;
+    }
+    if(resultat_crypto == false){
+        alert ('Vous avez mal saisi le cryptogramme visuel');
+        car_crypto.focus();
+        return false;
+    }
+return true;
+}-->

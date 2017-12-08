@@ -366,7 +366,7 @@ INSERT INTO client (nom_client, prenom_client, dateN_client, email_client, tel_c
 insert into statut_membre (lib_statut_membre) values ('administrateur');
 insert into statut_membre (lib_statut_membre) values ('utilisateur');
 
-insert into agence (lib_agence, add_agence, id_agence_villecp) values ("Agence de Bordeaux", "10, palce de la bourse", 12681);
+insert into agence (lib_agence, add_agence, id_agence_villecp) values ("Agence de Bordeaux", "10, place de la bourse", 12681);
 insert into agence (lib_agence, add_agence, id_agence_villecp) values ("Agence de Niort", "1, rue de la gare", 31953);
 insert into agence (lib_agence, add_agence, id_agence_villecp) values ("Agence de Courçon", "66, rue de Marans", 6157);
 insert into agence (lib_agence, add_agence, id_agence_villecp) values ("Agence de Châtellerault", "222, boulevard de blossac", 34299);

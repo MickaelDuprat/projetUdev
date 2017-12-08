@@ -38,8 +38,8 @@ $(document).ready(function(){
 
         function isValide(champ) {
             champ.css({
-                borderColor : 'green',
-                color : 'green'
+                borderColor : '#ccc',
+                color : '#555'
             });
             $erreur.css('display', 'none');
         }
@@ -222,6 +222,8 @@ $(document).ready(function(){
         }
 
 });
+
+
 
 
 

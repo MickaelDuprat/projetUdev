@@ -50,56 +50,130 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 
 	<!-- Première section de page -->
 	<div id="section-black">
-		<h2>Formulaire de contact</h2>
+		<h2> Contact </h2>
 	</div>
 
 	<!-- Première section de page -->
-		<div id="section-white">
+	<div id="service"> 
+	<p> Pour toutes questions relatives aux services suivants, veuillez vous rediriger vers les sections correspondantes : </p>
+<!-- Redirection vers les différentes sections -->	
+	<a href="mesreservations.php" rel="stylesheet"> Mes réservations </a> <br/>
+	<a href="mesfactures.php" rel="stylesheet"> Mes factures </a> <br/>
+	<a href="mesdonneespers.php" rel="stylesheet"> Mes données personnelles </a> <br/>
+	<p> Avez-vous d’autres questions ? Veuillez utiliser le formulaire de contact ci-dessous : </p>
+ 	<span> <a id="formcontact" href="contact-email.php" rel="stylesheet"> Contactez-nous !</a> </span>
+	</div>
+	
+	<div id="coordonnees"> 
+		<h1> Nos coordonnées </h1>
+		<span> Nous nous ferons un plaisir de répondre à toutes vos questions, n'hésitez pas à contacter une de nos agences : </span>
+		<img src="img/hotesse.png" id="hotesse" alt="contact">
 
-			<p style="margin-left: 20px"> Pour toutes questions relatives aux services suivants, veuillez vous rediriger vers les sections correspondantes : </p>
-		<!-- Redirection vers les différentes sections -->	
-			<a style="margin-left: 20px"href="/mesreservations.php" rel="stylesheet"> Mes réservations </a> <br/>
-			<a style="margin-left: 20px"href="/mesfactures.php" rel="stylesheet"> Mes factures </a> <br/>
-			<a style="margin-left: 20px"href="/mesdonneespers.php" rel="stylesheet"> Mes données personnelles </a> <br/>
-
-			<p style="margin-left: 20px"> Avez-vous d’autres questions ? Veuillez utiliser le formulaire de contact ci-dessous : </p>
-
-			<div>
-				<form id="formulairecontact">	
-					<label for="civ"> Civilité* </label>
-						<select name="civ" id="civ">
-							<option value=""> </option>
-							<option value="0"> Mademoiselle </option>
-							<option value="1"> Madame </option>
-							<option value="2"> Monsieur </option>
-						</select>
-						<br/>
-					<label for="nom">Nom*</label>
-						<input type="text" name="nom" id="nom" class="champ" />
-						<br/>
-					<label for="prenom">Prénom*</label> 
-						<input type="text" name="prenom" id="prenom" class="champ"/>
-						<br/>
-					<label for="societe">Société</label>
-						<input type="text" name="societe" id="societe" class="champ"/>
-						<br/>
-					<label for="email">E-mail*</label>
-						<input type="text" name="email" id="email" class="champ"/>
-						<br/>
-					<label for="email">Téléphone*</label>
-						<input type="text" name="telephone" id="telephone" class="champ"/>
-						<br/>
-				<!-- partie message -->	
-					<label for="email">Message</label>
-						<textarea type="text" name="message" id="message" class="champ" rows="10" cols="50"/> </textarea>
-						<br/>
-				</form>	
-	<!-- boutons -->
-	    	<input type="submit" id="formContact" value="Envoyer"/>
-	    	<p style="margin-left: 20px"> *Champs obligatoires </p>
-	    	</div>
+		<div class="horaire" id="horaireBordeaux"> 
+			<b> Horaire d'ouverture : </b>
+			<p> Lundi : 08h30 - 12 h ; 13h30 - 18h30 </p>
+			<p> Mardi : 08h30 - 12 h ; 13h30 - 18h30 </p>
+			<p> Mercredi : 08h30 - 12 h ; 13h30 - 18h30 </p>
+			<p> Jeudi : 08h30 - 12 h ; 13h30 - 18h30 </p>
+			<p> Vendredi : 08h30 - 12 h ; 13h30 - 18h30 </p>
 		</div>
 
+		<div class="essai" pseudo class="target" id="Bordeaux"> 
+			<h3> Agence de Bordeaux </h3>
+			<b> Adresse postale : </b>
+			<p> 10, place de la bourse 33000 Bordeaux </p> </br>
+			<b> N° téléphone : </b>
+			<p> +33 (0)5-56-00-00-00 </p> </br>
+			<b> Fax : </b>
+			<p> 05-56-00-00-01 </p> </br>
+			<b> Email : </b>
+			<a href="mailto:agence-Bordeaux@error404.fr" class="mail"> agence-Bordeaux@error404.fr </a>
+		</div>
+
+		<div class="horaire" id="horaireChatellerault"> 
+			<b> Horaire d'ouverture : </b>
+			<p> Lundi : 08h30 - 12 h ; 13h30 - 18h30 </p>
+			<p> Mardi : 08h30 - 12 h ; 13h30 - 18h30 </p>
+			<p> Mercredi : 08h30 - 12 h ; 13h30 - 18h30 </p>
+			<p> Jeudi : 08h30 - 12 h ; 13h30 - 18h30 </p>
+			<p> Vendredi : 08h30 - 12 h ; 13h30 - 18h30 </p>
+		</div>
+
+		<div class="essai" id="Chatellerault"> 
+			<h3> Agence de Châtellerault </h3>
+			<b> Adresse postale : </b>
+			<p> 222, boulevard de blossac 86100 Châtellerault </p> </br>
+			<b> N° téléphone : </b>
+			<p> +33 (0)5-49-00-00-00 </p> </br>
+			<b> Fax : </b>
+			<p> 05-49-00-00-01 </p> </br>
+			<b> Email : </b>
+			<a href="mailto:agence-Chatellerault@error404.fr" class="mail"> agence-Chatellerault@error404.fr </a>
+		</div>
+
+		<div class="horaire" id="horaireCourcon"> 
+			<b> Horaire d'ouverture : </b>
+			<p> Lundi : 08h30 - 12 h ; 13h30 - 18h30 </p>
+			<p> Mardi : 08h30 - 12 h ; 13h30 - 18h30 </p>
+			<p> Mercredi : 08h30 - 12 h ; 13h30 - 18h30 </p>
+			<p> Jeudi : 08h30 - 12 h ; 13h30 - 18h30 </p>
+			<p> Vendredi : 08h30 - 12 h ; 13h30 - 18h30 </p>
+		</div>
+
+		<div class="essai" id="Courcon"> 
+			<h3> Agence de Courçon </h3>
+			<b> Adresse postale : </b>
+			<p> 66, rue de Marans 17170 Courçon </p> </br>
+			<b> N° téléphone : </b>
+			<p> +33 (0)5-46-00-00-00 </p> </br>
+			<b> Fax : </b>
+			<p> 05-46-00-00-01 </p> </br>
+			<b> Email : </b>
+			<a href="mailto:agence-Courcon@error404.fr" class="mail"> agence-Courcon@error404.fr </a>
+		</div>
+
+		<div class="horaire" id="horaireNiort"> 
+			<b> Horaire d'ouverture : </b>
+			<p> Lundi : 08h30 - 12 h ; 13h30 - 18h30 </p>
+			<p> Mardi : 08h30 - 12 h ; 13h30 - 18h30 </p>
+			<p> Mercredi : 08h30 - 12 h ; 13h30 - 18h30 </p>
+			<p> Jeudi : 08h30 - 12 h ; 13h30 - 18h30 </p>
+			<p> Vendredi : 08h30 - 12 h ; 13h30 - 18h30 </p>
+		</div>
+
+		<div class="essai" id="Niort"> 
+			<h3> Agence de Niort </h3>
+			<b> Adresse postale : </b>
+			<p> 1, rue de la gare 79000 Niort </p> </br>
+			<b> N° téléphone : </b>
+			<p> +33 (0)5-49-00-00-00 </p> </br>
+			<b> Fax : </b>
+			<p> 05-49-00-00-01 </p> </br>
+			<b> Email : </b>
+			<a href="mailto:agence-Niort@error404.fr" class="mail"> agence-Niort@error404.fr </a>
+		</div>
+
+		<div class="horaire" id="horairePoey"> 
+			<b> Horaire d'ouverture : </b>
+			<p> Lundi : 08h30 - 12 h ; 13h30 - 18h30 </p>
+			<p> Mardi : 08h30 - 12 h ; 13h30 - 18h30 </p>
+			<p> Mercredi : 08h30 - 12 h ; 13h30 - 18h30 </p>
+			<p> Jeudi : 08h30 - 12 h ; 13h30 - 18h30 </p>
+			<p> Vendredi : 08h30 - 12 h ; 13h30 - 18h30 </p>
+		</div>
+
+		<div class="essai" id="Poey"> 
+			<h3> Agence de Poey d'Oloron </h3>
+			<b> Adresse postale : </b>
+			<p> 7, rue de la mairie 64400 Poey d'Oloron </p> </br>
+			<b> N° téléphone : </b>
+			<p> +33 (0)5-59-00-00-00 </p> </br>
+			<b> Fax : </b>
+			<p> 05-59-00-00-01 </p> </br>
+			<b> Email : </b>
+			<a href="mailto:agence-Poey-Oloron@error404.fr" class="mail"> agence-Poey-Oloron@error404.fr </a> </br>
+		</div>
+	</div>
     </body>
 
 	<!-- Footer section du bas de page -->

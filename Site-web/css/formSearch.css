@@ -4,6 +4,10 @@
 
 /** SEARCH FORM **/
 
+#section-white{
+	display: inline-block;
+}
+
 #section-white h2{
 	padding-top: 40px;
 	margin-bottom: -30px;
@@ -101,14 +105,61 @@
 
 /** SEARCH FORM CHECKBOX (Boite de vitesse) **/
 
-#search-form #boiteVitesse{
-	display: inline-block;
-	margin-left: 20px;
-	margin-top: 15px;
+#search-form #boiteVitesse li{
+  display: inline-block;
+  position: relative;
+  float: left;
 }
 
-#search-form #boiteVitesse .check--label-text{
-	font-size: 17px;
+#search-form #boiteVitesse li input[type=radio]{
+  position: absolute;
+  visibility: hidden;
+}
+
+#search-form #boiteVitesse li label{
+  display: block;
+  position: relative;
+  font-weight: 300;
+  font-size: 18px;
+  padding: 25px 25px 25px 80px;
+  margin-top: 5px;
+  margin-left: -15px;
+  height: 30px;
+  z-index: 9;
+  cursor: pointer;
+  -webkit-transition: all 0.25s linear;
+}
+
+#search-form #boiteVitesse li .check{
+  display: block;
+  position: absolute;
+  border: 3px solid #ec1c24;
+  border-radius: 100%;
+  height: 17px;
+  width: 17px;
+  top: 30px;
+  left: 20px;
+  z-index: 5;
+}
+
+#search-form #boiteVitesse li .check::before {
+  display: block;
+  position: absolute;
+  content: '';
+  border-radius: 100%;
+  height: 11px;
+  width: 11px;
+  top: 3px;
+  left: 3px;
+  margin: auto;
+}
+
+#search-form #boiteVitesse li input[type=radio]:checked ~ .check {
+  border: 3px solid #ec1c24;
+}
+
+#search-form #boiteVitesse li input[type=radio]:checked ~ .check::before{
+  background: #ec1c24;
 }
 
 /** SEARCH FORM RANGE **/

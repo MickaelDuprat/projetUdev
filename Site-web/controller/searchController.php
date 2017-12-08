@@ -10,23 +10,34 @@ $srch = new SearchController();
 
 if (isset($_GET['action']) && $_GET['action'] == "refresh") {
 
-  $filtre = "";
+  $catV = "";
+  $boiteV = "";
+  $prixV = "";
 
   $_GET['dateDepart'] = implode('-', array_reverse(explode('/',$_GET['dateDepart']), FALSE));
   $_GET['dateArrivee'] = implode('-', array_reverse(explode('/',$_GET['dateArrivee']), FALSE));
 
   $compteur = 0;
 
-  if (isset($_GET['tab'])) {
-    if (is_array($_GET['tab'])) {
-      foreach ($_GET['tab'] as $value) {
-          $compteur++;
-          if ($compteur > 1) {
-            $filtre .= " or";
-          }
-          $filtre .= " id_cat_veh_vehicule = ". $value;
-      }
+  if (isset($_GET['typeVeh'])) {
+    $catV .= "AND (";
+    foreach ($_GET['typeVeh'] as $value) {
+        $compteur++;
+        if ($compteur > 1) {
+          $catV .= " or ";
+        }
+        $catV .= "id_cat_veh_vehicule = ". $value;
     }
+    $catV .= ")";
+  }
+
+  if (isset($_GET['prix'])) {
+    $prixV .= " AND prix_journalier_veh BETWEEN ".$_GET['prix']['range-prix_min']." AND ".$_GET['prix']['range-prix_max']." ";
+
+  }
+
+  if (isset($_GET['boiteV'])) {
+    $boiteV .= " AND id_boiteV = ". $_GET['boiteV']['boiteVitesse'];
   }
 
   $sql = "SELECT DISTINCT id_veh, lib_modele, lib_marque, id_cat_veh_vehicule, prix_journalier_veh,  id_boiteV_vehicule, nbre_bagage_veh, nbre_passager_veh, nbre_portes_veh, lib_agence, id_agence, id_boiteV_vehicule, lib_boiteV, lib_clim_veh, path_img, id_cat_veh
@@ -38,7 +49,7 @@ LEFT JOIN agence on agence.id_agence = vehicule.id_agence_vehicule
 LEFT JOIN modele on modele.id_modele = vehicule.id_modele_vehicule
 LEFT JOIN marque on marque.id_marque = modele.id_marque_modele
 LEFT JOIN contrat_loc on contrat_loc.id_contrat_loc_vehicule = vehicule.id_veh
-WHERE id_agence = ".$_GET['agence']." and (".$filtre.") AND id_veh NOT IN (SELECT id_veh FROM vehicule INNER JOIN contrat_loc
+WHERE id_agence = ".$_GET['agence']." ".$catV." ".$boiteV." ".$prixV." AND id_veh NOT IN (SELECT id_veh FROM vehicule INNER JOIN contrat_loc
     ON contrat_loc.id_contrat_loc_vehicule = vehicule.id_veh 
     WHERE statut_facturation = 0 
     AND contrat_loc.date_debut < '".$_GET['dateDepart']."' AND contrat_loc.date_fin > '".$_GET['dateArrivee']."')";
@@ -46,9 +57,7 @@ WHERE id_agence = ".$_GET['agence']." and (".$filtre.") AND id_veh NOT IN (SELEC
 // On va boucler sur un tableau
   $jsonTab = json_decode($srch->getVehiculeByFiltre($sql), true);
 
-
-
-  $list2 = '';
+  $list = '';
   $marque = '';
   
   if ($jsonTab['success'] == true) {
@@ -106,12 +115,12 @@ WHERE id_agence = ".$_GET['agence']." and (".$filtre.") AND id_veh NOT IN (SELEC
         </div>';
       }
 
-      $list2 .= 
+      $list .= 
       '<div class="vehicule">
         <div class="title"><h3>'.$marque.' '.$modele.'</h3></div>
         '.$infos.'
         <div class="footer">
-          <a href="fiche.php?='.$id.'">
+          <a href="fiche.php?id='.$id.'&agence='.$_GET['agence']. '&dateDebut='.implode('/', array_reverse(explode('-',$_GET['dateDepart']), FALSE)).'&dateArrivee='.implode('/', array_reverse(explode('-',$_GET['dateArrivee']), FALSE)).'">
             <div class="bouton">
               RÉSERVER
             </div>
@@ -124,7 +133,9 @@ WHERE id_agence = ".$_GET['agence']." and (".$filtre.") AND id_veh NOT IN (SELEC
 
 
     }
-    print($list2);
+
+      print($list);
+
   }
 }
 
@@ -196,7 +207,7 @@ if (isset($_POST['search'])) {
         <div class="title"><h3>'.$marque.' '.$modele.'</h3></div>
         '.$infos.'
         <div class="footer">
-          <a href="fiche.php?='.$id.'">
+          <a href="fiche.php?id='.$id.'&agence='.$_POST['agence']. '&dateDebut='.$_POST['dateDepart'].'&dateArrivee='.$_POST['dateArrivee'].'">
             <div class="bouton">
               RÉSERVER
             </div>
@@ -212,10 +223,11 @@ if (isset($_POST['search'])) {
     $dateDepart = implode('-', array_reverse(explode('/',$_POST['dateDepart']), FALSE));
     $dateArrivee = implode('-', array_reverse(explode('/',$_POST['dateArrivee']), FALSE));
 
+
     $agence = $_POST['agence'];
     $dateD = new DateTime($dateDepart);
-    $datreA = new DateTime($dateArrivee);
-    $interval = $dateD->diff($datreA);
+    $dateA = new DateTime($dateArrivee);
+    $interval = $dateD->diff($dateA);
 
 }
 

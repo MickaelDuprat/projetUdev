@@ -16,8 +16,8 @@ $ctrl = new CoordonneeController();
 
 $tabInfos = json_decode($ctrl->informationsUser($_SESSION['id']), true);
 
-
 foreach ($tabInfos as $value) {
+	$id_client = $value['id_client'];
 	$nom = $value['nom_client'];
 	$prenom = $value['prenom_client'];
 	$dateN = $value['dateN_client'];
@@ -32,7 +32,6 @@ foreach ($tabInfos as $value) {
 	$siret = $value['siret_societe'];
 	$nomS = $value['nomC_societe'];
 	$civilite = $value['lib_civ'];
-	$password = $value['password_membre'];
 	$pays = $value['nom_pays'];
 	$statutMembre = $value['id_membre_statut_membre'];
 }
@@ -58,7 +57,6 @@ if (isset($siret)) {
 
 $tabPays = json_decode($ctrl->getPays(), true);		
 			
-
 //var_dump($tabPays);
 
 ?>
@@ -110,23 +108,25 @@ $tabPays = json_decode($ctrl->getPays(), true);
 			<div id="erreur">
     			<p>Vous n'avez pas rempli correctement les champs du formulaire !</p>
 			</div>
+			<input type="hidden" name="id" value="<?php print($_SESSION['id']); ?>"/>
+			<input type="hidden" name="id_client" value="<?php print($id_client); ?>"/>
 			<!-- choix client pro ou part -->	
 			<div id="typeClient">
-				<form id="choixClient">
+				<div id="choixClient">
 					<label type="text"> Êtes vous un </label><br /><br />
 					<?php print($res); ?>
-  				</form>
+  				</div>
   			</div>
 
   			<!-- demande si présence d'un code promo -->
   			<div id="codePromo">
-  				<form id="choixPromo">
+  				<div id="choixPromo">
   						<label type="text"> Avez vous un code promotionnel </label><br /><br />
   						<label for="oui"> oui </label>
 					<input type="radio" name="choixPromo" value="oui">
 						<label for="non"> non</label>
   					<input type="radio" name="choixPromo" value="non"> 
-  				</form>
+  				</div>
   			</div>
   			<!-- partie coupon -->
   				<div id="coupon">
@@ -137,17 +137,17 @@ $tabPays = json_decode($ctrl->getPays(), true);
 				<div id="hautform">
 					<label for="civ"> Civilité </label>
 						<select name="civ" id="civ" <?php print($status);  ?>>
-							<option value="mademoiselle" <?php if ($civilite == "mademoiselle"){print("selected");} ?>> Mademoiselle </option>
-							<option value="madame" <?php if ($civilite == "madame"){print("selected");} ?>> Madame </option>
-							<option value="monsieur" <?php if ($civilite == "monsieur"){print("selected");} ?>> Monsieur </option>
+							<option value="3" <?php if ($civilite == "mademoiselle"){print("selected");} ?>> Mademoiselle </option>
+							<option value="2" <?php if ($civilite == "madame"){print("selected");} ?>> Madame </option>
+							<option value="1" <?php if ($civilite == "monsieur"){print("selected");} ?>> Monsieur </option>
 						</select><br/><br/>
 	    			<label for="nom">Nom</label>
-	    				<input type="text" id="nom" value="<?php print($nom); ?>" class="champ" <?php print($status); ?>/>
+	    				<input type="text" name="nom" id="nom" value="<?php print($nom); ?>" class="champ" <?php print($status); ?>/>
 					<label for="prenom">Prénom</label>
-						<input type="text" id="prenom" value="<?php print($prenom); ?>" class="champ" <?php print($status); ?>/><br />
+						<input type="text" name="prenom" id="prenom" value="<?php print($prenom); ?>" class="champ" <?php print($status); ?>/><br />
 					<!-- datepicker pour la date de naissance -->
 					<label for="ddn"> Date de naissance </label>
-						<input type="text" id="datepicker" value="<?php print($dateN); ?>" class="champ" value="" <?php print($status); ?>/>
+						<input type="text" name="dateN" id="datepicker" value="<?php print($dateN); ?>" class="champ" value="" <?php print($status); ?>/>
 							<div id="erreurddn">
     							<p>date de naissance invalide
     							</p>
@@ -156,19 +156,19 @@ $tabPays = json_decode($ctrl->getPays(), true);
 			<!-- partie information adresse -->	
 				<div id="mid1form">
 						<label for="add1">Adresse</label>
-							<input type="text" id="add1" value="<?php print($adresse1); ?>" class="champ" <?php print($status); ?>/><br />
+							<input type="text" name="adresse1" id="add1" value="<?php print($adresse1); ?>" class="champ" <?php print($status); ?>/><br />
 						<label for="add2">Complément adresse</label>
-							<input type="text" value="<?php print($adresse2); ?>" id="add2" <?php print($status); ?>/><br />
+							<input type="text" name="adresse2" value="<?php print($adresse2); ?>" id="add2" <?php print($status); ?>/><br />
 						<label for="addfact">Adresse de facturation</label>
-							<input type="text" id="addfact" value="<?php print($adresseFact); ?>" class="champ" <?php print($status); ?>/><br />
+							<input type="text" name="adresseFact" id="addfact" value="<?php print($adresseFact); ?>" class="champ" <?php print($status); ?>/><br />
 						<label for="cp">Code postal</label>
-							<input type="text" id="villecp" value="<?php print($cpVille); ?>" class="champ" <?php print($status); ?>/><br />
+							<input type="text" name="cpVille" id="villecp" value="<?php print($cpVille); ?>" class="champ" <?php print($status); ?>/><br />
 							<div id="erreurvillecp">
     							<p>code postale invalide
     							</p>
 							</div>
 						<label for="ville">Ville</label>
-							<input type="text" id="ville" value="<?php print($ville); ?>" class="champ" <?php print($status); ?>/><br />			
+							<input type="text" name="ville" id="ville" value="<?php print($ville); ?>" class="champ" <?php print($status); ?>/><br />			
 						<label for='pays'>Pays</label>
 							<select name="pays" id="pays" class="champ" <?php print($status); ?>>
 								<?php 
@@ -187,13 +187,13 @@ $tabPays = json_decode($ctrl->getPays(), true);
 			<!-- partie information mdp -->
 				<div id="mid2form">
 	    			<label for="tel">Téléphone</label>
-	    				<input type="tel" id="tel" value="<?php print($tel); ?>" class="champ" <?php print($status); ?>/>
+	    				<input type="tel" name="telephone" id="tel" value="<?php print($tel); ?>" class="champ" <?php print($status); ?>/>
 	    				<div id="erreurtel">
     						<p>numéro de télépone invalide
     						</p>
 						</div>
 	    			<label for="mail">E-mail</label>
-	    				<input type="text" id="mail" value="<?php print($email); ?>" class="champ" <?php print($status); ?>/><br />
+	    				<input type="text" name="email" id="mail" value="<?php print($email); ?>" class="champ" <?php print($status); ?>/><br />
     					<div id="erreurmail">
     						<p>adresse e-mail invalide
     						</p>
@@ -203,20 +203,19 @@ $tabPays = json_decode($ctrl->getPays(), true);
 	   		 <!-- partie client pro -->
 	   		 	<div id="proform">
 	   		 		<label for="raisonSociale">Raison sociale</label>
-	    				<input type="text" id="raisonSociale" value="<?php print($raison); ?>" class="champ" <?php print($status); ?>/>
+	    				<input type="text" name="raisonSociale" id="raisonSociale" value="<?php print($raison); ?>" class="champ" <?php print($status); ?>/>
 	    			<label for="siret">Numéro SIRET</label>
-	    				<input type="text" id="siret" value="<?php print($siret); ?>" class="champ" <?php print($status); ?>/><br />
+	    				<input type="text" name="siret" id="siret" value="<?php print($siret); ?>" class="champ" <?php print($status); ?>/><br />
 	    			<label for="nomCSociete">Nom contact société</label>
-	    				<input type="text" id="nomCSociete" value="<?php print($nomS); ?>" class="champ" <?php print($status); ?> /><br />
+	    				<input type="text" name="nomSociete" id="nomCSociete" value="<?php print($nomS); ?>" class="champ" <?php print($status); ?> /><br />
 	    		</div>
-
 
 	    		<!-- partie information contact -->
 	   		 	<div id="basform">
 	   		 		<label for="mdp">Mot de passe</label>
-	    				<input type="password" id="mdp" value="<?php print($password); ?>" class="champ" /><br />
+	    				<input type="password" name="mdp" id="mdp" class="champ" /><br />
 	    			<label for="confirmation">Confirmation</label>
-	    				<input type="password" id="confirmation" value="<?php print($password); ?>" class="champ" /><br />
+	    				<input type="password" name="confirmMdp" id="confirmation" class="champ" /><br />
 	    				<div id="erreurpwd">
 	    					<p> Le mot de passe doit contenir
 	   							• Au moins une lettre minuscule
@@ -228,7 +227,7 @@ $tabPays = json_decode($ctrl->getPays(), true);
 	   			</div>
 
 	   			<!-- boutons -->
-	    			<input class='btn' type="submit" id="envoi" value="Envoyer" /> <input class='btn' type="reset" id="reset" value="Reset" />
+	    			<input class='btn' name="submit" type="submit" id="envoi" value="Modifier" /> <input class='btn' type="reset" id="reset" value="Remettre à zéro" />
 			</form>
 		</div>
 	</div>
@@ -247,7 +246,7 @@ $tabPays = json_decode($ctrl->getPays(), true);
     <!-- Importation de la librairie js concernant le formulaire du profil -->
     <script src="js/datedropper.js"></script>
     <script src="js/formLogin.js"></script>
-    <script src="js/inscription.js"></script>
+   	<!-- <script src="js/inscription.js"></script> -->
     <script src="js/datepicker.js"></script>
 	<script>
 		var pro = false;
