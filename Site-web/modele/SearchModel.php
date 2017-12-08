@@ -41,7 +41,6 @@ class SearchModel extends Manager {
     // var_dump($recherche);
     return $recherche;
   }
-    
 }
 
 
