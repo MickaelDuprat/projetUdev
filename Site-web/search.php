@@ -141,83 +141,20 @@ if ($_POST['agence'] == "" || $_POST['dateDepart'] == "" || $_POST['dateArrivee'
 					<p id="type-veh"></p>
 				</div>
 
-			<a class="checkbox-type2">
-				<div class="inclu">Marque <i class="fa fa-chevron-down fa-1x"></i>
-			</a>
-					<p class="checkbox-option2">
-						<input type="checkbox" class="hidden-box get_value" value="Peugeot" id="Peugeot"/>
-					    <label for="Peugeot" class="check--label">
-					      <span class="check--label-box"></span>
-					      <span class="check--label-text">Peugeot</span>
-					    </label>
-
-					    <input type="checkbox" class="hidden-box get_value" value="Fiat" id="Fiat"/>
-					    <label for="Fiat" class="check--label">
-					      <span class="check--label-box"></span>
-					      <span class="check--label-text">Fiat</span>
-					    </label>
-
-					    <input type="checkbox" class="hidden-box get_value" value="Renault" id="Renault"/>
-					    <label for="Renault" class="check--label">
-					      <span class="check--label-box"></span>
-					      <span class="check--label-text">Renault</span>
-					    </label>
-
-					    <input type="checkbox" class="hidden-box get_value" value="Ford" id="Ford"/>
-					    <label for="Ford" class="check--label">
-					      <span class="check--label-box"></span>
-					      <span class="check--label-text">Ford</span>
-					    </label>
-
-					    <input type="checkbox" class="hidden-box get_value" value="BMW" id="BMW"/>
-					    <label for="BMW" class="check--label">
-					      <span class="check--label-box"></span>
-					      <span class="check--label-text">BMW</span>
-					    </label>
-
-					    <input type="checkbox" class="hidden-box get_value" value="Audi" id="Audi"/>
-					    <label for="Audi" class="check--label">
-					      <span class="check--label-box"></span>
-					      <span class="check--label-text">Audi</span>
-					    </label>
-					</p>
-				</div>
-
-			<a class="checkbox-type3">
-				<div class="inclu">Modèle <i class="fa fa-chevron-down fa-1x"></i>
-			</a>
-					<p class="checkbox-option3">
-						<input type="checkbox" class="hidden-box get_value" value="206" id="first"/>
-					    <label for="first" class="check--label">
-					      <span class="check--label-box"></span>
-					      <span class="check--label-text">206</span>
-					    </label>
-
-					    <input type="checkbox" class="hidden-box get_value" value="207" id="second"/>
-					    <label for="second" class="check--label">
-					      <span class="check--label-box"></span>
-					      <span class="check--label-text">207</span>
-					    </label>
-
-					    <input type="checkbox" class="hidden-box get_value" value="208" id="third"/>
-					    <label for="third" class="check--label">
-					      <span class="check--label-box"></span>
-					      <span class="check--label-text">208</span>
-					    </label>
-					</p>
-
 					<div id="boiteVitesse">
-						<input type="checkbox" class="hidden-box get_value" id="Automatique"/>
-						    <label for="Automatique" class="check--label">
-						      <span class="check--label-box"></span>
-						      <span class="check--label-text">Automatique</span>
-						    </label>
+						<li>
+							<input type="radio" id="option1" name="boiteV" value="1">
+						    <label for="option1">Automatique</label>
+						    
+						    <div class="check"></div>
+						</li>
 
-						<input type="checkbox" class="hidden-box get_value" id="Manuelle"/>
-						    <label for="Manuelle" class="check--label">
-						      <span class="check--label-box"></span>
-						      <span class="check--label-text">Manuelle</span>
-						    </label>
+						<li>
+						    <input type="radio" id="option2" name="boiteV" value="2">
+						    <label for="option2">Manuelle</label>
+						    
+						    <div class="check"><div class="inside"></div></div>
+						</li>
 					</div>
 				</div>
 
@@ -229,11 +166,7 @@ if ($_POST['agence'] == "" || $_POST['dateDepart'] == "" || $_POST['dateArrivee'
 		</form>
 			<!-- La search list représente la liste des résultats de recherche de véhicule -->
 			<div id="search-list">
-
-				<div id="result">
-					<p></p>
-				</div>
-
+			
 				<?php 
 
 					print($list);
@@ -269,67 +202,55 @@ if ($_POST['agence'] == "" || $_POST['dateDepart'] == "" || $_POST['dateArrivee'
 		tabJSON("#Utilitaire");
 		tabJSON("#Moto");
 		tabJSON("#Vélo");
+		tabJSON("#option1");
+		tabJSON("#option2");
+		tabJSON(".ui-slider-handle");
 
 		function tabJSON(champs) {
+
+			var typeVeh = {};
+			var prix = {};
+			var boiteV = {};
+
 			 $(champs).click(function(){
 
-			 var insert = [];
-			 $('.get_value').each(function(){
-				 if($(this).is(":checked")){
-				 	insert.push($(this).val());
-				 }
-			 });
+				typeVeh = {};
+				$('.get_value').each(function(){
+					 if($(this).is(":checked")){
+					 	typeVeh[$(this).attr("id")] = $(this).val();
+					 }
+				});
 
-			 $.ajax({
-				 url: "controller/searchController.php?action=refresh",
-				 method: "GET",
-				 // dataType: "json",
-				 data:{
-				 	tab:insert,
-					agence: $("#agence").attr("name"),
-					dateDepart: $("#dateDepart").attr("name"),
-					dateArrivee: $("#dateArrivee").attr("name"),
-				 },
-				 success:function(data){
-				 	$('#search-list').html(data);
-				 }
-			 });
-		 });
+				prix["range-prix_min"] = parseInt($('.price-range-min').text());
+				prix["range-prix_max"] = parseInt($('.price-range-max').text());
+
+				boiteV["boiteVitesse"] = $('input[name=boiteV]:checked', '#boiteVitesse').val();
+
+				$.ajax({
+
+					 url: "controller/searchController.php?action=refresh",
+					 method: "GET",
+
+					 data:{
+					 	typeVeh: typeVeh,
+					 	prix: prix,
+					 	boiteV: boiteV,
+						agence: $("#agence").attr("name"),
+						dateDepart: $("#dateDepart").attr("name"),
+						dateArrivee: $("#dateArrivee").attr("name"),
+					 },
+					 success:function(data){
+					 	$('#search-list').html(data);
+					 },
+					 error:function(reponse, status, message){
+					 	console.log(reponse.status + " " + reponse.statusText + " " + message);
+					 },
+
+			 	});
+		 	});
 
 		}
 	});
-
- 
-	/* function tabJSON(tabJson, champs) {
-		$(champs).click(function() {
-		   
-		    if($(this).prop('checked') == true) {
-
-		       $("input[type='checkbox']:checked").each(
-	       	  
-				$.ajax({ 
-			        url:"searchController.php?action=test",
-			        type: "get",
-			        dateType: "json",
-			        data: {
-			        	checked: "ta mère !",
-			        },
-			        success: function(message){
-			            $('#test').append('Test !');
-			        },
-			        error: function(message){
-			            alert(message.status + ' ' + message.statusText);
-			        }
-			  	}));
-
-			    	return alert(tab);	  
-		  		} else {
-		    	obj.splice($.inArray($(this).value,obj) ,1);
-		    	return tab;	  
-			} 
-		});	
-	}
-	*/
 
 	</script>
 
