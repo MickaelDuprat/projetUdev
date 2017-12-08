@@ -11,7 +11,8 @@ if ($tabAccesoire['success'] == true) {
     foreach ($tabAccesoire['result'] as $value) {
       $lib_accessoire = $value['lib_accessoire'];
       $prix_accessoire = $value['prix_journaHT_accessoire'];
-
+  }
+}
 
 // Classe controller des agences de locations
 
