@@ -47,7 +47,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 
 	<!-- Première section de page -->
 	<div id="head-black">
-      <h2><a href="search.php">Sélection du véhicule</a>  - <span><a href="fiche.php">Choix des options</a></span> - <a href="paiement.php">Paiement</a></h2>
+      <a href="search.php">Sélection du véhicule</a>  - <a class="checked" href="fiche.php">Choix des options</a> - <a href="paiement.php">Paiement</a>
     </div>
 
 	
@@ -55,11 +55,35 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 	    <aside id="resume-voiture">
 	        <img id="vehselect" src="img/bmw-1.png" alt="bmw-1">
 	        <h3> Départ </h3>
-	        <p> Agence de départ </p>
+	        <p> <?php 
+	        $agence = $_GET['agence'];
+
+		switch ($agence) {
+			case 1:
+				$agence = "Agence de Bordeaux";
+				break;
+			case 2:
+				$agence = "Agence de Niort";
+				break;
+			case 3:
+				$agence = "Agence de Courçon";
+				break;
+			case 4:
+				$agence = "Agence de Châtellerault";
+				break;
+			case 5:
+				$agence = "Agence de Poey D'oloron";
+				break;
+			default:
+				$agence = "";
+				break;
+		}
+
+		print($agence); ?></p>
 	        <h3> Retour </h3>
-	        <p> Agence de retour </p>
+	        <p> <?php print($agence); ?> </p>
 	        <h3> Période de location </h3>
-	        <p> 1 jour </p>
+	        <p> <?php print("Du : ". $_GET['dateDebut']. " au : ". $_GET['dateArrivee']); ?> </p>
 	        <h3> Equipement du véhicule </h3>
 	            <p><img id="iconeporte" src="ico/voiture.png" alt="Porte"> <?php $nbreportes=5; print($nbreportes);?> portes</p>
 	            <p><img id="iconeboitev" src="ico/boiteVitesse.png" alt="BoiteVitesse"> <?php $boiteV="Manuelle"; print($boiteV);?></p>

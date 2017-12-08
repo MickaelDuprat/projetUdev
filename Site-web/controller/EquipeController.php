@@ -42,11 +42,11 @@ if (isset($_GET)){
 	}
 
 	if (isset($_POST['add_form'])) {
-		$ctrl->add($_POST['login'], $_POST['password']);
+		$ctrl->add($_POST['login'], sha1($_POST['password']));
 	}
 
 	if (isset($_POST['edit_form'])) {
-		$ctrl->edit($_POST['id'], $_POST['login'], $_POST['password']);
+		$ctrl->edit($_POST['id'], $_POST['login'], sha1($_POST['password']));
 	}
 }
 

@@ -70,6 +70,7 @@ nav ul li i{
   color: #ec1c24;
 }
 
+
 /** LOGIN FORM **/
 
 fieldset {
@@ -169,15 +170,16 @@ header h2{
 #head-black{
   width: 100%;
   height: auto;
-  padding-top: 92px;
-  padding-bottom: 1px;
+  padding-top: 110px;
+  padding-bottom: 15px;
   margin-bottom: -40px;
   background-color: #2b2a2a;
+  color: white;
   text-align: center;
   display: block;
 }
 
-#head-black h2 a{
+#head-black a{
   color: #ffffff;
   font-size: 20px;
   padding-left: 20px;
@@ -186,12 +188,13 @@ header h2{
   transition: 0.3s;
 }
 
-#head-black h2 a:hover{
+#head-black a:hover{
   color: #ec1c24;
+  cursor: pointer;
   transition: 0.3s;
 }
 
-#head-black h2 span a{
+#head-black a.checked{
   color: #ec1c24;
   font-size: 20px;
   padding-left: 20px;
@@ -668,4 +671,18 @@ header img{
 	padding-right: -20px;
 	text-align: right;
 	display: block;
+}
+
+#erreurAgence {
+  display: none;
+  font-size: 10px;
+  font-style: italic;
+  color: red;
+}
+
+#erreurDate {
+  display: none;
+  font-size: 10px;
+  font-style: italic;
+  color: red;
 }

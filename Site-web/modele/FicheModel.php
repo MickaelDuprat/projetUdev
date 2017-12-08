@@ -18,17 +18,6 @@ class SearchModel extends Manager {
   public function __construct() {
       parent::__construct();
   }
-  
-
-  // Fonction de lecture d'une information
-  public function readFiltre($requete) {
-    
-    $this->pdoStatement = $this->pdo->prepare($requete);
-    $this->pdoStatement->execute();
-    $recherche = $this->pdoStatement->fetchAll(PDO::FETCH_ASSOC);
- 
-    return $recherche;
-  }
 
   // Fonction de lecture d'une information
   public function read($agence, $dateDepart, $dateArrivee) {
@@ -53,6 +42,7 @@ class SearchModel extends Manager {
    
     return $recherche;
   }
+    
 }
 
 

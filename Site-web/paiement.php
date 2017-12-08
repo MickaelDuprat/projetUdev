@@ -4,14 +4,15 @@ session_start();
 include_once('root.php');
 include_once(ROOT.'/controller/AuthentificationController.php');
 
-$message = '';
-
 if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 	session_destroy();
 	header('Location: index.php');    
 }
 
+
+
 ?>
+
 <!doctype html>
 <html>
     <head>
@@ -48,14 +49,15 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
                 
 	<!-- Première section de page -->
 	<div id="head-black">
-        <h2><a href="search.php">Sélection du véhicule</a> - <a href="fiche.php">Choix des options</a> - <span><a href="paiement.php">Paiement</a></span></h2>
+        <a href="search.php">Sélection du véhicule</a> - <a href="fiche.php">Choix des options</a> - <a class="checked" href="paiement.php">Paiement</a>
     </div>
 
-		<div id="section-white">        
+		<div id="section-white">
+            </div>     
                     <!--page paiement-->
             <form id="formulairePaiement" method="POST" action="">
 				<div class="panel panel-info">
-                        <div class="panel-heading"><span><i class="glyphicon glyphicon-lock"></i></span> Paiement sécurisé</div>
+                        <div class="panel-heading" style="margin-top: 40px;"><span><i class="glyphicon glyphicon-lock"></i></span> Paiement sécurisé</div>
                         <div class="panel-body">
                             <div class="form-group">
                                 <div class="col-md-12"><strong>Numéro de carte:</strong></div>
@@ -164,8 +166,5 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
- 
-
-
 
 </html>
