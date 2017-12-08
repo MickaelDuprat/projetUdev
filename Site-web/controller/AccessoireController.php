@@ -28,6 +28,7 @@ if ($tabAccesoire['success'] == true) {
 
 $listaccessoire = '<li> <img id="gps" src="img/GPS.png" alt="GPS">
                    <p>'..' </p> <span> '..' € </span>
+
                       <select id="NbGPS" onchange="calcul_avec_accesoire()">
                           <option value="0" selected>0</option>                        
                           <option value="1">1</option>
@@ -35,7 +36,9 @@ $listaccessoire = '<li> <img id="gps" src="img/GPS.png" alt="GPS">
                   </li>  
 
                   <li> <img id="siege-enfant" src="img/siege-enfant.png" alt="Siège enfant">
-                  <p>'..' </p> <span> '..' € </span>
+
+                   <p>'.$lib_accessoire.' </p> <span> '.$prix_accessoire.' € </span>
+
                       <select id="NbSiegeEnfant" onchange="calcul_avec_accesoire()">
                           <option value="0" selected>0</option>  
                           <option value="1">1</option>
@@ -46,7 +49,9 @@ $listaccessoire = '<li> <img id="gps" src="img/GPS.png" alt="GPS">
                   </li>  
 
                    <li> <img id="nacelle-bebe" src="img/nacelle-bebe.png" alt="Nacelle bébé">
-                  <p>'..' </p> <span> '..' € </span>
+
+                  <p>'.$lib_accessoire.' </p> <span> '.$prix_accessoire.' € </span>
+
                       <select id="NbNacelleBebe" onchange="calcul_avec_accesoire()">
                           <option value="0" selected>0</option> 
                           <option value="1">1</option>
@@ -57,7 +62,9 @@ $listaccessoire = '<li> <img id="gps" src="img/GPS.png" alt="GPS">
                   </li>
 
                   <li> <img id="rehausseur-integral" src="img/rehausseur-integral.png" alt="Réhausseur intégral">
-                   <p>'..' </p> <span> '..' € </span>
+
+                   <p>'.$lib_accessoire.' </p> <span> '.$prix_accessoire.' € </span>
+
                       <select id="NbRehausseurIntegral" onchange="calcul_avec_accesoire()">
                           <option value="0" selected>0</option> 
                           <option value="1">1</option>
@@ -68,8 +75,23 @@ $listaccessoire = '<li> <img id="gps" src="img/GPS.png" alt="GPS">
                   </li>';
                   } else {  
       $listaccessoire = '';
-    
-   }
+}
+}
+
+
+ 
+
+
+  $dateDepart = $_GET['dateDebut'];
+  $dateArrivee = $_GET['dateArrivee'];
+  $dateD = new DateTime($dateDepart);
+  $dateA = new DateTime($dateArrivee);
+  $interval = $dateD->diff($dateA);
+  $prixLoc = ($prixJ * $interval->day);
+  var_dump($dateD);
+  var_dump($dateA);
+  var_dump($interval);
+  var_dump($proxLoc);
   }
 
 

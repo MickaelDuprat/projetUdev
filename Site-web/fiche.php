@@ -93,7 +93,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 	        <?php print($infos); ?>
 
 	    <div id="liste-option">
-	        <p> Tarif de base de la location* : </p> <b> <?php print($prixJ) ?> € </b>
+	        <p> Tarif de la location* : </p> <b> <?php print($prixLoc) ?> € </b>
 	            <ul>
 	               <?php print($listaccessoire) ?>
 	            </ul>
