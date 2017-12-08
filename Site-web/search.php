@@ -164,6 +164,7 @@ if ($_POST['agence'] == "" || $_POST['dateDepart'] == "" || $_POST['dateArrivee'
 			</div>
 		</div>
 		</form>
+
 			<!-- La search list représente la liste des résultats de recherche de véhicule -->
 			<div id="search-list">
 			
@@ -172,15 +173,12 @@ if ($_POST['agence'] == "" || $_POST['dateDepart'] == "" || $_POST['dateArrivee'
 					print($list);
 					
 				?>
-
+			
 			</div>
-
 		</div>
 	</div>
+</body>
 
-    </body>
-
-	<!-- Footer section du bas de page -->
 	<?php include_once('include/footer.php'); ?>
 	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -189,6 +187,7 @@ if ($_POST['agence'] == "" || $_POST['dateDepart'] == "" || $_POST['dateArrivee'
 	<script src="js/formSearch.js"></script>
 	<script src="js/datedropper.js"></script>
 	<script src="js/formLogin.js"></script>
+
 	
 	<script>
 
@@ -252,7 +251,7 @@ if ($_POST['agence'] == "" || $_POST['dateDepart'] == "" || $_POST['dateArrivee'
 		}
 	});
 
-	</script>
+</script>
 
 </html>
 

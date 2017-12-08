@@ -201,5 +201,59 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
     <script src="js/voiture.js" type="text/javascript"></script>
     <script src="js/datedropper.js"></script>
 	<script src="js/formLogin.js"></script>
+	<script> 
+		$(document).ready(function(){ 
+		
+
+		var erreurAgence = $('#erreurAgence'),
+		erreurDate = $('erreurDate'),
+		date = $('#date'),
+		 dateDepart = $('#dateDepart'),
+		 dateArrivee = $('#dateArrivee');
+
+
+
+		 function dateIsValide(champ) {
+		 	    erreurDate.css('display', 'none');
+		 }
+
+		  function dateIsNotValide(champ) {
+		 	    erreurDate.css('display', 'block');
+		 }
+        
+        
+
+        function agenceIsValide(champ) {
+            erreurAgence.css('display', 'none');
+        }
+        function agenceIsNotValide(champ) {
+            erreurAgence.css('display', 'block');
+        }
+
+	
+
+	$('#choixAgence').on('change', function(){
+		if($('input[name="agence"]:checked').val() == ''){
+			agenceIsNotValide($(this));
+		} else {
+        	agenceIsValide($(this));
+    	}
+	});
+
+	$('#choixAgence').on('click', function(){
+    if($('input[name="agence"]:checked').val() == ''){
+           agenceIsNotValide($(this)); 
+          } else {
+            agenceIsValide($(this));
+            } 
+	});
+
+	  date.on('change', function(){
+    
+	  	
+});
+	});
+
+</script>
 	
 </html>

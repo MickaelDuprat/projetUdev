@@ -51,26 +51,32 @@
 	padding-right: 6%;
 }
 
-#section-white #liste-option ul > li {
-	display: block;
-	list-style: none;
-	margin-bottom: 15%;
-}
-
 #section-white #liste-option p {
-	left-padding : 3%;
 	display: inline-block;
 	font-family : sans-serif;
 	font-size: 150%;
 }
 
 #section-white #liste-option b {
-	padding-left: 62%;
+	float : right;
+	margin-top: 2%;
 	display: inline-block;
 	font-family : sans-serif;
 	font-size: 200%;
 }
 
+#section-white #liste-option ul > li {
+	display: block;
+	list-style: none;
+	margin-bottom: 15%;
+}
+
+#section-white #liste-option ul > li > img {
+	display: inline-block;
+	width : 15%;
+	height : 15%;
+	float : left;
+}
 #section-white #liste-option ul > li > p {
 	display: inline-block;
 	margin-bottom: 5%;
@@ -86,17 +92,16 @@
 	margin-bottom: 5%;
 	margin-top: 4%;
 	margin-right: 20%;
-	padding : 1% 1% 1% 1%;
+	padding : 5px 5px 5px 5px;
 	transition: border-color 0.2s;
-	border: 2px solid;
-	border-radius: 5px;
+	border: 1px solid;
+	border-radius: 10px;
 	background: #fff;
 	color: #555;
 	line-height: normal;
 	font-family: inherit;
 	font-size: inherit;
 	line-height: inherit;
-
 	display : inline-block;
 	float : right;
 }
@@ -112,12 +117,6 @@
 	vertical-align: center;
 }
 
-#section-white #liste-option ul > li > img {
-	display: inline-block;
-	width : 15%;
-	height : 15%;
-	float : left;
-}
 
 #section-white #liste-option ul > li > input {
 	margin-bottom: 5%;
@@ -127,18 +126,52 @@
 	float : right;
 }
 
-#section-white #section-paiement {
+#section-paiement {
 	float : right;
 	width: 68%;
 	margin-left: 2%;
 	margin-right: 2%;
-	padding-right: 2%;
 }
 
-#section-white #section-paiement small {
+#section-paiement p {
+	display: inline-block;
+	font-family : sans-serif;
+	font-size: 150%;
+	margin-left: 5%;
+}
+
+#section-paiement b {
+	float : right;
+	margin-top: 2%;
+	margin-right: 2%;
+	display: inline-block;
+	font-family : sans-serif;
+	font-size: 200%;
+}
+
+#section-paiement small {
 	text-align: left;
 	display: inline-block;
 	margin-bottom: 1%;
+	margin-left: 5%;
+}	
+
+#section-white #total {
+	font-family : 'Verdana';
+	width: 10%;
+	margin-left: 66%;
+	font-size : 160%;
+	display: inline-block;
+	background-color: #f2f2f2;
+	color : black;
+	cursor: pointer;
+	padding: 10px;
+    transition: 0.15s
+	outline: 0;
+	padding : 5px;
+	border: none;
+    border-radius: 30px;
+    transition: 1s;
 }
 
 #section-white #validepaiement {
@@ -157,22 +190,7 @@
     transition: 1s;
 }
 
-#section-white #section-paiement p {
-	padding-left: 10%;
-	display: inline-block;
-	font-family : sans-serif;
-	font-size: 150%;
-}
-
 #section-white #validepaiement:hover {
 	background-color: #ec1c24;
 	transition: 0.3s;
-}
-
-#section-white #section-paiement b {
-	padding-left: 60%;
-	display: inline-block;
-	font-family : sans-serif;
-	font-size: 200%;
-	margin-bottom: 3%;
 }
