@@ -18,10 +18,8 @@ class AccessoireModel extends Manager {
       parent::__construct();
   }
 
-
     
-
-    public function accessoire() {
+  public function accessoire() {
     $this->pdoStatement = $this->pdo->prepare("SELECT lib_accessoire, prix_journaHT_accessoire
     FROM accessoire where id_accessoire <> 1");
     $this->pdoStatement->execute();
