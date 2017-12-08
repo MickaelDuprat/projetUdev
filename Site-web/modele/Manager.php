@@ -9,7 +9,7 @@ abstract class Manager {
         $_HOST = "localhost:3306";
         $_DB = "projetudev";
         $_USER = "root";
-        $_PASSWORD = "root";
+        $_PASSWORD = "formationudev2017";
 
         try
         {
