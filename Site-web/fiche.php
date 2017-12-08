@@ -188,7 +188,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 
     <script type="text/javascript" language="javascript">
 
-    <script> function calcul_sans_accessoire()  {
+     function calcul_sans_accessoire()  {
 			var prixloc = <?php echo($prixloc) ?>;
 			var	total = prixloc
 			alert(total);
