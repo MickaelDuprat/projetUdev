@@ -17,6 +17,7 @@ $ctrl = new CoordonneeController();
 $tabInfos = json_decode($ctrl->informationsUser($_SESSION['id']), true);
 
 foreach ($tabInfos as $value) {
+	$id_client = $value['id_client'];
 	$nom = $value['nom_client'];
 	$prenom = $value['prenom_client'];
 	$dateN = $value['dateN_client'];
@@ -108,7 +109,7 @@ $tabPays = json_decode($ctrl->getPays(), true);
     			<p>Vous n'avez pas rempli correctement les champs du formulaire !</p>
 			</div>
 			<input type="hidden" name="id" value="<?php print($_SESSION['id']); ?>"/>
-			<input type="hidden" name="id_client" value="<?php print($_SESSION['id_client']); ?>"/>
+			<input type="hidden" name="id_client" value="<?php print($id_client); ?>"/>
 			<!-- choix client pro ou part -->	
 			<div id="typeClient">
 				<div id="choixClient">
@@ -136,9 +137,9 @@ $tabPays = json_decode($ctrl->getPays(), true);
 				<div id="hautform">
 					<label for="civ"> Civilité </label>
 						<select name="civ" id="civ" <?php print($status);  ?>>
-							<option value="mademoiselle" <?php if ($civilite == "mademoiselle"){print("selected");} ?>> Mademoiselle </option>
-							<option value="madame" <?php if ($civilite == "madame"){print("selected");} ?>> Madame </option>
-							<option value="monsieur" <?php if ($civilite == "monsieur"){print("selected");} ?>> Monsieur </option>
+							<option value="3" <?php if ($civilite == "mademoiselle"){print("selected");} ?>> Mademoiselle </option>
+							<option value="2" <?php if ($civilite == "madame"){print("selected");} ?>> Madame </option>
+							<option value="1" <?php if ($civilite == "monsieur"){print("selected");} ?>> Monsieur </option>
 						</select><br/><br/>
 	    			<label for="nom">Nom</label>
 	    				<input type="text" name="nom" id="nom" value="<?php print($nom); ?>" class="champ" <?php print($status); ?>/>
