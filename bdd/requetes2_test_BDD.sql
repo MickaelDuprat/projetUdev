@@ -175,3 +175,19 @@ where id_agence = 1 /* info internaute */ and id_veh not in (select id_veh from 
     
     alter table modele alter column img_modele type varchar(60);
     
+    
+    
+    select distinct id_veh, lib_modele, lib_marque, id_cat_veh_vehicule, prix_journalier_veh, id_boiteV_vehicule, nbre_bagage_veh, nbre_passager_veh, nbre_portes_veh, lib_agence, id_agence, id_boiteV_vehicule
+from vehicule
+left join boitev on boitev.id_boiteV = vehicule.id_boiteV_vehicule
+left join agence on agence.id_agence = vehicule.id_agence_vehicule
+left join modele on modele.id_modele = vehicule.id_modele_vehicule
+left join marque on marque.id_marque = modele.id_marque_modele
+left join contrat_loc on contrat_loc.id_contrat_loc_vehicule = vehicule.id_veh
+where id_agence = 1  and (id_cat_veh_vehicule = 1 or id_cat_veh_vehicule = 2 or id_cat_veh_vehicule = 3 or id_cat_veh_vehicule = 4 or id_cat_veh_vehicule = 5 or id_cat_veh_vehicule = 6 or id_cat_veh_vehicule = 7 or id_cat_veh_vehicule = 8); /*and id_boiteV_vehicule = 1 and prix_journalier_veh between 0 and 67/* info internaute */ ; 
+not in (select id_veh from vehicule inner join contrat_loc
+    on contrat_loc.id_contrat_loc_vehicule = vehicule.id_veh 
+    where statut_facturation = 0
+    and contrat_loc.date_debut < '2017-11-28' and contrat_loc.date_fin > '2017-11-24')
+   
+    

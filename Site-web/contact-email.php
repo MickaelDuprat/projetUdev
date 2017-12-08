@@ -54,52 +54,47 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 	</div>
 
 	<!-- Première section de page -->
-		<div id="section-white">
-
-			<p style="margin-left: 20px"> Pour toutes questions relatives aux services suivants, veuillez vous rediriger vers les sections correspondantes : </p>
-		<!-- Redirection vers les différentes sections -->	
-			<a style="margin-left: 20px"href="/mesreservations.php" rel="stylesheet"> Mes réservations </a> <br/>
-			<a style="margin-left: 20px"href="/mesfactures.php" rel="stylesheet"> Mes factures </a> <br/>
-			<a style="margin-left: 20px"href="/mesdonneespers.php" rel="stylesheet"> Mes données personnelles </a> <br/>
-
-			<p style="margin-left: 20px"> Avez-vous d’autres questions ? Veuillez utiliser le formulaire de contact ci-dessous : </p>
-
-			<div>
-				<form id="formulairecontact">	
-					<label for="civ"> Civilité* </label>
-						<select name="civ" id="civ">
-							<option value=""> </option>
-							<option value="0"> Mademoiselle </option>
-							<option value="1"> Madame </option>
-							<option value="2"> Monsieur </option>
-						</select>
-						<br/>
-					<label for="nom">Nom*</label>
-						<input type="text" name="nom" id="nom" class="champ" />
-						<br/>
-					<label for="prenom">Prénom*</label> 
-						<input type="text" name="prenom" id="prenom" class="champ"/>
-						<br/>
-					<label for="societe">Société</label>
-						<input type="text" name="societe" id="societe" class="champ"/>
-						<br/>
-					<label for="email">E-mail*</label>
-						<input type="text" name="email" id="email" class="champ"/>
-						<br/>
-					<label for="email">Téléphone*</label>
-						<input type="text" name="telephone" id="telephone" class="champ"/>
-						<br/>
-				<!-- partie message -->	
-					<label for="email">Message</label>
-						<textarea type="text" name="message" id="message" class="champ" rows="10" cols="50"/> </textarea>
-						<br/>
-				</form>	
+	<div id="service"> 
+		<p> Pour toutes questions relatives aux services suivants, veuillez vous rediriger vers les sections correspondantes : </p>
+	<!-- Redirection vers les différentes sections -->	
+		<a href="mesreservations.php" rel="stylesheet"> Mes réservations </a> <br/>
+		<a href="mesfactures.php" rel="stylesheet"> Mes factures </a> <br/>
+		<a href="mesdonneespers.php" rel="stylesheet"> Mes données personnelles </a> <br/>
+	</div>		
+		<div id="formulairecontact">
+		<form>	
+			<label for="civ"> Civilité* </label>
+				<select name="civ" id="civ">
+					<option value=""> </option>
+					<option value="0"> Mademoiselle </option>
+					<option value="1"> Madame </option>
+					<option value="2"> Monsieur </option>
+				</select>
+				<br/>
+			<label for="nom">Nom*</label>
+				<input type="text" name="nom" id="nom" class="champ" />
+				<br/>
+			<label for="prenom">Prénom*</label> 
+				<input type="text" name="prenom" id="prenom" class="champ"/>
+				<br/>
+			<label for="societe">Société</label>
+				<input type="text" name="societe" id="societe" class="champ"/>
+				<br/>
+			<label for="email">E-mail*</label>
+				<input type="text" name="email" id="email" class="champ"/>
+				<br/>
+			<label for="email">Téléphone*</label>
+				<input type="text" name="telephone" id="telephone" class="champ"/>
+				<br/>
+		<!-- partie message -->	
+			<label for="email">Message</label>
+				<textarea type="text" name="message" id="message" class="champ" rows="10" cols="50"/> </textarea>
+				<br/>
+		</form>	
 	<!-- boutons -->
 	    	<input type="submit" id="formContact" value="Envoyer"/>
 	    	<p style="margin-left: 20px"> *Champs obligatoires </p>
-	    	</div>
-		</div>
-
+	    </div>
     </body>
 
 	<!-- Footer section du bas de page -->
@@ -107,7 +102,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 
     <!-- importations des librairies Js -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-      <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="https://cdn.jsdelivr.net/leaflet/1/leaflet.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/zxcvbn/4.2.0/zxcvbn.js"></script>
 
