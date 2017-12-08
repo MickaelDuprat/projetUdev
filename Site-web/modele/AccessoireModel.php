@@ -18,21 +18,12 @@ class AccessoireModel extends Manager {
       parent::__construct();
   }
 
-  /* Fonction de lecture d'une information
-  public function pays() {
-    $this->pdoStatement = $this->pdo->prepare("SELECT nom_pays FROM pays ORDER BY nom_pays ASC");
-    $this->pdoStatement->execute();
-    $pays = $this->pdoStatement->fetchAll(PDO::FETCH_ASSOC);
     
-    return $pays; */
-    
-
-    public function accessoire() {
+  public function accessoire() {
     $this->pdoStatement = $this->pdo->prepare("SELECT lib_accessoire, prix_journaHT_accessoire
     FROM accessoire where id_accessoire <> 1");
     $this->pdoStatement->execute();
     $accessoire = $this->pdoStatement->fetchAll(PDO::FETCH_ASSOC);
-
     return $accessoire;
   }
 }
