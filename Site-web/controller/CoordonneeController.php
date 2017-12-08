@@ -8,6 +8,14 @@ $ctrl = new CoordonneeController();
 
 if (isset($_POST['submit'])) {
 
+  $jsonTab = json_decode($ctrl->getIdVilleCp($_POST['cpVille']), true);
+
+  $idVille = "";
+
+  foreach ($jsonTab as $value) {
+    $idVille = $value["id_villecp"];
+  }
+
   $requete = $ctrl->modifierInfos( $_POST['id'],
                                    $_POST['id_client'],
                                    $_POST['civ'],
@@ -17,7 +25,7 @@ if (isset($_POST['submit'])) {
                                    $_POST['adresse1'],
                                    $_POST['adresse2'],
                                    $_POST['adresseFact'],
-                                   $_POST['cpVille'],
+                                   $idVille,
                                    $_POST['ville'],
                                    $_POST['pays'],
                                    $_POST['telephone'],
@@ -28,11 +36,8 @@ if (isset($_POST['submit'])) {
                                    $_POST['mdp']
                                  );
 
-  if ($requete) {
-    print("Youhouuu !!");
-  } else {
-    print("Rooooooohhhh merde !!");
-  }
+
+
 
 }
 
@@ -79,6 +84,22 @@ class CoordonneeController{
 
       if($pays){
         $json = json_encode(['success' => true, 'result' => $pays]);
+      } else {
+        $json = json_encode(['success' => false]);
+      }
+      
+      return $json;
+
+  }
+
+
+  // Fonction permettant de récupérer l'id d'une ville et d'un code postal donné !!!!
+  public function getIdVilleCp($cpVille){
+     
+      $id = $this->manager->selectIdVilleCp($cpVille);
+
+      if($id){
+        $json = json_encode(['success' => true, 'result' => $id]);
       } else {
         $json = json_encode(['success' => false]);
       }
