@@ -120,7 +120,7 @@ WHERE id_agence = ".$_GET['agence']." ".$catV." ".$boiteV." ".$prixV." AND id_ve
         <div class="title"><h3>'.$marque.' '.$modele.'</h3></div>
         '.$infos.'
         <div class="footer">
-          <a href="fiche.php?id='.$id.'">
+          <a href="fiche.php?id='.$id.'&agence='.$_GET['agence']. '&dateDebut='.implode('/', array_reverse(explode('-',$_GET['dateDepart']), FALSE)).'&dateArrivee='.implode('/', array_reverse(explode('-',$_GET['dateArrivee']), FALSE)).'">
             <div class="bouton">
               RÉSERVER
             </div>
