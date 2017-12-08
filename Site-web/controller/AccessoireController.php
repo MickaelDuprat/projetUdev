@@ -7,21 +7,18 @@ include_once(ROOT .'/modele/AccessoireModel.php');
 $accessctrl = new AccessoireController();
 $tabAccesoire = json_decode($accessctrl->getAccessoire(), true);
 
+
+
 if ($tabAccesoire['success'] == true) {
   $libprix = '';
-    foreach ($tabAccesoire['result'] as $value) {
+  foreach ($tabAccesoire['result'] as $value) {
       $lib_accessoire = $value['lib_accessoire'];
       $prix_accessoire = $value['prix_journaHT_accessoire'];
 
-      $libprix .=  '<p>'.$lib_accessoire.' </p> <span> '.$prix_accessoire.' € </span>';
-}
+      if($id_cat != 8 && $id_cat != 7){
 
- $listaccessoire = '';
-
- if($id_cat != 8 && $id_cat != 7){
-
-$listaccessoire = '<li> <img id="gps" src="img/GPS.png" alt="GPS">
-                   '.var_dump($tabAccesoire[1]['lib_accessoire']).'
+      $listaccessoire = '<li> <img id="gps" src="img/GPS.png" alt="GPS">
+                   <p>'.$lib_accessoire.' </p> <span> '.$prix_accessoire.' € </span>
                       <select id="NbGPS" onchange="calcul_avec_accesoire()">
                           <option value="0" selected>0</option>                        
                           <option value="1">1</option>
@@ -29,7 +26,7 @@ $listaccessoire = '<li> <img id="gps" src="img/GPS.png" alt="GPS">
                   </li>  
 
                   <li> <img id="siege-enfant" src="img/siege-enfant.png" alt="Siège enfant">
-                   '.$libprix.'
+                   <p>'.$lib_accessoire.' </p> <span> '.$prix_accessoire.' € </span>
                       <select id="NbSiegeEnfant" onchange="calcul_avec_accesoire()">
                           <option value="0" selected>0</option>  
                           <option value="1">1</option>
@@ -40,7 +37,7 @@ $listaccessoire = '<li> <img id="gps" src="img/GPS.png" alt="GPS">
                   </li>  
 
                    <li> <img id="nacelle-bebe" src="img/nacelle-bebe.png" alt="Nacelle bébé">
-                  '.$libprix.'
+                  <p>'.$lib_accessoire.' </p> <span> '.$prix_accessoire.' € </span>
                       <select id="NbNacelleBebe" onchange="calcul_avec_accesoire()">
                           <option value="0" selected>0</option> 
                           <option value="1">1</option>
@@ -51,7 +48,7 @@ $listaccessoire = '<li> <img id="gps" src="img/GPS.png" alt="GPS">
                   </li>
 
                   <li> <img id="rehausseur-integral" src="img/rehausseur-integral.png" alt="Réhausseur intégral">
-                   '.$libprix.'
+                   <p>'.$lib_accessoire.' </p> <span> '.$prix_accessoire.' € </span>
                       <select id="NbRehausseurIntegral" onchange="calcul_avec_accesoire()">
                           <option value="0" selected>0</option> 
                           <option value="1">1</option>
@@ -62,8 +59,23 @@ $listaccessoire = '<li> <img id="gps" src="img/GPS.png" alt="GPS">
                   </li>';
                   } else {  
       $listaccessoire = '';
-    
-   }
+}
+}
+
+
+ 
+
+
+  $dateDepart = $_GET['dateDebut'];
+  $dateArrivee = $_GET['dateArrivee'];
+  $dateD = new DateTime($dateDepart);
+  $dateA = new DateTime($dateArrivee);
+  $interval = $dateD->diff($dateA);
+  $prixLoc = ($prixJ * $interval->day);
+  var_dump($dateD);
+  var_dump($dateA);
+  var_dump($interval);
+  var_dump($proxLoc);
   }
 
 

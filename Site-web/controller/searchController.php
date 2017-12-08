@@ -223,10 +223,11 @@ if (isset($_POST['search'])) {
     $dateDepart = implode('-', array_reverse(explode('/',$_POST['dateDepart']), FALSE));
     $dateArrivee = implode('-', array_reverse(explode('/',$_POST['dateArrivee']), FALSE));
 
+
     $agence = $_POST['agence'];
     $dateD = new DateTime($dateDepart);
-    $datreA = new DateTime($dateArrivee);
-    $interval = $dateD->diff($datreA);
+    $dateA = new DateTime($dateArrivee);
+    $interval = $dateD->diff($dateA);
 
 }
 

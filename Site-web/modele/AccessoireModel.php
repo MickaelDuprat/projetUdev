@@ -20,7 +20,7 @@ class AccessoireModel extends Manager {
 
     
   public function accessoire() {
-    $this->pdoStatement = $this->pdo->prepare("SELECT lib_accessoire, prix_journaHT_accessoire
+    $this->pdoStatement = $this->pdo->prepare("SELECT id_accessoire, lib_accessoire, prix_journaHT_accessoire
     FROM accessoire where id_accessoire <> 1");
     $this->pdoStatement->execute();
     $accessoire = $this->pdoStatement->fetchAll(PDO::FETCH_ASSOC);
