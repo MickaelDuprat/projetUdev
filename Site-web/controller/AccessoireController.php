@@ -12,7 +12,7 @@ if ($tabAccesoire['success'] == true) {
       $lib_accessoire = $value['lib_accessoire'];
       $prix_accessoire = $value['prix_journaHT_accessoire'];
     }
-  }
+}
 
 // Classe controller des agences de locations
 

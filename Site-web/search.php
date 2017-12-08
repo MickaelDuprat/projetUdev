@@ -142,19 +142,21 @@ if ($_POST['agence'] == "" || $_POST['dateDepart'] == "" || $_POST['dateArrivee'
 				</div>
 
 					<div id="boiteVitesse">
-						<li>
-							<input type="radio" id="option1" name="boiteV" value="1">
-						    <label for="option1">Automatique</label>
-						    
-						    <div class="check"></div>
-						</li>
 
 						<li>
-						    <input type="radio" id="option2" name="boiteV" value="2">
+						    <input type="radio" id="option2" name="boiteV" value="1">
 						    <label for="option2">Manuelle</label>
 						    
 						    <div class="check"><div class="inside"></div></div>
 						</li>
+
+						<li>
+							<input type="radio" id="option1" name="boiteV" value="2">
+						    <label for="option1">Automatique</label>
+						    
+						    <div class="check"></div>
+						</li>
+						
 					</div>
 				</div>
 
