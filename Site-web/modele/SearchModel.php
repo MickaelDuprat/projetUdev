@@ -53,7 +53,6 @@ class SearchModel extends Manager {
    
     return $recherche;
   }
-    
 }
 
 
