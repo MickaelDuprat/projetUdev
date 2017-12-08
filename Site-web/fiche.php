@@ -5,6 +5,7 @@ include_once('root.php');
 include_once(ROOT.'/controller/AuthentificationController.php');
 include_once(ROOT.'/controller/SearchController.php');
 include_once(ROOT.'/controller/AccessoireController.php');
+include_once(ROOT.'/controller/FicheController.php');
 	
 $message = '';
 
@@ -12,6 +13,8 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 	session_destroy();
 	header('Location: index.php');    
 }
+
+//$jsonTab = json_decode($ctrl->getVehiculeById($_SESSION['id']), true);
 ?>
 
 <!doctype html>
@@ -53,7 +56,8 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 	
 	<div id="section-white">
 	    <aside id="resume-voiture">
-	        <img id="vehselect" src="img/bmw-1.png" alt="bmw-1">
+	        <img id="vehselect" <?php print('<img src="'.$path.'"
+	        alt="'.$marque.' '.$modele.'">')?>  
 	        <h3> Départ </h3>
 	        <p> <?php 
 	        $agence = $_GET['agence'];
@@ -84,16 +88,8 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 	        <p> <?php print($agence); ?> </p>
 	        <h3> Période de location </h3>
 	        <p> <?php print("Du : ". $_GET['dateDebut']. " au : ". $_GET['dateArrivee']); ?> </p>
-	        <h3> Equipement du véhicule </h3>
-	            <p><img id="iconeporte" src="ico/voiture.png" alt="Porte"> <?php $nbreportes=5; print($nbreportes);?> portes</p>
-	            <p><img id="iconeboitev" src="ico/boiteVitesse.png" alt="BoiteVitesse"> <?php $boiteV="Manuelle"; print($boiteV);?></p>
-	            <p><img id="iconeclim" src="ico/clim.png" alt="Climatisation"> <?php $clim="Climatisation"; print($clim);?></p>
-	        <h3> Capacité </h3>
-	            <p><img id="iconenbpers" src="ico/personne.png" alt="Personne"> <?php $nbrepersonnes=5; print($nbrepersonnes);?> personnes
-	            <p><img id="iconebagage" src="ico/bagage.png" alt="Bagage"> <?php $nbrebagages=3; print($nbrebagages);?> bagages</p>
-	        <h3> Conditions générales </h3>
-	        <p> informations relatives à la location chez Error 404 </p>     
-	    </aside>
+	        
+	        <?php print($infos); ?>
 
 	    <div id="liste-option">
 	        <p> Tarif de base de la location* : </p> <b> <?php $prixloc=115.00; print($prixloc);?> € </b>
