@@ -1,5 +1,4 @@
 <?php
-
 include_once(ROOT .'/root.php');
 
 include_once(ROOT .'/modele/Manager.php');
@@ -22,7 +21,7 @@ class AuthentificationModel extends Manager {
   // Fonction de lecture d'une information
   public function read($login) {
 
-    $this->pdoStatement = $this->pdo->prepare("SELECT id_membre, login_membre, id_membre_statut_membre, id_membre_client, password_membre FROM membre WHERE login_membre = :login");
+    $this->pdoStatement = $this->pdo->prepare("SELECT id_membre, login_membre, id_membre_statut_membre, password_membre FROM membre WHERE login_membre = :login");
     $this->pdoStatement->bindValue(':login', $login, PDO::PARAM_STR);
     $this->pdoStatement->execute();
     $membre = $this->pdoStatement->fetch(PDO::FETCH_ASSOC);

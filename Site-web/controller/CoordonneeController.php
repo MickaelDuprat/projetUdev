@@ -28,12 +28,6 @@ if (isset($_POST['submit'])) {
                                    $_POST['mdp']
                                  );
 
-  if ($requete) {
-    print("Youhouuu !!");
-  } else {
-    print("Rooooooohhhh merde !!");
-  }
-
 }
 
 // Classe controller des agences de locations
@@ -79,6 +73,22 @@ class CoordonneeController{
 
       if($pays){
         $json = json_encode(['success' => true, 'result' => $pays]);
+      } else {
+        $json = json_encode(['success' => false]);
+      }
+      
+      return $json;
+
+  }
+
+
+  // Fonction permettant de récupérer l'id d'une ville et d'un code postal donné !!!!
+  public function getIdVilleCp(){
+     
+      $id = $this->manager->selectIdVilleCp();
+
+      if($id){
+        $json = json_encode(['success' => true, 'result' => $id]);
       } else {
         $json = json_encode(['success' => false]);
       }
