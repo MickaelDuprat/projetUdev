@@ -6,6 +6,36 @@ include_once(ROOT .'/modele/CoordonneeModel.php');
 
 $ctrl = new CoordonneeController();
 
+if (isset($_POST['submit'])) {
+
+  $requete = $ctrl->modifierInfos( $_POST['id'],
+                                   $_POST['id_client'],
+                                   $_POST['civ'],
+                                   $_POST['nom'],
+                                   $_POST['prenom'],
+                                   $_POST['dateN'], 
+                                   $_POST['adresse1'],
+                                   $_POST['adresse2'],
+                                   $_POST['adresseFact'],
+                                   $_POST['cpVille'],
+                                   $_POST['ville'],
+                                   $_POST['pays'],
+                                   $_POST['telephone'],
+                                   $_POST['email'],
+                                   $_POST['raisonSociale'],
+                                   $_POST['siret'],
+                                   $_POST['nomSociete'],
+                                   $_POST['mdp']
+                                 );
+
+  if ($requete) {
+    print("Youhouuu !!");
+  } else {
+    print("Rooooooohhhh merde !!");
+  }
+
+}
+
 // Classe controller des agences de locations
 
 class CoordonneeController{
@@ -60,38 +90,28 @@ class CoordonneeController{
 
  // Fonction de modifications des coordonnées du client
 
-  public function modifierInfos(){
+  public function modifierInfos($id_client, $id_membre, $civ, $nom, $prenom, $dateN, $adresse1, $adresse2, $adresseFact, $cpVille, $ville, $pays, $telephone, $email, $raisonSociale, $siret, $nomSociete, $mdp){
 
-    $tabform = [$_POST['nom_client'],
-      $_POST['prenom_client'],
-      $_POST['dateN_client'],
-      $_POST['add_facturation'],
-      $_POST['add1_client'],
-      $_POST['add2_client'],
-      $_POST['cp_villecp'],
-      $_POST['ville_villecp'],
-      $_POST['tel_client'],
-      $_POST['email_client'],
-      $_POST['raisonS_societe'],
-      $_POST['siret_societe'],
-      $_POST['nomC_societe'],
-      $_POST['lib_civ'],
-      $_POST['nom_pays']];
+    $res = $this->manager->updateInfo($id_client, $civ, $nom, $prenom, $dateN, $adresse1, $adresse2, $adresseFact, $cpVille, $ville, $pays, $telephone, $email, $raisonSociale, $siret, $nomSociete);
 
-    foreach ($tabform as $values) {
-      $tab[] = new CoordonneeController();
-      $tab[] .= $values;
+    $resMembre = $this->manager->updateInfoMembre($id_membre, $mdp);
+
+    if($res){
+        $tab = json_encode(['success' => true, 'result' => $res]);
+      
+    } else {
+        $tab = json_encode(['success' => false]);
     }
 
-    if($tabform){
-        $tab = json_encode(['success' => true, 'result' => $tabform]);
-      } else {
-        $tab = json_encode(['success' => false]);
-      }
+    if($resMembre){
+        $tab2 = json_encode(['success' => true, 'result' => $resMembre]);
+      
+    } else {
+        $tab2 = json_encode(['success' => false]);
+    }
 
-    return $tab;
+    return $tab + $tab2;
 
-      $tabform = $this->manager->updateInfo($id);
   }
 
 }
