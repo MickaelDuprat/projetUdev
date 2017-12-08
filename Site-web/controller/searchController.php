@@ -111,7 +111,7 @@ WHERE id_agence = ".$_GET['agence']." and (".$filtre.") AND id_veh NOT IN (SELEC
         <div class="title"><h3>'.$marque.' '.$modele.'</h3></div>
         '.$infos.'
         <div class="footer">
-          <a href="fiche.php?='.$id.'">
+          <a href="fiche.php?id='.$id.'">
             <div class="bouton">
               RÉSERVER
             </div>
@@ -196,7 +196,7 @@ if (isset($_POST['search'])) {
         <div class="title"><h3>'.$marque.' '.$modele.'</h3></div>
         '.$infos.'
         <div class="footer">
-          <a href="fiche.php?='.$id.'">
+          <a href="fiche.php?id='.$id.'&agence='.$_POST['agence']. '&dateDebut='.$_POST['dateDepart'].'&dateArrivee='.$_POST['dateArrivee'].'">
             <div class="bouton">
               RÉSERVER
             </div>

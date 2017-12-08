@@ -8,7 +8,7 @@
 		  <br/>
 		  <i class="fa fa-map-marker" style="font-size: 45px;" aria-hidden="true" "></i>
 			
-		  <div class="select" tabindex="1">
+		  <div class="select" id="choixAgence" tabindex="1">
 
 			  <input class="selectopt" name="agence" value="1" type="radio" id="opt1">
 			  <label for="opt1" class="option">Agence de Bordeaux</label>
@@ -23,11 +23,13 @@
 			  <input class="selectopt" name="agence" type="radio" value="" id="opt6">
 			  <label for="opt6" class="option">Choisissez une agence</label>
 		  </div>
+		  	<p id="erreurAgence"> Veuillez choisir une agence </p>
+		  <div id="date">
+	      <i class="fa fa-calendar fa-2x" aria-hidden="true" "></i><input class="date feedback-input" id="dateDepart" name="dateDepart" type="text" placeholder="Date de départ" />
 
-	      <i class="fa fa-calendar fa-2x" aria-hidden="true" "></i><input class="date feedback-input" name="dateDepart" type="text" placeholder="Date de départ" />
-
-	      <i class="fa fa-calendar fa-2x" aria-hidden="true"></i><input class="date feedback-input" name="dateArrivee" type="text" placeholder="Date d'arrivée" />
-
+	      <i class="fa fa-calendar fa-2x" aria-hidden="true"></i><input class="date feedback-input" name="dateArrivee" id="dateArrivee" type="text" placeholder="Date d'arrivée" />
+	      <p id="erreurDate"> Veuillez renseignez des dates correctes </p>
+	  	</div>
 		  <br/>
 		  
 	      <div class="submit">
