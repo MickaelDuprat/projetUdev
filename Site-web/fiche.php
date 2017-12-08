@@ -4,7 +4,9 @@ session_start();
 include_once('root.php');
 include_once(ROOT.'/controller/AuthentificationController.php');
 include_once(ROOT.'/controller/SearchController.php');
+include_once(ROOT.'/controller/FicheController.php');
 include_once(ROOT.'/controller/AccessoireController.php');
+
 	
 $message = '';
 
@@ -12,6 +14,8 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 	session_destroy();
 	header('Location: index.php');    
 }
+
+//$jsonTab = json_decode($ctrl->getVehiculeById($_SESSION['id']), true);
 ?>
 
 <!doctype html>
@@ -53,7 +57,8 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 	
 	<div id="section-white">
 	    <aside id="resume-voiture">
-	        <img id="vehselect" src="img/bmw-1.png" alt="bmw-1">
+	        <img id="vehselect" <?php print('<img src="'.$path.'"
+	        alt="'.$marque.' '.$modele.'">')?>  
 	        <h3> Départ </h3>
 	        <p> <?php 
 	        $agence = $_GET['agence'];
@@ -84,86 +89,19 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 	        <p> <?php print($agence); ?> </p>
 	        <h3> Période de location </h3>
 	        <p> <?php print("Du : ". $_GET['dateDebut']. " au : ". $_GET['dateArrivee']); ?> </p>
-	        <h3> Equipement du véhicule </h3>
-	            <p><img id="iconeporte" src="ico/voiture.png" alt="Porte"> <?php $nbreportes=5; print($nbreportes);?> portes</p>
-	            <p><img id="iconeboitev" src="ico/boiteVitesse.png" alt="BoiteVitesse"> <?php $boiteV="Manuelle"; print($boiteV);?></p>
-	            <p><img id="iconeclim" src="ico/clim.png" alt="Climatisation"> <?php $clim="Climatisation"; print($clim);?></p>
-	        <h3> Capacité </h3>
-	            <p><img id="iconenbpers" src="ico/personne.png" alt="Personne"> <?php $nbrepersonnes=5; print($nbrepersonnes);?> personnes
-	            <p><img id="iconebagage" src="ico/bagage.png" alt="Bagage"> <?php $nbrebagages=3; print($nbrebagages);?> bagages</p>
-	        <h3> Conditions générales </h3>
-	        <p> informations relatives à la location chez Error 404 </p>     
-	    </aside>
+
+	        <?php print($infos); ?>
 
 	    <div id="liste-option">
-	        <p> Tarif de base de la location* : </p> <b> <?php $prixloc=115.00; print($prixloc);?> € </b>
+	        <p> Tarif de base de la location* : </p> <b> <?php print($prixJ) ?> € </b>
 	            <ul>
-	                <li> <img id="conducteur-supp" src="img/conducteur-supp.png" alt="Conducteur Supplémentaire">
-	                <p> <?php $option1="Conducteur Supplémentaire"; print($option1);?> </p> <span> <?php $prixoption1=11.00; print($prixoption1);?> € </span>
-	                    <select id="NbcondcteurSupp" onchange="calcul_avec_accesoire()">
-	                        <option value='0' selected>0</option>                       
-	                        <option value='1'>1</option>
-	                        <option value='2'>2</option>
-	                        <option value='3'>3</option>
-	                        <option value='4'>4</option>
-	                        <option value='5'>5</option>                       
-	                     </select>
-	                </li>
-
-	                <li> <img id="gps" src="img/GPS.png" alt="GPS">
-	                 <p> <?php $option2="GPS"; print($option2);?> </p> <span> <?php $prixoption2=13.00; print($prixoption2);?> € </span>
-	                    <select id="NbGPS" onchange="calcul_avec_accesoire()">
-	                        <option value='0' selected>0</option>                        
-	                        <option value='1'>1</option>
-	                     </select>
-	                </li>  
-
-	                <li> <img id="siege-enfant" src="img/siege-enfant.png" alt="Siège enfant">
-	                 <p> <?php $option3="Siège enfant"; print($option3);?> </p> <span> <?php $prixoption3=10.99; print($prixoption3);?> € </span>
-	                    <select id="NbSiegeEnfant" onchange="calcul_avec_accesoire()">
-	                        <option value='0' selected>0</option>  
-	                        <option value='1'>1</option>
-	                        <option value='2'>2</option>
-	                        <option value='3'>3</option>
-	                        <option value='4'>4</option>
-	                    </select>
-	                </li>  
-
-	                 <li> <img id="nacelle-bebe" src="img/nacelle-bebe.png" alt="Nacelle bébé">
-	                <p> <?php $option4="Nacelle bébé"; print($option4);?> </p> <span> <?php $prixoption4=10.00; print($prixoption4);?> € </span>
-	                    <select id="NbNacelleBebe" onchange="calcul_avec_accesoire()">
-	                        <option value='0' selected>0</option> 
-	                        <option value='1'>1</option>
-	                        <option value='2'>2</option>
-	                        <option value='3'>3</option>
-	                        <option value='4'>4</option>   
-	                        </select>	                 
-	                </li>
-
-	                <li> <img id="rehausseur-integral" src="img/rehausseur-integral.png" alt="Réhausseur intégral">
-	                 <p> <?php $option5="Réhausseur intégral"; print($option5);?> </p> <span> <?php $prixoption5=7.99; print($prixoption5);?> € </span>
-	                    <select id="NbRehausseurIntegral" onchange="calcul_avec_accesoire()">
-	                        <option value='0' selected>0</option> 
-	                        <option value='1'>1</option>
-	                        <option value='2'>2</option>
-	                        <option value='3'>3</option>
-	                        <option value='4'>4</option>
-	                        </select>
-	                </li>
-
-	                <li> <img id="fact-courrier" src="img/fact-courrier.png" alt="Facturation par courrier">
-	                <p> <?php $option6="Facturation par courrier"; print($option6);?> </p> <span> <?php $prixoption6=2.99; print($prixoption6);?> € </span>
-	                        <select id="subscribefactcourrier" onchange="calcul_avec_accesoire()">
-	                        <option value='0' selected>Non</option> 
-	                        <option value='1'>Oui</option>
-	                        </select>
-	                </li>
+	               <?php print($listaccessoire) ?>
 	            </ul>
 		</div>
 
 	   		<form method="POST" action="paiement.php">
 	    <div id="section-paiement">
-	        <p>  Prix Total* : </p> <input id="total" value = "<?php print($prixloc);?>"/> <b> € </b>
+	        <p>  Prix Total* : </p> <input id="total" value = "<?php print($prixJ);?>"/> <b> € </b>
 	        <input type="submit" id="validepaiement" value = "J'accepte le tarif et les options"/> 
 	   		</form>
 	        <small> *Prix total TTC incluant la TVA </small>
