@@ -24,7 +24,6 @@ class AccessoireModel extends Manager {
     FROM accessoire where id_accessoire <> 1");
     $this->pdoStatement->execute();
     $accessoire = $this->pdoStatement->fetchAll(PDO::FETCH_ASSOC);
-
     return $accessoire;
   }
 }
