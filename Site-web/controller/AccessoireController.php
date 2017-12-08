@@ -24,7 +24,6 @@ class AccessoireController{
     *
     **/
 
-   
   private $manager;
 
   // Constructeur qui initalise un objet manager instance de la classe AccessoireModel 

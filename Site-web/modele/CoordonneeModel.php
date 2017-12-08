@@ -45,10 +45,37 @@ class CoordonneeModel extends Manager {
 
   // Fonction de modification des données clients
 
-  public function updateInfo($id) {
-    $this->pdoStatement = $this->pdo->prepare("UPDATE client, civilite, villecp, pays SET raisonS_societe = :raison AND siret_societe = :siret AND nomC_societe = :nomS AND lib_civ = :civilite AND nom_client = :nom AND prenom_client = :prenom AND add_facturation = :adresseFact AND dateN_client = :dateN AND add1_client = :adresse1 AND add2_client = :adresse2 AND cp_villecp =:cpVille AND ville_villecp := ville AND nom_pays := pays AND tel_client = :tel AND email_client = :email 
-      WHERE id_membre = :id");
-      $this->pdoStatement->bindValue(':id', $id_membre, PDO::PARAM_INT);
+  public function updateInfo($id_client, $id_membre, $civ, $nom, $prenom, $dateN, $adresse1, $adresse2, $adresseFact, $cpVille, $ville, $pays, $telephone, $email, $raisonSociale, $siret, $nomSociete) {
+    $this->pdoStatement = $this->pdo->prepare("UPDATE client SET lib_civ = :civ AND nom_client = :nom AND prenom_client = :prenom AND dateN_client = :dateN AND add1_client = :adresse1 AND add2_client = :adresse2 AND add_facturation = :adresseFact AND cp_villecp = :cpVille AND ville_villecp := ville AND nom_pays := pays AND tel_client = :telephone AND email_client = :email AND raisonS_societe = :raisonSociale AND siret_societe = :siret AND nomC_societe = :nomSociete
+      WHERE id_client = :id_client");
+      $this->pdoStatement->bindValue(':id_client', $id_client, PDO::PARAM_INT);
+      $this->pdoStatement->bindValue(':civ', $civ, PDO::PARAM_STR);
+      $this->pdoStatement->bindValue(':nom', $nom, PDO::PARAM_STR);
+      $this->pdoStatement->bindValue(':prenom', $prenom, PDO::PARAM_STR);
+      $this->pdoStatement->bindValue(':dateN', $dateN, PDO::PARAM_STR);
+      $this->pdoStatement->bindValue(':adresse1', $adresse1, PDO::PARAM_STR);
+      $this->pdoStatement->bindValue(':adresse2', $adresse2, PDO::PARAM_STR);
+      $this->pdoStatement->bindValue(':adresseFact', $adresseFact, PDO::PARAM_STR);
+      $this->pdoStatement->bindValue(':cpVille', $cpVille, PDO::PARAM_STR);
+      $this->pdoStatement->bindValue(':ville', $ville, PDO::PARAM_STR);
+      $this->pdoStatement->bindValue(':pays', $pays, PDO::PARAM_STR);
+      $this->pdoStatement->bindValue(':telephone', $telephone, PDO::PARAM_STR);
+      $this->pdoStatement->bindValue(':email', $email, PDO::PARAM_STR);
+      $this->pdoStatement->bindValue(':raisonSociale', $raisonSociale, PDO::PARAM_STR);
+      $this->pdoStatement->bindValue(':siret', $siret, PDO::PARAM_STR);
+      $this->pdoStatement->bindValue(':nomSociete', $nomSociete, PDO::PARAM_STR);
+      $this->pdoStatement->execute();
+      $tab = $this->pdoStatement->rowCount();
+
+      return $tab;
+  }
+
+  // Fonction de modification des données clients
+
+  public function updateInfoMembre($id, $mdp) {
+    $this->pdoStatement = $this->pdo->prepare("UPDATE membre SET password_membre = :mdp WHERE id_membre = :id_membre");
+      $this->pdoStatement->bindValue(':id_membre', $id_membre, PDO::PARAM_INT);
+      $this->pdoStatement->bindValue(':mdp', $mdp, PDO::PARAM_STR);
       $this->pdoStatement->execute();
       $tab = $this->pdoStatement->fetchAll(PDO::FETCH_ASSOC);
 
