@@ -7,14 +7,12 @@ include_once(ROOT.'/controller/SearchController.php');
 include_once(ROOT.'/controller/FicheController.php');
 include_once(ROOT.'/controller/AccessoireController.php');
 
-	
 $message = '';
 
 if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 	session_destroy();
 	header('Location: index.php');    
 }
-
 //$jsonTab = json_decode($ctrl->getVehiculeById($_SESSION['id']), true);
 ?>
 
@@ -57,6 +55,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 	
 	<div id="section-white">
 	    <aside id="resume-voiture">
+	    	<p> <?php print($marque.' '.$modele) ?> </p>
 	        <img id="vehselect" <?php print('<img src="'.$path.'"
 	        alt="'.$marque.' '.$modele.'">')?>  
 	        <h3> Départ </h3>
@@ -94,8 +93,57 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 
 	    <div id="liste-option">
 	        <p> Tarif de la location* : </p> <b> <?php print($prixLoc) ?> € </b>
-	            <ul>
-	               <?php print($listaccessoire) ?>
+	            <ul>          	
+	            	<li>
+	            		<?php print($listaccessoire) ?>
+	            		<!--
+	            		<img id="gps" src="<?php print($img_path) ?>" alt="GPS">
+	            	<?php print($listaccessoire) ?>
+	               <select id="NbGPS" onchange="calcul_avec_accesoire()">
+                          <option value="0" selected>0</option>                        
+                          <option value="1">1</option>
+                       </select>
+                  </li> 
+
+                  <li>
+                  	 <img id="siege-enfant" src="<?php print($img_path) ?>" alt="Siège enfant">
+                  <?php print($listaccessoire) ?>
+                  <select id="NbSiegeEnfant" onchange="calcul_avec_accesoire()">
+                          <option value="0" selected>0</option>  
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                      </select>
+                  </li>
+
+                  <li>
+                  	<img id="nacelle-bebe" src="<?php print($img_path) ?>" alt="Nacelle bébé">
+                  	<?php print($listaccessoire) ?>
+                  <select id="NbNacelleBebe" onchange="calcul_avec_accesoire()">
+                          <option value="0" selected>0</option> 
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>   
+                          </select>    
+                   </li>
+
+                   <li>
+                   	<img id="rehausseur-integral" src="<?php print($img_path) ?>" alt="Réhausseur intégral">
+                   		<?php print($listaccessoire) ?>
+                   	 <select id="NbRehausseurIntegral" onchange="calcul_avec_accesoire()">
+                          <option value="0" selected>0</option> 
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          </select>
+                   </li>
+
+     -->
+
+
 	            </ul>
 		</div>
 

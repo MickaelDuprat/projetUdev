@@ -1,6 +1,6 @@
 <!-- Barre de naviguation du site -->
 <nav>
-	<img src="img/logo.png" alt="Logo"/>
+	<a href = "index.php"><img src="img/logo.png" alt="Logo"/></a>
 	<ul>
 	    <a href="index.php"><li>Accueil</li></a>
 	    <a href="search.php"><li>Recherche</li></a>
@@ -46,10 +46,12 @@
 			          			print('<p>Bienvenue<br/><b class="redText">'.ucfirst($_SESSION['login']).'</b></p>');	 
 				          		if (isset($_SESSION['statut']) && $_SESSION['statut'] == 1) {
 				          			 print('<li><a href="equipe.php">Mon équipe</a></li><br/>');
+				          			 print('<li><a href="lesagences.php">Les agences</a></li><br/>');
 				          		}
 			          		}
 		          		?>
 		             	<li><a href="coordonnee.php">Mes informations</a></li>
+		             	<li><a href="mesfactures.php">Mes factures</a></li>
 		             	<li><a href="?action=deconnexion">Déconnexion</a></li>
 		           </fieldset>
 		        </div>
