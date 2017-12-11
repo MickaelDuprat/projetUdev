@@ -7,14 +7,12 @@ include_once(ROOT.'/controller/SearchController.php');
 include_once(ROOT.'/controller/FicheController.php');
 include_once(ROOT.'/controller/AccessoireController.php');
 
-	
 $message = '';
 
 if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 	session_destroy();
 	header('Location: index.php');    
 }
-
 //$jsonTab = json_decode($ctrl->getVehiculeById($_SESSION['id']), true);
 ?>
 
@@ -57,6 +55,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 	
 	<div id="section-white">
 	    <aside id="resume-voiture">
+	    	<p> <?php print($marque.' '.$modele) ?> </p>
 	        <img id="vehselect" <?php print('<img src="'.$path.'"
 	        alt="'.$marque.' '.$modele.'">')?>  
 	        <h3> Départ </h3>
@@ -94,8 +93,9 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 
 	    <div id="liste-option">
 	        <p> Tarif de la location* : </p> <b> <?php print($prixLoc) ?> € </b>
-	            <ul>
-	               <?php print($listaccessoire) ?>
+	            <ul>          	
+	            	<li>
+	            		<?php print($listaccessoire) ?>
 	            </ul>
 		</div>
 
@@ -127,39 +127,39 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
     <script type="text/javascript" language="javascript">
 
      function calcul_sans_accessoire()  {
-			var prixloc = <?php echo($prixloc) ?>;
-			var	total = prixloc
+			var prixloc = <?php echo($prixLoc) ?>;
+			var	total = prixloc;
 			alert(total);
 			document.getElementById("total").value = total;	
 	}
 
 function calcul_avec_accesoire()  {
-			var prixloc = <?php echo($prixloc) ?>;
+			var prixloc = <?php echo($prixLoc) ?>;
 
-    		var choix1 = $("#NbcondcteurSupp").val();
-    		var prixoption1 = <?php echo($prixoption1) ?>;
-    		var coutoption1 = choix1 * prixoption1;
+    		var choix1 = $("#Conducteur supplémentaire").val();
+    		var prixoption1 = <?php print($prix_accessoire) ?>;
+    		var coutoption1 = choix1 * <?php $prix_accessoire ?>
  
-    		var choix2 = $("#NbGPS").val();
-    		var prixoption2 = <?php echo($prixoption2) ?>;
-    		var coutoption2 = choix2 * prixoption2;
+    		var choix2 = $("#GPS").val();
+    		var prixoption2 = <?php print($prix_accessoire) ?>;
+    		var coutoption2 = choix2 * <?php $prix_accessoire ?>
  
-    		var choix3 = $("#NbSiegeEnfant").val();
-    		var prixoption3 = <?php echo($prixoption3) ?>;
-    		var coutoption3 = choix3 * prixoption3;
+    		var choix3 = $("#Siège enfant").val();
+    		var prixoption3 = <?php print($prix_accessoire) ?>;
+    		var coutoption3 = choix3 * <?php $prix_accessoire ?>
 
  
-    		var choix4 = $("#NbNacelleBebe").val();
-    		var prixoption4 = <?php echo($prixoption4) ?>;
-    		var coutoption4 = choix4 * prixoption4;
+    		var choix4 = $("#Nacelle bébé").val();
+    		var prixoption4 = <?php print($prix_accessoire) ?>;
+    		var coutoption4 = choix4 * <?php $prix_accessoire ?>
  
-    		var choix5 = $("#NbRehausseurIntegral").val();
-    		var prixoption5 = <?php echo($prixoption5) ?>;
-    		var coutoption5 = choix5 * prixoption5;
+    		var choix5 = $("#Réhausseur intégral").val();
+    		var prixoption5 = <?php print($prix_accessoire) ?>;
+    		var coutoption5 = choix5 * <?php $prix_accessoire ?>
 
-     		var choix6 = $("#subscribefactcourrier").val();
-    		var prixoption6 = <?php echo($prixoption6) ?>;
-    		var coutoption6 = choix6 * prixoption6;		  		
+     		var choix6 = $("#Facturation par courrier").val();
+    		var prixoption6 = <?php $prix_accessoire ?>;
+    		var coutoption6 = choix6 * <?php $prix_accessoire ?>		  		
 
 			var	total = prixloc + coutoption1 + coutoption2 + coutoption3 + coutoption4 + coutoption5 + coutoption6;
 			alert(coutoption6);
