@@ -52,6 +52,9 @@ if ($jsonTab['success'] == true) {
 
 }
 
+
+if (isset($_SESSION['statut']) && $_SESSION['statut'] == 1) {
+
 ?>
 
 <!doctype html>
@@ -115,7 +118,11 @@ if ($jsonTab['success'] == true) {
     </body>
 
 	<!-- Footer section du bas de page -->
-	<?php include_once('include/footer.php'); ?>
+	<?php include_once('include/footer.php'); 
+
+	} else {
+		header("Location: index.php");
+	}?>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 

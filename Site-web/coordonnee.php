@@ -174,15 +174,17 @@ if (isset($_SESSION['id'])) {
 							<input type="text" name="ville" id="ville" value="<?php print($ville); ?>" class="champ" <?php print($status); ?>/><br />			
 						<label for='pays'>Pays</label>
 							<select name="pays" id="pays" class="champ" <?php print($status); ?>>
-								<?php 
-									foreach ($tabPays['result'] as $value) {
-										if ($pays == $value['nom_pays']){
-											print('<option value="'.$value['nom_pays'].' selected>'.$value['nom_pays'].'</option>');
-										} else {
-											print('<option value="'.$value['nom_pays'].'>'.$value['nom_pays'].'</option>');
-										}	
-									}	
+							<option value="France">France</option>
+								<!-- <?php 
+									// foreach ($tabPays['result'] as $value) {
+									// 	if ($pays == $value['nom_pays']){
+									// 		print('<option value="'.$value['nom_pays'].' selected>'.$value['nom_pays'].'</option>');
+									// 	} else {
+									// 		print('<option value="'.$value['nom_pays'].'>'.$value['nom_pays'].'</option>');
+									// 	}	
+									// }	
 								 ?>
+								-->
 							</select>
 				</div>
 				
@@ -253,7 +255,7 @@ if (isset($_SESSION['id'])) {
     <!-- Importation de la librairie js concernant le formulaire du profil -->
     <script src="js/datedropper.js"></script>
     <script src="js/formLogin.js"></script>
-   	<script src="js/inscription.js"></script>
+   	<!-- <script src="js/inscription.js"></script> -->
     <script src="js/datepicker.js"></script>
     <script src="js/backToTop.js"></script>
 	<script>
