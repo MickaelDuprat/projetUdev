@@ -190,6 +190,8 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 
     </body>
 
+    <a href="#" id="back-to-top" title="Back to top"><img src="ico/back-to-top.png" alt="backToTop" /></a>
+
 	<!-- Footer section du bas de page -->
 	<?php include_once('include/footer.php'); ?>
 
@@ -202,6 +204,32 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
     <script src="js/datedropper.js"></script>
 	<script src="js/formLogin.js"></script>
 	<script> 
+
+		
+		var scrollTrigger = 100, // px
+
+        backToTop = function () {
+            var scrollTop = $(window).scrollTop();
+            if (scrollTop > scrollTrigger) {
+                $('#back-to-top').addClass('show');
+            } else {
+                $('#back-to-top').removeClass('show');
+            }
+        };
+
+	    backToTop();
+	    $(window).on('scroll', function () {
+	        backToTop();
+	    });
+	    
+	    $('#back-to-top').on('click', function (e) {
+	        e.preventDefault();
+	        $('html,body').animate({
+	            scrollTop: 0
+	        }, 700);
+	    });
+		
+
 		$(document).ready(function(){ 
 		
 
