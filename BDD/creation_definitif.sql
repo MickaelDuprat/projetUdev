@@ -338,8 +338,7 @@ CREATE TABLE vehicule(
 	alter table contrat_loc
 	add	CONSTRAINT fk_id_client FOREIGN KEY(id_contrat_loc_client) REFERENCES client (id_client),
 	add CONSTRAINT fk_id_vehicule FOREIGN KEY(id_contrat_loc_vehicule) REFERENCES vehicule (id_veh),
-	add CONSTRAINT fk_id_agence FOREIGN KEY(id_contrat_loc_agence) REFERENCES agence (id_agence),
-	add CONSTRAINT fk_id_accessoire FOREIGN KEY(id_contrat_loc_accessoire) REFERENCES accessoire (id_accessoire);
+	add CONSTRAINT fk_id_agence FOREIGN KEY(id_contrat_loc_agence) REFERENCES agence (id_agence);
 		
 	alter table agence
 	add constraint fk_id_agence_villecp foreign key(id_agence_villecp) references villecp (id_villecp);

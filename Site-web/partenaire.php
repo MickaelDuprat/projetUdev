@@ -236,9 +236,9 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
                         <li>
                             <a href=//www.hemoroidee.com/>
                             <div id="liste-autres-partenaires">
-                            <img id="hemoroide" src="img/hemoroide.png" alt="hemoroide" width="150px" height="70px">
+                            <img id="hemoroide" src="img/hemoroide.png" alt="hemoroide" width="100px" height="60px">
                             </div>
-                            Hemroide
+                            Hemoroide
                             </a>
                         </li>   
                     </ul>
