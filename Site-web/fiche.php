@@ -151,29 +151,6 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
     function setTotal(prix){
     	$('#total').text(prix.toFixed(2));
     }
-/*    	calcul_avec_accessoire("#conducteursup");
-		calcul_avec_accessoire("#GPS");
-		calcul_avec_accessoire("#siegeenfant");
-		calcul_avec_accessoire("#nacelle");
-		calcul_avec_accessoire("#rehausseur");
-		calcul_avec_accessoire("#facture");
-
-function calcul_avec_accessoire(champ)  { 
-
-		$(champ).on('change', function(){ 
-
-			var prix = $(prix).val() * $(champ).val();
-    		var total = $("#total").val();
-    		
-  
-	});
-<<<<<<< HEAD
-}
-
 </script>
-=======
-}*/
-	</script>
->>>>>>> 55828b9ff01b31a687e40537fa4cafca61e6ffbb
    
 </html>
