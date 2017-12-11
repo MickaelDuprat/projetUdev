@@ -93,6 +93,8 @@ CREATE TABLE Agence (
 	id_agence int NOT NULL AUTO_INCREMENT,
 	lib_agence VARCHAR(80) not null,
 	add_agence varchar(250) not null,
+	tel_agence varchar(20) not null,
+	fax_agence varchar(20) default null,
 	id_agence_villecp int not null,
 	CONSTRAINT pk_id_agence PRIMARY KEY (id_agence)
 );
