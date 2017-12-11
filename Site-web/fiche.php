@@ -96,13 +96,14 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 	            <ul>          	
 	            	<li>
 	            		<?php print($listaccessoire) ?>
+	            		
 	            	</li>
 	            </ul>
 		</div>
 
 	   		<form method="POST" action="paiement.php">
 	    <div id="section-paiement">
-	        <p>  Prix Total* : </p> <input id="total" value = "<?php print($total);?>"/> <b> € </b>
+	        <p>  Prix Total* : </p> <input id="total" value = <?php print($prixLoc);?> /> <b> € </b>
 	        <input type="submit" id="validepaiement" value = "J'accepte le tarif et les options"/> 
 	   		</form>
 	        <small> *Prix total TTC incluant la TVA </small>
@@ -127,45 +128,27 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
     <script src="js/backToTop.js"></script>
 
     <script type="text/javascript" language="javascript">
+    	calcul_avec_accessoire("#conducteursup", "#conducteurprix");
+		calcul_avec_accessoire("#GPS", "#gpsprix");
+		calcul_avec_accessoire("#siegeenfant", "#siegeprix");
+		calcul_avec_accessoire("#nacelle", "#nacelleprix");
+		calcul_avec_accessoire("#rehausseur", "#rehausseurprix");
+		calcul_avec_accessoire("#facture", "#factureprix");
+function calcul_avec_accessoire(champ, prix)  { 
 
-     function calcul_sans_accessoire()  {
-			var prixloc = <?php echo($prixLoc) ?>;
-			var	total = prixloc;
-			document.getElementById("total").value = total;	
-	}
+		$(champ).on('change', function(){ 
 
-function calcul_avec_accesoire()  {
-			var prixloc = <?php echo($prixLoc) ?>;
+			var prix = $(prix).val();
+			
+    		var choix = $(champ).val();
+    		var total = $("#total").val();
+    		var calculprix = (choix * prix);
+    		
+    		$("#total").val(calculprix);
+    		$("#total").text(calculprix);
 
-    		var choix1 = $("#Conducteur supplémentaire").val();
-    		var prixoption1 = <?php print($prix_accessoire) ?>;
-    		var coutoption1 = choix1 * <?php $prix_accessoire ?>
- 
-    		var choix2 = $("#GPS").val();
-    		var prixoption2 = <?php print($prix_accessoire) ?>;
-    		var coutoption2 = choix2 * <?php $prix_accessoire ?>
- 
-    		var choix3 = $("#Siège enfant").val();
-    		var prixoption3 = <?php print($prix_accessoire) ?>;
-    		var coutoption3 = choix3 * <?php $prix_accessoire ?>
-
- 
-    		var choix4 = $("#Nacelle bébé").val();
-    		var prixoption4 = <?php print($prix_accessoire) ?>;
-    		var coutoption4 = choix4 * <?php $prix_accessoire ?>
- 
-    		var choix5 = $("#Réhausseur intégral").val();
-    		var prixoption5 = <?php print($prix_accessoire) ?>;
-    		var coutoption5 = choix5 * <?php $prix_accessoire ?>
-
-     		var choix6 = $("#Facturation par courrier").val();
-    		var prixoption6 = <?php $prix_accessoire ?>;
-    		var coutoption6 = choix6 * <?php $prix_accessoire ?>		  		
-
-			var	total = prixloc + coutoption1 + coutoption2 + coutoption3 + coutoption4 + coutoption5 + coutoption6;
-			alert(coutoption6);
-			document.getElementById("total").value = total;			
-	}
+	});
+}
 </script>
    
 </html>
