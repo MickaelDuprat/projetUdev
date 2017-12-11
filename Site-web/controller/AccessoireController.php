@@ -18,48 +18,54 @@ $accessctrl = new AccessoireController();
  if($id_cat != 8 && $id_cat != 7){
 
   if($id_accessoire == 2) {
-     $select = '<select id="'.$lib_accessoire.'" onchange="calcul_avec_accesoire()">
+     $select = '<select id="conducteursup">
                           <option value="0" selected>0</option>                       
                                     <option value="1">1</option>
                                     <option value="2">2</option>
                                     <option value="3">3</option>
                                     <option value="4">4</option>
                                     <option value="5">5</option>
-                       </select>';
+                       </select>
+                       <input id="conducteurprix" type="hidden" value="'.$prix_accessoire.'" />';
   } else if($id_accessoire == 3){
-    $select = '<select id="'.$lib_accessoire.'" onchange="calcul_avec_accesoire()">
+    $select = '<select id="GPS" >
     <option value="0" selected>0</option>                        
                           <option value="1">1</option>
-                       </select>';
+                       </select>
+                       <input id="gpsprix" type="hidden" value='.$prix_accessoire.'/>';
       } else if($id_accessoire == 4){
-        $select = '<select id="'.$lib_accessoire.'" onchange="calcul_avec_accesoire()">
+        $select = '<select id="siegeenfant">
                               <option value="0" selected>0</option> 
                               <option value="1">1</option>
                               <option value="2">2</option>
                               <option value="3">3</option>
                               <option value="4">4</option>   
-                              </select> ';
+                              </select>
+                              <input id="siegeprix" type="hidden" value='.$prix_accessoire.'/>';
           } else if($id_accessoire == 5){
-            $select = '<select id="'.$lib_accessoire.'" onchange="calcul_avec_accesoire()">
+            $select = '<select id="nacelle">
                                     <option value="0" selected>0</option>                       
                                     <option value="1">1</option>
                                     <option value="2">2</option>
                                     <option value="3">3</option>
                                     <option value="4">4</option>                     
-                                 </select>';
+                                 </select>
+                                 <input id="nacelleprix" type="hidden" prix" value='.$prix_accessoire.'/>';
                 } else if($id_accessoire == 6) {
-                  $select = '<select id="'.$lib_accessoire.'" onchange="calcul_avec_accesoire()">
+                  $select = '<select id="rehausseur">
                                       <option value="0" selected>0</option>                       
                                     <option value="1">1</option>
                                     <option value="2">2</option>
                                     <option value="3">3</option>
                                     <option value="4">4</option>
-                                   </select>';
+                                   </select>
+                                   <input id="rehausseur" prix"type="hidden" value='.$prix_accessoire.'/>';
                     } else if($id_accessoire == 7) {
-                  $select = '<select id="'.$lib_accessoire.'" onchange="calcul_avec_accesoire()">
-                                      <option value="0" selected>0</option>                        
-                                      <option value="1">1</option>
-                                   </select>';
+                  $select = '<select id="facture">
+                                      <option value="0" selected>non</option>                        
+                                      <option value="1">oui</option>
+                                   </select>
+                                   <input id="factprix" type="hidden" value='.$prix_accessoire.'/>';
                             
 }
             $listaccessoire .= 
