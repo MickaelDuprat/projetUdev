@@ -128,7 +128,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
                         </div>
                         <div class="form-group">
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <button type="submit" class="btn btn-primary btn-submit-fix">Paiement</button>
+                                <button type="submit" class="btn btn-primary btn-submit-fix" onclick="window.location.href='nouveauclient.php';">Paiement</button>
                             </div>
                         </div>
                     </div>
