@@ -55,7 +55,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 	
 	<div id="section-white">
 	    <aside id="resume-voiture">
-	    	<p> <?php print($marque.' '.$modele) ?> </p>
+	    	<p class="titleDetails"> <?php print($marque.' '.$modele) ?> </p>
 	        <img id="vehselect" <?php print('<img src="'.$path.'"
 	        alt="'.$marque.' '.$modele.'">')?>  
 	        <h3> Départ </h3>
@@ -84,6 +84,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 		}
 
 		print($agence); ?></p>
+
 	        <h3> Retour </h3>
 	        <p id="agence" data="<?php print($agence); ?>"> <?php print($agence); ?> </p>
 	        <h3> Période de location </h3>
@@ -93,21 +94,19 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 	        <?php print($infos); ?>
 
 	    <div id="liste-option">
-	        <p> Tarif de la location* : </p>  <b> <span id="prixloc" data="<?php print($prixLoc); ?>"><?php print($prixLoc); ?></span> € </b>
+	        <!--<p> Tarif de la location* : </p>  <b> --><span id="prixloc" data="<?php print($prixLoc); ?>"><!--<?php print($prixLoc); ?>--></span> <!--€ </b>-->
 	            <ul>          	
-	            	<li>
-	            		<?php print($listaccessoire); 
+	            	
+	            		<?php print($listaccessoire); ?>
 
-	            		//var_dump($jsonTab); ?>
-	            		
-	            	</li>
+	           
 	            </ul>
 		</div>
 
 	   		<form method="POST" action="paiement.php">
 	    <div id="section-paiement">
 
-	        <p>  Prix Total* : </p> <span id="total"></span> <b> € </b>
+	        <div id="totalFixed"><p>  Prix Total* : </p> <span id="total"></span></div>
 
 	        <input type="submit" id="valideTarif" value = "J'accepte le tarif et les options"/> 
 	   		</form>
@@ -131,17 +130,18 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
     <script src="js/datedropper.js"></script>
     <script src="js/formLogin.js"></script>
     <script src="js/backToTop.js"></script>
+    <script src="js/fixedPriceToTop.js"></script>
 
     <script type="text/javascript" language="javascript">
 
 	    var total = 0;
 
 	    $(document).ready(function(){
-	    	total = parseFloat($('#prixloc').text());
+	    	total = parseFloat($('#prixloc').attr("data"));
 	    	setTotal(total);
 
 	    	$('select').change(function (){
-	    		total = parseFloat($('#prixloc').text());
+	    		total = parseFloat($('#prixloc').attr("data"));
 	    		$('select').each(function(){
 	    			var selPrix = parseFloat($(this).find(":selected").attr("tag"));
 	    			total += selPrix;
@@ -151,7 +151,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 	    });
 
 	    function setTotal(prix){
-	    	$('#total').text(prix.toFixed(2));
+	    	$('#total').text(prix.toFixed(2) + " €");
 	    }
 
 	    getAllId("#dateDebut");
