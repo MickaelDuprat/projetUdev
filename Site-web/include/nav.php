@@ -46,13 +46,12 @@
 			          			print('<p>Bienvenue<br/><b class="redText">'.ucfirst($_SESSION['login']).'</b></p>');	 
 				          		if (isset($_SESSION['statut']) && $_SESSION['statut'] == 1) {
 				          			 print('<li><a href="equipe.php">Mon équipe</a></li><br/>');
-				          			 print('<li><a href="lesagences.php">Les agences</a></li><br/>');
+				          			 print('<li><a href="mesreservations.php">Mes réservations</a></li><br/>');
 				          		}
 			          		}
 		          		?>
 
-		             	<li><a href="coordonnee.php">Mes informations</a></li>
-		             	<li><a href="mesreservations.php">Mes réservations</a></li>
+		             	<li><a href="coordonnee.php">Mes informations</a></li><br/><br/>
 		             	<li><a class="redText" href="?action=deconnexion">Déconnexion</a></li>
 
 		           </fieldset>
