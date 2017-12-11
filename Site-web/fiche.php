@@ -92,16 +92,17 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 	        <?php print($infos); ?>
 
 	    <div id="liste-option">
-	        <p> Tarif de la location* : </p> <b> <?php print($prixLoc) ?> € </b>
+	        <p> Tarif de la location* : </p>  <b> <?php print($prixLoc) ?> € </b>
 	            <ul>          	
 	            	<li>
 	            		<?php print($listaccessoire) ?>
+	            	</li>
 	            </ul>
 		</div>
 
 	   		<form method="POST" action="paiement.php">
 	    <div id="section-paiement">
-	        <p>  Prix Total* : </p> <input id="total" value = "<?php print($prixJ);?>"/> <b> € </b>
+	        <p>  Prix Total* : </p> <input id="total" value = "<?php print($total);?>"/> <b> € </b>
 	        <input type="submit" id="validepaiement" value = "J'accepte le tarif et les options"/> 
 	   		</form>
 	        <small> *Prix total TTC incluant la TVA </small>
@@ -129,7 +130,6 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
      function calcul_sans_accessoire()  {
 			var prixloc = <?php echo($prixLoc) ?>;
 			var	total = prixloc;
-			alert(total);
 			document.getElementById("total").value = total;	
 	}
 
@@ -163,7 +163,6 @@ function calcul_avec_accesoire()  {
 
 			var	total = prixloc + coutoption1 + coutoption2 + coutoption3 + coutoption4 + coutoption5 + coutoption6;
 			alert(coutoption6);
-			alert(total);
 			document.getElementById("total").value = total;			
 	}
 </script>

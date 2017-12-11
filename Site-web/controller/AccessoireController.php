@@ -63,11 +63,10 @@ $accessctrl = new AccessoireController();
                             
 }
             $listaccessoire .= 
-                  '<img id="'.$lib_accessoire.'" src="'.$img_path.' " alt="'.$lib_accessoire.'">
+                  '<li><img id="'.$lib_accessoire.'" src="'.$img_path.' " alt="'.$lib_accessoire.'">
                   <p>'.$lib_accessoire.' </p> <span> '.$prix_accessoire.' € </span>
-                  <li>
-                  '.$select.'
-                  </li>';
+                  '.$select.' </li>';
+                  
             } else { 
                    $listaccessoire .= '';
             }
@@ -82,7 +81,7 @@ $dateD = strtotime($dateDepart);
 $dateA = strtotime($dateArrivee);
 $interval = $dateA - $dateD;
 $interval = $interval/86400;
-if($interval <= 1){
+if($interval < 1){
   $prixLoc = $prixJ * 1;
 } else {
                   
