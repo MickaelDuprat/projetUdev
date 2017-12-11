@@ -103,7 +103,8 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 
 	   		<form method="POST" action="paiement.php">
 	    <div id="section-paiement">
-	        <p>  Prix Total* : </p> <input id="total" value = <?php print($prixLoc);?> /> <b> € </b>
+	        <p>  Prix Total* : </p> <input id="total" value =""/> <b> € </b>
+
 	        <input type="submit" id="validepaiement" value = "J'accepte le tarif et les options"/> 
 	   		</form>
 	        <small> *Prix total TTC incluant la TVA </small>
