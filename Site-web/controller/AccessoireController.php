@@ -26,7 +26,7 @@ $accessctrl = new AccessoireController();
                                     <option value="4">4</option>
                                     <option value="5">5</option>
                        </select>
-                       <input id="conducteurprix" type="hidden" value="'.$prix_accessoire.'" />';
+                       <input id="conducteurprix" type="hidden" value='.$prix_accessoire.' />';
   } else if($id_accessoire == 3){
     $select = '<select id="GPS" >
     <option value="0" selected>0</option>                        
@@ -59,7 +59,7 @@ $accessctrl = new AccessoireController();
                                     <option value="3">3</option>
                                     <option value="4">4</option>
                                    </select>
-                                   <input id="rehausseur" prix"type="hidden" value='.$prix_accessoire.'/>';
+                                   <input id="rehausseurprix" type="hidden" value='.$prix_accessoire.' />';
                     } else if($id_accessoire == 7) {
                   $select = '<select id="facture">
                                       <option value="0" selected>non</option>                        

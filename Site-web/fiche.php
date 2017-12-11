@@ -103,7 +103,8 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 
 	   		<form method="POST" action="paiement.php">
 	    <div id="section-paiement">
-	        <p>  Prix Total* : </p> <input id="total" value = <?php print($prixLoc);?> /> <b> € </b>
+	        <p>  Prix Total* : </p> <input id="total" value =""/> <b> € </b>
+
 	        <input type="submit" id="validepaiement" value = "J'accepte le tarif et les options"/> 
 	   		</form>
 	        <small> *Prix total TTC incluant la TVA </small>
@@ -127,25 +128,22 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
     <script src="js/formLogin.js"></script>
 
     <script type="text/javascript" language="javascript">
-    	calcul_avec_accessoire("#conducteursup", "#conducteurprix");
-		calcul_avec_accessoire("#GPS", "#gpsprix");
-		calcul_avec_accessoire("#siegeenfant", "#siegeprix");
-		calcul_avec_accessoire("#nacelle", "#nacelleprix");
-		calcul_avec_accessoire("#rehausseur", "#rehausseurprix");
-		calcul_avec_accessoire("#facture", "#factureprix");
-function calcul_avec_accessoire(champ, prix)  { 
+
+    	calcul_avec_accessoire("#conducteursup");
+		calcul_avec_accessoire("#GPS");
+		calcul_avec_accessoire("#siegeenfant");
+		calcul_avec_accessoire("#nacelle");
+		calcul_avec_accessoire("#rehausseur");
+		calcul_avec_accessoire("#facture");
+
+function calcul_avec_accessoire(champ)  { 
 
 		$(champ).on('change', function(){ 
 
-			var prix = $(prix).val();
-			
-    		var choix = $(champ).val();
+			var prix = $(prix).val() * $(champ).val();
     		var total = $("#total").val();
-    		var calculprix = (choix * prix);
     		
-    		$("#total").val(calculprix);
-    		$("#total").text(calculprix);
-
+  
 	});
 }
 </script>
