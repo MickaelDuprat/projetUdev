@@ -128,7 +128,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
                         </div>
                         <div class="form-group">
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <button type="submit" class="btn btn-primary btn-submit-fix">Paiement</button>
+                                <button type="submit" class="btn btn-primary btn-submit-fix" onclick="window.location.href='nouveauclient.php';">Paiement</button>
                             </div>
                         </div>
                     </div>
@@ -158,6 +158,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
     <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
     <script src="http://cdn.jsdelivr.net/jquery.validation/1.14.0/jquery.validate.min.js"></script>
+    <script src="js/backToTop.js"></script>
 
     <script type="text/javascript">
 

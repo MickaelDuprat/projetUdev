@@ -50,8 +50,13 @@
 				          		}
 			          		}
 		          		?>
+<<<<<<< HEAD
 		             	<li><a href="coordonnee.php">Mes informations</a></li>
 		             	<li><a href="mesreservations.php">Mes réservations</a></li>
+=======
+		             	<li><a href="coordonnee.php">Mes informations</a></li><br/>
+		             	<li><a href="mesfactures.php">Mes factures</a></li><br/><br/>
+>>>>>>> 55828b9ff01b31a687e40537fa4cafca61e6ffbb
 		             	<li><a href="?action=deconnexion">Déconnexion</a></li>
 		           </fieldset>
 		        </div>

@@ -57,7 +57,7 @@ class CoordonneeModel extends Manager {
 
   public function updateInfoClient($id_client, $civ, $nom, $prenom, $dateN, $adresse1, $adresse2, $adresseFact, $idVille, $telephone, $email, $raisonSociale, $siret, $nomSociete) {
     
-    $this->pdoStatement = $this->pdo->prepare("UPDATE client SET id_client_civ = :civ AND nom_client = :nom AND prenom_client = :prenom AND dateN_client = :dateN AND add1_client = :adresse1 AND add2_client = :adresse2 AND add_facturation = :adresseFact AND id_client_villecp = :idVille AND tel_client = :telephone AND email_client = :email AND raisonS_societe = :raisonSociale AND siret_societe = :siret AND nomC_societe = :nomSociete WHERE id_client = :id_client");
+    $this->pdoStatement = $this->pdo->prepare("UPDATE client SET id_client_civ = :civ, nom_client = :nom, prenom_client = :prenom, dateN_client = :dateN, add1_client = :adresse1, add2_client = :adresse2, add_facturation = :adresseFact, id_client_villecp = :idVille, tel_client = :telephone, email_client = :email, raisonS_societe = :raisonSociale, siret_societe = :siret, nomC_societe = :nomSociete WHERE id_client = :id_client");
       $this->pdoStatement->bindValue(':civ', $civ, PDO::PARAM_INT);
       $this->pdoStatement->bindValue(':nom', $nom, PDO::PARAM_STR);
       $this->pdoStatement->bindValue(':prenom', $prenom, PDO::PARAM_STR);
