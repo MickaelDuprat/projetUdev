@@ -57,6 +57,7 @@ if (isset($siret)) {
 
 $tabPays = json_decode($ctrl->getPays(), true);		
 			
+
 //var_dump($tabPays);
 
 if (isset($_SESSION['id'])) {
@@ -184,7 +185,7 @@ if (isset($_SESSION['id'])) {
 								 ?>
 							</select>
 				</div>
-				</div>
+				
 
 			<!-- partie information mdp -->
 				<div id="mid2form">
@@ -252,8 +253,9 @@ if (isset($_SESSION['id'])) {
     <!-- Importation de la librairie js concernant le formulaire du profil -->
     <script src="js/datedropper.js"></script>
     <script src="js/formLogin.js"></script>
-   	<!-- <script src="js/inscription.js"></script> -->
+   	<script src="js/inscription.js"></script>
     <script src="js/datepicker.js"></script>
+    <script src="js/backToTop.js"></script>
 	<script>
 		var pro = false;
 		<?php

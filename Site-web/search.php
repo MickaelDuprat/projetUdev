@@ -189,6 +189,7 @@ if ($_POST['agence'] == "" || $_POST['dateDepart'] == "" || $_POST['dateArrivee'
 	<script src="js/formSearch.js"></script>
 	<script src="js/datedropper.js"></script>
 	<script src="js/formLogin.js"></script>
+	<script src="js/backToTop.js"></script>
 
 	
 	<script>

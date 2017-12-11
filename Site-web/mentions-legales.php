@@ -87,6 +87,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
     <script src="js/formLogin.js"></script>
    	<!-- <script src="js/inscription.js"></script> -->
     <script src="js/datepicker.js"></script>
+    <script src="js/backToTop.js"></script>
 	<script>
 		var pro = false;
 		<?php

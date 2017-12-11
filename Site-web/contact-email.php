@@ -95,6 +95,9 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 	    	<input type="submit" id="formContact" value="Envoyer"/>
 	    	<p style="margin-left: 20px"> *Champs obligatoires </p>
 	    </div>
+
+	    <a href="#" id="back-to-top" title="Back to top"><img src="ico/back-to-top.png" alt="backToTop" /></a>
+	    
     </body>
 
 	<!-- Footer section du bas de page -->
@@ -111,5 +114,6 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
     <script src="js/formLogin.js"></script>
     <script src="js/inscription.js"></script>
     <script src="js/datepicker.js"></script>
+    <script src="js/backToTop.js"></script>
 
 </html>

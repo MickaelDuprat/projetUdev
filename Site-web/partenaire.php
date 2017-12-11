@@ -260,5 +260,6 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
     <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
     <script src="http://cdn.jsdelivr.net/jquery.validation/1.14.0/jquery.validate.min.js"></script>
+    <script src="js/backToTop.js"></script>
 
 </html>

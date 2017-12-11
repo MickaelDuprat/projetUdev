@@ -50,8 +50,8 @@
 				          		}
 			          		}
 		          		?>
-		             	<li><a href="coordonnee.php">Mes informations</a></li>
-		             	<li><a href="mesfactures.php">Mes factures</a></li>
+		             	<li><a href="coordonnee.php">Mes informations</a></li><br/>
+		             	<li><a href="mesfactures.php">Mes factures</a></li><br/><br/>
 		             	<li><a href="?action=deconnexion">Déconnexion</a></li>
 		           </fieldset>
 		        </div>
