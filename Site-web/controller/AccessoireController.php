@@ -17,7 +17,7 @@ $accessctrl = new AccessoireController();
       
  if($id_cat != 8 && $id_cat != 7){
 
-  if($id_accessoire = 2) {
+  if($id_accessoire == 2) {
      $select = '<select id="'.$lib_accessoire.'" onchange="calcul_avec_accesoire()">
                           <option value="0" selected>0</option>                       
                                     <option value="1">1</option>
@@ -26,12 +26,12 @@ $accessctrl = new AccessoireController();
                                     <option value="4">4</option>
                                     <option value="5">5</option>
                        </select>';
-  } else if($id_accessoire = 3){
+  } else if($id_accessoire == 3){
     $select = '<select id="'.$lib_accessoire.'" onchange="calcul_avec_accesoire()">
     <option value="0" selected>0</option>                        
                           <option value="1">1</option>
                        </select>';
-      } else if($id_accessoire = 4){
+      } else if($id_accessoire == 4){
         $select = '<select id="'.$lib_accessoire.'" onchange="calcul_avec_accesoire()">
                               <option value="0" selected>0</option> 
                               <option value="1">1</option>
@@ -39,7 +39,7 @@ $accessctrl = new AccessoireController();
                               <option value="3">3</option>
                               <option value="4">4</option>   
                               </select> ';
-          } else if($id_accessoire = 5){
+          } else if($id_accessoire == 5){
             $select = '<select id="'.$lib_accessoire.'" onchange="calcul_avec_accesoire()">
                                     <option value="0" selected>0</option>                       
                                     <option value="1">1</option>
@@ -47,7 +47,7 @@ $accessctrl = new AccessoireController();
                                     <option value="3">3</option>
                                     <option value="4">4</option>                     
                                  </select>';
-                } else if($id_accessoire = 6) {
+                } else if($id_accessoire == 6) {
                   $select = '<select id="'.$lib_accessoire.'" onchange="calcul_avec_accesoire()">
                                       <option value="0" selected>0</option>                       
                                     <option value="1">1</option>
@@ -55,7 +55,7 @@ $accessctrl = new AccessoireController();
                                     <option value="3">3</option>
                                     <option value="4">4</option>
                                    </select>';
-                    } else if($id_accessoire = 7) {
+                    } else if($id_accessoire == 7) {
                   $select = '<select id="'.$lib_accessoire.'" onchange="calcul_avec_accesoire()">
                                       <option value="0" selected>0</option>                        
                                       <option value="1">1</option>
@@ -63,11 +63,10 @@ $accessctrl = new AccessoireController();
                             
 }
             $listaccessoire .= 
-                  '<img id="'.$lib_accessoire.'" src="'.$img_path.' " alt="'.$lib_accessoire.'">
+                  '<li><img id="'.$lib_accessoire.'" src="'.$img_path.' " alt="'.$lib_accessoire.'">
                   <p>'.$lib_accessoire.' </p> <span> '.$prix_accessoire.' € </span>
-                  <li>
-                  '.$select.'
-                  </li>';
+                  '.$select.' </li>';
+                  
             } else { 
                    $listaccessoire .= '';
             }
@@ -82,7 +81,7 @@ $dateD = strtotime($dateDepart);
 $dateA = strtotime($dateArrivee);
 $interval = $dateA - $dateD;
 $interval = $interval/86400;
-if($interval <= 1){
+if($interval < 1){
   $prixLoc = $prixJ * 1;
 } else {
                   

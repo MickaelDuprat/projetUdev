@@ -13,7 +13,6 @@ create table contrat_loc (
 	id_contrat_loc_client int NOT NULL,
 	id_contrat_loc_vehicule int NOT NULL,
 	id_contrat_loc_agence int NOT NULL,
-	id_contrat_loc_accessoire int NOT NULL,
 	CONSTRAINT pk_num_contrat Primary key (num_contrat_loc)
 );
 
@@ -79,6 +78,7 @@ CREATE TABLE accessoire (
 	id_accessoire int NOT NULL AUTO_INCREMENT,
 	lib_accessoire varchar(50) not null,
 	prix_journaHT_accessoire double(5,2) not null,
+	img_path varchar(60) default null,
 	CONSTRAINT pk_id_accessoire PRIMARY KEY (id_accessoire)
 );
 
