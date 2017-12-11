@@ -106,15 +106,12 @@ class CoordonneeController{
 
     $result = $this->manager->updateInfoClient($id_client, $civ, $nom, $prenom, $dateN, $adresse1, $adresse2, $adresseFact, $cpVille, $telephone, $email, $raisonSociale, $siret, $nomSociete);
 
-    var_dump($result);
-
     if($result){
         $tab = json_encode(['success' => true, 'result' => $result]);
       
     } else {
         $tab = json_encode(['success' => false]);
     }
-
 
     return $tab;
 

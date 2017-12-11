@@ -92,10 +92,12 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 	        <?php print($infos); ?>
 
 	    <div id="liste-option">
-	        <p> Tarif de la location* : </p>  <b> <?php print($prixLoc) ?> € </b>
+	        <p> Tarif de la location* : </p>  <b> <span id="prixloc"><?php print($prixLoc) ?></span> € </b>
 	            <ul>          	
 	            	<li>
-	            		<?php print($listaccessoire) ?>
+	            		<?php print($listaccessoire); 
+
+	            		//var_dump($jsonTab); ?>
 	            		
 	            	</li>
 	            </ul>
@@ -103,7 +105,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 
 	   		<form method="POST" action="paiement.php">
 	    <div id="section-paiement">
-	        <p>  Prix Total* : </p> <input id="total" value =""/> <b> € </b>
+	        <p>  Prix Total* : </p> <span id="total"></span> <b> € </b>
 
 	        <input type="submit" id="validepaiement" value = "J'accepte le tarif et les options"/> 
 	   		</form>
@@ -129,8 +131,26 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
     <script src="js/backToTop.js"></script>
 
     <script type="text/javascript" language="javascript">
+    var total = 0;
 
-    	calcul_avec_accessoire("#conducteursup");
+    $(document).ready(function(){
+    	total = parseFloat($('#prixloc').text());
+    	setTotal(total);
+
+    	$('select').change(function (){
+    		total = parseFloat($('#prixloc').text());
+    		$('select').each(function(){
+    			var selPrix = parseFloat($(this).find(":selected").attr("tag"));
+    			total += selPrix;
+    		});
+    		setTotal(total);
+    	});
+    });
+
+    function setTotal(prix){
+    	$('#total').text(prix.toFixed(2));
+    }
+/*    	calcul_avec_accessoire("#conducteursup");
 		calcul_avec_accessoire("#GPS");
 		calcul_avec_accessoire("#siegeenfant");
 		calcul_avec_accessoire("#nacelle");
@@ -146,7 +166,7 @@ function calcul_avec_accessoire(champ)  {
     		
   
 	});
-}
-</script>
+}*/
+	</script>
    
 </html>
