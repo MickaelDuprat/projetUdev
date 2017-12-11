@@ -96,54 +96,6 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 	            <ul>          	
 	            	<li>
 	            		<?php print($listaccessoire) ?>
-	            		<!--
-	            		<img id="gps" src="<?php print($img_path) ?>" alt="GPS">
-	            	<?php print($listaccessoire) ?>
-	               <select id="NbGPS" onchange="calcul_avec_accesoire()">
-                          <option value="0" selected>0</option>                        
-                          <option value="1">1</option>
-                       </select>
-                  </li> 
-
-                  <li>
-                  	 <img id="siege-enfant" src="<?php print($img_path) ?>" alt="Siège enfant">
-                  <?php print($listaccessoire) ?>
-                  <select id="NbSiegeEnfant" onchange="calcul_avec_accesoire()">
-                          <option value="0" selected>0</option>  
-                          <option value="1">1</option>
-                          <option value="2">2</option>
-                          <option value="3">3</option>
-                          <option value="4">4</option>
-                      </select>
-                  </li>
-
-                  <li>
-                  	<img id="nacelle-bebe" src="<?php print($img_path) ?>" alt="Nacelle bébé">
-                  	<?php print($listaccessoire) ?>
-                  <select id="NbNacelleBebe" onchange="calcul_avec_accesoire()">
-                          <option value="0" selected>0</option> 
-                          <option value="1">1</option>
-                          <option value="2">2</option>
-                          <option value="3">3</option>
-                          <option value="4">4</option>   
-                          </select>    
-                   </li>
-
-                   <li>
-                   	<img id="rehausseur-integral" src="<?php print($img_path) ?>" alt="Réhausseur intégral">
-                   		<?php print($listaccessoire) ?>
-                   	 <select id="NbRehausseurIntegral" onchange="calcul_avec_accesoire()">
-                          <option value="0" selected>0</option> 
-                          <option value="1">1</option>
-                          <option value="2">2</option>
-                          <option value="3">3</option>
-                          <option value="4">4</option>
-                          </select>
-                   </li>
-
-     -->
-
-
 	            </ul>
 		</div>
 
@@ -175,39 +127,39 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
     <script type="text/javascript" language="javascript">
 
      function calcul_sans_accessoire()  {
-			var prixloc = <?php echo($prixloc) ?>;
-			var	total = prixloc
+			var prixloc = <?php echo($prixLoc) ?>;
+			var	total = prixloc;
 			alert(total);
 			document.getElementById("total").value = total;	
 	}
 
 function calcul_avec_accesoire()  {
-			var prixloc = <?php echo($prixloc) ?>;
+			var prixloc = <?php echo($prixLoc) ?>;
 
-    		var choix1 = $("#NbcondcteurSupp").val();
-    		var prixoption1 = <?php echo($prixoption1) ?>;
-    		var coutoption1 = choix1 * prixoption1;
+    		var choix1 = $("#Conducteur supplémentaire").val();
+    		var prixoption1 = <?php print($prix_accessoire) ?>;
+    		var coutoption1 = choix1 * <?php $prix_accessoire ?>
  
-    		var choix2 = $("#NbGPS").val();
-    		var prixoption2 = <?php echo($prixoption2) ?>;
-    		var coutoption2 = choix2 * prixoption2;
+    		var choix2 = $("#GPS").val();
+    		var prixoption2 = <?php print($prix_accessoire) ?>;
+    		var coutoption2 = choix2 * <?php $prix_accessoire ?>
  
-    		var choix3 = $("#NbSiegeEnfant").val();
-    		var prixoption3 = <?php echo($prixoption3) ?>;
-    		var coutoption3 = choix3 * prixoption3;
+    		var choix3 = $("#Siège enfant").val();
+    		var prixoption3 = <?php print($prix_accessoire) ?>;
+    		var coutoption3 = choix3 * <?php $prix_accessoire ?>
 
  
-    		var choix4 = $("#NbNacelleBebe").val();
-    		var prixoption4 = <?php echo($prixoption4) ?>;
-    		var coutoption4 = choix4 * prixoption4;
+    		var choix4 = $("#Nacelle bébé").val();
+    		var prixoption4 = <?php print($prix_accessoire) ?>;
+    		var coutoption4 = choix4 * <?php $prix_accessoire ?>
  
-    		var choix5 = $("#NbRehausseurIntegral").val();
-    		var prixoption5 = <?php echo($prixoption5) ?>;
-    		var coutoption5 = choix5 * prixoption5;
+    		var choix5 = $("#Réhausseur intégral").val();
+    		var prixoption5 = <?php print($prix_accessoire) ?>;
+    		var coutoption5 = choix5 * <?php $prix_accessoire ?>
 
-     		var choix6 = $("#subscribefactcourrier").val();
-    		var prixoption6 = <?php echo($prixoption6) ?>;
-    		var coutoption6 = choix6 * prixoption6;		  		
+     		var choix6 = $("#Facturation par courrier").val();
+    		var prixoption6 = <?php $prix_accessoire ?>;
+    		var coutoption6 = choix6 * <?php $prix_accessoire ?>		  		
 
 			var	total = prixloc + coutoption1 + coutoption2 + coutoption3 + coutoption4 + coutoption5 + coutoption6;
 			alert(coutoption6);
