@@ -5,9 +5,9 @@ include_once(ROOT .'/root.php');
 include_once(ROOT .'/modele/AccessoireModel.php');
 
 $accessctrl = new AccessoireController();
-
   $listaccessoire = '';
    $jsonTab = json_decode($accessctrl->getAccessoire(), true);
+
    if($jsonTab['success'] == true) {
     $script = '';
     foreach ($jsonTab['result'] as $value) {
@@ -15,6 +15,7 @@ $accessctrl = new AccessoireController();
       $lib_accessoire = $value['lib_accessoire'];
       $prix_accessoire = $value['prix_journaHT_accessoire'];
       $img_path = $value['img_path'];
+
       
       $script .= '<li>';
       $script .= '<img id="'.$lib_accessoire.'" src="'.$img_path.' " alt="'.$lib_accessoire.'">';
@@ -34,71 +35,6 @@ $accessctrl = new AccessoireController();
     $listaccessoire = $script;
     //var_dump($script);
 
-
-
-
-/* if($id_cat != 8 && $id_cat != 7){
-
-  if($id_accessoire == 2) {
-     $select = '<select id="conducteursup" onchange="updateprix(this, '.$prix_accessoire.')">
-                          <option value="0" selected>0</option>                       
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                       </select>
-                       <input id="conducteurprix" type="hidden" value='.$prix_accessoire.' />';
-  } else if($id_accessoire == 3){
-    $select = '<select id="GPS" >
-    <option value="0" selected>0</option>                        
-                          <option value="1">1</option>
-                       </select>
-                       <input id="gpsprix" type="hidden" value='.$prix_accessoire.'/>';
-      } else if($id_accessoire == 4){
-        $select = '<select id="siegeenfant">
-                              <option value="0" selected>0</option> 
-                              <option value="1">1</option>
-                              <option value="2">2</option>
-                              <option value="3">3</option>
-                              <option value="4">4</option>   
-                              </select>
-                              <input id="siegeprix" type="hidden" value='.$prix_accessoire.'/>';
-          } else if($id_accessoire == 5){
-            $select = '<select id="nacelle">
-                                    <option value="0" selected>0</option>                       
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>                     
-                                 </select>
-                                 <input id="nacelleprix" type="hidden" prix" value='.$prix_accessoire.'/>';
-                } else if($id_accessoire == 6) {
-                  $select = '<select id="rehausseur">
-                                      <option value="0" selected>0</option>                       
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                   </select>
-                                   <input id="rehausseurprix" type="hidden" value='.$prix_accessoire.' />';
-                    } else if($id_accessoire == 7) {
-                  $select = '<select id="facture">
-                                      <option value="0" selected>non</option>                        
-                                      <option value="1">oui</option>
-                                   </select>
-                                   <input id="factprix" type="hidden" value='.$prix_accessoire.'/>';
-                            
-            }
-            $listaccessoire .= 
-                  '<li><img id="'.$lib_accessoire.'" src="'.$img_path.' " alt="'.$lib_accessoire.'">
-                  <p>'.$lib_accessoire.' </p> <span> '.$prix_accessoire.' € </span>
-                  '.$select.' </li>';
-                  
-            } else { 
-                   $listaccessoire .= '';
-            }
-    }*/
   }
 
 $dateDepart = $_GET['dateDebut'];

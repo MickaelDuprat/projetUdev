@@ -134,6 +134,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 
     <script type="text/javascript" language="javascript">
 
+
 	    var total = 0;
 
 	    $(document).ready(function(){
@@ -171,7 +172,6 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 	    });
 
 
-
 	</script>
-   
+
 </html>
