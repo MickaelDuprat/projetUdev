@@ -124,5 +124,6 @@ if (isset($_SESSION['id'])) {
     <script src="js/voiture.js" type="text/javascript"></script>
     <script src="js/datedropper.js"></script>
 	<script src="js/formLogin.js"></script>
+	<script src="js/backToTop.js"></script>
 	
 </html>

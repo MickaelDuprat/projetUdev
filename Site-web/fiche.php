@@ -124,6 +124,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
     <!-- Importation de la librairie js concernant le formulaire du profil -->
     <script src="js/datedropper.js"></script>
     <script src="js/formLogin.js"></script>
+    <script src="js/backToTop.js"></script>
 
     <script type="text/javascript" language="javascript">
 

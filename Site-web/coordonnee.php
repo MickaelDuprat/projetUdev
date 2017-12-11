@@ -254,6 +254,7 @@ if (isset($_SESSION['id'])) {
     <script src="js/formLogin.js"></script>
    	<!-- <script src="js/inscription.js"></script> -->
     <script src="js/datepicker.js"></script>
+    <script src="js/backToTop.js"></script>
 	<script>
 		var pro = false;
 		<?php

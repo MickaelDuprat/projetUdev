@@ -1,5 +1,8 @@
 <!-- Footer section du bas de page -->
 <div id="footer">
+
+	<a href="#" id="back-to-top" title="Back to top"><img src="ico/back-to-top.png" alt="backToTop" /></a>
+	
 	<div id="footer-left">
 		<h3>Qui sommes-nous ?</h3>
 		<p>404 Location est une agence de location de véhicule, vélo, moto, citadine, berline, luxe ou encore sport. Vous trouverez forcément ce que vous recherchez.</p>
