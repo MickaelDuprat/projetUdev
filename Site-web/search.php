@@ -82,12 +82,12 @@ if ($_POST['agence'] == "" || $_POST['dateDepart'] == "" || $_POST['dateArrivee'
 				break;
 		}
 
-		print("<span id='agence' name='".$idAgence."'>".$agence."</span>") ?> -> Période de location : <?php print($interval->format('%d')." jours<span id='dateDepart' name='".$_POST['dateDepart']."' /><span id='dateArrivee' name='".$_POST['dateArrivee']."' />"); ?></h2>
+		print("<span id='agence' name='".$idAgence."'><img src='ico/agence.png' alt='agence'/>".$agence."</span>") ?> <img src='ico/clock.png' alt='agence'/> <?php print($interval->format('%d')." jours<span id='dateDepart' name='".$_POST['dateDepart']."' /><span id='dateArrivee' name='".$_POST['dateArrivee']."' />"); ?></h2>
 
 		<div id="search-form">
 			<form id="form-search">
 			<a class="checkbox-type1">
-				<div class="inclu">Type de véhicule <i class="fa fa-chevron-down fa-1x"></i>
+				 <div class="inclu">Type de véhicule <i class="fa fa-chevron-down fa-1x"></i></div>
 			</a>
 					<p class="checkbox-option1">
 						<input type="checkbox" class="hidden-box get_value" name="1" value="4" id="Citadine"/>
@@ -139,7 +139,7 @@ if ($_POST['agence'] == "" || $_POST['dateDepart'] == "" || $_POST['dateArrivee'
 					    </label>
 					</p>
 					<p id="type-veh"></p>
-				</div>
+				
 
 					<div id="boiteVitesse">
 
@@ -158,14 +158,15 @@ if ($_POST['agence'] == "" || $_POST['dateDepart'] == "" || $_POST['dateArrivee'
 						</li>
 						
 					</div>
-				</div>
+					<div id="range-prix">
+						<span>Prix journalier</span>
+						<div id="slider"></div>
+					</div>
+			</form>
 
-			<div id="range-prix">
-				<span>Prix journalier</span>
-				<div id="slider"></div>
+				</div>
 			</div>
-		</div>
-		</form>
+
 
 			<!-- La search list représente la liste des résultats de recherche de véhicule -->
 			<div id="search-list">
@@ -178,7 +179,6 @@ if ($_POST['agence'] == "" || $_POST['dateDepart'] == "" || $_POST['dateArrivee'
 			
 			</div>
 		</div>
-	</div>
 </body>
 
 	<?php include_once('include/footer.php'); ?>
@@ -205,7 +205,7 @@ if ($_POST['agence'] == "" || $_POST['dateDepart'] == "" || $_POST['dateArrivee'
 		tabJSON("#Vélo");
 		tabJSON("#option1");
 		tabJSON("#option2");
-		tabJSON(".ui-slider-handle");
+		tabJSON("#slider span");
 
 		function tabJSON(champs) {
 
@@ -241,7 +241,9 @@ if ($_POST['agence'] == "" || $_POST['dateDepart'] == "" || $_POST['dateArrivee'
 						dateArrivee: $("#dateArrivee").attr("name"),
 					 },
 					 success:function(data){
-					 	$('#search-list').html(data);
+					 	jQuery("#search-list").fadeOut( 0 , function() {
+						    jQuery(this).html( data);
+						}).fadeIn( 400 );
 					 },
 					 error:function(reponse, status, message){
 					 	console.log(reponse.status + " " + reponse.statusText + " " + message);

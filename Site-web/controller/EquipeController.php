@@ -13,23 +13,26 @@ if (isset($_GET)){
 	if (isset($_GET['add'])) {
 		$form = '
 		<center>
-		<form method="POST" action="equipe.php">
-		Login: <input type="text" name="login"/>
+		<form class="form-equipe" method="POST" action="equipe.php">
+		<label>Login:</label> <input type="text" name="login"/>
 		<br/>
-		Password: <input type="text" name="password"/>
+		<label>Password:</label> <input type="password" name="password"/>
 		<br/>
 		<input type="submit" name="add_form" value="Ajouter"/>
 		</form>
 		</center>';
+
 	}
+
+  
 
 	if (isset($_GET['edit'])) {
 		$form = '
 		<center>
-		<form method="POST" action="equipe.php">
-		Login: <input type="text" name="login" value="'.$_GET['login'].'"/>
+		<form class="form-equipe" method="POST" action="equipe.php">
+		<label>Login:</label> <input type="text" name="login" value="'.$_GET['login'].'"/>
 		<br/>
-		Password: <input type="text" name="password" value="'.$_GET['password'].'"/>
+		<label>Password:</label> <input type="password" name="password"/>
 		<br/>
 		<input type="hidden" name="id" value="'.$_GET['edit'].'"/>
 		<input type="submit" name="edit_form" value="Modifier"/>
@@ -97,8 +100,6 @@ class EquipeController{
       } else {
         $json = json_encode(['success' => false]);
       }
-      
-      var_dump($json);
       
       return $json;
 

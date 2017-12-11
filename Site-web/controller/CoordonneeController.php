@@ -16,28 +16,23 @@ if (isset($_POST['submit'])) {
     $idVille = $value["id_villecp"];
   }
 
-  $requete = $ctrl->modifierInfos( $_POST['id'],
-                                   $_POST['id_client'],
-                                   $_POST['civ'],
-                                   $_POST['nom'],
-                                   $_POST['prenom'],
-                                   $_POST['dateN'], 
-                                   $_POST['adresse1'],
-                                   $_POST['adresse2'],
-                                   $_POST['adresseFact'],
-                                   $idVille,
-                                   $_POST['ville'],
-                                   $_POST['pays'],
-                                   $_POST['telephone'],
-                                   $_POST['email'],
-                                   $_POST['raisonSociale'],
-                                   $_POST['siret'],
-                                   $_POST['nomSociete'],
-                                   $_POST['mdp']
-                                 );
+  $ctrl->modifierInfosClient( $_POST['id_client'],
+                              $_POST['civ'],
+                              $_POST['nom'],
+                              $_POST['prenom'],
+                              $_POST['dateN'], 
+                              $_POST['adresse1'],
+                              $_POST['adresse2'],
+                              $_POST['adresseFact'],
+                              $idVille,
+                              $_POST['telephone'],
+                              $_POST['email'],
+                              $_POST['raisonSociale'],
+                              $_POST['siret'],
+                              $_POST['nomSociete']
+                            );
 
-
-
+  $ctrl->modifierInfosMembre( $_POST['id'], sha1($_POST['mdp']) );
 
 }
 
@@ -58,7 +53,6 @@ class CoordonneeController{
     $this->manager = new CoordonneeModel();
   }
 
-
   // Fonction d'authentification d'une utilisateur
 
   public function informationsUser($id){
@@ -74,7 +68,6 @@ class CoordonneeController{
       return $json;
 
   }
-
 
   // Fonction de lecture de l'ensemble des pays
 
@@ -92,7 +85,6 @@ class CoordonneeController{
 
   }
 
-
   // Fonction permettant de récupérer l'id d'une ville et d'un code postal donné !!!!
   public function getIdVilleCp($cpVille){
      
@@ -108,30 +100,38 @@ class CoordonneeController{
 
   }
 
-
  // Fonction de modifications des coordonnées du client
 
-  public function modifierInfos($id_client, $id_membre, $civ, $nom, $prenom, $dateN, $adresse1, $adresse2, $adresseFact, $cpVille, $ville, $pays, $telephone, $email, $raisonSociale, $siret, $nomSociete, $mdp){
+  public function modifierInfosClient($id_client, $civ, $nom, $prenom, $dateN, $adresse1, $adresse2, $adresseFact, $cpVille, $telephone, $email, $raisonSociale, $siret, $nomSociete){
 
-    $res = $this->manager->updateInfo($id_client, $civ, $nom, $prenom, $dateN, $adresse1, $adresse2, $adresseFact, $cpVille, $ville, $pays, $telephone, $email, $raisonSociale, $siret, $nomSociete);
+    $result = $this->manager->updateInfoClient($id_client, $civ, $nom, $prenom, $dateN, $adresse1, $adresse2, $adresseFact, $cpVille, $telephone, $email, $raisonSociale, $siret, $nomSociete);
 
-    $resMembre = $this->manager->updateInfoMembre($id_membre, $mdp);
+    var_dump($result);
 
-    if($res){
-        $tab = json_encode(['success' => true, 'result' => $res]);
+    if($result){
+        $tab = json_encode(['success' => true, 'result' => $result]);
       
     } else {
         $tab = json_encode(['success' => false]);
     }
 
-    if($resMembre){
-        $tab2 = json_encode(['success' => true, 'result' => $resMembre]);
+
+    return $tab;
+
+  }
+
+  public function modifierInfosMembre($id_membre, $mdp){
+
+    $result = $this->manager->updateInfoMembre($id_membre, $mdp);
+
+    if($result){
+        $tab = json_encode(['success' => true, 'result' => $result]);
       
     } else {
-        $tab2 = json_encode(['success' => false]);
+        $tab = json_encode(['success' => false]);
     }
 
-    return $tab + $tab2;
+    return $tab;
 
   }
 

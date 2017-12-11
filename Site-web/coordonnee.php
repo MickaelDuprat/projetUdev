@@ -59,6 +59,8 @@ $tabPays = json_decode($ctrl->getPays(), true);
 			
 //var_dump($tabPays);
 
+if (isset($_SESSION['id'])) {
+
 ?>
 <!doctype html>
 <html>
@@ -235,7 +237,11 @@ $tabPays = json_decode($ctrl->getPays(), true);
     </body>
 
 	<!-- Footer section du bas de page -->
-	<?php include_once('include/footer.php'); ?>
+	<?php include_once('include/footer.php'); 
+
+	} else {
+		header('Location: index.php');
+	} ?>
 
     <!-- importations des librairies Js -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

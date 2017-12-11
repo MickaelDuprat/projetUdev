@@ -197,7 +197,7 @@ if (isset($_POST['search'])) {
       } else {
         $infos = '
         <div class="descriptif" style="width:100% !important;">
-          <img src="'.$path.'" alt="'.$marque.' '.$modele.'" style="width:80%; padding-left: 8%; padding-right: 6%; padding-bottom: 7.3%; height: 182px;">
+          <img src="'.$path.'" alt="'.$marque.' '.$modele.'" style="width:80%; padding-left: 8%; padding-right: 6%; padding-bottom: 7.3%; height: 185px;">
           <div class="infos" style="display: none;"></div>
         </div>';
       }
