@@ -146,6 +146,7 @@ function calcul_avec_accessoire(champ)  {
   
 	});
 }
+
 </script>
    
 </html>

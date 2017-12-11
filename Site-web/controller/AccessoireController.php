@@ -5,16 +5,14 @@ include_once(ROOT .'/root.php');
 include_once(ROOT .'/modele/AccessoireModel.php');
 
 $accessctrl = new AccessoireController();
-
   $listaccessoire = '';
    $jsonTab = json_decode($accessctrl->getAccessoire(), true);
-   if($jsonTab['success'] == true) {
-    foreach ($jsonTab['result'] as $value) {
+    foreach ($jsonTab['success'] as $value){ 
       $id_accessoire = $value['id_accessoire'];
       $lib_accessoire = $value['lib_accessoire'];
       $prix_accessoire = $value['prix_journaHT_accessoire'];
       $img_path = $value['img_path'];
-      
+   
  if($id_cat != 8 && $id_cat != 7){
 
   if($id_accessoire == 2) {
@@ -66,8 +64,7 @@ $accessctrl = new AccessoireController();
                                       <option value="1">oui</option>
                                    </select>
                                    <input id="factprix" type="hidden" value='.$prix_accessoire.'/>';
-                            
-}
+                  }
             $listaccessoire .= 
                   '<li><img id="'.$lib_accessoire.'" src="'.$img_path.' " alt="'.$lib_accessoire.'">
                   <p>'.$lib_accessoire.' </p> <span> '.$prix_accessoire.' € </span>
@@ -76,8 +73,8 @@ $accessctrl = new AccessoireController();
             } else { 
                    $listaccessoire .= '';
             }
-    }
-  }
+}
+
 
 $dateDepart = $_GET['dateDebut'];
 $dateArrivee = $_GET['dateArrivee'];
