@@ -11,7 +11,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 	header('Location: index.php');    
 }
 
-$jsonTab = json_decode($ctrl->tab($_SESSION['id']), true);
+$jsonTab = json_decode($ctrl->tabContrat($_SESSION['id']), true);
 
 $ligne = "";
 
@@ -19,17 +19,17 @@ if ($jsonTab['success'] == true) {
 
     foreach ($jsonTab['result'] as $value) {
 
-      $id = $value['client.id_client'];
-      $numero = $value['num_contrat_loc, date_contrat'];
-      $date = $value['date_contat'];
+      $id = $value['id_membre'];
+      $numero = $value['num_contrat_loc'];
+      $date = $value['date_contrat'];
       $nom = $value['nom_client'];
-      $prenom = $value['client.prenom_client'];
-      $addresse = $value['client.add_facturation'];
-      $marque = $value['marque.lib_marque'];
-      $modele = $value['modele.lib_modele'];
-      $immat = $value['vehicule.immat_veh'];
-      $dateD = $value['contrat_loc.date_debut'];
-      $dateA = $value['contrat_loc.date_fin'];
+      $prenom = $value['prenom_client'];
+      $adresse = $value['add_facturation'];
+      $img = $value['path_img'];
+      $marque = $value['lib_marque'];
+      $modele = $value['lib_modele'];
+      $dateD = $value['date_debut'];
+      $dateA = $value['date_fin'];
 
       if($id == $_SESSION['id']){
         $ligne .= '
@@ -39,18 +39,17 @@ if ($jsonTab['success'] == true) {
 			<td>'.$prenom.'</td>
 			<td>'.$nom.'</td>
 			<td>'.$adresse.'</td>
+			<td><img class="imgveh" src="'.$img.'"/></td>
 			<td>'.$marque.'</td>
 			<td>'.$modele.'</td>
-			<td>'.$immat.'</td>
 			<td>'.$dateD.'</td>
 			<td>'.$dateA.'</td>
-			<td>
-		</tr>
-		';
+		</tr>';
       } else {
-        $ligne = 'pas de contrats';
+        $ligne = '<td> pas de contrats </td>';
       }
   	}
+
 }
 
 ?>
@@ -88,32 +87,27 @@ if ($jsonTab['success'] == true) {
 		<?php include_once('include/nav.php'); ?>
 		
 		<div id="section-black">
-			<h2>Votre équipe</h2>
+			<h2>Vos réservations</h2>
 		</div>
 
 		<!-- Première section de page -->
 		<div id="section-white">
-			<h3>Vos contrats</h3>
 
-			<?php print($form); ?>
-
-			<br/>
-			
-			<center>
-				
-			</center>
-
-			<br/>
-
-			<table>
+			<table border="1">
 				<tr id="tableHead">
-					<td>Login</td>
-					<td>Password</td>
-					<td colspan="2">Actions</td>
+					<td>n° contrat </td>
+					<td>date contrat</td>
+					<td>prenom</td>
+					<td>nom</td>
+					<td>adresse de facturation</td>
+					<td> aperçu vehicule </td>
+					<td> marque </td>
+					<td>'modele </td>
+					<td> date départ</td>
+					<td> date arrivée </td>
+					<td colspan="10">Actions</td>
+					<?php print($ligne) ?>
 				</tr>
-				
-				<?php print($ligne); ?>
-
 			</table>
 
 		</div>

@@ -19,21 +19,23 @@ class ContratModel extends Manager {
   }
 
 
-  // Fonction de lecture des informations liées à l'aquipe de l'utilisateur
+  // Fonction de lecture des informations 
   public function tab($id) {
-    $this->pdoStatement = $this->pdo->prepare("SELECT num_contrat_loc, date_contrat, nom_client, prenom_client, add_facturation, num_contrat_loc, date_contrat, date_debut, date_fin
-		FROM contrat_loc 
-		INNER JOIN vehicule
-		on id_contrat_loc_vehicule = id_veh
-		INNER JOIN marque 
-		on id_contrat_loc_vehicule = id_marque
-		INNER JOIN modele
-		on id_contrat_loc_client = lib_modele
-		INNER JOIN client 
-		on id_contrat_loc_client = id_client
-		INNER JOIN villecp
-		on id_client_villecp = id_villecp
-		WHERE id_client = :id");
+    $this->pdoStatement = $this->pdo->prepare("SELECT num_contrat_loc, date_contrat, nom_client, prenom_client, add_facturation, lib_marque, lib_modele, path_img, date_contrat, date_debut, date_fin, id_membre
+    FROM membre
+    LEFT JOIN client
+    on client.id_client = membre.id_membre_client
+    LEFT JOIN villecp
+    on villecp.id_villecp = client.id_client_villecp 
+    LEFT JOIN contrat_loc
+    on contrat_loc.id_contrat_loc_client = client.id_client
+    LEFT JOIN vehicule
+    on vehicule.id_veh = contrat_loc.id_contrat_loc_vehicule
+    LEFT JOIN modele
+    on modele.id_modele = vehicule.id_modele_vehicule
+    LEFT JOIN marque 
+    on marque.id_marque = modele.id_marque_modele
+    WHERE id_membre = :id");
     $this->pdoStatement->bindValue(':id', $id, PDO::PARAM_INT);
     $this->pdoStatement->execute();
     $infos = $this->pdoStatement->fetchAll(PDO::FETCH_ASSOC);

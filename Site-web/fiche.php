@@ -167,7 +167,13 @@ function calcul_avec_accessoire(champ)  {
     		
   
 	});
+<<<<<<< HEAD
+}
+
+</script>
+=======
 }*/
 	</script>
+>>>>>>> 55828b9ff01b31a687e40537fa4cafca61e6ffbb
    
 </html>
