@@ -366,11 +366,11 @@ INSERT INTO client (nom_client, prenom_client, dateN_client, email_client, tel_c
 insert into statut_membre (lib_statut_membre) values ('administrateur');
 insert into statut_membre (lib_statut_membre) values ('utilisateur');
 
-insert into agence (lib_agence, add_agence, id_agence_villecp) values ("Agence de Bordeaux", "10, place de la bourse", 12681);
-insert into agence (lib_agence, add_agence, id_agence_villecp) values ("Agence de Niort", "1, rue de la gare", 31953);
-insert into agence (lib_agence, add_agence, id_agence_villecp) values ("Agence de Courçon", "66, rue de Marans", 6157);
-insert into agence (lib_agence, add_agence, id_agence_villecp) values ("Agence de Châtellerault", "222, boulevard de blossac", 34299);
-insert into agence (lib_agence, add_agence, id_agence_villecp) values ("Agence de Poey d'Oloron", "7, rue de la mairie", 26035);
+insert into agence (lib_agence, add_agence, id_agence_villecp, tel_agence, fax_agence) values ("Agence de Bordeaux", "10, place de la bourse", 12681, "05-46-00-00-00", "05-56-00-00-01");
+insert into agence (lib_agence, add_agence, id_agence_villecp, tel_agence, fax_agence) values ("Agence de Niort", "1, rue de la gare", 31953, "05-49-00-00-00", "05-49-00-00-01");
+insert into agence (lib_agence, add_agence, id_agence_villecp, tel_agence, fax_agence) values ("Agence de Courçon", "66, rue de Marans", 6157, "05-46-00-00-00", "05-46-00-00-01");
+insert into agence (lib_agence, add_agence, id_agence_villecp, tel_agence, fax_agence) values ("Agence de Châtellerault", "222, boulevard de blossac", 34299, "05-49-00-00-00", "05-49-00-00-01");
+insert into agence (lib_agence, add_agence, id_agence_villecp, tel_agence, fax_agence) values ("Agence de Poey d'Oloron", "7, rue de la mairie", 26035, "05-59-00-00-00", "05-59-00-00-01");
 
 insert into membre (login_membre, password_membre, id_membre_client, id_membre_statut_membre) values ('mickaelduprat', '5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8', 250, 1);
 insert into membre (login_membre, password_membre, id_membre_client, id_membre_statut_membre) values ('brucelostis', '5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8', 250, 1);
