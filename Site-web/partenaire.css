@@ -1,0 +1,83 @@
+
+#partenaires-aeriens {
+  width : 80%;
+  margin-right: 10%;
+  margin-left: 10%;
+  margin-top: 7%;
+}
+
+#partenaires-hoteliers {
+  width : 80%;
+  margin-right: 10%;
+  margin-left: 10%;
+}
+
+#autres-partenaires {
+  width : 80%;
+  margin-right: 10%;
+  margin-left: 10%;
+}
+
+.partenaires-aeriens h1 {
+  font-family: "Roboto Condensed", Arial, Verdana, "Liberation Sans", "Bitstream Vera", sans-serif;
+  font-style: italic;
+  color: black;
+  margin-bottom: 1%;
+  padding: 10px 0 10px 0;
+  margin-right: 1%;
+  margin-top: 6%;
+}
+
+#section-white h1 {
+  font-family: "Roboto Condensed", Arial, Verdana, "Liberation Sans", "Bitstream Vera", sans-serif;
+  font-style: italic;
+  color: black;
+  margin-bottom: 1%;
+  padding: 10px 0 10px 0;
+  margin-right: 1%;
+}
+
+#liste-partenaires-aeriens, #liste-autres-partenaires, #liste-partenaires-hoteliers {
+  height: 130px;
+  margin-bottom: 12px;
+  line-height: 92px;
+  background-color: #FFF;
+  width:138px;
+}
+
+#partenaires-aeriens a, #partenaires-hoteliers a, #autres-partenaires a {
+  padding-top: 25px;
+  text-decoration: none;
+  color : black;
+}
+
+#partenaires-aeriens li, #partenaires-hoteliers li, #autres-partenaires li {
+display: inline-block;
+overflow: hidden;
+width: 140px;
+height: 180px;
+margin: 0;
+margin-bottom: 0px;
+margin-bottom: 20px;
+padding: 4px;
+word-spacing: 0;
+text-align: center;
+background-color: #C0C0C0;
+}
+
+#partenaires-aeriens li:hover, #partenaires-hoteliers li:hover, #autres-partenaires li:hover {
+  background-color: rgba(255, 0 , 0 , 0.91);
+}
+
+#partenaires-aeriens ul, #partenaires-hoteliers ul, #autres-partenaires ul {
+list-style-type: none !important;
+margin: 0;
+margin-bottom: 0px;
+margin-bottom: 40px;
+padding: 0 !important;
+word-spacing: 16px;
+}
+
+#partenaires-aeriens img, #partenaires-hoteliers img, #autres-partenaires img {
+vertical-align: bottom;
+}
