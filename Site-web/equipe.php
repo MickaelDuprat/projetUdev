@@ -29,7 +29,7 @@ if ($jsonTab['success'] == true) {
 			<td>'.$login.'</td>
 			<td>'.$password.'</td>
 			<td>
-				<a href="?edit='.$id.'&login='.$login.'&password='.$password.'"><img src="ico/edit.png" width="30px" height="30px" alt="Editer"/></a>
+				<a href="?edit='.$id.'&login='.$login.'"><img src="ico/edit.png" width="30px" height="30px" alt="Editer"/></a>
 				<a href="?delete='.$id.'"><img src="ico/delete.png" width="30px" height="30px" alt="Supprimer"/></a>
 			</td>
 		</tr>
@@ -40,6 +40,8 @@ if ($jsonTab['success'] == true) {
   	}
 }
 
+if (isset($_SESSION['id'])) {
+	
 ?>
 
 <!doctype html>
@@ -108,7 +110,11 @@ if ($jsonTab['success'] == true) {
     </body>
 
 	<!-- Footer section du bas de page -->
-	<?php include_once('include/footer.php'); ?>
+	<?php include_once('include/footer.php'); 
+
+	} else {
+		header('Location: index.php');
+	} ?>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 

@@ -630,6 +630,37 @@ header img{
   font-size: 20px;
 }
 
+/** BACK TO TOP **/
+
+#back-to-top {
+    position: fixed;
+    bottom: 60px;
+    right: 50px;
+    z-index: 9999;
+    width: 32px;
+    height: 32px;
+    text-align: center;
+    line-height: 30px;
+    cursor: pointer;
+    border: 0;
+    border-radius: 2px;
+    text-decoration: none;
+    transition: opacity 0.2s ease-out;
+    opacity: 0;
+}
+
+#back-to-top img {
+    height: 45px;
+    width: 45px;
+}
+
+#back-to-top.show {
+    opacity: 1;
+}
+#content {
+    height: 2000px;
+}
+
 /** FOOTER **/
 
 #footer{

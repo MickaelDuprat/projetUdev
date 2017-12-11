@@ -30,3 +30,42 @@ table tr td img{
 	padding-left: 10px;
 	padding-right: 10px;
 }
+
+.form-equipe label {
+  display: inline-block;
+  width: 60px;
+  font-size: 19px;
+  margin-right: 25px;
+  text-align: left;
+}​
+
+.form-equipe label {
+  display: inline-block;
+  width: 60px;
+  font-size: 19px;
+  margin-right: 25px;
+  text-align: left;
+}​
+
+.form-equipe input{
+	width: 100px;
+	height: 10px;
+	border-radius: 10px;
+}
+
+.form-equipe input[type="submit"]{
+	width: 100px;
+	height: 30px;
+	margin-top: 15px;
+	border: 2px solid #515151;
+	padding-bottom: 38px;
+	padding-left: -15px;
+	font-size: 18px;
+	border-radius: 10px;
+	background-color: #ffffff;
+}
+
+.form-equipe input[type="submit"]:hover{
+	background-color: #ec1c24;
+	color: #FFFFFF;
+}
