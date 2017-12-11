@@ -1,4 +1,64 @@
-<?php
+<?php 
+
+session_start();
+
+include_once('root.php');
+include_once(ROOT.'/controller/AuthentificationController.php');
+include_once(ROOT.'/controller/PdfController.php');
+
+if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
+    session_destroy();
+    header('Location: index.php');    
+}
+$num_contrat_loc = 499;
+$jsonTab = json_decode($pdfctrl->tabPdf($num_contrat_loc), true);
+
+if ($jsonTab['success'] == true) {
+
+    foreach ($jsonTab['result'] as $value) {
+    $lib_agence = $value['lib_agence'];
+    $adresse_agence = $value['add_agence'];
+    $cp_villecp = 17170;
+    $ville_villecp = "Courçon";
+    $marque = $value['lib_marque'];
+    $modele = $value['lib_modele'];
+    $tel_agence = $value['tel_agence'];
+    $fax_agence = $value['fax_agence'];
+    $immat_veh = $value['immat_veh'];
+    $nom_client = $value['nom_client'];
+    $prenom_client = $value['prenom_client'];
+    $add_facturation = $value['add_facturation'];
+    $tel_client = $value['tel_client'];
+    $villeclient = $value['villeclient'];
+    $cpclient = $value['cpclient'];
+    $tel_client = $value['tel_client'];
+    $email_client = $value['email_client'];
+    $raisonS_societe = $value['raisonS_societe'];
+    $date_debut = $value['date_debut'];   
+    $date_fin = $value['date_fin'];    
+    $prix_journalier_veh = $value['prix_journalier_veh'];   
+    $prix_journalier_veh = $value['prix_journalier_veh']; 
+    $prix_journalier_veh = $value['prix_journalier_veh']; 
+    }
+}
+$datedujour = date("d-m-Y");
+
+/*
+<!--
+<!doctype html>
+<html>
+    <head>
+        <body> 
+        <?php var_dump($jsonTab); 
+        var_dump($datedujour);
+        var_dump($prix_journalier_veh);
+        var_dump($email_client);
+        ?>
+        </body>*
+    </head>
+</html> 
+*/
+
 require('C:\MAMP\htdocs\GIT\Site-web\fpdf.php');
 
 class PDF extends FPDF
@@ -21,23 +81,23 @@ class PDF extends FPDF
         $this->Ln(12);
         $this->SetFont('Arial','',12);
         $this->SetX(15);
-        $this->Cell(10,10,'$lib_agence',0,'C'); 
+        $this->Cell(10, 10, $lib_agence, 0,'C'); 
         $this->Ln(8);
         $this->SetX(15);
-        $this->Cell(50,10,'$addresse_agence',0,'C'); $this->Cell(45); $this->SetFont('Arial','I',14); $this->Cell(80,10,'
-         n°XXXXXXX du $datedujour','LRT','R');
+        $this->Cell(50, 10, $adresse_agence, 0,'C'); $this->Cell(45); $this->SetFont('Arial','I',14); $this->Cell(80,10,'
+         n°'.$num_contrat_loc.'du '.$datedujour,'LRT','R');
         $this->SetFont('Arial','',12);
         $this->Ln(10);
         $this->SetX(15);
         $this->SetFillColor(125,125,125);
-        $this->Cell(30,10,'$cp_villecp',0,'C');
-        $this->Cell(30,10,'$ville_villecp',0,'C'); $this->Cell(35); $this->Cell(40,10,'Type de véhicule','LRTB',0, 'C', true);$this->Cell(40,10,'Immatriculation','LRTB',0, 'C', true);
+        $this->Cell(30, 10, $cp_villecp, 0,'C');
+        $this->Cell(30, 10, $ville_villecp, 0,'C'); $this->Cell(35); $this->Cell(40,10,'Type de véhicule','LRTB',0, 'C', true);$this->Cell(40,10,'Immatriculation','LRTB',0, 'C', true);
         $this->Ln(10);
         $this->SetX(15);
-        $this->Cell(20,10,'$tel_agence',0,'C');$this->Cell(75); $this->Cell(40,10,'$marque $modele','LRB', 0, 'C', true);$this->Cell(40,10,'$immat_veh','LRB', 0, 'C', true);
+        $this->Cell(20,10,$tel_agence,0,'C');$this->Cell(75); $this->Cell(40,10,$marque.$modele,'LRB', 0, 'C', true);$this->Cell(40,10,$immat_veh,'LRB', 0, 'C', true);
         $this->Ln(10);
         $this->SetX(15);
-        $this->Cell(20,10,'$fax_agence',0, 'C');
+        $this->Cell(20,10,$fax_agence,0, 'C');
         $this->Ln(13);
     }
 
@@ -56,24 +116,24 @@ function TableauClient()
     $this->Cell(190,10,'Client',1,1,'C', true);
     $w = array(35, 60, 35, 60);
     $this->Cell($w[0],8,'Nom :','L');
-    $this->Cell($w[1],8,'$Nom','R');
+    $this->Cell($w[1],8,$nom_client,'R');
     $this->Cell($w[2],8,'Adresse :','L');
-    $this->Cell($w[3],8,'$adresse','R');
+    $this->Cell($w[3],8,$add_facturation,'R');
     $this->Ln(8);
     $this->Cell($w[0],8,'Prénom :','L');
-    $this->Cell($w[1],8,'$prenom','R');
+    $this->Cell($w[1],8,$prenom_client,'R');
     $this->Cell($w[2],8,'Code postal :','L');
-    $this->Cell($w[3],8,'$cp_villecp','R');
+    $this->Cell($w[3],8,$cpclient,'R');
     $this->Ln(8);
     $this->Cell($w[0],8,'N° téléphone :','L');
-    $this->Cell($w[1],8,'$tel','R');
+    $this->Cell($w[1],8,$tel_client,'R');
     $this->Cell($w[2],8,'Ville :','L');
-    $this->Cell($w[3],8,'$ville','R');
+    $this->Cell($w[3],8,$villeclient,'R');
     $this->Ln(8);
     $this->Cell($w[0],8,'E-mail :','L');
-    $this->Cell($w[1],8,'$adressemail','R');
+    $this->Cell($w[1],8,$email_client,'R');
     $this->Cell($w[2],8,'Société :','L');
-    $this->Cell($w[3],8,'$raison sociale','R');
+    $this->Cell($w[3],8,$raisonS_societ,'R');
     $this->Ln(8);
     $this->Cell(array_sum($w),0,'','T');
     $this->Ln(12);
@@ -95,17 +155,18 @@ function TableauContratLoc()
     $this->Cell($w[1],8,'Nbre de jours / Quantité','LRt', 0, 'C', true);
     $this->Cell($w[2],8,'Prix en € :','LRt', 0, 'C', true);
     $this->Ln(8);
-    $this->Cell($w[0],8,'Location du $debut au $fin', 'LR', 0, 'L', true);
+    $this->Cell($w[0],8,'Location du $date_debut au $date_fin', 'LR', 0, 'L', true);
     $this->Cell($w[1],8,'$interval','LR', 0, 'C', true);
-    $this->Cell($w[2],8,'$prixjourna *','LR', 0, 'C', true);
+    $this->Cell($w[2],8,$prix_journalier_veh .'*','LR', 0, 'C', true);
     $this->Ln(8);
-    $this->Cell($w[0],8,'$accesoire1', 'LR', 0, 'L', true);
-    $this->Cell($w[1],8,'$qtite1','LR', 0, 'C', true);
-    $this->Cell($w[2],8,'$prixoption1','LR', 0, 'C', true);
+    $this->Cell($w[0],8,$lib_accessoire, 'LR', 0, 'L', true);
+    $this->Cell($w[1],8,$qtite,'LR', 0, 'C', true);
+    $this->Cell($w[2],8,$prix_journaHT_accessoire,'LR', 0, 'C', true);
     $this->Ln(8);
-    $this->Cell($w[0],8,'$accesoire2', 'LR', 0, 'L', true);
-    $this->Cell($w[1],8,'$qtite2','LR', 0, 'C', true);
-    $this->Cell($w[2],8,'$prixoption2','LR', 0, 'C', true);
+    /*
+    $this->Cell($w[0],8,$accesoire, 'LR', 0, 'L', true);
+    $this->Cell($w[1],8,$qtite2,'LR', 0, 'C', true);
+    $this->Cell($w[2],8,$prixoption2,'LR', 0, 'C', true);
     $this->Ln(8);
     $this->Cell($w[0],8,'$accesoire3', 'LR', 0, 'L', true);
     $this->Cell($w[1],8,'$qtite3','LR', 0, 'C', true);
@@ -132,7 +193,7 @@ function TableauContratLoc()
     $this->Cell($w[2],8,'$TVA','LRT', 0, 'C', true);
     $this->Ln(8);
     $this->Cell(array_sum($w),0,'','T', 0, true);
-    $this->Ln(20);    
+    $this->Ln(20);    */
 }
 
 function BasPage()//$client)
@@ -140,10 +201,10 @@ function BasPage()//$client)
     $this->SetFont('Times','B',16);
     $this->SetX(130);
     $this->SetTextColor(0,0,0);
-    $this->Cell(20,10,'Fait à',0,'C'); $this->Cell(30,10,'$ville_villecp',0,'C'); 
+    $this->Cell(20,10,'Fait à',0,'C'); $this->Cell(30,10,$ville_villecp,0,'C'); 
     $this->Ln(10);
     $this->SetX(130);
-    $this->Cell(20,10,'Le ',0,'C'); $this->Cell(30,10,'$datedujour',0,'C'); 
+    $this->Cell(20,10,'Le ',0,'C'); $this->Cell(30,10,$datedujour,0,'C'); 
     $this->Ln(10);  
  }
 
@@ -174,7 +235,6 @@ $pdf->SetFont('Times','',12);
 $pdf->TableauClient();
 $pdf->TableauContratLoc();
 $pdf->BasPage();
-//for($i=1;$i<=40;$i++)
-//	$pdf->Cell(0,10,'Impression de la ligne numéro '.$i,0,1);
-$pdf->Output();
-?>
+$pdf->Output(); 
+?> 
+-->

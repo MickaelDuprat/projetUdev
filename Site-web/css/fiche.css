@@ -174,7 +174,7 @@
     transition: 1s;
 }
 
-#section-white #validepaiement {
+#section-white #valideTarif {
 	font-family : 'Verdana';
 	font-size : 160%;
 	display: block;
@@ -190,7 +190,7 @@
     transition: 1s;
 }
 
-#section-white #validepaiement:hover {
+#section-white #valideTarif:hover {
 	background-color: #ec1c24;
 	transition: 0.3s;
 }

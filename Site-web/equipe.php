@@ -40,7 +40,7 @@ if ($jsonTab['success'] == true) {
   	}
 }
 
-if (isset($_SESSION['id'])) {
+if (isset($_SESSION['statut']) && $_SESSION['statut'] == 1) {
 	
 ?>
 
