@@ -1,5 +1,5 @@
 use projetudev;
-set names 'utf8';
+set names utf8;
 
 
 INSERT INTO pays (nom_pays) VALUES ('France');
