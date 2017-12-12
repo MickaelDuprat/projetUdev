@@ -10,27 +10,51 @@
 	float: left;
 	padding-left: 1%;
 	padding-right: 5%;
-	margin-left: 2%;
+	margin-left: 8%;
 	margin-top: 3%;
 	color: white;
 	border-radius: 15px 15px 15px 15px;
+	overflow: hidden;
+	-webkit-box-shadow: 0px -2px 10px #757272;
+    -moz-box-shadow: 0px -2px 10px #757272;
+    box-shadow: 0px -2px 10px #757272;
+}
+
+#section-white #resume-voiture .titleDetails {
+	background-color: #ffffff;
+	width: 100%;
+	font-size: 30px;
+	color: black;
+	margin-top: 0px;
+	margin-left: -20px;
+	margin-right: -20px;
+	padding-top: 10px;
+	padding-left: 38%;
+	padding-right: 10%;
+	padding-bottom: 10px;
+	font-weight: bold;
 }
 
 #section-white #resume-voiture p {
 	display: block;
 	padding-left: 5px;
+	font-size: 20px;
 }
 
 #section-white #resume-voiture h3 {
 	display : block;
 	margin-right: 50%;
 	padding-left: 5px;
+	font-size: 24px;
 }
 
 #section-white #resume-voiture  img#vehselect {
 	width : 100%;
 	height : 40%;
 	display : block;
+	margin-left: 8%;
+	margin-top: -5%;
+	margin-bottom: 6%;
 }
 
 #section-white #resume-voiture img {
@@ -42,19 +66,20 @@
 }
 
 #section-white #liste-option {
-	width : 62%;
-	height : 25%;
+	width : 50%;
 	display: inline-block;
 	float: right;
-	margin-top: 3%;
+	margin-top: 2.4%;
 	margin-left: 2%;
-	padding-right: 6%;
+	padding-right: 10%;
+	padding-left: 2%; 
 }
 
 #section-white #liste-option p {
 	display: inline-block;
 	font-family : sans-serif;
 	font-size: 150%;
+	font-size: 18px;
 }
 
 #section-white #liste-option b {
@@ -68,7 +93,12 @@
 #section-white #liste-option ul > li {
 	display: block;
 	list-style: none;
-	margin-bottom: 15%;
+	border-radius: 15px;
+	padding: 10px 10px 25px 10px;
+	-webkit-box-shadow: 0px -2px 10px #757272;
+    -moz-box-shadow: 0px -2px 10px #757272;
+    box-shadow: 0px -2px 10px #757272;
+	margin-bottom: 6%;
 }
 
 #section-white #liste-option ul > li > img {
@@ -84,34 +114,39 @@
 	font-family : sans-serif;
 	font-size: 150%;
 	margin-top: 5%;
+	padding-top: 15px;
 }
 
 #section-white #liste-option ul > li > select {
 	outline: none;
 	-webkit-appearance: none;
 	margin-bottom: 5%;
-	margin-top: 4%;
-	margin-right: 20%;
-	padding : 5px 5px 5px 5px;
+	margin-top: 6%;
+	margin-right: 12%;
+	padding : 8px 8px 8px 8px;
 	transition: border-color 0.2s;
-	border: 1px solid;
-	border-radius: 10px;
+	border: 1.5px solid #3F3F3F;
+	border-radius: 12px;
 	background: #fff;
 	color: #555;
 	line-height: normal;
+	text-align: center;
 	font-family: inherit;
-	font-size: inherit;
+	font-size: 22px;
 	line-height: inherit;
 	display : inline-block;
+	cursor: pointer;
 	float : right;
 }
 
 #section-white #liste-option ul > li > span {
 	float : right;
 	font-size: 130%;
-	margin-top: 5%;
+	margin-top: 7.6%;
 	margin-bottom: 5%;	
 	margin-left: 0%;
+	padding-right: 10px;
+	font-weight: bold;
 	font-family : sans-serif;
 	display : inline-block;
 	vertical-align: center;
@@ -174,7 +209,7 @@
     transition: 1s;
 }
 
-#section-white #validepaiement {
+#section-white #valideTarif {
 	font-family : 'Verdana';
 	font-size : 160%;
 	display: block;
@@ -182,7 +217,7 @@
 	background-color: #960018;
 	color : white;
 	cursor: pointer;
-	padding: 10px;
+	padding: 15px 20px 15px 20px;
 	outline: 0;
 	border: none;
     border-radius: 30px;
@@ -190,7 +225,37 @@
     transition: 1s;
 }
 
-#section-white #validepaiement:hover {
+#section-white #valideTarif:hover {
 	background-color: #ec1c24;
 	transition: 0.3s;
 }
+
+#section-white #totalFixed {
+	background-color: #ffffff;
+	width: 100%;
+	height: 90px;
+	padding-top: 20px;
+	transition: 0.3s;
+	position: fixed;
+	bottom: 0;
+	right: 0;
+	display: none;
+	-webkit-box-shadow: 0px -2px 10px #757272;
+    -moz-box-shadow: 0px -2px 10px #757272;
+    box-shadow: 0px -2px 10px #757272;
+}
+
+#section-white #totalFixed p{
+	font-size: 26px;
+	font-weight: bold;
+}
+
+#section-white #totalFixed span#total{
+	background-color: #3F3F3F;
+	color: #ffffff; 
+	padding-left: 20px;
+}
+
+
+
+

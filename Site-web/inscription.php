@@ -172,11 +172,7 @@ $tabPays = json_decode($ctrl->getPays(), true);
 	    			<label for="confirmation">Confirmation</label>
 	    				<input type="password" name="passwordConfirm" id="confirmation" class="champ" /><br />
 	    				<div id="erreurpwd">
-    					<p> Le mot de passe doit contenir
-   							• Au moins une lettre minuscule
-   							• Au moins une lettre majuscule
-   							• Au moins un chiffre
-   							• Au moins huit caractères
+    					<p> Les mots de passes doivent être identiques !
    						</p>
 					</div>
 	   		 	</div>
