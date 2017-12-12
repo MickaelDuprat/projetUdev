@@ -231,7 +231,6 @@ if (isset($_POST['search'])) {
 
 }
 
-
 // Classe controller de recherche Index.php
 
 class SearchController{

@@ -3,17 +3,27 @@ session_start();
 
 include_once('root.php');
 include_once(ROOT.'/controller/AuthentificationController.php');
+include_once(ROOT.'/controller/ContratController.php');
 include_once(ROOT.'/controller/SearchController.php');
 include_once(ROOT.'/controller/FicheController.php');
 include_once(ROOT.'/controller/AccessoireController.php');
+
+
 
 $message = '';
 
 if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 	session_destroy();
 	header('Location: index.php');    
+
 }
-//$jsonTab = json_decode($ctrl->getVehiculeById($_SESSION['id']), true);
+
+$ctrl = new ContratController();
+
+$jsonTab = json_decode($ctrl->getIdClient($_SESSION['id']), true);
+
+$idClient = $jsonTab['result']['id_membre_client']
+
 ?>
 
 <!doctype html>
@@ -55,7 +65,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 	
 	<div id="section-white">
 	    <aside id="resume-voiture">
-	    	<p class="titleDetails"> <?php print($marque.' '.$modele) ?> </p>
+	    	<p class="titleDetails" data=""> <?php print($marque.' '.$modele) ?> </p>
 	        <img id="vehselect" <?php print('<img src="'.$path.'"
 	        alt="'.$marque.' '.$modele.'">')?>  
 	        <h3> Départ </h3>
@@ -86,11 +96,10 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 		print($agence); ?></p>
 
 	        <h3> Retour </h3>
-	        <p id="agence" data="<?php print($agence); ?>"> <?php print($agence); ?> </p>
+	        <p id="agence"> <?php print($agence); ?> </p>
 	        <h3> Période de location </h3>
 	        <p> <?php print("Du : ". $_GET['dateDebut']. " au : ". $_GET['dateArrivee']); ?> </p>
-	        <input id="dateDebut" data="<?php echo implode('-', array_reverse(explode('/',$_GET['dateDebut']), FALSE)); ?>" type="hidden" value="<?php echo implode('-', array_reverse(explode('/',$_GET['dateDebut']), FALSE)); ?>">
-			<input id="dateArrivee" data="<?php echo implode('-', array_reverse(explode('/',$_GET['dateArrivee']), FALSE)); ?>" type="hidden" value="<?php echo implode('-', array_reverse(explode('/',$_GET['dateArrivee']), FALSE)); ?>">
+	        
 	        <?php print($infos); ?>
 
 	    <div id="liste-option">
@@ -103,12 +112,21 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 	            </ul>
 		</div>
 
-	   		<form method="POST" action="paiement.php">
+	   	<form method="POST" action="paiement.php">
+
+	   	<input type="hidden" name="dateDepart" value="<?php echo implode('-', array_reverse(explode('/',$_GET['dateDebut']), FALSE)); ?>"/>
+		<input type="hidden" name="dateArrivee" value="<?php echo implode('-', array_reverse(explode('/',$_GET['dateArrivee']), FALSE)); ?>"/>
+		<input type="hidden" name="idClient" value="<?php print($idClient); ?>"/>
+		<input type="hidden" name="idVehicule" value="<?php print($_GET['id']); ?>"/>
+		<input type="hidden" name="dateNow" value="<?php print(date("Y-m-d")); ?>"/>
+		<input type="hidden" name="agence" value="<?php print($_GET['agence']); ?>"/>
+
 	    <div id="section-paiement">
 
-	        <div id="totalFixed"><p>  Prix Total* : </p> <span id="total"></span></div>
 
+	        <div id="totalFixed"><p>  Prix Total* : </p> <span id="total"></span> <input type="hidden" name="recuptotal" value="" id="recuptotal"> </div>
 	        <input type="submit" id="valideTarif" value = "J'accepte le tarif et les options"/> 
+
 	   		</form>
 	        <small> *Prix total TTC incluant la TVA </small>
 	        <small> Veuillez noter que l'affichage de l'image et les spécifications du véhicule n'est qu'un exemple illustratif des actes de classe de véhicule (sauf erreur). Une réservation est possible uniquement pour une catégorie de véhicule, mais pas pour un véhicule particulier. </small>
@@ -152,25 +170,9 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 
 	    function setTotal(prix){
 	    	$('#total').text(prix.toFixed(2) + " €");
+	    	$('#recuptotal').val(prix.toFixed(2) + " €");
 	    }
-
-	    getAllId("#dateDebut");
-	    getAllId("#dateArrivee");
-
-	    	tab = {};
-	    	function getAllId(champ){
-	    
-	    		tab.push($(champ).attr(""));
-	    	
-	    		console.log(tab);
-	    	}
-
-	    $('#valideTarif').click(function(){
-
-
-	    });
-
-
+		
 	</script>
 
 
