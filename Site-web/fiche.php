@@ -106,8 +106,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 	   		<form method="POST" action="paiement.php">
 	    <div id="section-paiement">
 
-	        <div id="totalFixed"><p>  Prix Total* : </p> <span id="total"></span></div>
-
+	        <div id="totalFixed"><p>  Prix Total* : </p> <span id="total"></span> <input type="hidden" name="recuptotal" value="" id="recuptotal"> </div>
 	        <input type="submit" id="valideTarif" value = "J'accepte le tarif et les options"/> 
 	   		</form>
 	        <small> *Prix total TTC incluant la TVA </small>
@@ -152,6 +151,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 
 	    function setTotal(prix){
 	    	$('#total').text(prix.toFixed(2) + " €");
+	    	$('#recuptotal').val(prix.toFixed(2) + " €");
 	    }
 
 	    getAllId("#dateDebut");

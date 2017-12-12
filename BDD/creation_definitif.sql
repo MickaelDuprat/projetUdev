@@ -1,7 +1,7 @@
 DROP database projetudev;
 create database projetudev;
 use projetudev;
-set names 'utf8';
+set names utf8;
 
 create table contrat_loc (
 	num_contrat_loc int NOT NULL AUTO_INCREMENT,

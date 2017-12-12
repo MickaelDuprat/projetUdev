@@ -23,6 +23,16 @@ if ($jsonTabAgence['success'] == true) {
   $immat_veh = $value['immat_veh'];
   $lib_marque = $value['lib_marque'];
   $lib_modele = $value['lib_modele'];
+  $prix_journalier_veh = $value['prix_journalier_veh'];
+  $date_debut = $value['date_debut'];
+  $date_fin = $value['date_fin'];
+  
+  $dateDepart = implode('-', array_reverse(explode('/',$date_debut), FALSE));
+  $dateArrivee = implode('-', array_reverse(explode('/',$date_fin), FALSE));
+  $dateD = new DateTime($dateDepart);
+  $dateA = new DateTime($dateArrivee);
+  $interval = $dateD->diff($dateA);
+  $interval = $interval->format('%d');
   }
 }
 
@@ -43,20 +53,9 @@ if ($jsonTabClient['success'] == true) {
   }
 }
 
-$accessoirectrl = new PdfController();
-$jsonTabAccessoire = json_decode($accessoirectrl->tabAccessoire($num_contrat_loc), true);
 
-if ($jsonTabAccessoire['success'] == true) {
+ 
 
-  foreach ($jsonTabAccessoire['result'] as $value) {
-  $lib_accessoire = $value['lib_accessoire'];
-  $prix_journaHT_accessoire = $value['prix_journaHT_accessoire'];
-  $qtite = $value['qtite'];
-  $prix_journalier_veh = $value['prix_journalier_veh'];
-  $date_debut = $value['date_debut'];
-  $date_fin = $value['date_fin']; 
-  }
-}
 
 // Classe controller 
 class PdfController{
