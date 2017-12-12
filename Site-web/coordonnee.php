@@ -55,6 +55,7 @@ if (isset($siret)) {
 				<input type="radio" name="typeClient" value="part" checked '.$status.'>';
 }
 
+
 $tabPays = json_decode($ctrl->getPays(), true);		
 			
 
@@ -106,7 +107,7 @@ if (isset($_SESSION['id'])) {
 	<div id="section-white">
 			<!-- Formulaire -->	
 	<div id="formulaire">		
-		<form method="POST" action="coordonnee.php">
+		<form method="POST" action="inscription.php">
 			<!-- Div message erreur -->
 			<div id="erreur">
     			<p>Vous n'avez pas rempli correctement les champs du formulaire !</p>
@@ -267,6 +268,5 @@ if (isset($_SESSION['id'])) {
 			}
 		});
 
-	
 	</script>
 </html>

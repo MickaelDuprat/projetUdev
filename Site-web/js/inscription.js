@@ -25,6 +25,7 @@ $(document).ready(function(){
         $erreurtel = $('#erreurtel'),
         $erreurvillecp = $('#erreurvillecp'),
         $erreurddn = $('#erreurddn'),
+        $erreurlogin = $('#erreurlogin'),
         $champ = $('.champ'),
         $clientPro = $("input[name='typeClient']"),
         $proform = $('#proform'),
@@ -32,7 +33,8 @@ $(document).ready(function(){
         $coupon = $('#coupon'),
         $typeClient = $('input[typeClient]'),
         $codeCoupon = $('#codeCoupon'),
-        $codePromo = $('input[choixPromo]');
+        $codePromo = $('input[choixPromo]'),
+        $login = $('#login');
    
 
         /* fonction isValide (si champs valide) */
@@ -55,6 +57,18 @@ $(document).ready(function(){
             $erreur.css('display', 'block');
         }
 
+// login validation
+        $login.keyup(function(){
+            $login.filter(function(){
+            if($(this).val().length < 5) {
+                isNotValide($(this));
+                 $erreurlogin.css('display', 'block');
+            } else {
+                isValide($(this));         
+                $erreurlogin.css('display', 'none');
+            }    
+        });
+        });
  /* validation de la date de naissance par rapport au format */
   $ddn.on('change', function(){
     try {
@@ -166,6 +180,7 @@ $(document).ready(function(){
         verifier($nomCSociete);
         verifier($codeCoupon);
         verifier($civ);
+        verifier($login);
     });
 
     /* afficher  le  label&input codepromo */
@@ -218,6 +233,7 @@ $(document).ready(function(){
         $erreurtel.css('display', 'none'),
         $erreurvillecp.css('display', 'none');
         $erreurddn.css('display', 'none'); 
+        $erreurlogin.css('diplay', 'none');
     });
 
     /* verifie si les champs sont bien remplis, si ils ne le sont pas afficher message erreur */
