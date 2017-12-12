@@ -31,6 +31,7 @@ $(document).ready(function(){
         $promo = $("input[name='choixPromo']"),
         $coupon = $('#coupon'),
         $typeClient = $('input[typeClient]'),
+        $codeCoupon = $('#codeCoupon'),
         $codePromo = $('input[choixPromo]');
    
 
@@ -121,8 +122,8 @@ $(document).ready(function(){
 
     /* fonction verification si mdp identique */
     $confirmation.keyup(function(){
-        var regex = /(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
-        if ($(this).val() != $mdp.val() && ( !regex.test( $(this).val() ) )){ 
+        //var regex = /(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
+        if ($(this).val() != $mdp.val()){ 
             isNotValide($(this));
             $erreurpwd.css('display', 'block');
         } else {
@@ -133,15 +134,15 @@ $(document).ready(function(){
     });
 
     $mdp.keyup(function(){
-        var regex = /(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
-        if($(this).val() != $confirmation.val() && ( !regex.test( $(this).val() ) )){ 
-            isNotValide($(this));
+       // var regex = /(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
+        if($(this).val() != $confirmation.val()){
             $erreurpwd.css('display', 'block');
         } else {
             isValide($(this));
             $erreurpwd.css('display', 'none');
         }
     });
+    
 
     /* event click sur bouton d'envoi */
     $envoi.click(function(e){
@@ -177,6 +178,7 @@ $(document).ready(function(){
             $coupon.css({
             display : 'none'
             })
+            $codeCoupon.text() == " ";
         }
     });
 
@@ -190,6 +192,10 @@ $(document).ready(function(){
             $proform.css({
                 display : 'none'
             })
+            $raisonSociale.text() == " ";
+            $nomCSociete.text() == " ";
+            $siret.text() == " ";
+
         }
     });
 

@@ -222,11 +222,7 @@ if (isset($_SESSION['id'])) {
 	    			<label for="confirmation">Confirmation</label>
 	    				<input type="password" name="confirmMdp" id="confirmation" class="champ" /><br />
 	    				<div id="erreurpwd">
-	    					<p> Le mot de passe doit contenir
-	   							• Au moins une lettre minuscule
-	   							• Au moins une lettre majuscule
-	   							• Au moins un chiffre
-	   							• Au moins huit caractères
+	    					<p> Les mots de passes doivent être identiques !
 	   						</p>
 						</div>
 	   			</div>
@@ -255,7 +251,7 @@ if (isset($_SESSION['id'])) {
     <!-- Importation de la librairie js concernant le formulaire du profil -->
     <script src="js/datedropper.js"></script>
     <script src="js/formLogin.js"></script>
-   	<!-- <script src="js/inscription.js"></script> -->
+   	<script src="js/inscription.js"></script>
     <script src="js/datepicker.js"></script>
     <script src="js/backToTop.js"></script>
 	<script>
