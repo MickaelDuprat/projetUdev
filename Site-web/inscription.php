@@ -12,32 +12,9 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 	header('Location: index.php');    
 }
 
-$ctrl = new CoordonneeController();
+$ctrl = new AuthentificationController();
+	
 
-$tabInfos = json_decode($ctrl->informationsUser($_SESSION['id']), true);
-
-
-foreach ($tabInfos as $value) {
-	$nom = $value['nom_client'];
-	$prenom = $value['prenom_client'];
-	$dateN = $value['dateN_client'];
-	$adresseFact = $value['add_facturation'];
-	$adresse1 = $value['add1_client'];
-	$adresse2 = $value['add2_client'];
-	$cpVille = $value['cp_villecp'];
-	$ville = $value['ville_villecp'];
-	$tel = $value['tel_client'];
-	$email = $value['email_client'];
-	$raison = $value['raisonS_societe'];
-	$siret = $value['siret_societe'];
-	$nomS = $value['nomC_societe'];
-	$civilite = $value['lib_civ'];
-	$password = $value['password_membre'];
-	$pays = $value['nom_pays'];
-	$statutMembre = $value['id_membre_statut_membre'];
-}
-
-$tabPays = json_decode($ctrl->getPays(), true);	
 
 ?>
 <!doctype html>
@@ -90,24 +67,24 @@ $tabPays = json_decode($ctrl->getPays(), true);
 			</div>
 			<!-- choix client pro ou part -->	
 			<div id="typeClient">
-				<form id="choixClient">
+				<div id="choixClient">
 					<label type="text"> Êtes vous un </label><br /><br />
 					<label for="oui"> Professionnel ? </label>
 						<input type="radio" name="typeClient" value="pro">
 					<label for="oui"> Particulier ? </label>
   						<input type="radio" name="typeClient" value="part"> 
-  				</form>
+  				</div>
   			</div>	
 
   			<!-- demande si présence d'un code promo -->
   			<div id="codePromo">
-  				<form id="choixPromo">
+  				<div id="choixPromo">
   						<label type="text"> Avez vous un code promotionnel </label><br /><br />
   						<label for="oui"> oui </label>
 					<input type="radio" name="choixPromo" value="oui">
 						<label for="non"> non</label>
   					<input type="radio" name="choixPromo" value="non"> 
-  				</form>
+  				</div>
   			</div>
   			<!-- partie coupon -->
   				<div id="coupon">
@@ -152,21 +129,19 @@ $tabPays = json_decode($ctrl->getPays(), true);
 						<label for="ville">Ville</label>
 							<input type="text" name="ville" id="ville" class="champ"/><br />			
 						<label for='pays'>Pays</label>
-							<select name="pays" id="pays" class="champ" <?php print($status); ?>>
-								<?php 
-									foreach ($tabPays['result'] as $value) {
-										if ($pays == $value['nom_pays']){
-											print('<option value="'.$value['nom_pays'].' selected>'.$value['nom_pays'].'</option>');
-										} else {
-											print('<option value="'.$value['nom_pays'].'>'.$value['nom_pays'].'</option>');
-										}	
-									}	
-								 ?>
+							<select name="pays" id="pays" class="champ">
+								<option value="France"> France </option>
 							</select>
 				</div>
 				
 			<!-- partie information mdp -->
 				<div id="mid2form">
+					<label for="login">Login </label>
+						<input type="text" id="login" name="login" class="champ"/><br />
+						<div id="erreurlogin">
+    					<p> le login doit contenir au moins 5 caractères
+   						</p>
+					</div>
 	    			<label for="mdp">Mot de passe</label>
 	    				<input type="password" name="password" id="mdp" class="champ" /><br />
 	    			<label for="confirmation">Confirmation</label>
@@ -222,8 +197,31 @@ $tabPays = json_decode($ctrl->getPays(), true);
     <!-- Importation de la librairie js concernant le formulaire du profil -->
     <script src="js/datedropper.js"></script>
     <script src="js/formLogin.js"></script>
-    <!-- <script src="js/inscription.js"></script> -->
+  <!--  <script src="js/inscription.js"></script> -->
     <script src="js/datepicker.js"></script>
     <script src="js/backToTop.js"></script>
+    <script>
+
+    	var pro = false;
+		<?php
+			if (isset($siret) AND trim($siret) != ''){
+				print('pro = true;');
+			}
+		?>
+		$(document).ready(function(){
+			if (pro){
+				$('#proform').show();
+			}
+		});
+
+
+    	$('#envoi').click(function(){
+	if($('#typeClient').prop('checked')){
+		<?php $statutMembre = 2 ?>
+	} else {
+		<?php $statusMembre = 1 ?>
+		}
+	});
+    </script>
 
 </html>
