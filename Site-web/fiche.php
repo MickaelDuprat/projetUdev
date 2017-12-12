@@ -6,6 +6,8 @@ include_once(ROOT.'/controller/AuthentificationController.php');
 include_once(ROOT.'/controller/SearchController.php');
 include_once(ROOT.'/controller/FicheController.php');
 include_once(ROOT.'/controller/AccessoireController.php');
+include_once(ROOT.'/controller/ContratController.php');
+
 
 $message = '';
 
@@ -55,7 +57,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 	
 	<div id="section-white">
 	    <aside id="resume-voiture">
-	    	<p class="titleDetails"> <?php print($marque.' '.$modele) ?> </p>
+	    	<p class="titleDetails" data=""> <?php print($marque.' '.$modele) ?> </p>
 	        <img id="vehselect" <?php print('<img src="'.$path.'"
 	        alt="'.$marque.' '.$modele.'">')?>  
 	        <h3> Départ </h3>
@@ -89,8 +91,10 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 	        <p id="agence" data="<?php print($agence); ?>"> <?php print($agence); ?> </p>
 	        <h3> Période de location </h3>
 	        <p> <?php print("Du : ". $_GET['dateDebut']. " au : ". $_GET['dateArrivee']); ?> </p>
-	        <input id="dateDebut" data="<?php echo implode('-', array_reverse(explode('/',$_GET['dateDebut']), FALSE)); ?>" type="hidden" value="<?php echo implode('-', array_reverse(explode('/',$_GET['dateDebut']), FALSE)); ?>">
+	        <input id="dateDepart" data="<?php echo implode('-', array_reverse(explode('/',$_GET['dateDebut']), FALSE)); ?>" type="hidden" value="<?php echo implode('-', array_reverse(explode('/',$_GET['dateDebut']), FALSE)); ?>">
 			<input id="dateArrivee" data="<?php echo implode('-', array_reverse(explode('/',$_GET['dateArrivee']), FALSE)); ?>" type="hidden" value="<?php echo implode('-', array_reverse(explode('/',$_GET['dateArrivee']), FALSE)); ?>">
+			<input type="hidden" id="idClient" data="<?php print($idClient); ?>">
+			<input type="hidden" id="idVehicule" data="<?php print($_GET['id']); ?>">
 	        <?php print($infos); ?>
 
 	    <div id="liste-option">
@@ -108,7 +112,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 
 	        <div id="totalFixed"><p>  Prix Total* : </p> <span id="total"></span></div>
 
-	        <input type="submit" id="valideTarif" value = "J'accepte le tarif et les options"/> 
+	        <input type="submit" name="valideTarif" id="valideTarif" value = "J'accepte le tarif et les options"/> 
 	   		</form>
 	        <small> *Prix total TTC incluant la TVA </small>
 	        <small> Veuillez noter que l'affichage de l'image et les spécifications du véhicule n'est qu'un exemple illustratif des actes de classe de véhicule (sauf erreur). Une réservation est possible uniquement pour une catégorie de véhicule, mais pas pour un véhicule particulier. </small>
@@ -165,11 +169,53 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 	    		console.log(tab);
 	    	}
 
-	    $('#valideTarif').click(function(){
+		tabInfos("#dateDepart");
+		tabInfos("#dateArrivee");
+		tabInfos("#idClient");
+		tabInfos("#idVehicule");
+		tabInfos("#agence");
 
+		function tabInfos(champs) {
 
-	    });
+			var tab = {};
 
+			var annee   = now.getFullYear();
+			var mois    = now.getMonth() + 1;
+			var jour    = now.getDate();
+
+			tab{"dateNow"} = annee + "-" + mois + "-" + jour;
+
+			 $(champs).click(function(){
+				
+				tab{champs} = $(champs).attr("data");
+
+				// Penser à faire des parseInt ou parseFloat
+
+		 	});
+
+			tab{"caution"} = 1500;
+
+			 console.log(tab);
+
+			$.ajax({
+
+					 url: "controller/ContratController.php?action=insert",
+					 method: "POST",
+					 data:{
+						tab: tab,
+					 },
+					 success:function(data){
+					 	jQuery("#search-list").fadeOut( 0 , function() {
+						    jQuery(this).html( data);
+						}).fadeIn( 400 );
+					 },
+					 error:function(reponse, status, message){
+					 	console.log(reponse.status + " " + reponse.statusText + " " + message);
+					 },
+
+			});
+
+		}
 
 	</script>
 

@@ -99,6 +99,7 @@
     -moz-box-shadow: 0px -2px 10px #757272;
     box-shadow: 0px -2px 10px #757272;
 	margin-bottom: 6%;
+	display: none;
 }
 
 #section-white #liste-option ul > li > img {
