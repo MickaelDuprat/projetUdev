@@ -8,8 +8,6 @@ include_once(ROOT.'/controller/SearchController.php');
 include_once(ROOT.'/controller/FicheController.php');
 include_once(ROOT.'/controller/AccessoireController.php');
 
-
-
 $message = '';
 
 if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
@@ -62,7 +60,6 @@ $idClient = $jsonTab['result']['id_membre_client']
       <a href="search.php">Sélection du véhicule</a>  - <a class="checked" href="fiche.php">Choix des options</a> - <a href="paiement.php">Paiement</a>
     </div>
 
-	
 	<div id="section-white">
 	    <aside id="resume-voiture">
 	    	<p class="titleDetails" data=""> <?php print($marque.' '.$modele) ?> </p>
@@ -106,9 +103,8 @@ $idClient = $jsonTab['result']['id_membre_client']
 	        <!--<p> Tarif de la location* : </p>  <b> --><span id="prixloc" data="<?php print($prixLoc); ?>"><!--<?php print($prixLoc); ?>--></span> <!--€ </b>-->
 	            <ul>          	
 	            	
-	            		<?php print($listaccessoire); ?>
+	            	<?php print($listaccessoire); ?>
 
-	           
 	            </ul>
 		</div>
 

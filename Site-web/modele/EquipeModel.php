@@ -32,7 +32,7 @@ class EquipeModel extends Manager {
     return $infos;
   }
 
-  // Fonction de lecture des informations liées à l'aquipe de l'utilisateur
+  // Fonction de lecture des informations liées à l'équipe de l'utilisateur
   public function addEquipe($login, $password) {
     $this->pdoStatement = $this->pdo->prepare("INSERT INTO membre (login_membre, password_membre, id_membre_client, id_membre_statut_membre) VALUES (:login, :password, 250, 1)");
     $this->pdoStatement->bindValue(':login', $login, PDO::PARAM_STR);

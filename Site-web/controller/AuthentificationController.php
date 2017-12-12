@@ -30,13 +30,15 @@ if (isset($_POST['inscription'])) {
    $ctrl->inscription();
 }
 
-$jsonTab2 = json_decode(ctrl->getIdVille(), true);
+/*
+$jsonTab2 = json_decode($ctrl->getIdVille($cpVille), true);
 
-  if ($jsonTab2['success'] == true) {
-    foreach ($jsonTab2 as $value) {
-      $_POST['id_ville'] = $value;
-    }
-  }
+if ($jsonTab2['success'] == true) {
+  foreach ($jsonTab2 as $value) {
+    $_POST['id_ville'] = $value;
+  } 
+}
+*/
 
 
 
