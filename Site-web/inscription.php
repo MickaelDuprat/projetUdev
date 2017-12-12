@@ -222,7 +222,7 @@ $tabPays = json_decode($ctrl->getPays(), true);
     <!-- Importation de la librairie js concernant le formulaire du profil -->
     <script src="js/datedropper.js"></script>
     <script src="js/formLogin.js"></script>
-    <script src="js/inscription.js"></script>
+    <!-- <script src="js/inscription.js"></script> -->
     <script src="js/datepicker.js"></script>
     <script src="js/backToTop.js"></script>
 

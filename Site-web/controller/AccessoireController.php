@@ -10,14 +10,16 @@ $accessctrl = new AccessoireController();
 
    if($jsonTab['success'] == true) {
     $script = '';
+    $compteur = 0;
     foreach ($jsonTab['result'] as $value) {
       $id_accessoire = $value['id_accessoire'];
       $lib_accessoire = $value['lib_accessoire'];
       $prix_accessoire = $value['prix_journaHT_accessoire'];
       $img_path = $value['img_path'];
 
+      $compteur++;
       
-      $script .= '<li>';
+      $script .= '<li class="liNum'.$compteur.'">';
       $script .= '<img id="'.$lib_accessoire.'" src="'.$img_path.' " alt="'.$lib_accessoire.'">';
       $script .= '<p>'.$lib_accessoire.' </p> <span> '.$prix_accessoire.' € </span>';
 
