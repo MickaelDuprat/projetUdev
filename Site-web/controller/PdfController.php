@@ -15,11 +15,14 @@ if ($jsonTabAgence['success'] == true) {
   $lib_agence = $value['lib_agence'];
   $cpagence = $value['cpagence'];
   $villeagence = $value['villeagence'];
+  $add_agence = $value['add_agence'];
   $tel_agence = $value['tel_agence'];
   $fax_agence = $value['fax_agence'];
   $lib_modele = $value['lib_modele'];
   $lib_marque = $value['lib_marque'];
   $immat_veh = $value['immat_veh'];
+  $lib_marque = $value['lib_marque'];
+  $lib_modele = $value['lib_modele'];
   }
 }
 
@@ -36,6 +39,7 @@ if ($jsonTabClient['success'] == true) {
   $raisonS_societe = $value['raisonS_societe'];
   $villeclient = $value['villeclient'];
   $cpclient = $value['cpclient'];
+  $tel_client = $value['tel_client'];
   }
 }
 

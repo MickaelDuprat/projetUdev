@@ -33,7 +33,7 @@ class PDF extends FPDF
 {
     
 // En-tête
-    function HeaderAgence($lib_agence, $adresse_agence, $num_contrat_loc, $cpagence, $villeagence, $tel_agence, $marque, $modele, $immat_veh, $fax_agence)
+    function HeaderAgence($lib_agence, $add_agence, $num_contrat_loc, $cpagence, $villeagence, $tel_agence, $lib_marque, $lib_modele, $immat_veh, $fax_agence)
     {
 
 $datedujour = date("d-m-Y");       
@@ -55,26 +55,26 @@ $datedujour = date("d-m-Y");
         $this->Cell(10, 10, $lib_agence, 0,'C'); 
         $this->Ln(8);
         $this->SetX(15);
-        $this->Cell(50, 10, $adresse_agence, 0,'C'); $this->Cell(45); $this->SetFont('Arial','I',14); $this->Cell(80,10,'
+        $this->Cell(50, 8, $add_agence, 0,'C'); $this->Cell(25); $this->SetFont('Arial','I',14); $this->Cell(100,8,'
          n°'.$num_contrat_loc.' du '.$datedujour,'LRT','R');
         $this->SetFont('Arial','',12);
-        $this->Ln(10);
+        $this->Ln(8);
         $this->SetX(15);
         $this->SetFillColor(125,125,125);
-        $this->Cell(30, 10, $cpagence, 0,'C');
-        $this->Cell(30, 10, $villeagence, 0,'C'); $this->Cell(35); $this->Cell(40,10,'Type de véhicule','LRTB',0, 'C', true);$this->Cell(40,10,'Immatriculation','LRTB',0, 'C', true);
-        $this->Ln(10);
+        $this->Cell(15, 8, $cpagence, 0,'C'); $this->Cell(35, 8, $villeagence, 0,'C')
+        ; $this->Cell(25); $this->Cell(60,8,'Type de véhicule','LRTB',0, 'C', true);$this->Cell(40,8,'Immatriculation','LRTB',0, 'C', true);
+        $this->Ln(8);
         $this->SetX(15);
-        $this->Cell(20,10,$tel_agence,0,'C');$this->Cell(75); $this->Cell(40,10,$marque.$modele,'LRB', 0, 'C', true);$this->Cell(40,10,$immat_veh,'LRB', 0, 'C', true);
-        $this->Ln(10);
+        $this->Cell(20,8,$tel_agence,0,'C');$this->Cell(55); $this->Cell(30,8,$lib_marque,'LB', 0, 'C', true); $this->Cell(30,8,$lib_modele,'RB', 0, 'C', true);$this->Cell(40,8,$immat_veh,'LRB', 0, 'C', true);
+        $this->Ln(8);
         $this->SetX(15);
-        $this->Cell(20,10,$fax_agence,0, 'C');
+        $this->Cell(20,8,$fax_agence,0, 'C');
         $this->Ln(13);
     }
 
 
 
-function TableauClient($nom_client, $add_facturation, $prenom_client, $villeclient, $cpclient, $email_client, $raisonS_societe)
+function TableauClient($nom_client, $add_facturation, $prenom_client, $tel_client,  $villeclient, $cpclient, $email_client, $raisonS_societe)
 {
      // Couleurs du cadre, du fond et du texte
     $this->SetDrawColor(80,115,135); // marche pas 
@@ -124,10 +124,10 @@ function TableauContratLoc($prix_journalier_veh, $lib_accessoire, $qtite, $prix_
     $w = array(100, 55, 35);
      $this->SetFont('Arial','',11);
     $this->Cell($w[0],8,'', 'LTR', 0, 'LR', true);
-    $this->Cell($w[1],8,'Nbre de jours / Quantité','LRt', 0, 'C', true);
-    $this->Cell($w[2],8,'Prix en € :','LRt', 0, 'C', true);
+    $this->Cell($w[1],8,'Nbre de jours / Quantité','LRT', 0, 'C', true);
+    $this->Cell($w[2],8,'Prix en € :','LRT', 0, 'C', true);
     $this->Ln(8);
-    $this->Cell($w[0],8,'Location du'. $date_debut.' au '.$date_fin, 'LR', 0, 'L', true);
+    $this->Cell($w[0],8,'Location du '. $date_debut.' au '.$date_fin, 'LR', 0, 'L', true);
     $this->Cell($w[1],8,'$interval','LR', 0, 'C', true);
     $this->Cell($w[2],8,$prix_journalier_veh.'*','LR', 0, 'C', true);
     $this->Ln(8);
@@ -205,8 +205,8 @@ $pdf = new PDF();
 $pdf->AliasNbPages();
 $pdf->AddPage();
 $pdf->SetFont('Times','',12);
-$pdf->HeaderAgence($lib_agence, $adresse_agence, $num_contrat_loc, $cpagence, $villeagence, $tel_agence, $marque, $modele, $immat_veh, $fax_agence);
-$pdf->TableauClient($nom_client, $add_facturation, $prenom_client, $villeclient, $cpclient, $email_client, $raisonS_societe);
+$pdf->HeaderAgence($lib_agence, $add_agence, $num_contrat_loc, $cpagence, $villeagence, $tel_agence, $lib_marque, $lib_modele, $immat_veh, $fax_agence);
+$pdf->TableauClient($nom_client, $add_facturation, $prenom_client, $tel_client, $villeclient, $cpclient, $email_client, $raisonS_societe);
 $pdf->TableauContratLoc($prix_journalier_veh, $lib_accessoire, $qtite, $prix_journaHT_accessoire, $date_debut, $date_fin);
 $pdf->BasPage($villeagence);
 $pdf->FooterPdf();

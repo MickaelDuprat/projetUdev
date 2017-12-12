@@ -21,7 +21,7 @@ class PdfModel extends Manager {
 
  // Fonction de lecture des informations concernant l'agence qui a géré un contrat de location rentré en paramètre
   public function tabAgence($num_contrat_loc) {
-    $this->pdoStatement = $this->pdo->prepare("SELECT lib_agence, add_agence, cp_villecp as cpagence, ville_villecp as villeagence, tel_agence, fax_agence, lib_modele, lib_marque, immat_veh
+    $this->pdoStatement = $this->pdo->prepare("SELECT lib_agence, add_agence, cp_villecp as cpagence, ville_villecp as villeagence, tel_agence, fax_agence, lib_modele, lib_marque, immat_veh, lib_marque, lib_modele
   FROM agence
   LEFT JOIN contrat_loc on contrat_loc.id_contrat_loc_agence = agence.id_agence
   LEFT JOIN vehicule on vehicule.id_veh = contrat_loc.id_contrat_loc_vehicule
