@@ -1,16 +1,8 @@
 <?php
 
-include_once(ROOT .'/root.php');
+include_once(dirname(__FILE__).'/../root.php');
 
 include_once(ROOT .'/modele/ContratModel.php');
-
-$ctrl = new ContratController();
-
-$jsonTab = json_decode($ctrl->getIdClient($_SESSION['id']), true);
-
-if($jsonTab['success'] == true) {
-   $idClient = $jsonTab['result']['id_membre_client'];
-}
 
 // Classe controller 
 class ContratController{
@@ -47,9 +39,9 @@ class ContratController{
 
   // Fonction de génération d'un nouveau contrat de location (nouvelle réservation de véhicule)
 
-  public function setContrat($agence, $dateDebut, $dateFin, $prixLocTotal, $dateNow){
+  public function setContrat($dateNow, $dateDepart, $dateArrivee, $idClient, $idVehicule, $agence){
      
-      $infos = $this->manager->insertContrat($id);
+      $infos = $this->manager->insertContrat($dateNow, $dateDepart, $dateArrivee, $idClient, $idVehicule, $agence);
 
       if($infos){
         $json = json_encode(['success' => true, 'result' => $infos]);

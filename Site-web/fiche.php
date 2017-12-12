@@ -3,10 +3,11 @@ session_start();
 
 include_once('root.php');
 include_once(ROOT.'/controller/AuthentificationController.php');
+include_once(ROOT.'/controller/ContratController.php');
 include_once(ROOT.'/controller/SearchController.php');
 include_once(ROOT.'/controller/FicheController.php');
 include_once(ROOT.'/controller/AccessoireController.php');
-include_once(ROOT.'/controller/ContratController.php');
+
 
 
 $message = '';
@@ -14,8 +15,15 @@ $message = '';
 if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 	session_destroy();
 	header('Location: index.php');    
+
 }
-//$jsonTab = json_decode($ctrl->getVehiculeById($_SESSION['id']), true);
+
+$ctrl = new ContratController();
+
+$jsonTab = json_decode($ctrl->getIdClient($_SESSION['id']), true);
+
+$idClient = $jsonTab['result']['id_membre_client']
+
 ?>
 
 <!doctype html>
@@ -88,13 +96,10 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 		print($agence); ?></p>
 
 	        <h3> Retour </h3>
-	        <p id="agence" data="<?php print($agence); ?>"> <?php print($agence); ?> </p>
+	        <p id="agence"> <?php print($agence); ?> </p>
 	        <h3> Période de location </h3>
 	        <p> <?php print("Du : ". $_GET['dateDebut']. " au : ". $_GET['dateArrivee']); ?> </p>
-	        <input id="dateDepart" data="<?php echo implode('-', array_reverse(explode('/',$_GET['dateDebut']), FALSE)); ?>" type="hidden" value="<?php echo implode('-', array_reverse(explode('/',$_GET['dateDebut']), FALSE)); ?>">
-			<input id="dateArrivee" data="<?php echo implode('-', array_reverse(explode('/',$_GET['dateArrivee']), FALSE)); ?>" type="hidden" value="<?php echo implode('-', array_reverse(explode('/',$_GET['dateArrivee']), FALSE)); ?>">
-			<input type="hidden" id="idClient" data="<?php print($idClient); ?>">
-			<input type="hidden" id="idVehicule" data="<?php print($_GET['id']); ?>">
+	        
 	        <?php print($infos); ?>
 
 	    <div id="liste-option">
@@ -107,7 +112,15 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 	            </ul>
 		</div>
 
-	   		<form method="POST" action="paiement.php">
+	   	<form method="POST" action="paiement.php">
+
+	   	<input type="hidden" name="dateDepart" value="<?php echo implode('-', array_reverse(explode('/',$_GET['dateDebut']), FALSE)); ?>"/>
+		<input type="hidden" name="dateArrivee" value="<?php echo implode('-', array_reverse(explode('/',$_GET['dateArrivee']), FALSE)); ?>"/>
+		<input type="hidden" name="idClient" value="<?php print($idClient); ?>"/>
+		<input type="hidden" name="idVehicule" value="<?php print($_GET['id']); ?>"/>
+		<input type="hidden" name="dateNow" value="<?php print(date("Y-m-d")); ?>"/>
+		<input type="hidden" name="agence" value="<?php print($_GET['agence']); ?>"/>
+
 	    <div id="section-paiement">
 
 	        <div id="totalFixed"><p>  Prix Total* : </p> <span id="total"></span></div>
@@ -157,66 +170,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 	    function setTotal(prix){
 	    	$('#total').text(prix.toFixed(2) + " €");
 	    }
-
-	    getAllId("#dateDebut");
-	    getAllId("#dateArrivee");
-
-	    	tab = {};
-	    	function getAllId(champ){
-	    
-	    		tab.push($(champ).attr(""));
-	    	
-	    		console.log(tab);
-	    	}
-
-		tabInfos("#dateDepart");
-		tabInfos("#dateArrivee");
-		tabInfos("#idClient");
-		tabInfos("#idVehicule");
-		tabInfos("#agence");
-
-		function tabInfos(champs) {
-
-			var tab = {};
-
-			var annee   = now.getFullYear();
-			var mois    = now.getMonth() + 1;
-			var jour    = now.getDate();
-
-			tab{"dateNow"} = annee + "-" + mois + "-" + jour;
-
-			 $(champs).click(function(){
-				
-				tab{champs} = $(champs).attr("data");
-
-				// Penser à faire des parseInt ou parseFloat
-
-		 	});
-
-			tab{"caution"} = 1500;
-
-			 console.log(tab);
-
-			$.ajax({
-
-					 url: "controller/ContratController.php?action=insert",
-					 method: "POST",
-					 data:{
-						tab: tab,
-					 },
-					 success:function(data){
-					 	jQuery("#search-list").fadeOut( 0 , function() {
-						    jQuery(this).html( data);
-						}).fadeIn( 400 );
-					 },
-					 error:function(reponse, status, message){
-					 	console.log(reponse.status + " " + reponse.statusText + " " + message);
-					 },
-
-			});
-
-		}
-
+		
 	</script>
 
 

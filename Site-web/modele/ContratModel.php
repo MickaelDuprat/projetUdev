@@ -45,13 +45,22 @@ class ContratModel extends Manager {
 
 
   // Fonction de lecture des informations 
-  public function insertContrat($id) {
+  public function insertContrat($dateNow, $dateDepart, $dateArrivee, $idClient, $idVehicule, $agence) {
 
     // Se rappeler de mettre le statut à 0
 
-    $this->pdoStatement = $this->pdo->prepare("INSERT INTO contrat_loc");
-    $this->pdoStatement->bindValue(':id', $id, PDO::PARAM_INT);
+    $this->pdoStatement = $this->pdo->prepare("INSERT INTO contrat_loc (date_contrat, date_debut, date_fin, caution, statut_facturation, id_contrat_loc_client, caution) VALUES (:dateNow, :dateDepart, :dateArrivee, :caution, :statutFact, :idClient, :idVehicule, :agence)");
+
+    $this->pdoStatement->bindValue(':dateNow', $dateNow, PDO::PARAM_STR);
+    $this->pdoStatement->bindValue(':dateDepart', $dateDepart, PDO::PARAM_STR);
+    $this->pdoStatement->bindValue(':dateArrivee', $dateArrivee, PDO::PARAM_STR);
+    $this->pdoStatement->bindValue(':caution', 1500, PDO::PARAM_STR);
+    $this->pdoStatement->bindValue(':statutFact', 0, PDO::PARAM_INT);
+    $this->pdoStatement->bindValue(':idClient', $idClient, PDO::PARAM_INT);
+    $this->pdoStatement->bindValue(':idVehicule', $idVehicule, PDO::PARAM_INT);
+    $this->pdoStatement->bindValue(':agence', $agence, PDO::PARAM_INT);
     $this->pdoStatement->execute();
+
     $infos = $this->pdoStatement->rowCount();
 
     return $infos;
@@ -66,7 +75,6 @@ class ContratModel extends Manager {
     $this->pdoStatement->bindValue(':id', $id, PDO::PARAM_INT);
     $this->pdoStatement->execute();
     $infos = $this->pdoStatement->fetch(PDO::FETCH_ASSOC);
-    
     return $infos;
   }
 

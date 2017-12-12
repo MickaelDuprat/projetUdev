@@ -10,7 +10,22 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 	header('Location: index.php');    
 }
 
+$ctrl = new ContratController();
 
+if (isset($_POST['paye'])) {
+
+    $dateNow = $_POST['dateNow'];
+    $dateDepart = $_POST['dateDepart'];
+    $dateArrivee = $_POST['dateArrivee'];
+    $idClient = $_POST['idClient'];
+    $idVehicule = $_POST['idVehicule'];
+    $agence = $_POST['agence'];
+    
+    $jsonTab = json_decode($ctrl->setContrat($dateNow, $dateDepart, $dateArrivee, $idClient, $idVehicule, $agence), true);
+
+    var_dump($jsonTab);
+
+}
 
 ?>
 
@@ -56,7 +71,15 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 		<div id="section-white">
             </div>     
                     <!--page paiement-->
-            <form id="formulairePaiement" method="POST" onsubmit="verification()" action="">
+            <form id="formulairePaiement" method="POST" onsubmit="verification()" action="paiement.php">
+
+                <input type="hidden" name="dateNow" value="<?php print($_POST['dateNow']); ?>"/>
+                <input type="hidden" name="dateDepart" value="<?php print($_POST['dateDepart']); ?>"/>
+                <input type="hidden" name="dateArrivee" value="<?php print($_POST['dateArrivee']); ?>"/>
+                <input type="hidden" name="idClient" value="<?php print($_POST['idClient']); ?>"/>
+                <input type="hidden" name="idVehicule" value="<?php print($_POST['idVehicule']); ?>"/>
+                <input type="hidden" name="agence" value="<?php print($_POST['agence']); ?>"/>
+
                 <div class="panel panel-info">
                     <div class="panel-heading" style="margin-top: 40px;"><span><i class="glyphicon glyphicon-lock"></i></span> Paiement sécurisé</div>
                     <div class="panel-body">
@@ -88,9 +111,9 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
                                 <select class="form-control" id="mois" onchange="verificationMois()">
                                    <option value="Mois">Mois</option>
                                     <?php 
-                                    for ($i= 1; $i < 13; $i++) {
-                                    print('<option value='.$i.'>'.$i.'</option>');
-                                    }
+                                        for ($i= 1; $i < 13; $i++) {
+                                          print('<option value='.$i.'>'.$i.'</option>');
+                                        }
                                     ?>
                                 </select>
                                 <span id="erreur_mois" style="visibility: visible"> Veuillez choisir un mois !</span>
@@ -129,7 +152,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
                         </div>
                         <div class="form-group">
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <button type="submit" class="btn btn-primary btn-submit-fix" onclick="window.location.href='nouveauclient.php';">Paiement</button>
+                                <button type="submit" name="paye" class="btn btn-primary btn-submit-fix" onclick="window.location.href='nouveauclient.php';">Paiement</button>
                             </div>
                         </div>
                     </div>
@@ -160,7 +183,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
     <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
     <script src="http://cdn.jsdelivr.net/jquery.validation/1.14.0/jquery.validate.min.js"></script>
     <script src="js/backToTop.js"></script>
-
+<!--
     <script type="text/javascript">
 
 function verification_titulaire() {
@@ -291,4 +314,6 @@ alert('coucou!');
 return true;
 }
     </script>
+
+-->
 </html>
