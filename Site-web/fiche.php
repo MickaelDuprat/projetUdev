@@ -123,9 +123,10 @@ $idClient = $jsonTab['result']['id_membre_client']
 
 	    <div id="section-paiement">
 
-	        <div id="totalFixed"><p>  Prix Total* : </p> <span id="total"></span></div>
 
-	        <input type="submit" name="valideTarif" id="valideTarif" value = "J'accepte le tarif et les options"/> 
+	        <div id="totalFixed"><p>  Prix Total* : </p> <span id="total"></span> <input type="hidden" name="recuptotal" value="" id="recuptotal"> </div>
+	        <input type="submit" id="valideTarif" value = "J'accepte le tarif et les options"/> 
+
 	   		</form>
 	        <small> *Prix total TTC incluant la TVA </small>
 	        <small> Veuillez noter que l'affichage de l'image et les spécifications du véhicule n'est qu'un exemple illustratif des actes de classe de véhicule (sauf erreur). Une réservation est possible uniquement pour une catégorie de véhicule, mais pas pour un véhicule particulier. </small>
@@ -169,6 +170,7 @@ $idClient = $jsonTab['result']['id_membre_client']
 
 	    function setTotal(prix){
 	    	$('#total').text(prix.toFixed(2) + " €");
+	    	$('#recuptotal').val(prix.toFixed(2) + " €");
 	    }
 		
 	</script>

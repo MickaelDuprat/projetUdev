@@ -1,5 +1,5 @@
 use projetudev;
-set names 'utf8';
+set names utf8;
 
 
 insert into civilite (lib_civ, abb_civ) values ("monsieur", "M");

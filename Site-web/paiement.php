@@ -71,7 +71,8 @@ if (isset($_POST['paye'])) {
 		<div id="section-white">
             </div>     
                     <!--page paiement-->
-            <form id="formulairePaiement" method="POST" onsubmit="verification()" action="paiement.php">
+
+        <form id="formulairePaiement" method="POST" onsubmit="verification()" action="remerciement.php">
 
                 <input type="hidden" name="dateNow" value="<?php print($_POST['dateNow']); ?>"/>
                 <input type="hidden" name="dateDepart" value="<?php print($_POST['dateDepart']); ?>"/>
@@ -79,6 +80,8 @@ if (isset($_POST['paye'])) {
                 <input type="hidden" name="idClient" value="<?php print($_POST['idClient']); ?>"/>
                 <input type="hidden" name="idVehicule" value="<?php print($_POST['idVehicule']); ?>"/>
                 <input type="hidden" name="agence" value="<?php print($_POST['agence']); ?>"/>
+
+            
 
                 <div class="panel panel-info">
                     <div class="panel-heading" style="margin-top: 40px;"><span><i class="glyphicon glyphicon-lock"></i></span> Paiement sécurisé</div>
@@ -152,7 +155,9 @@ if (isset($_POST['paye'])) {
                         </div>
                         <div class="form-group">
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <button type="submit" name="paye" class="btn btn-primary btn-submit-fix" onclick="window.location.href='nouveauclient.php';">Paiement</button>
+
+                                <a href="remerciement.php"> <button type="submit" class="btn btn-primary btn-submit-fix" onclick="verification()">Paiement</button> <input type="hidden" name="recuptotal" value="<?php print($_POST['recuptotal']); ?>" id="recuptotal"></a>
+
                             </div>
                         </div>
                     </div>
@@ -160,7 +165,7 @@ if (isset($_POST['paye'])) {
                   
                 </div>
                 
-                </form>
+            </form>
             </div>
             <div class="row cart-footer">
            </div>
