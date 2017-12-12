@@ -28,7 +28,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 */
 
 require('C:\MAMP\htdocs\GIT\Site-web\fpdf.php');
-$prixtotal = $_POST['recuptotal'];
+$prixtotal = 150;//$_POST['recuptotal'];
 class PDF extends FPDF
 {
     
@@ -147,10 +147,10 @@ function TableauContratLoc($prix_journalier_veh, $date_debut, $date_fin, $interv
     }
   } 
 
-   /*$this->Cell($w[0], 8, $lib_accessoire, 'LR', 0, 'L', true);
-    $this->Cell($w[1], 8, $prix_journaHT_accessoire, 'LR', 0, 'C', true);
-    $this->Cell($w[2], 8, $qtite, 'LR', 0, 'C', true);
-    $this->Ln(8);*/
+    $this->Cell($w[0], 8, 'Prix total TTC', 'LR', 0, 'L', true);
+    $this->Cell($w[1], 8, '', 'LR', 0, 'C', true);
+    $this->Cell($w[2], 8, $prixtotal, 'LR', 0, 'C', true);
+    $this->Ln(8);
 
     $this->Cell(array_sum($w), 0, '', 'T', 0, true);
     $this->Ln(20);  
