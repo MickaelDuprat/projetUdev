@@ -103,6 +103,15 @@ element.style {
   color: red;
 }
 
+#erreurlogin{
+margin-right: 100px;
+  float: right;
+  display: none;
+  font-size: 10px;
+  font-style: italic;
+  color: red;
+}
+
 #erreurmail {
   margin-right: 100px;
   float: right;

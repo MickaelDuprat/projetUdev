@@ -30,6 +30,20 @@ if (isset($_POST['inscription'])) {
    $ctrl->inscription();
 }
 
+/*
+$jsonTab2 = json_decode($ctrl->getIdVille($cpVille), true);
+
+if ($jsonTab2['success'] == true) {
+  foreach ($jsonTab2 as $value) {
+    $_POST['id_ville'] = $value;
+  } 
+}
+*/
+
+
+
+
+
 // Classe controller des agences de locations
 
 class AuthentificationController{
@@ -74,7 +88,6 @@ class AuthentificationController{
   }
 
   // Fonction d'inscription d'un utilisateur
-
     public function inscription(){
       
       $typeClient = $_POST['typeClient'];
@@ -95,8 +108,11 @@ class AuthentificationController{
       $raisonSociale = $_POST['raisonSociale'];
       $siret = $_POST['siret'];
       $nomSociete = $_POST['nomSociete'];
+      $login = $_POST['login'];
+      $statut_membre = $_POST['status_membre'];
 
-      $inscription = $this->manager->insert($typeClient, $codeCoupon, $civ, $nom, $prenom, $dateN, $adresse, $adresse2, $adresseFact, $codePostal, $ville, $pays, $password, $telephone, $email, $raisonSociale, $siret, $nomSociete);
+       $inscription = $this->manager->insert($typeClient, $codeCoupon, $civ, $nom, $prenom, $dateN, $adresse, $adresse2, $adresseFact, $codePostal, $ville, $pays, $password, $telephone, $email, $raisonSociale, $siret, $nomSociete, $login, $statut_membre);
+
 
       if($inscription){
         $json = json_encode(['success' => true, 'result' => $inscription]);
@@ -105,7 +121,21 @@ class AuthentificationController{
       }
       
       return $json;
-
   }
 
-}
+  function getIdVille($cpVille){
+    $ville = $this->manager->selectIdVilleCp($cpVille);
+
+      if($ville){
+        $json2 = json_encode(['success' => true, 'result' => $ville]);
+      } else {
+        $json2 = json_encode(['success' => false]);
+      }
+      
+      return $json2;
+
+  } 
+  }
+
+
+

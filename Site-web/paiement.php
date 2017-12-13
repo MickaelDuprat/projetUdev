@@ -70,7 +70,8 @@ if (isset($_POST['paye'])) {
 
 		<div id="section-white">
             </div>     
-                    <!--page paiement-->
+        
+        <!--page paiement-->
 
         <form id="formulairePaiement" method="POST" onsubmit="verification()" action="remerciement.php">
 
@@ -84,8 +85,9 @@ if (isset($_POST['paye'])) {
             
 
                 <div class="panel panel-info">
-                    <div class="panel-heading" style="margin-top: 40px;"><span><i class="glyphicon glyphicon-lock"></i></span> Paiement sécurisé</div>
+                    <div class="panel-heading" style="margin-top: 40px;"><span><i class="fa fa-lock fa-2x"></i></span> <span class="title">Paiement sécurisé</span></div>
                     <div class="panel-body">
+                        
                         <div class="form-group">
                             <div class="col-md-12">
                                  <label>Type de carte</label>
