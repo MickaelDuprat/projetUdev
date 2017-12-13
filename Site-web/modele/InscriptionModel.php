@@ -28,7 +28,7 @@ class InscriptionModel extends Manager {
       $this->pdoStatement->bindValue(':dateN', $dateN, PDO::PARAM_STR);
       $this->pdoStatement->bindValue(':email', $email, PDO::PARAM_STR);
       $this->pdoStatement->bindValue(':telephone', $telephone, PDO::PARAM_STR);
-      $this->pdoStatement->bindValue(':codeCoupon', $codeCoupon, PDO::PARAM_INT);
+      $this->pdoStatement->bindValue(':codeCoupon', $codeCoupon, PDO::PARAM_STR);
       $this->pdoStatement->bindValue(':adresseFact', $adresseFact, PDO::PARAM_STR);
       $this->pdoStatement->bindValue(':adresse', $adresse, PDO::PARAM_STR);
       $this->pdoStatement->bindValue(':adresse2', $adresse2, PDO::PARAM_STR);
@@ -37,6 +37,7 @@ class InscriptionModel extends Manager {
       $this->pdoStatement->bindValue(':nomSociete', $nomSociete, PDO::PARAM_STR);
       $this->pdoStatement->bindValue(':civ', $civ, PDO::PARAM_INT);
       $this->pdoStatement->bindValue(':idville', $idville, PDO::PARAM_INT); 
+      $this->pdoStatement->execute();
       
       $inscription = $this->pdoStatement->rowCount();
       print('$inscription');var_dump($inscription);
