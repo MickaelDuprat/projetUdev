@@ -23,12 +23,11 @@ class InscriptionController{
     $this->manager = new InscriptionModel();
   }
 
-
 // Fonction d'inscription d'un utilisateur
 
-  function inscription($nom, $prenom, $dateN, $email, $telephone, $codeCoupon, $adresseFact, $adresse, $adresse2, $raisonSociale, $siret, $nomSociete, $strciv, $stridville){
+  function inscription($nom, $prenom, $dateN, $email, $telephone, $strcodeCoupon, $adresseFact, $adresse, $adresse2, $raisonSociale, $siret, $nomSociete, $strciv, $stridville){
     
-       $inscription = $this->manager->insertClient($nom, $prenom, $dateN, $email, $telephone, $codeCoupon, $adresseFact, $adresse, $adresse2, $raisonSociale, $siret, $nomSociete, $strciv, $stridville);
+       $inscription = $this->manager->insertClient($nom, $prenom, $dateN, $email, $telephone, $strcodeCoupon, $adresseFact, $adresse, $adresse2, $raisonSociale, $siret, $nomSociete, $strciv, $stridville);
 
        if($inscription){
         $json = json_encode(['success' => true, 'result' => $inscription]);
@@ -40,18 +39,15 @@ class InscriptionController{
   }
      
 
-       function membre(){
-        $login = $_POST['login'];
-        $password = sha1($_POST['password']);
-     // $status_membre = $_POST['status_membre'];
-        $membre = $this->manager->insertMembre($login, $password /*$status_membre */);
+       function membre($login, $password, $status_membre){
+        
+        $membre = $this->manager->insertMembre($login, $password, $status_membre);
 
         if($membre){
         $json = json_encode(['success' => true, 'result' => $membre]);
       } else {
         $json = json_encode(['success' => false]);
       }
-      
       return $json;
   }
        

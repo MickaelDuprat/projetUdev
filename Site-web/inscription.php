@@ -38,6 +38,12 @@ if (isset($_POST['inscription'])) {
 	$stridville = $jsonTab2['result']['id_villecp'];
 
 	$jsonTab = json_decode($ctrl->inscription($nom, $prenom, $dateN, $email, $telephone, $codeCoupon, $adresseFact, $adresse, $adresse2, $raisonSociale, $siret, $nomSociete, $strciv, $stridville), true);
+
+	$login = $_POST['login'];
+	$password = $_POST['password'];
+	$status_membre = 1;
+
+	$jsonTab = json_decode($ctrl->membre($login, $password, $status_membre), true);
 }
 
 

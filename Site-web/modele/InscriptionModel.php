@@ -48,13 +48,15 @@ class InscriptionModel extends Manager {
  
     }
 
-      public function insertMembre($login, $password) {
-      $this->pdoStatement = $this->pdo->prepare("INSERT INTO membre (login_membre, password_membre, id_membre_statut_membre ) VALUES (:login, :password, 1)");
+      public function insertMembre($login, $password, $status_membre) {
+      $this->pdoStatement = $this->pdo->prepare("INSERT INTO membre (login_membre, password_membre, id_membre_statut_membre ) VALUES (:login, :password, :status_membre)");
       $this->pdoStatement->bindValue(':login', $login, PDO::PARAM_STR);
       $this->pdoStatement->bindValue(':password', $password, PDO::PARAM_STR);
-      //$this->pdoStatement->bindValue(':status_membre', $status_membre, PDO::PARAM_INT);
-        $this->pdoStatement->execute();
+      $this->pdoStatement->bindValue(':status_membre', $status_membre, PDO::PARAM_INT);
+
+      $this->pdoStatement->execute();
       $membre = $this->pdoStatement->rowCount();
+      var_dump($membre);
       return $membre;    
   }
 }
