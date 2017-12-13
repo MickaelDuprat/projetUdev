@@ -58,7 +58,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 	<p> Pour toutes questions relatives aux services suivants, veuillez vous rediriger vers les sections correspondantes : </p>
 <!-- Redirection vers les différentes sections -->	
 	<a href="mesreservations.php" rel="stylesheet"> Mes réservations </a> <br/>
-	<a href="mesfactures.php" rel="stylesheet"> Mes factures </a> <br/>
+	<a href="erreur.php" rel="stylesheet"> Mes factures </a> <br/>
 	<a href="mesdonneespers.php" rel="stylesheet"> Mes données personnelles </a> <br/>
 	<p> Avez-vous d’autres questions ? Veuillez utiliser le formulaire de contact ci-dessous : </p>
  	<span> <a id="formcontact" href="contact-email.php" rel="stylesheet"> Contactez-nous !</a> </span>
