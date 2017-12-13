@@ -92,7 +92,7 @@ class ContratModel extends Manager {
 
   public function selectLastContrat($id) {
 
-    $this->pdoStatement = $this->pdo->prepare("SELECT max(num_contrat_loc) from contrat_loc 
+    $this->pdoStatement = $this->pdo->prepare("SELECT max(num_contrat_loc) as dernier_contrat_loc from contrat_loc 
   left join client
   on client.id_client = contrat_loc.id_contrat_loc_client
   where id_client = :id");
