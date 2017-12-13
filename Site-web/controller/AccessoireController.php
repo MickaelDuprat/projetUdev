@@ -4,7 +4,7 @@ include_once(ROOT .'/root.php');
 
 include_once(ROOT .'/modele/AccessoireModel.php');
 
-$accessctrl = new AccessoireController();
+  $accessctrl = new AccessoireController();
   $listaccessoire = '';
    $jsonTab = json_decode($accessctrl->getAccessoire(), true);
 
@@ -23,7 +23,7 @@ $accessctrl = new AccessoireController();
       $script .= '<img id="'.$lib_accessoire.'" src="'.$img_path.' " alt="'.$lib_accessoire.'">';
       $script .= '<p>'.$lib_accessoire.' </p> <span> '.$prix_accessoire.' € </span>';
 
-      $script .= '<select id="'.$id_accessoire.'" class="get_value">';
+      $script .= '<select id="'.$id_accessoire.'" name="tab['.$id_accessoire.']">';
       $script .= '<option value="0" selected tag="0">0</option>';                       
       $script .= '<option value="1" tag="'.($prix_accessoire).'">1</option>';
       $script .= '<option value="2" tag="'.(2*$prix_accessoire).'">2</option>';

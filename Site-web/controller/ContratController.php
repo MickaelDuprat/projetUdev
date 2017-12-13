@@ -4,11 +4,35 @@ include_once(dirname(__FILE__).'/../root.php');
 
 include_once(ROOT .'/modele/ContratModel.php');
 
-$srch = new ContratController();
+$ctrl = new ContratController();
 
-  // $srch->setAccessoires($sql);
+if (isset($_POST['valideTarif'])) {
+  $_SESSION['tab'] = $_POST['tab'];
+}
 
-  // var_dump($srch->setAccessoires($sql));
+if (isset($_POST['paye'])) {
+
+    $dateNow = $_POST['dateNow'];
+    $dateDepart = $_POST['dateDepart'];
+    $dateArrivee = $_POST['dateArrivee'];
+    $idClient = $_POST['idClient'];
+    $idVehicule = $_POST['idVehicule'];
+    $agence = $_POST['agence'];
+    
+    $jsonTab = json_decode($ctrl->setContrat($dateNow, $dateDepart, $dateArrivee, $idClient, $idVehicule, $agence), true);
+    $jsonTab2 = json_decode($ctrl->getLastContrat($idClient), true);
+
+    $num_contrat_loc = $jsonTab2['result']['dernier_contrat_loc'];
+
+   
+    $sql = "";
+    
+    foreach ($_SESSION['tab'] as $key => $value) {
+        $sql = "INSERT INTO choisit (qtite, pk_num_contrat_loc, pk_id_accessoire, id_choisit_contrat_loc, id_choisit_accessoire) VALUES (".$value.", ".$num_contrat_loc.", ".$key.", ".$num_contrat_loc.", ".$key.");";
+        $ctrl->setAccessoires($sql);
+    }
+    
+}
 
 // Classe controller 
 class ContratController{
