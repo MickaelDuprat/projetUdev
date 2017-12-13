@@ -23,9 +23,7 @@ if (isset($_POST)) {
     
     $jsonTab = json_decode($ctrl->setContrat($dateNow, $dateDepart, $dateArrivee, $idClient, $idVehicule, $agence), true);
     $jsonTab2 = json_decode($ctrl->getLastContrat($idClient), true);
-    var_dump($idClient);
-    var_dump($jsonTab);
-    var_dump($jsonTab2);
+
 }
 
 ?>

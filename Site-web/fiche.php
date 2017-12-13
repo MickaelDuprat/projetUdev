@@ -171,15 +171,18 @@ $idClient = $jsonTab['result']['id_membre_client']
 
 	    var tabAccessoires = {};
 
-		 $('select').change(function(){
+		$('select').change(function(){
 
-			tabAccessoires = {};
+		tabAccessoires = {};
+
 			
-			if($('select:selected').val() != 0){
-				$('select').each(function(){
-					tabAccessoires[$(this).attr("id")] = $('select:selected').val();
-				});
+		$('select').each(function(){
+			if($('select:selected').val() == 0){
+				tabAccessoires[$(this).attr("id")] = $('select:selected').val();
+				alert(tabAccessoires[$(this).attr("id")]);
 			}
+		});
+			
 	
 			$('#accessoires').val(tabAccessoires);
 

@@ -20,3 +20,4 @@ setTimeout( function(){$(".liNum2").fadeIn(700);}, 500);
 setTimeout( function(){$(".liNum3").fadeIn(700);}, 1000);
 setTimeout( function(){$(".liNum4").fadeIn(700);}, 1500);
 setTimeout( function(){$(".liNum5").fadeIn(700);}, 2000);
+setTimeout( function(){$(".liNum6").fadeIn(700);}, 2500);
