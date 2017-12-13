@@ -88,4 +88,18 @@ class ContratModel extends Manager {
     return $infos;
   }
 
+  // Fonction de lecture du dernier contrat de location à partir de l'id du client
+
+  public function selectLastContrat($id) {
+
+    $this->pdoStatement = $this->pdo->prepare("SELECT max(num_contrat_loc) from contrat_loc 
+  left join client
+  on client.id_client = contrat_loc.id_contrat_loc_client
+  where id_client = :id");
+    $this->pdoStatement->bindValue(':id', $id, PDO::PARAM_INT);
+    $this->pdoStatement->execute();
+    $infos = $this->pdoStatement->fetch(PDO::FETCH_ASSOC);
+    return $infos;
+  }
+
 }
