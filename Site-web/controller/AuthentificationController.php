@@ -26,20 +26,6 @@ if (isset($_POST['connexion'])) {
    cnx($ctrl->connexion($login));
 }
 
-if (isset($_POST['inscription'])) {
-   $ctrl->inscription();
-}
-
-$jsonTab2 = json_decode(ctrl->getIdVille(), true);
-
-  if ($jsonTab2['success'] == true) {
-    foreach ($jsonTab2 as $value) {
-      $_POST['id_ville'] = $value;
-    }
-  }
-
-
-
 
 
 // Classe controller des agences de locations
@@ -84,55 +70,7 @@ class AuthentificationController{
 
       return $json;
   }
-
-  // Fonction d'inscription d'un utilisateur
-    public function inscription(){
-      
-      $typeClient = $_POST['typeClient'];
-      $codeCoupon = $_POST['codeCoupon'];
-      $civ = $_POST['civ'];
-      $nom = $_POST['nom'];
-      $prenom = $_POST['prenom'];
-      $dateN = $_POST['dateN'];
-      $adresse = $_POST['adresse'];
-      $adresse2 = $_POST['adresse2'];
-      $adresseFact = $_POST['adresseFact'];
-      $codePostal = $_POST['codePostal'];
-      $ville = $_POST['ville'];
-      $pays = $_POST['pays'];
-      $password = sha1($_POST['password']);
-      $telephone = $_POST['telephone'];
-      $email = $_POST['email'];
-      $raisonSociale = $_POST['raisonSociale'];
-      $siret = $_POST['siret'];
-      $nomSociete = $_POST['nomSociete'];
-      $login = $_POST['login'];
-      $statut_membre = $_POST['status_membre'];
-
-       $inscription = $this->manager->insert($typeClient, $codeCoupon, $civ, $nom, $prenom, $dateN, $adresse, $adresse2, $adresseFact, $codePostal, $ville, $pays, $password, $telephone, $email, $raisonSociale, $siret, $nomSociete, $login, $statut_membre);
-
-
-      if($inscription){
-        $json = json_encode(['success' => true, 'result' => $inscription]);
-      } else {
-        $json = json_encode(['success' => false]);
-      }
-      
-      return $json;
-  }
-
-  function getIdVille($cpVille){
-    $ville = $this->manager->selectIdVilleCp($cpVille);
-
-      if($ville){
-        $json2 = json_encode(['success' => true, 'result' => $ville]);
-      } else {
-        $json2 = json_encode(['success' => false]);
-      }
-      
-      return $json2;
-
-  } 
+  
   }
 
 
