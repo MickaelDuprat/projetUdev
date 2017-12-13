@@ -24,6 +24,11 @@ if (isset($_POST)) {
     $jsonTab = json_decode($ctrl->setContrat($dateNow, $dateDepart, $dateArrivee, $idClient, $idVehicule, $agence), true);
     $jsonTab2 = json_decode($ctrl->getLastContrat($idClient), true);
 
+    // on récupère le numéro du dernier contrat de location pour ce client pour deux raisons :
+    // 1 : on en a besoin pour éditer le pdf dans la page pdf.php à suivre
+    //2 insérer dans la BDD ces choix concernant les accessoires 
+    $num_contrat_loc = $jsonTab2['result']['dernier_contrat_loc'];
+
 }
 
 ?>
@@ -73,8 +78,8 @@ if (isset($_POST)) {
             <h1> Merci pour votre réservation </h1>
             <p> Votre demande de réservation a bien été enregistrée et nous vous remercions de votre confiance.</p>
             <p> Votre contrat de location vous a été automatiquement transmis à votre adresse e-mail mais vous pouvez consulter sa version pdf en cliquant sur le lien suivant :</p>
-            <a href="pdf.php"> <img src="ico/pdf.png" width=50px height=50px> </a>
-            <input type="hidden" name="recuptotal" value="<?php print($_POST['recuptotal']); ?>">
+            <input type="hidden" name="derniercontrat" value="<?php print($num_contrat_loc); ?>">
+            <input type="submit" style="background">
             <p> Vous pouvez à tout moment modifier votre réservation dans votre espace client. </p> </br>
             <b> Toute l'équipe d'Error404 Location vous souhaite une agréable journée et HAVE FUN ! </b>
             </div>
