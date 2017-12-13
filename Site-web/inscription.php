@@ -29,16 +29,15 @@ if (isset($_POST['inscription'])) {
 	$raisonSociale = $_POST['raisonSociale'];
 	$siret = $_POST['siret'];
 	$nomSociete = $_POST['nomSociete'];
-	$civ = $_POST['civ'];
-	$idville = $stridville;
+
+	$strciv = $_POST['civ'];
 	$cpVille = $_POST['codePostal'];
 
 
 	$jsonTab2 = json_decode($ctrl->getIdVille($cpVille), true);
 	$stridville = $jsonTab2['result']['id_villecp'];
-	
-	$jsonTab = json_decode($ctrl->inscription($nom, $prenom, $dateN, $email, $telephone, $codeCoupon, $adresseFact, $adresse, $adresse2, $raisonSociale, $siret, $nomSociete, $civ, $idville), true);
 
+	$jsonTab = json_decode($ctrl->inscription($nom, $prenom, $dateN, $email, $telephone, $codeCoupon, $adresseFact, $adresse, $adresse2, $raisonSociale, $siret, $nomSociete, $strciv, $stridville), true);
 }
 
 
@@ -122,9 +121,10 @@ if (isset($_POST['inscription'])) {
 				<div id="hautform">
 					<label for="civ"> Civilité </label>
 						<select name="civ" id="civ">
+							<option value=""></option>
 							<option value="1"> Mademoiselle </option>
 							<option value="2"> Madame </option>
-							<option value="3	"> Monsieur </option>
+							<option value="3"> Monsieur </option>
 						</select><br />
 	    			<label for="nom">Nom</label>
 	    				<input type="text" name="nom" id="nom" class="champ" />
