@@ -10,23 +10,6 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 	header('Location: index.php');    
 }
 
-$ctrl = new ContratController();
-
-if (isset($_POST['paye'])) {
-
-    $dateNow = $_POST['dateNow'];
-    $dateDepart = $_POST['dateDepart'];
-    $dateArrivee = $_POST['dateArrivee'];
-    $idClient = $_POST['idClient'];
-    $idVehicule = $_POST['idVehicule'];
-    $agence = $_POST['agence'];
-    
-    $jsonTab = json_decode($ctrl->setContrat($dateNow, $dateDepart, $dateArrivee, $idClient, $idVehicule, $agence), true);
-
-    var_dump($jsonTab);
-
-}
-
 ?>
 
 <!doctype html>
