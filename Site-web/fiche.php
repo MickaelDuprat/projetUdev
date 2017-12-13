@@ -116,6 +116,7 @@ $idClient = $jsonTab['result']['id_membre_client']
 		<input type="hidden" name="idVehicule" value="<?php print($_GET['id']); ?>"/>
 		<input type="hidden" name="dateNow" value="<?php print(date("Y-m-d")); ?>"/>
 		<input type="hidden" name="agence" value="<?php print($_GET['agence']); ?>"/>
+		<input type="hidden" id="accessoires" name="accessoires" value=""/>
 
 	    <div id="section-paiement">
 
@@ -168,6 +169,21 @@ $idClient = $jsonTab['result']['id_membre_client']
 	    	$('#total').text(prix.toFixed(2) + " €");
 	    	$('#recuptotal').val(prix.toFixed(2) + " €");
 	    }
+
+
+	    var tabAccessoires = {};
+
+	    $(champs).click(function(){
+
+				typeVeh = {};
+				$('.get_value').each(function(){
+					 if($(this).is(":checked")){
+					 	typeVeh[$(this).attr("id")] = $(this).val();
+					 }
+				});
+
+	    $('#quantite').val("Test");
+	    $('#accessoires').val("Test");
 		
 	</script>
 

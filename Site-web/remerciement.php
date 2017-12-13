@@ -3,13 +3,29 @@ session_start();
 
 include_once('root.php');
 include_once(ROOT.'/controller/AuthentificationController.php');
+include_once(ROOT.'/controller/ContratController.php');
 
 if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 	session_destroy();
 	header('Location: index.php');    
 }
 
+$ctrl = new ContratController();
 
+if (isset($_POST)) {
+
+    $dateNow = $_POST['dateNow'];
+    $dateDepart = $_POST['dateDepart'];
+    $dateArrivee = $_POST['dateArrivee'];
+    $idClient = $_POST['idClient'];
+    $idVehicule = $_POST['idVehicule'];
+    $agence = $_POST['agence'];
+    
+    $jsonTab = json_decode($ctrl->setContrat($dateNow, $dateDepart, $dateArrivee, $idClient, $idVehicule, $agence), true);
+
+    var_dump($jsonTab);
+
+}
 
 ?>
 
