@@ -30,33 +30,13 @@ if (isset($_POST['inscription'])) {
 	$siret = $_POST['siret'];
 	$nomSociete = $_POST['nomSociete'];
 	$strciv = $_POST['civ'];
-	$civ = 2;
-	$idville = 34245; 
 	$cpVille = $_POST['codePostal'];
 
 	$jsonTab2 = json_decode($ctrl->getIdVille($cpVille), true);
 	$stridville = $jsonTab2['result']['id_villecp'];
 	
-	$jsonTab = json_decode($ctrl->inscription($nom, $prenom, $dateN, $email, $telephone, $codeCoupon, $adresseFact, $adresse, $adresse2, $raisonSociale, $siret, $nomSociete, $civ, $idville), true);
+	$jsonTab = json_decode($ctrl->inscription($nom, $prenom, $dateN, $email, $telephone, $codeCoupon, $adresseFact, $adresse, $adresse2, $raisonSociale, $siret, $nomSociete, $strciv, $stridville), true);
 }
-
-	print('$nom =');var_dump($nom);
-    print('$prenom =');var_dump($prenom);
-    print('$dateN =');var_dump($dateN);
-    print('$email =');var_dump($email);
-    print('$telephone =');var_dump($telephone);
-    print('$codeCoupon =');var_dump($codeCoupon);
-    print('$adresseFact =');var_dump($adresseFact);
-    print('$adresse =');var_dump($adresse);
-    print('$adresse2 =');var_dump($adresse2);
-    print('$raisonSociale =');var_dump($raisonSociale);
-    print('$siret =');var_dump($siret);
-    print('$nomSociete =');var_dump($nomSociete);
-    print('$strciv =');var_dump($strciv);
-  	print('$civ =');var_dump($civ);  
-    print('$idville =');var_dump($idville);
-  	print('$jsonTab2 =');var_dump($jsonTab2);  
-	print('$jsonTab =');var_dump($jsonTab);
 
 ?>
 
@@ -139,9 +119,9 @@ if (isset($_POST['inscription'])) {
 					<label for="civ"> Civilité </label>
 						<select name="civ" id="civ">
 							<option value=""></option>
-							<option value="0"> Mademoiselle </option>
-							<option value="1"> Madame </option>
-							<option value="2"> Monsieur </option>
+							<option value="1"> Mademoiselle </option>
+							<option value="2"> Madame </option>
+							<option value="3"> Monsieur </option>
 						</select><br />
 	    			<label for="nom">Nom</label>
 	    				<input type="text" name="nom" id="nom" class="champ" />
