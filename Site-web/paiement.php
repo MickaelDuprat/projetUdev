@@ -141,7 +141,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
                         <div class="form-group">
                             <div class="col-md-6 col-sm-6 col-xs-12">
 
-                                <a href="remerciement.php" style="text-decoration:none"> <button type="button" class="btn btn-primary btn-submit-fix">Paiement</button></a>
+                                <a href="remerciement.php" style="text-decoration:none"> <button type="submit" class="btn btn-primary btn-submit-fix" onsubmit="verification()">Paiement</button></a>
 
                             </div>
                         </div>

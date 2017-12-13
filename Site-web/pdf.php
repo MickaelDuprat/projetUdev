@@ -11,21 +11,6 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
     header('Location: index.php');    
 }
 
-/*
-<!--
-<!doctype html>
-<html>
-    <head>
-        <body> 
-        <?php var_dump($jsonTab); 
-        var_dump($datedujour);
-        var_dump($prix_journalier_veh);
-        var_dump($email_client);
-        ?>
-        </body>*
-    </head>
-</html> 
-*/
 
 require('fpdf.php');
 
@@ -60,7 +45,7 @@ $datedujour = date("d-m-Y");
         $this->SetFont('Arial', '', 12);
         $this->Ln(8);
         $this->SetX(15);
-        $this->SetFillColor(125, 125, 125);
+        $this->SetFillColor(206, 206, 206);
         $this->Cell(15, 8, $cpagence, 0,'C'); $this->Cell(35, 8, utf8_decode($villeagence), 0,'C')
         ; $this->Cell(25); $this->Cell(60, 8, 'Type de véhicule','LRTB',0, 'C', true);$this->Cell(40, 8,'Immatriculation','LRTB',0, 'C', true);
         $this->Ln(8);
@@ -130,7 +115,11 @@ function TableauContratLoc($prix_journalier_veh, $date_debut, $date_fin, $interv
     $this->Cell($w[1], 8, $interval,'LR', 0, 'C', true);
     $this->Cell($w[2], 8, $prix_journalier_veh.'*', 'LR', 0, 'C', true);
     $this->Ln(8);
-    $num_contrat_loc = 497;
+
+    $strg_num_contrat_loc = $_POST['derniercontrat'];
+    // on la convertit en entier pour pouvoir la donner en paramètre aux différentes fonctions qui vont créer les tableaux dans le pdf
+    $num_contrat_loc = intval($strg_num_contrat_loc);
+
     $accessoirectrl = new PdfController();
     $jsonTabAccessoire = json_decode($accessoirectrl->tabAccessoire($num_contrat_loc), true);
 
@@ -161,12 +150,12 @@ function BasPage($villeagence)//$client)
 {       
     $datedujour = date("d-m-Y");
     $this->SetFont('Times', 'B', 16);
-    $this->SetX(130);
+    $this->SetX(100);
     $this->SetTextColor(0, 0, 0);
     $this->Cell(20, 10, 'Fait à', 0, 'C'); $this->Cell(30, 10, utf8_decode($villeagence), 0, 'C'); 
     $this->Ln(10);
-    $this->SetX(130);
-    $this->Cell(20, 10, 'Le ', 0, 'C'); $this->Cell(30, 10, $datedujour, 0, 'C'); 
+    $this->SetX(108);
+    $this->Cell(12, 10, 'Le ', 0, 'C'); $this->Cell(30, 10, $datedujour, 0, 'C'); 
     $this->Ln(10);  
  }
 
