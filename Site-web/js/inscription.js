@@ -207,6 +207,7 @@ $(document).ready(function(){
             $proform.css({
                 display : 'none'
             })
+
             $raisonSociale.text() == '';
             $nomCSociete.text() == '';
             $siret.text() == '';

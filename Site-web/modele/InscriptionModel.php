@@ -13,16 +13,17 @@ class InscriptionModel extends Manager {
     $this->pdoStatement = $this->pdo->prepare("SELECT id_villecp FROM villecp WHERE cp_villecp = :cp_villecp");
     $this->pdoStatement->bindValue(':cp_villecp', $cpVille, PDO::PARAM_INT);
     $this->pdoStatement->execute();
-    $idVille = $this->pdoStatement->fetch(PDO::FETCH_ASSOC);
+    $idville = $this->pdoStatement->fetch(PDO::FETCH_ASSOC);
     
-    return $idVille;
+    return $idville;
   }
 
   // Fonction d'insert de plusieurs informations
-  public function insertClient($nom, $prenom, $dateN, $email, $telephone, $codeCoupon, $adresseFact, $adresse, $adresse2, $raisonSociale, $siret, $nomSociete, $civ, $idVille){
-      $this->pdoStatement = $this->pdo->prepare ("INSERT INTO client
-(nom_client, prenom_client, dateN_client, email_client, tel_client, taux_remise, add_facturation, add1_client, add2_client,
-raisonS_societe, siret_societe, nomC_societe, id_client_civ, id_client_villecp) VALUES(:nom, :prenom, :dateN, :email, :telephone, :codeCoupon, :adresseFact, :adresse, :adresse2, :raisonSociale, :siret, :nomSociete, :civ, :idVille)");
+
+  public function insertClient($nom, $prenom, $dateN, $email, $telephone, $codeCoupon, $adresseFact, $adresse, $adresse2, $raisonSociale, $siret, $nomSociete, $civ, $idville){
+      $this->pdoStatement = $this->pdo->prepare("INSERT INTO client
+(nom_client, prenom_client, dateN_client, email_client, tel_client, taux_remise, add_facturation, add1_client, add2_client, raisonS_societe, siret_societe, nomC_societe, id_client_civ, id_client_villecp) VALUES (:nom, :prenom, :dateN, :email, :telephone, :codeCoupon, :adresseFact, :adresse, :adresse2, :raisonSociale, :siret, :nomSociete, :civ, :idville)");
+
 
       $this->pdoStatement->bindValue(':nom', $nom, PDO::PARAM_STR);
       $this->pdoStatement->bindValue(':prenom', $prenom, PDO::PARAM_STR);
@@ -37,10 +38,10 @@ raisonS_societe, siret_societe, nomC_societe, id_client_civ, id_client_villecp) 
       $this->pdoStatement->bindValue(':siret', $siret, PDO::PARAM_STR);
       $this->pdoStatement->bindValue(':nomSociete', $nomSociete, PDO::PARAM_STR);
       $this->pdoStatement->bindValue(':civ', $civ, PDO::PARAM_INT);
-      $this->pdoStatement->bindValue(':idVille', $idVille, PDO::PARAM_INT); 
+      $this->pdoStatement->bindValue(':idville', $idville, PDO::PARAM_INT); 
+
       $this->pdoStatement->execute();
       $inscription = $this->pdoStatement->rowCount();
-     
       return $inscription;    
  
     }

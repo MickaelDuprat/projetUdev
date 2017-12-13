@@ -16,28 +16,29 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 $ctrl = new InscriptionController();
 
 if (isset($_POST['inscription'])) {
+	$nom = $_POST['nom'];
+	$prenom = $_POST['prenom'];
+	$dateN = $_POST['dateN'];
+	$email = $_POST['email'];
+	$telephone = $_POST['telephone'];
+	$strcodeCoupon = $_POST['codeCoupon'];
+	$codeCoupon = 0;
+	$adresseFact = $_POST['adresseFact'];	
+	$adresse = $_POST['adresse'];
+	$adresse2 = $_POST['adresse2'];
+	$raisonSociale = $_POST['raisonSociale'];
+	$siret = $_POST['siret'];
+	$nomSociete = $_POST['nomSociete'];
+	$civ = $_POST['civ'];
+	$idville = $stridville;
+	$cpVille = $_POST['codePostal'];
 
- 	  $codeCoupon = $_POST['codeCoupon'];
-      $civ = $_POST['civ'];
-      $nom = $_POST['nom'];
-      $prenom = $_POST['prenom'];
-      $dateN = $_POST['dateN'];
-      $adresse = $_POST['adresse'];
-      $adresse2 = $_POST['adresse2'];
-      $adresseFact = $_POST['adresseFact'];
-      $codePostal = $_POST['codePostal'];
-      $telephone = $_POST['telephone'];
-      $email = $_POST['email'];
-      $raisonSociale = $_POST['raisonSociale'];
-      $siret = $_POST['siret'];
-      $nomSociete = $_POST['nomSociete'];
 
-      $jsonTab = json_decode($ctrl->getIdVille($_POST['codePostal']), true);
-	  $idVille = $jsonTab['result']['id_villecp'];
-
-	  $jsonTab = json_decode($ctrl->inscription($nom, $prenom, $dateN, $email, $telephone, $codeCoupon, $adresseFact, $adresse, $adresse2, $raisonSociale, $siret, $nomSociete, $civ, $idVille), true);
-
+	$jsonTab2 = json_decode($ctrl->getIdVille($cpVille), true);
+	$stridville = $jsonTab2['result']['id_villecp'];
 	
+	$jsonTab = json_decode($ctrl->inscription($nom, $prenom, $dateN, $email, $telephone, $codeCoupon, $adresseFact, $adresse, $adresse2, $raisonSociale, $siret, $nomSociete, $civ, $idville), true);
+
 }
 
 
@@ -121,10 +122,9 @@ if (isset($_POST['inscription'])) {
 				<div id="hautform">
 					<label for="civ"> Civilité </label>
 						<select name="civ" id="civ">
-							<option value=""></option>
-							<option value="0"> Mademoiselle </option>
-							<option value="1"> Madame </option>
-							<option value="2"> Monsieur </option>
+							<option value="1"> Mademoiselle </option>
+							<option value="2"> Madame </option>
+							<option value="3	"> Monsieur </option>
 						</select><br />
 	    			<label for="nom">Nom</label>
 	    				<input type="text" name="nom" id="nom" class="champ" />
@@ -242,6 +242,7 @@ if (isset($_POST['inscription'])) {
 
 
     	$('#envoi').click(function(){
+
 	if($('input[name=typeClient]:checked').val() == "pro"){
 		 $('#typeClient').show();
 	} else {
