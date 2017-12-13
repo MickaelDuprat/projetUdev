@@ -66,6 +66,16 @@ class ContratModel extends Manager {
     return $infos;
   }
 
+  // Fonction d'ajout d'accessoires à un contrat de location
+  public function insertAccessoires($sql) {
+
+    $this->pdoStatement = $this->pdo->prepare($sql);
+    $this->pdoStatement->execute();
+
+    $infos = $this->pdoStatement->rowCount();
+    
+    return $infos;
+  }
 
   // Fonction de lecture de l'id du client
 
