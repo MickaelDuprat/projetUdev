@@ -61,12 +61,12 @@ class InscriptionController{
     $ville = $this->manager->selectIdVilleCp($cpVille);
 
       if($ville){
-        $json2 = json_encode(['success' => true, 'result' => $ville]);
+        $json = json_encode(['success' => true, 'result' => $ville]);
       } else {
-        $json2 = json_encode(['success' => false]);
+        $json = json_encode(['success' => false]);
       }
       
-      return $json2;
+      return $json;
 
   } 
 }

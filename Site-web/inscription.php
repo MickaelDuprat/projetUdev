@@ -32,14 +32,12 @@ if (isset($_POST['inscription'])) {
       $siret = $_POST['siret'];
       $nomSociete = $_POST['nomSociete'];
 
-      $jsonTab2 = json_decode($ctrl->getIdVille($_POST['codePostal']), true);
-	  $idVille = $jsonTab2['result']['id_villecp'];
+      $jsonTab = json_decode($ctrl->getIdVille($_POST['codePostal']), true);
+	  $idVille = $jsonTab['result']['id_villecp'];
 
+	  $jsonTab = json_decode($ctrl->inscription($nom, $prenom, $dateN, $email, $telephone, $codeCoupon, $adresseFact, $adresse, $adresse2, $raisonSociale, $siret, $nomSociete, $civ, $idVille), true);
 
-	  $jsonTab = json_decode($ctrl->inscription($nom, $prenom, $dateN, $email, $telephone, $codeCoupon, $adresseFact, $adresse, $adresse2, $raisonSociale, $siret, $nomSociete, $civ, $idVille));
-
-	  var_dump($jsonTab);
-
+	
 }
 
 
@@ -225,7 +223,7 @@ if (isset($_POST['inscription'])) {
     <!-- Importation de la librairie js concernant le formulaire du profil -->
     <script src="js/datedropper.js"></script>
     <script src="js/formLogin.js"></script>
-  <!--  <script src="js/inscription.js"></script> -->
+  	<!-- <script src="js/inscription.js"></script> -->
     <script src="js/datepicker.js"></script>
     <script src="js/backToTop.js"></script>
     <script>
@@ -245,11 +243,16 @@ if (isset($_POST['inscription'])) {
 
     	$('#envoi').click(function(){
 	if($('input[name=typeClient]:checked').val() == "pro"){
-		 $status_membre = 2;
+		 $('#typeClient').show();
 	} else {
-		$status_membre = 1;
+		$('#typeClient').hide();
+		}
+
+		if($('input[name=choixPromo]:checked').val() == "non"){
+		$('#codePromo').hide();
+		} else {
+		$('#codePromo').show();
 		}
 	});
     </script>
-
 </html>

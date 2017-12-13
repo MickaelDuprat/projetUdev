@@ -193,7 +193,7 @@ $(document).ready(function(){
             $coupon.css({
             display : 'none'
             })
-            $codeCoupon.text() == " ";
+            $codeCoupon.text() == '';
         }
     });
 
@@ -207,9 +207,9 @@ $(document).ready(function(){
             $proform.css({
                 display : 'none'
             })
-            $raisonSociale.text() == " ";
-            $nomCSociete.text() == " ";
-            $siret.text() == " ";
+            $raisonSociale.text() == '';
+            $nomCSociete.text() == '';
+            $siret.text() == '';
 
         }
     });

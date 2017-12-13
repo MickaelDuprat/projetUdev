@@ -18,19 +18,18 @@ class InscriptionModel extends Manager {
     return $idVille;
   }
 
-
-
   // Fonction d'insert de plusieurs informations
   public function insertClient($nom, $prenom, $dateN, $email, $telephone, $codeCoupon, $adresseFact, $adresse, $adresse2, $raisonSociale, $siret, $nomSociete, $civ, $idVille){
-      $this->pdoStatement = $this->pdo->prepare("INSERT INTO client
-(nom_client, prenom_client, dateN_client, email_client, tel_client, taux_remise, add_facturation, add1_client, add2_client, raisonS_societe, siret_societe, nomC_societe, id_client_civ, id_client_villecp) VALUES (:nom, :prenom, :dateN, :email, :telephone, :codeCoupon, :adresseFact, :adresse, :adresse2, :raisonSociale, :siret, :nomSociete, :civ, :idVille)");
+      $this->pdoStatement = $this->pdo->prepare ("INSERT INTO client
+(nom_client, prenom_client, dateN_client, email_client, tel_client, taux_remise, add_facturation, add1_client, add2_client,
+raisonS_societe, siret_societe, nomC_societe, id_client_civ, id_client_villecp) VALUES(:nom, :prenom, :dateN, :email, :telephone, :codeCoupon, :adresseFact, :adresse, :adresse2, :raisonSociale, :siret, :nomSociete, :civ, :idVille)");
 
       $this->pdoStatement->bindValue(':nom', $nom, PDO::PARAM_STR);
       $this->pdoStatement->bindValue(':prenom', $prenom, PDO::PARAM_STR);
       $this->pdoStatement->bindValue(':dateN', $dateN, PDO::PARAM_STR);
       $this->pdoStatement->bindValue(':email', $email, PDO::PARAM_STR);
       $this->pdoStatement->bindValue(':telephone', $telephone, PDO::PARAM_STR);
-      $this->pdoStatement->bindValue(':codeCoupon', $codeCoupon, PDO::PARAM_INT);
+      $this->pdoStatement->bindValue(':codeCoupon', $codeCoupon, PDO::PARAM_STR);
       $this->pdoStatement->bindValue(':adresseFact', $adresseFact, PDO::PARAM_STR);
       $this->pdoStatement->bindValue(':adresse', $adresse, PDO::PARAM_STR);
       $this->pdoStatement->bindValue(':adresse2', $adresse2, PDO::PARAM_STR);
@@ -39,9 +38,9 @@ class InscriptionModel extends Manager {
       $this->pdoStatement->bindValue(':nomSociete', $nomSociete, PDO::PARAM_STR);
       $this->pdoStatement->bindValue(':civ', $civ, PDO::PARAM_INT);
       $this->pdoStatement->bindValue(':idVille', $idVille, PDO::PARAM_INT); 
-      
+      $this->pdoStatement->execute();
       $inscription = $this->pdoStatement->rowCount();
-
+     
       return $inscription;    
  
     }
@@ -51,7 +50,7 @@ class InscriptionModel extends Manager {
       $this->pdoStatement->bindValue(':login', $login, PDO::PARAM_STR);
       $this->pdoStatement->bindValue(':password', $password, PDO::PARAM_STR);
       //$this->pdoStatement->bindValue(':status_membre', $status_membre, PDO::PARAM_INT);
-      
+        $this->pdoStatement->execute();
       $membre = $this->pdoStatement->rowCount();
       return $membre;    
   }
