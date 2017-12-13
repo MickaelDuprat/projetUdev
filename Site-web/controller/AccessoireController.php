@@ -23,7 +23,7 @@ $accessctrl = new AccessoireController();
       $script .= '<img id="'.$lib_accessoire.'" src="'.$img_path.' " alt="'.$lib_accessoire.'">';
       $script .= '<p>'.$lib_accessoire.' </p> <span> '.$prix_accessoire.' € </span>';
 
-      $script .= '<select id="'.$id_accessoire.'">';
+      $script .= '<select id="'.$id_accessoire.'" class="get_value">';
       $script .= '<option value="0" selected tag="0">0</option>';                       
       $script .= '<option value="1" tag="'.($prix_accessoire).'">1</option>';
       $script .= '<option value="2" tag="'.(2*$prix_accessoire).'">2</option>';
