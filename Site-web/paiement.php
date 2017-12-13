@@ -10,6 +10,8 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 	header('Location: index.php');    
 }
 
+var_dump($_POST);
+
 ?>
 
 <!doctype html>
@@ -64,8 +66,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
                 <input type="hidden" name="idClient" value="<?php print($_POST['idClient']); ?>"/>
                 <input type="hidden" name="idVehicule" value="<?php print($_POST['idVehicule']); ?>"/>
                 <input type="hidden" name="agence" value="<?php print($_POST['agence']); ?>"/>
-
-            
+                <input type="hidden" name="accessoires" value="<?php print($_POST['accessoires']); ?>"/>
 
                 <div class="panel panel-info">
                     <div class="panel-heading" style="margin-top: 40px;"><span><i class="fa fa-lock fa-2x"></i></span> <span class="title">Paiement sécurisé</span></div>

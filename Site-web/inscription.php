@@ -14,6 +14,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 }
 
 
+
 $ctrl = new InscriptionController();
 
 if (isset($_POST['inscription'])) {
@@ -25,6 +26,7 @@ if (isset($_POST['inscription'])) {
 	$jsonTab = json_decode($ctrl->getIdVille($cpVille), true);
 	$stridville = $jsonTab['result']['id_villecp'];
 	$idville = intval($stridville); 
+
 
 	$nom = $_POST['nom'];
 	$prenom = $_POST['prenom'];
@@ -40,6 +42,7 @@ if (isset($_POST['inscription'])) {
 	$siret = $_POST['siret'];
 	$nomSociete = $_POST['nomSociete'];
 	$strciv = $_POST['civ'];
+
 	$civ = intval($strciv);
 	
 	// on insère le nouveau client dans la base de donnée à partir des données récupérées dans le formulaire par l'utilisateur 
@@ -67,6 +70,7 @@ print('dateN  '); var_dump($dateN);
 print('jsonTab4  ');var_dump($jsonTab4);
 }
 	?>
+
 
 	<!doctype html>
 	<html>

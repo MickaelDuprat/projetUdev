@@ -26,6 +26,7 @@ class InscriptionController{
 
 // Fonction d'inscription d'un utilisateur
 
+
   function inscription($nom, $prenom, $dateN, $email, $telephone, $codeCoupon, $adresseFact, $adresse, $adresse2, $raisonSociale, $siret, $nomSociete, $civ, $idville){
 
    $inscription = $this->manager->insertClient($nom, $prenom, $dateN, $email, $telephone, $codeCoupon, $adresseFact, $adresse, $adresse2, $raisonSociale, $siret, $nomSociete, $civ, $idville);
@@ -34,6 +35,7 @@ class InscriptionController{
     $json = json_encode(['success' => true, 'result' => $inscription]);
   } else {
     $json = json_encode(['success' => false]);
+
   }
   return $json;
 }

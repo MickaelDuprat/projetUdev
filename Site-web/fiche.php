@@ -121,8 +121,8 @@ $idClient = $jsonTab['result']['id_membre_client']
 	    <div id="section-paiement">
 
 
-	        <div id="totalFixed"><p>  Prix Total* : </p> <span id="total"></span> <input type="hidden" name="recuptotal" value="" id="recuptotal"> </div>
-	        <input type="submit" id="valideTarif" value = "J'accepte le tarif et les options"/> 
+	        <div id="totalFixed"><p>  Prix Total* : </p> <span id="total"></span></div>
+	        <input type="submit" id="valideTarif" onClick="setTab()" value = "J'accepte le tarif et les options"/> 
 
 	   		</form>
 	        <small> *Prix total TTC incluant la TVA </small>
@@ -170,20 +170,22 @@ $idClient = $jsonTab['result']['id_membre_client']
 	    	$('#total').text(prix.toFixed(2) + " €");
 	    }
 
-	    
-	    var tabAccessoires = {};
+	 	var tabAccessoires = {};
 
-		$('select').change(function(){
+		function setTab(prix){
 				
 			tabAccessoires = {};
 			
-			$('select').each(function(){	 
-				 tabAccessoires[$(this).attr("id")] = $(this).find(":selected").attr("id");
+			$('.get_value').each(function(){	 
+				 tabAccessoires[$(this).attr("id")] = $(this).find("option:selected").val();
 			});
 
-		});
 
-		console.log(tabAccessoires);
+			$('#accessoires').val(tabAccessoires.serializeArray());
+
+		}
+
+	    
 
 	</script>
 
