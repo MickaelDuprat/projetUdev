@@ -6,12 +6,6 @@ include_once(ROOT .'/modele/InscriptionModel.php');
 
 $ctrl = new InscriptionController();
 
-
-
-if (isset($_POST['inscription'])) {
-   $ctrl->inscription();
-}
-
 class InscriptionController{
 
   /** 
@@ -31,14 +25,18 @@ class InscriptionController{
 
 
 // Fonction d'inscription d'un utilisateur
-  function inscription(){
 
-   $inscription = $this->manager->insertClient($nom, $prenom, $dateN, $email, $telephone, $codeCoupon, $adresseFact, $adresse, $adresse2, $raisonSociale, $siret, $nomSociete, $civ, $idVille);
+  function inscription($nom, $prenom, $dateN, $email, $telephone, $codeCoupon, $adresseFact, $adresse, $adresse2, $raisonSociale, $siret, $nomSociete, $civ, $idVille){
+    
+       $inscription = $this->manager->insertClient($nom, $prenom, $dateN, $email, $telephone, $codeCoupon, $adresseFact, $adresse, $adresse2, $raisonSociale, $siret, $nomSociete, $civ, $idVille);
 
-   if($inscription){
-    $json = json_encode(['success' => true, 'result' => $inscription]);
-  } else {
-    $json = json_encode(['success' => false]);
+       if($inscription){
+        $json = json_encode(['success' => true, 'result' => $inscription]);
+      } else {
+        $json = json_encode(['success' => false]);
+      }
+      
+      return $json;
   }
   
   return $json;
