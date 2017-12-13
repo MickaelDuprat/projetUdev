@@ -41,6 +41,7 @@ class InscriptionModel extends Manager {
       $this->pdoStatement->bindValue(':idVille', $idVille, PDO::PARAM_INT); 
       
       $inscription = $this->pdoStatement->rowCount();
+
       return $inscription;    
  
     }

@@ -6,12 +6,6 @@ include_once(ROOT .'/modele/InscriptionModel.php');
 
 $ctrl = new InscriptionController();
 
-
-
-if (isset($_POST['inscription'])) {
-   $ctrl->inscription();
-}
-
 class InscriptionController{
 
   /** 
@@ -31,43 +25,9 @@ class InscriptionController{
 
 
 // Fonction d'inscription d'un utilisateur
-  function inscription(){
-      
-      $strcodeCoupon = $_POST['codeCoupon'];
-      $codeCoupon = doubleval($strcodeCoupon); 
-      $strciv = $_POST['civ'];
-      $civ = intval($strciv);
-      $nom = $_POST['nom'];
-      $prenom = $_POST['prenom'];
-      $dateN = $_POST['dateN'];
-      $adresse = $_POST['adresse'];
-      $adresse2 = $_POST['adresse2'];
-      $adresseFact = $_POST['adresseFact'];
-      $idVille;
-      $codePostal = $_POST['codePostal'];
-      $telephone = $_POST['telephone'];
-      $email = $_POST['email'];
-      $raisonSociale = $_POST['raisonSociale'];
-      $siret = $_POST['siret'];
-      $nomSociete = $_POST['nomSociete'];
-
-      var_dump($codeCoupon);
-      var_dump($civ);
-      var_dump($nom);
-      var_dump($prenom);
-      var_dump($dateN);
-      var_dump($adresse);
-      var_dump($adresse2);
-      var_dump($adresseFact);
-      var_dump($idVille);
-      var_dump($telephone);
-      var_dump($email);
-      var_dump($raisonSociale);
-      var_dump($siret);
-      var_dump($nomSociete);
- 
-
-       $inscription = $this->manager->insertClient($codeCoupon, $civ, $nom, $prenom, $dateN, $adresse, $adresse2, $adresseFact, $codePostal, $telephone, $email, $raisonSociale, $siret, $nomSociete);
+  function inscription($nom, $prenom, $dateN, $email, $telephone, $codeCoupon, $adresseFact, $adresse, $adresse2, $raisonSociale, $siret, $nomSociete, $civ, $idVille){
+    
+       $inscription = $this->manager->insertClient($nom, $prenom, $dateN, $email, $telephone, $codeCoupon, $adresseFact, $adresse, $adresse2, $raisonSociale, $siret, $nomSociete, $civ, $idVille);
 
        if($inscription){
         $json = json_encode(['success' => true, 'result' => $inscription]);
@@ -76,6 +36,7 @@ class InscriptionController{
       }
       
       return $json;
+
   }
 
        
