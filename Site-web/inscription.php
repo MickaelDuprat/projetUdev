@@ -13,21 +13,9 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 	header('Location: index.php');    
 }
 
-
-
-
-if (isset($_POST['inscription'])) {
-	$ctrl = new InscriptionController();
-	$cpVille = $_POST['codePostal'];
-	$jsonTab2 = json_decode($ctrl->getIdVille($cpVille), true);
-	$stridville = $jsonTab2['result']['id_villecp'];
-	$idville = 34245;
-	
-}
+$ctrl = new InscriptionController();
 
 if (isset($_POST['inscription'])) {
-$ctrl2 = new InscriptionController();
-
 	$nom = $_POST['nom'];
 	$prenom = $_POST['prenom'];
 	$dateN = $_POST['dateN'];
@@ -44,8 +32,12 @@ $ctrl2 = new InscriptionController();
 	$strciv = $_POST['civ'];
 	$civ = 2;
 	$idville = 34245; 
+	$cpVille = $_POST['codePostal'];
+
+	$jsonTab2 = json_decode($ctrl->getIdVille($cpVille), true);
+	$stridville = $jsonTab2['result']['id_villecp'];
 	
-	$jsonTab = json_decode($ctrl2->inscription($nom, $prenom, $dateN, $email, $telephone, $codeCoupon, $adresseFact, $adresse, $adresse2, $raisonSociale, $siret, $nomSociete, $civ, $idville));
+	$jsonTab = json_decode($ctrl->inscription($nom, $prenom, $dateN, $email, $telephone, $codeCoupon, $adresseFact, $adresse, $adresse2, $raisonSociale, $siret, $nomSociete, $civ, $idville), true);
 }
 
 	print('$nom =');var_dump($nom);
