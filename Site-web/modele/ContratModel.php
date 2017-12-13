@@ -73,7 +73,7 @@ class ContratModel extends Manager {
     $this->pdoStatement->execute();
 
     $infos = $this->pdoStatement->rowCount();
-    
+
     return $infos;
   }
 

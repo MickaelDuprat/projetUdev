@@ -152,6 +152,10 @@ transition: 0.3s;
     border-radius: 1px;
 }
 
+#remerciements {
+  display: none;
+}
+
 
 hr {
     border-color: #999 -moz-use-text-color -moz-use-text-color;
