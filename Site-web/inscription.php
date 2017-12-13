@@ -13,37 +13,58 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 	header('Location: index.php');    
 }
 
-$ctrl = new InscriptionController();
+
+
 
 if (isset($_POST['inscription'])) {
-
- 	  $codeCoupon = $_POST['codeCoupon'];
-      $civ = $_POST['civ'];
-      $nom = $_POST['nom'];
-      $prenom = $_POST['prenom'];
-      $dateN = $_POST['dateN'];
-      $adresse = $_POST['adresse'];
-      $adresse2 = $_POST['adresse2'];
-      $adresseFact = $_POST['adresseFact'];
-      $codePostal = $_POST['codePostal'];
-      $telephone = $_POST['telephone'];
-      $email = $_POST['email'];
-      $raisonSociale = $_POST['raisonSociale'];
-      $siret = $_POST['siret'];
-      $nomSociete = $_POST['nomSociete'];
-
-
-      $jsonTab2 = json_decode($ctrl->getIdVille($_POST['codePostal']), true);
-	  $idVille = $jsonTab2['result']['id_villecp'];
-
-
-	  $jsonTab = json_decode($ctrl->inscription($nom, $prenom, $dateN, $email, $telephone, $codeCoupon, $adresseFact, $adresse, $adresse2, $raisonSociale, $siret, $nomSociete, $civ, $idVille));
-
-
-     // var_dump($_POST);
-    var_dump($idVille);
-
+	$ctrl = new InscriptionController();
+	$cpVille = $_POST['codePostal'];
+	$jsonTab2 = json_decode($ctrl->getIdVille($cpVille), true);
+	$stridville = $jsonTab2['result']['id_villecp'];
+	$idville = 34245;
+	
 }
+
+if (isset($_POST['inscription'])) {
+$ctrl2 = new InscriptionController();
+
+	$nom = $_POST['nom'];
+	$prenom = $_POST['prenom'];
+	$dateN = $_POST['dateN'];
+	$email = $_POST['email'];
+	$telephone = $_POST['telephone'];
+	$strcodeCoupon = $_POST['codeCoupon'];
+	$codeCoupon = 0;
+	$adresseFact = $_POST['adresseFact'];	
+	$adresse = $_POST['adresse'];
+	$adresse2 = $_POST['adresse2'];
+	$raisonSociale = $_POST['raisonSociale'];
+	$siret = $_POST['siret'];
+	$nomSociete = $_POST['nomSociete'];
+	$strciv = $_POST['civ'];
+	$civ = 2;
+	$idville = 34245; 
+	
+	$jsonTab = json_decode($ctrl2->inscription($nom, $prenom, $dateN, $email, $telephone, $codeCoupon, $adresseFact, $adresse, $adresse2, $raisonSociale, $siret, $nomSociete, $civ, $idville));
+}
+
+	print('$nom =');var_dump($nom);
+    print('$prenom =');var_dump($prenom);
+    print('$dateN =');var_dump($dateN);
+    print('$email =');var_dump($email);
+    print('$telephone =');var_dump($telephone);
+    print('$codeCoupon =');var_dump($codeCoupon);
+    print('$adresseFact =');var_dump($adresseFact);
+    print('$adresse =');var_dump($adresse);
+    print('$adresse2 =');var_dump($adresse2);
+    print('$raisonSociale =');var_dump($raisonSociale);
+    print('$siret =');var_dump($siret);
+    print('$nomSociete =');var_dump($nomSociete);
+    print('$strciv =');var_dump($strciv);
+  	print('$civ =');var_dump($civ);  
+    print('$idville =');var_dump($idville);
+  	print('$jsonTab2 =');var_dump($jsonTab2);  
+	print('$jsonTab =');var_dump($jsonTab);
 
 ?>
 
@@ -246,12 +267,16 @@ if (isset($_POST['inscription'])) {
 
 
     	$('#envoi').click(function(){
-	if($('input[name=typeClient]:checked').val() == "pro"){
-		 $status_membre = 2;
-	} else {
-		$status_membre = 1;
-		}
-	});
+    if($('input[name=typeClient]:checked').val() == "pro"){
+         <?php $status_membre = 2; ?>
+    } else {
+        <?php $status_membre = 1; ?>
+        }
+
+        if($('input[name=choixPromo]:checked').val() == "non"){
+        <?php $codeCoupon = "NULL"; ?>
+        }
+    });
     </script>
 
 </html>
