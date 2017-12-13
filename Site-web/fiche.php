@@ -163,32 +163,27 @@ $idClient = $jsonTab['result']['id_membre_client']
 	    		});
 	    		setTotal(total);
 	    	});
-	    });
+
+		});
 
 	    function setTotal(prix){
 	    	$('#total').text(prix.toFixed(2) + " €");
 	    }
 
+	    
 	    var tabAccessoires = {};
 
 		$('select').change(function(){
-
-		tabAccessoires = {};
-
+				
+			tabAccessoires = {};
 			
-		$('select').each(function(){
-			if($('select:selected').val() == 0){
-				tabAccessoires[$(this).attr("id")] = $('select:selected').val();
-				alert(tabAccessoires[$(this).attr("id")]);
-			}
+			$('select').each(function(){	 
+				 tabAccessoires[$(this).attr("id")] = $(this).find(":selected").attr("id");
+			});
+
 		});
-			
-	
-			$('#accessoires').val(tabAccessoires);
 
-			console.log(tabAccessoires);
-			
-		});
+		console.log(tabAccessoires);
 
 	</script>
 
