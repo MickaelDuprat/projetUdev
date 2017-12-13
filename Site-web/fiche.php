@@ -8,8 +8,6 @@ include_once(ROOT.'/controller/SearchController.php');
 include_once(ROOT.'/controller/FicheController.php');
 include_once(ROOT.'/controller/AccessoireController.php');
 
-
-
 $message = '';
 
 if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
@@ -62,7 +60,6 @@ $idClient = $jsonTab['result']['id_membre_client']
       <a href="search.php">Sélection du véhicule</a>  - <a class="checked" href="fiche.php">Choix des options</a> - <a href="paiement.php">Paiement</a>
     </div>
 
-	
 	<div id="section-white">
 	    <aside id="resume-voiture">
 	    	<p class="titleDetails" data=""> <?php print($marque.' '.$modele) ?> </p>
@@ -106,9 +103,8 @@ $idClient = $jsonTab['result']['id_membre_client']
 	        <!--<p> Tarif de la location* : </p>  <b> --><span id="prixloc" data="<?php print($prixLoc); ?>"><!--<?php print($prixLoc); ?>--></span> <!--€ </b>-->
 	            <ul>          	
 	            	
-	            		<?php print($listaccessoire); ?>
+	            	<?php print($listaccessoire); ?>
 
-	           
 	            </ul>
 		</div>
 
@@ -120,6 +116,7 @@ $idClient = $jsonTab['result']['id_membre_client']
 		<input type="hidden" name="idVehicule" value="<?php print($_GET['id']); ?>"/>
 		<input type="hidden" name="dateNow" value="<?php print(date("Y-m-d")); ?>"/>
 		<input type="hidden" name="agence" value="<?php print($_GET['agence']); ?>"/>
+		<input type="hidden" id="accessoires" name="accessoires" value=""/>
 
 	    <div id="section-paiement">
 
@@ -172,6 +169,21 @@ $idClient = $jsonTab['result']['id_membre_client']
 	    	$('#total').text(prix.toFixed(2) + " €");
 	    	$('#recuptotal').val(prix.toFixed(2) + " €");
 	    }
+
+
+	    var tabAccessoires = {};
+
+	    $(champs).click(function(){
+
+				typeVeh = {};
+				$('.get_value').each(function(){
+					 if($(this).is(":checked")){
+					 	typeVeh[$(this).attr("id")] = $(this).val();
+					 }
+				});
+
+	    $('#quantite').val("Test");
+	    $('#accessoires').val("Test");
 		
 	</script>
 

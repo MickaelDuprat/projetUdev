@@ -3,36 +3,13 @@ session_start();
 
 include_once('root.php');
 include_once(ROOT.'/controller/AuthentificationController.php');
-include_once(ROOT.'/controller/ContratController.php');
 
 if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 	session_destroy();
 	header('Location: index.php');    
 }
 
-$ctrl = new ContratController();
 
-if (isset($_POST)) {
-
-    $dateNow = $_POST['dateNow'];
-    $dateDepart = $_POST['dateDepart'];
-    $dateArrivee = $_POST['dateArrivee'];
-    $idClient = $_POST['idClient'];
-    $idVehicule = $_POST['idVehicule'];
-    $agence = $_POST['agence'];
-    
-    $jsonTab = json_decode($ctrl->setContrat($dateNow, $dateDepart, $dateArrivee, $idClient, $idVehicule, $agence), true);
-    $jsonTab2 = json_decode($ctrl->getLastContrat($idClient), true);
-
-    // on récupère le numéro du dernier contrat de location pour ce client pour deux raisons :
-    // 1 : on en a besoin pour éditer le pdf dans la page pdf.php à suivre
-    //2 insérer dans la BDD ces choix concernant les accessoires 
-    $num_contrat_loc = $jsonTab2['result']['dernier_contrat_loc'];
-    var_dump($jsonTab);
-    var_dump($jsonTab2);
-    var_dump($num_contrat_loc);
-    var_dump($id_client);
-}
 
 ?>
 
@@ -76,17 +53,11 @@ if (isset($_POST)) {
 	<?php include_once('include/nav.php'); ?>
 
 		<div id="section-white">
-            <form id="formulaireRemerciement" method="POST" action="pdf.php">
-            <div id="remerciement">
-            <h1> Merci pour votre réservation </h1>
-            <p> Votre demande de réservation a bien été enregistrée et nous vous remercions de votre confiance.</p>
-            <p> Votre contrat de location vous a été automatiquement transmis à votre adresse e-mail mais vous pouvez consulter sa version pdf en cliquant sur le lien suivant :</p>
-            <input type="hidden" name="derniercontrat" value="<?php print($num_contrat_loc); ?>">
-            <input type="submit" style="background">
-            <p> Vous pouvez à tout moment modifier votre réservation dans votre espace client. </p> </br>
-            <b> Toute l'équipe d'Error404 Location vous souhaite une agréable journée et HAVE FUN ! </b>
+            <div id="erreur404">
+            <p style="text-align:center; margin:0px;">
+            <img src="img/erreur404.png"  width=450px height=450px> </br>
+            <b font-size=200%> Cette page est encore en construction </b> </p>
             </div>
-            </form>
         </div>
             
     </body>

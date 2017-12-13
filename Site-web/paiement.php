@@ -10,23 +10,6 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 	header('Location: index.php');    
 }
 
-$ctrl = new ContratController();
-
-if (isset($_POST['paye'])) {
-
-    $dateNow = $_POST['dateNow'];
-    $dateDepart = $_POST['dateDepart'];
-    $dateArrivee = $_POST['dateArrivee'];
-    $idClient = $_POST['idClient'];
-    $idVehicule = $_POST['idVehicule'];
-    $agence = $_POST['agence'];
-    
-    $jsonTab = json_decode($ctrl->setContrat($dateNow, $dateDepart, $dateArrivee, $idClient, $idVehicule, $agence), true);
-
-    var_dump($jsonTab);
-
-}
-
 ?>
 
 <!doctype html>
@@ -70,7 +53,8 @@ if (isset($_POST['paye'])) {
 
 		<div id="section-white">
             </div>     
-                    <!--page paiement-->
+        
+        <!--page paiement-->
 
         <form id="formulairePaiement" method="POST" onsubmit="verification()" action="remerciement.php">
 
@@ -84,8 +68,9 @@ if (isset($_POST['paye'])) {
             
 
                 <div class="panel panel-info">
-                    <div class="panel-heading" style="margin-top: 40px;"><span><i class="glyphicon glyphicon-lock"></i></span> Paiement sécurisé</div>
+                    <div class="panel-heading" style="margin-top: 40px;"><span><i class="fa fa-lock fa-2x"></i></span> <span class="title">Paiement sécurisé</span></div>
                     <div class="panel-body">
+                        
                         <div class="form-group">
                             <div class="col-md-12">
                                  <label>Type de carte</label>
@@ -156,7 +141,7 @@ if (isset($_POST['paye'])) {
                         <div class="form-group">
                             <div class="col-md-6 col-sm-6 col-xs-12">
 
-                                <a href="remerciement.php"> <button type="submit" class="btn btn-primary btn-submit-fix" onclick="verification()">Paiement</button> <input type="hidden" name="recuptotal" value="<?php print($_POST['recuptotal']); ?>" id="recuptotal"></a>
+                                <a href="remerciement.php" style="text-decoration:none"> <button type="submit" class="btn btn-primary btn-submit-fix" onsubmit="verification()">Paiement</button></a>
 
                             </div>
                         </div>
@@ -188,7 +173,7 @@ if (isset($_POST['paye'])) {
     <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
     <script src="http://cdn.jsdelivr.net/jquery.validation/1.14.0/jquery.validate.min.js"></script>
     <script src="js/backToTop.js"></script>
-<!--
+
     <script type="text/javascript">
 
 function verification_titulaire() {
@@ -286,39 +271,49 @@ function verification() {
     var car_crypto_value = car_crypto.value;
     var saisie_crypto = /^[0-9]{3}/; //regex testé 
     var resultat_crypto = saisie_crypto.test(car_crypto_value);
+
+    var credit_card_type = document.getElementById('CreditCardType');
+    var mois = document.getElementById('mois');
+    var annee = document.getElementById('annee');
     // on teste les différentes conditions et on affiche ou non les messages d'erreurs
-    //
+    
     if(credit_card_type.value == "") {
         credit_card_type.focus();
+        alert('Le champ du numéro de la carte de crédit n\'est pas valide!');
         return false;
     }
     if(mois.value == "Mois") {
         mois.focus();
+        alert('Le champ du mois d\'expiration de la carte n\'est pas valide!');
         return false;
     }
     if(annee.value == "Année") {
         annee.focus();
+        alert('Le champ de l\'année d\'expiration de la carte de crédit n\'est pas valide!');
         return false;
     }
 
     if(car_owner == "" || resultat_owner == false) {
         car_owner.focus();
+        alert('Le champ du nom du titulaire de la carte de crédit n\'est pas valide!');
         return false;
     }
     
     if(car_number == "" || resultat_number == false) {
         car_number.focus();
+        alert('Le champ du numéro de la carte de crédit n\'est pas valide!');
         return false;
     }
 
     if(car_crypto == "" || resultat_crypto == false) {
         car_crypto.focus();
+        alert('Le champ du numéro du cryptogramme visuel n\'est pas valide!');
         return false;
     }
-alert('coucou!');
-return true;
+alert('Tous les champs étaient OK!');
+return true
 }
     </script>
 
--->
+
 </html>

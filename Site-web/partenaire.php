@@ -9,8 +9,6 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 	header('Location: index.php');    
 }
 
-
-
 ?>
 
 <!doctype html>

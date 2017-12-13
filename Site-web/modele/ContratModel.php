@@ -49,7 +49,7 @@ class ContratModel extends Manager {
 
     // Se rappeler de mettre le statut à 0
 
-    $this->pdoStatement = $this->pdo->prepare("INSERT INTO contrat_loc (date_contrat, date_debut, date_fin, caution, statut_facturation, id_contrat_loc_client, caution) VALUES (:dateNow, :dateDepart, :dateArrivee, :caution, :statutFact, :idClient, :idVehicule, :agence)");
+    $this->pdoStatement = $this->pdo->prepare("INSERT INTO contrat_loc (date_contrat, date_debut, date_fin, caution, statut_facturation, id_contrat_loc_client, id_contrat_loc_vehicule, id_contrat_loc_agence) VALUES (:dateNow, :dateDepart, :dateArrivee, :caution, :statutFact, :idClient, :idVehicule, :agence)");
 
     $this->pdoStatement->bindValue(':dateNow', $dateNow, PDO::PARAM_STR);
     $this->pdoStatement->bindValue(':dateDepart', $dateDepart, PDO::PARAM_STR);
@@ -62,16 +62,40 @@ class ContratModel extends Manager {
     $this->pdoStatement->execute();
 
     $infos = $this->pdoStatement->rowCount();
-
+    
     return $infos;
   }
 
+  // Fonction d'ajout d'accessoires à un contrat de location
+  public function insertAccessoires($sql) {
+
+    $this->pdoStatement = $this->pdo->prepare($sql);
+    $this->pdoStatement->execute();
+
+    $infos = $this->pdoStatement->rowCount();
+    
+    return $infos;
+  }
 
   // Fonction de lecture de l'id du client
 
   public function selectIdClient($id) {
 
     $this->pdoStatement = $this->pdo->prepare("SELECT id_membre_client FROM membre WHERE id_membre = :id");
+    $this->pdoStatement->bindValue(':id', $id, PDO::PARAM_INT);
+    $this->pdoStatement->execute();
+    $infos = $this->pdoStatement->fetch(PDO::FETCH_ASSOC);
+    return $infos;
+  }
+
+  // Fonction de lecture du dernier contrat de location à partir de l'id du client
+
+  public function selectLastContrat($id) {
+
+    $this->pdoStatement = $this->pdo->prepare("SELECT max(num_contrat_loc) as dernier_contrat_loc from contrat_loc 
+  left join client
+  on client.id_client = contrat_loc.id_contrat_loc_client
+  where id_client = :id");
     $this->pdoStatement->bindValue(':id', $id, PDO::PARAM_INT);
     $this->pdoStatement->execute();
     $infos = $this->pdoStatement->fetch(PDO::FETCH_ASSOC);

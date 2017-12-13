@@ -6,7 +6,11 @@ include_once(ROOT .'/modele/PdfModel.php');
 
 $agencectrl = new PdfController();
 
-$num_contrat_loc = 497;
+// on récupère le dernier contrat de l'input hidden de la page remerciement mais en String
+$strg_num_contrat_loc = $_POST['derniercontrat'];
+// on la convertit en entier pour pouvoir la donner en paramètre aux différentes fonctions qui vont créer les tableaux dans le pdf
+$num_contrat_loc = intval($strg_num_contrat_loc);
+
 $jsonTabAgence = json_decode($agencectrl->tabAgence($num_contrat_loc), true);
 
 if ($jsonTabAgence['success'] == true) {
@@ -52,10 +56,7 @@ if ($jsonTabClient['success'] == true) {
   $tel_client = $value['tel_client'];
   }
 }
-
-
  
-
 
 // Classe controller 
 class PdfController{
