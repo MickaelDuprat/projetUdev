@@ -27,45 +27,51 @@ class InscriptionController{
 // Fonction d'inscription d'un utilisateur
 
   function inscription($nom, $prenom, $dateN, $email, $telephone, $codeCoupon, $adresseFact, $adresse, $adresse2, $raisonSociale, $siret, $nomSociete, $civ, $idville){
-    
-       $inscription = $this->manager->insertClient($nom, $prenom, $dateN, $email, $telephone, $codeCoupon, $adresseFact, $adresse, $adresse2, $raisonSociale, $siret, $nomSociete, $civ, $idville);
 
-       if($inscription){
-        $json = json_encode(['success' => true, 'result' => $inscription]);
-      } else {
-        $json = json_encode(['success' => false]);
-      }
-      
-      return $json;
+   $inscription = $this->manager->insertClient($nom, $prenom, $dateN, $email, $telephone, $codeCoupon, $adresseFact, $adresse, $adresse2, $raisonSociale, $siret, $nomSociete, $civ, $idville);
+
+   if($inscription){
+    $json = json_encode(['success' => true, 'result' => $inscription]);
+  } else {
+    $json = json_encode(['success' => false]);
   }
-     
+  return $json;
+}
 
-       function membre(){
-        $login = $_POST['login'];
-        $password = sha1($_POST['password']);
-     // $status_membre = $_POST['status_membre'];
-        $membre = $this->manager->insertMembre($login, $password /*$status_membre */);
 
-        if($membre){
-        $json = json_encode(['success' => true, 'result' => $membre]);
-      } else {
-        $json = json_encode(['success' => false]);
-      }
-      
-      return $json;
+function inscriptionMembre($login, $password, $id_client, $status_membre){
+
+  $membre = $this->manager->insertMembre($login, $password, $id_client, $status_membre);
+
+  if($membre){
+    $json = json_encode(['success' => true, 'result' => $membre]);
+  } else {
+    $json = json_encode(['success' => false]);
   }
-       
+  return $json;
+}
 
-  function getIdVille($cpVille){
-    $ville = $this->manager->selectIdVilleCp($cpVille);
 
-      if($ville){
-        $json2 = json_encode(['success' => true, 'result' => $ville]);
-      } else {
-        $json2 = json_encode(['success' => false]);
-      }
-      
-      return $json2;
+function getIdVille($cpVille){
+  $ville = $this->manager->selectIdVilleCp($cpVille);
 
-  } 
+  if($ville){
+    $json2 = json_encode(['success' => true, 'result' => $ville]);
+  } else {
+    $json2 = json_encode(['success' => false]);
+  }
+  return $json2;
+} 
+
+function getIdClient($nom, $prenom, $dateN){
+  $id_client = $this->manager->recupererIdClient($nom, $prenom, $dateN);
+
+  if($id_client){
+    $json = json_encode(['success' => true, 'result' => $id_client]);
+  } else {
+    $json = json_encode(['success' => false]);
+  }
+  return $json;
+} 
+
 }
