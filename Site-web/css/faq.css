@@ -1,0 +1,37 @@
+
+#faq {
+  margin-top: 7%;
+  margin-right: 10%;
+  margin-left: 10%;
+}
+
+p {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 110%;
+}
+
+.question {
+	height: 40px;
+	background-color: grey;
+	border-radius: 25px;
+}
+
+.question h3 {
+	padding-left: 25px;
+	padding-top: 10px;
+	font-family: 'Quicksand', sans-serif;
+  	font-size: 110%;
+}
+
+.reponse {
+	height: 90px;
+	background-color: white;
+	border-radius: 10px;
+}
+
+.reponse p {
+	padding-left: 30px;
+	padding-top: 10px;
+	font-family: 'Quicksand', sans-serif;
+  	font-size: 110%;
+}
