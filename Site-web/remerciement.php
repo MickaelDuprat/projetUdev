@@ -28,11 +28,6 @@ if (isset($_POST)) {
     // 1 : on en a besoin pour éditer le pdf dans la page pdf.php à suivre
     //2 insérer dans la BDD ces choix concernant les accessoires 
     $num_contrat_loc = $jsonTab2['result']['dernier_contrat_loc'];
-    var_dump($jsonTab);
-    var_dump($jsonTab2);
-    var_dump($num_contrat_loc);
-    var_dump($id_client);
-}
 
 ?>
 

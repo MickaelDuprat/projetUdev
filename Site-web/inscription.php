@@ -15,28 +15,28 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 
 $ctrl = new InscriptionController();
 
- $strcodeCoupon = $_POST['codeCoupon'];
-      $codeCoupon = doubleval($strcodeCoupon); 
-      $strciv = $_POST['civ'];
-      $civ = intval($strciv);
-      $nom = $_POST['nom'];
-      $prenom = $_POST['prenom'];
-      $dateN = $_POST['dateN'];
-      $adresse = $_POST['adresse'];
-      $adresse2 = $_POST['adresse2'];
-      $adresseFact = $_POST['adresseFact'];
-      $codePostal = $_POST['codePostal'];
-      $telephone = $_POST['telephone'];
-      $email = $_POST['email'];
-      $raisonSociale = $_POST['raisonSociale'];
-      $siret = $_POST['siret'];
-      $nomSociete = $_POST['nomSociete'];
+ 	$strcodeCoupon = $_POST['codeCoupon'];
+	$codeCoupon = doubleval($strcodeCoupon); 
+	$strciv = $_POST['civ'];
+	$civ = intval($strciv);
+	$nom = $_POST['nom'];
+	$prenom = $_POST['prenom'];
+	$dateN = $_POST['dateN'];
+	$adresse = $_POST['adresse'];
+	$adresse2 = $_POST['adresse2'];
+	$adresseFact = $_POST['adresseFact'];
+	$codePostal = $_POST['codePostal'];
+	$telephone = $_POST['telephone'];
+	$email = $_POST['email'];
+	$raisonSociale = $_POST['raisonSociale'];
+	$siret = $_POST['siret'];
+	$nomSociete = $_POST['nomSociete'];
 
 $jsonTab2 = json_decode($ctrl->getIdVille($_POST['codePostal']), true);
 $idVille = $jsonTab2['result']['id_villecp'];
 
      // var_dump($_POST);
-      var_dump($idVille);
+    var_dump($idVille);
 
 	$jsonTab = json_decode($ctrl->inscription($nom, $prenom, $dateN, $email, $telephone, $codeCoupon, $adresseFact, $adresse, $adresse2, $raisonSociale, $siret, $nomSociete, $civ, $idVille));
 
