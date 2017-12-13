@@ -107,5 +107,21 @@ class ContratController{
   }
   
 
+  // Fonction de récupération du dernier numéro de contrat de location avec id du client
+
+  public function getLastContrat($id){
+     
+      $infos = $this->manager->selectLastContrat($id);
+
+      if($infos){
+        $json = json_encode(['success' => true, 'result' => $infos]);
+      } else {
+        $json = json_encode(['success' => false]);
+      }
+      
+      return $json;
+
+  }
+
 }
 
