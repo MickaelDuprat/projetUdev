@@ -163,28 +163,28 @@ $idClient = $jsonTab['result']['id_membre_client']
 	    		});
 	    		setTotal(total);
 	    	});
-	    });
+
+		});
 
 	    function setTotal(prix){
 	    	$('#total').text(prix.toFixed(2) + " €");
-	    	$('#recuptotal').val(prix.toFixed(2) + " €");
 	    }
 
-
+	    
 	    var tabAccessoires = {};
 
-	    $(champs).click(function(){
+		$('select').change(function(){
+				
+			tabAccessoires = {};
+			
+			$('select').each(function(){	 
+				 tabAccessoires[$(this).attr("id")] = $(this).find(":selected").attr("id");
+			});
 
-				typeVeh = {};
-				$('.get_value').each(function(){
-					 if($(this).is(":checked")){
-					 	typeVeh[$(this).attr("id")] = $(this).val();
-					 }
-				});
+		});
 
-	    $('#quantite').val("Test");
-	    $('#accessoires').val("Test");
-		
+		console.log(tabAccessoires);
+
 	</script>
 
 

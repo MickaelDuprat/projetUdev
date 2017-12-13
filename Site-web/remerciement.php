@@ -28,10 +28,22 @@ if (isset($_POST)) {
     // 1 : on en a besoin pour éditer le pdf dans la page pdf.php à suivre
     //2 insérer dans la BDD ces choix concernant les accessoires 
     $num_contrat_loc = $jsonTab2['result']['dernier_contrat_loc'];
-    var_dump($jsonTab);
-    var_dump($jsonTab2);
-    var_dump($num_contrat_loc);
-    var_dump($id_client);
+
+    if (isset($_GET['typeVeh'])) {
+    $catV .= "AND (";
+    foreach ($_GET['typeVeh'] as $value) {
+        $compteur++;
+        if ($compteur > 1) {
+          $catV .= " or ";
+        }
+        $catV .= "id_cat_veh_vehicule = ". $value;
+    }
+    $catV .= ")";
+}
+
+  $sql = "INSERT INTO choisit (qtite, pk_num_contrat_loc, pk_id_accessoire, id_choisit_contrat_loc, id_choisit_accessoire) VALUES (:qtite, :numContrat, :idAccessoire, :numContrat, :idAccessoire)";
+
+   $ctrl->setAccessoires($sql);
 }
 
 ?>

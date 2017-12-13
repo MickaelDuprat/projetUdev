@@ -10,7 +10,9 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 	session_destroy();
 	header('Location: index.php');    
 }
+
 $ctrl = new ContratController();
+
 $jsonTab = json_decode($ctrl->tabContrat($_SESSION['id']), true);
 
 $ligne = "";
