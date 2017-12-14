@@ -15,6 +15,6 @@
 		<a href="https://twitter.com/error_404_loc"><img id="twitter" src="ico/twitter.png" width="25px" height="25px" title="twitter"></a>
 	</div>
 	<div id="footer-bottom">
-		<p><a href="#">Plan du site</a> - <a href="/GIT/Site-web/mentions-legales.php">Mentions légales</a> - Copyrights 2017 / 2018 - 404 Location - Agence de location de véhicule</p>
+		<p><a href="erreur.php">Plan du site</a> - <a href="/GIT/Site-web/mentions-legales.php">Mentions légales</a> - Copyrights 2017 / 2018 - 404 Location - Agence de location de véhicule</p>
 	</div>
 </div>

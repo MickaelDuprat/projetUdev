@@ -1637,9 +1637,9 @@ INSERT INTO modele (lib_modele, id_marque_modele, path_img) VALUES ('SPIDER SPOR
 INSERT INTO modele (lib_modele, id_marque_modele, path_img) VALUES ('SUPERCINQ', 41, '');
 INSERT INTO modele (lib_modele, id_marque_modele, path_img) VALUES ('SUPERCINQ BACCAR', 41, '');
 INSERT INTO modele (lib_modele, id_marque_modele, path_img) VALUES ('TALISMAN', 41, '');
-INSERT INTO modele (lib_modele, id_marque_modele, path_img) VALUES ('TRAFIC', 41, '');
-INSERT INTO modele (lib_modele, id_marque_modele, path_img) VALUES ('TRAFIC III', 41, '');
-INSERT INTO modele (lib_modele, id_marque_modele, path_img) VALUES ('TRAFIC PASSENGER', 41, '');
+INSERT INTO modele (lib_modele, id_marque_modele, path_img) VALUES ('TRAFIC', 41, 'img/renault-trafic.png');
+INSERT INTO modele (lib_modele, id_marque_modele, path_img) VALUES ('TRAFIC III', 41, 'img/renault-trafic.png');
+INSERT INTO modele (lib_modele, id_marque_modele, path_img) VALUES ('TRAFIC PASSENGER', 41, 'img/renault-trafic.png');
 INSERT INTO modele (lib_modele, id_marque_modele, path_img) VALUES ('TWINGO', 41, '');
 INSERT INTO modele (lib_modele, id_marque_modele, path_img) VALUES ('TWINGO III', 41, 'img/renault-twingo.png');
 INSERT INTO modele (lib_modele, id_marque_modele, path_img) VALUES ('TWINGO INITIALE', 41, '');
