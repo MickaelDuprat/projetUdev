@@ -84,7 +84,9 @@ class ContratModel extends Manager {
     $this->pdoStatement = $this->pdo->prepare("SELECT id_membre_client FROM membre WHERE id_membre = :id");
     $this->pdoStatement->bindValue(':id', $id, PDO::PARAM_INT);
     $this->pdoStatement->execute();
+
     $infos = $this->pdoStatement->fetch(PDO::FETCH_ASSOC);
+
     return $infos;
   }
 
@@ -98,7 +100,35 @@ class ContratModel extends Manager {
   where id_client = :id");
     $this->pdoStatement->bindValue(':id', $id, PDO::PARAM_INT);
     $this->pdoStatement->execute();
+
     $infos = $this->pdoStatement->fetch(PDO::FETCH_ASSOC);
+
+    return $infos;
+  }
+
+// Fonction de suppression d'un contrat de location à partir du numéro de contrat de la table choissit (à faire en premier étant donné la clé étrangère)
+  public function deleteAccessoireContrat($pk_num_contrat_loc) {
+
+    $this->pdoStatement = $this->pdo->prepare("DELETE FROM choisit WHERE pk_num_contrat_loc = :pk_num_contrat_loc");
+
+    $this->pdoStatement->bindValue(':pk_num_contrat_loc', $pk_num_contrat_loc, PDO::PARAM_INT);
+    $this->pdoStatement->execute();
+
+    $infos = $this->pdoStatement->rowCount();
+    
+    return $infos;
+  }
+
+  // Fonction de suppression d'un contrat de location à partir du numéro de contrat de la table contrat_loc 
+  public function deleteContrat($num_contrat_loc) {
+
+    $this->pdoStatement = $this->pdo->prepare("DELETE FROM contrat_loc WHERE num_contrat_loc = :num_contrat_loc");
+
+    $this->pdoStatement->bindValue(':num_contrat_loc', $num_contrat_loc, PDO::PARAM_INT);
+    $this->pdoStatement->execute();
+
+    $infos = $this->pdoStatement->rowCount();
+    
     return $infos;
   }
 
