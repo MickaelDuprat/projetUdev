@@ -34,6 +34,7 @@ if ($jsonTabAgence['success'] == true) {
   $dateDepart = implode('-', array_reverse(explode('/',$date_debut), FALSE));
   $dateArrivee = implode('-', array_reverse(explode('/',$date_fin), FALSE));
   $dateD = new DateTime($dateDepart);
+  $dateD->modify("-1 day");
   $dateA = new DateTime($dateArrivee);
   $interval = $dateD->diff($dateA);
   $interval = $interval->format('%d');
