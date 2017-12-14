@@ -104,9 +104,9 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 			<b> Adresse postale : </b>
 			<p> 222, boulevard de blossac 86100 Châtellerault </p> </br>
 			<b> N° téléphone : </b>
-			<p> +33 (0)5-49-00-00-00 </p> </br>
+			<p> +33 (0)5-47-00-00-00 </p> </br>
 			<b> Fax : </b>
-			<p> 05-49-00-00-01 </p> </br>
+			<p> 05-47-00-00-01 </p> </br>
 			<b> Email : </b>
 			<a href="mailto:agence-Chatellerault@error404.fr" class="mail"> agence-Chatellerault@error404.fr </a>
 		</div>
