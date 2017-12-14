@@ -40,7 +40,9 @@ if (isset($_POST['inscription'])) {
 	$raisonSociale = $_POST['raisonSociale'];
 	$siret = $_POST['siret'];
 	$nomSociete = $_POST['nomSociete'];
+
 	$strciv = $_POST['civ'];
+
 
 	$civ = intval($strciv);
 	
@@ -61,7 +63,6 @@ if (isset($_POST['inscription'])) {
 
 	//on insère le client dans la table membre de la BDD 
 	$jsonTab4 = json_decode($ctrl->inscriptionMembre($login, $password, $id_client, $status_membre), true);
-
 }
 	?>
 
@@ -82,6 +83,7 @@ if (isset($_POST['inscription'])) {
 		<link rel="stylesheet" href="css/formIndex.css"> 
 		<!-- Importation de la librairie d'icônes "Font Awesome" -->
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
 		<!-- Importation des polices de caractères "Dosis", Poppins" et "Quicksand" via Google Fonts -->
 		<link href="https://fonts.googleapis.com/css?family=Dosis|Poppins|Quicksand" rel="stylesheet">
 		<!-- Importation de la police de caractère "Didact" via Google Fonts -->
@@ -239,6 +241,7 @@ if (isset($_POST['inscription'])) {
 	<!-- Footer section du bas de page -->
 	<?php include_once('include/footer.php'); ?>
 
+
 	<!-- importations des librairies Js -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -254,6 +257,35 @@ if (isset($_POST['inscription'])) {
 
 	<script>
 
+		var pro = false;
+
+		<?php
+		if (isset($siret) AND trim($siret) != ''){
+			print('pro = true;');
+		}
+		?>
+		$(document).ready(function(){
+			if (pro){
+				$('#proform').show();
+			}
+		});
+
+
+    	$('#envoi').click(function(){
+
+	if($('input[name=typeClient]:checked').val() == "pro"){
+		 $('#typeClient').show();
+	} else {
+		$('#typeClient').hide();
+		}
+
+		if($('input[name=choixPromo]:checked').val() == "non"){
+		$('#codePromo').hide();
+		} else {
+		$('#codePromo').show();
+		}
+	});
+
 function verif() {
         if (document.forms.forminscription.typeClient[0].checked == true) {
           document.forms.forminscription.cachetypeClient.value = document.forms.forminscription.typeClient[0].value;
@@ -267,8 +299,6 @@ function verif() {
           document.forms.forminscription.cachechoixPromo.value = document.forms.forminscription.choixPromo[1].value;  
         }
 
-        alert(document.forms.forminscription.cachetypeClient.value);
-        alert(document.forms.forminscription.cachechoixPromo.value);
     }
 
 	</script>
