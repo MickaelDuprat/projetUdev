@@ -6,10 +6,8 @@ include_once(ROOT .'/modele/ContratModel.php');
 
 $ctrl = new ContratController();
 
-
-
 if (isset($_POST['valideTarif'])) {
-  $_SESSION['tab'] = $_POST['tab'];
+    $_SESSION['tab'] = $_POST['tab'];
 }
 
 if (isset($_POST['paye'])) {
@@ -26,7 +24,6 @@ if (isset($_POST['paye'])) {
 
     $num_contrat_loc = $jsonTab2['result']['dernier_contrat_loc'];
 
-    
     $sql = "";
     
     foreach ($_SESSION['tab'] as $key => $value) {

@@ -59,7 +59,9 @@ if ($jsonTab['success'] == true) {
 				<div class="actions">
 					<ul>
 						<li><a href="#" target="_blanck"><img src="ico/modifier.png" title="Modifier"/></a></li>
-						<li><a href="mesreservations.php?supprimer='.$numero.'" target="_blanck"><img src="ico/annuler.png" title="Annuler"/></a></li>
+
+						<li><a href="?supprimer='.$numero.'" target="_blanck"><img src="ico/annuler.png" title="Annuler"/></a></li>
+
 						<li><a href="pdf.php?reservation='.$numero.'" target="_blanck"><img src="ico/pdf.png" title="Voir le pdf"/></a></li>
 					</ul>
 				</div>
