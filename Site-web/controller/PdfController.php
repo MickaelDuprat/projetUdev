@@ -4,14 +4,21 @@ include_once(ROOT .'/root.php');
 
 include_once(ROOT .'/modele/PdfModel.php');
 
-$agencectrl = new PdfController();
+$ctrl = new PdfController();
 
 // on récupère le dernier contrat de l'input hidden de la page remerciement mais en String
-$strg_num_contrat_loc = $_POST['derniercontrat'];
+if (isset($_GET['reservation'])) {
+  $strg_num_contrat_loc = $_GET['reservation'];
+}
+
+if (isset($_POST['derniercontrat'])) {
+  $strg_num_contrat_loc = $_POST['derniercontrat'];
+}
+
 // on la convertit en entier pour pouvoir la donner en paramètre aux différentes fonctions qui vont créer les tableaux dans le pdf
 $num_contrat_loc = intval($strg_num_contrat_loc);
 
-$jsonTabAgence = json_decode($agencectrl->tabAgence($num_contrat_loc), true);
+$jsonTabAgence = json_decode($ctrl->tabAgence($num_contrat_loc), true);
 
 if ($jsonTabAgence['success'] == true) {
 
@@ -41,8 +48,9 @@ if ($jsonTabAgence['success'] == true) {
   }
 }
 
-$clientctrl = new PdfController();
-$jsonTabClient = json_decode($clientctrl->tabClient($num_contrat_loc), true);
+$jsonTabAccessoire = json_decode($ctrl->tabAccessoire($num_contrat_loc), true);
+
+$jsonTabClient = json_decode($ctrl->tabClient($num_contrat_loc), true);
 
 if ($jsonTabClient['success'] == true) {
 

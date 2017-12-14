@@ -1,6 +1,8 @@
 <?php 
 session_start();
 
+if (isset($_SESSION['id'])) {
+	
 include_once('root.php');
 include_once(ROOT.'/controller/AuthentificationController.php');
 include_once(ROOT.'/controller/ContratController.php');
@@ -22,6 +24,7 @@ $jsonTab = json_decode($ctrl->getIdClient($_SESSION['id']), true);
 
 $idClient = $jsonTab['result']['id_membre_client']
 
+    
 ?>
 
 <!doctype html>
@@ -189,3 +192,9 @@ $idClient = $jsonTab['result']['id_membre_client']
 
 
 </html>
+
+<?php 
+    } else {
+        header('Location: index.php');
+    }  
+?>

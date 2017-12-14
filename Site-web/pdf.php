@@ -13,9 +13,8 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
     header('Location: index.php');    
 }
 
-
 require('fpdf.php');
-
+    
 class PDF extends FPDF
 {
     
@@ -98,7 +97,7 @@ function TableauClient($nom_client, $add_facturation, $prenom_client, $tel_clien
     $this->Ln(12);
 }
 
-function TableauContratLoc($prix_journalier_veh, $date_debut, $date_fin, $interval) {
+function TableauContratLoc($prix_journalier_veh, $date_debut, $date_fin, $interval, $num_contrat_loc, $jsonTabAccessoire) {
     $prixtotal = $prix_journalier_veh;
      // Couleurs du cadre, du fond et du texte
     $this->SetDrawColor(20, 0, 0); // marche pas 
@@ -119,30 +118,24 @@ function TableauContratLoc($prix_journalier_veh, $date_debut, $date_fin, $interv
     $this->Cell($w[2], 8, $prix_journalier_veh.'*', 'LR', 0, 'C', true);
     $this->Ln(8);
 
-    $strg_num_contrat_loc = $_POST['derniercontrat'];
-    // on la convertit en entier pour pouvoir la donner en paramètre aux différentes fonctions qui vont créer les tableaux dans le pdf
-    $num_contrat_loc = intval($strg_num_contrat_loc);
-
-    $accessoirectrl = new PdfController();
-    $jsonTabAccessoire = json_decode($accessoirectrl->tabAccessoire($num_contrat_loc), true);
-
   if ($jsonTabAccessoire['success'] == true) {
 
-    $this->Cell($w[0], 8, '', 'TLR', 0, 'L', true);
-    $this->Cell($w[1], 8, '', 'TLR', 0, 'C', true);
-    $this->Cell($w[2], 8, '', 'TLR', 0, 'C', true);
-    $this->Ln(0);
-    $this->SetFillColor(220, 220, 220);
-    $this->Cell($w[0], 8, 'Accessoires : ', 'BLR', 0, 'L', true);
-    $this->Cell($w[1], 8, '', 'BLR', 0, 'C', true);
-    $this->Cell($w[2], 8, '', 'BLR', 0, 'C', true);
-    $this->SetFillColor(255, 255, 255);
-    $this->Ln(8);
-    $this->Cell($w[0], 3, '', 'TLR', 0, 'L', true);
-    $this->Cell($w[1], 3, '', 'TLR', 0, 'C', true);
-    $this->Cell($w[2], 3, '', 'TLR', 0, 'C', true);
-    $this->Ln(0);
-     
+    if ($jsonTabAccessoire['result'][0]['lib_accessoire'] != "Pas d'options") {
+        $this->Cell($w[0], 8, '', 'TLR', 0, 'L', true);
+        $this->Cell($w[1], 8, '', 'TLR', 0, 'C', true);
+        $this->Cell($w[2], 8, '', 'TLR', 0, 'C', true);
+        $this->Ln(0);
+        $this->SetFillColor(220, 220, 220);
+        $this->Cell($w[0], 8, 'Accessoires : ', 'BLR', 0, 'L', true);
+        $this->Cell($w[1], 8, '', 'BLR', 0, 'C', true);
+        $this->Cell($w[2], 8, '', 'BLR', 0, 'C', true);
+        $this->SetFillColor(255, 255, 255);
+        $this->Ln(8);
+        $this->Cell($w[0], 3, '', 'TLR', 0, 'L', true);
+        $this->Cell($w[1], 3, '', 'TLR', 0, 'C', true);
+        $this->Cell($w[2], 3, '', 'TLR', 0, 'C', true);
+        $this->Ln(0);
+    }
 
     foreach ($jsonTabAccessoire['result'] as $value) {
     $lib_accessoire = $value['lib_accessoire'];
@@ -203,17 +196,19 @@ function FooterPdf()
 }
 }
 
-// Instanciation de la classe dérivée
-$pdf = new PDF('P', 'mm','A4');
-$pdf->SetAutoPageBreak(false);
-$pdf->AliasNbPages();
-$pdf->AddPage();
-$pdf->SetFont('Times', '', 12);
-$pdf->HeaderAgence($lib_agence, $add_agence, $num_contrat_loc, $cpagence, $villeagence, $tel_agence, $lib_marque, $lib_modele, $immat_veh, $fax_agence);
-$pdf->TableauClient($nom_client, $add_facturation, $prenom_client, $tel_client, $villeclient, $cpclient, $email_client, $raisonS_societe);
-$pdf->TableauContratLoc($prix_journalier_veh, $date_debut, $date_fin, $interval);
-$pdf->BasPage($villeagence);
-$pdf->FooterPdf();
-$pdf->Output(); 
+    // Instanciation de la classe dérivée
+    $pdf = new PDF('P', 'mm','A4');
+    $pdf->SetAutoPageBreak(false);
+    $pdf->AliasNbPages();
+    $pdf->AddPage();
+    $pdf->SetFont('Times', '', 12);
+    $pdf->HeaderAgence($lib_agence, $add_agence, $num_contrat_loc, $cpagence, $villeagence, $tel_agence, $lib_marque, $lib_modele, $immat_veh, $fax_agence);
+    $pdf->TableauClient($nom_client, $add_facturation, $prenom_client, $tel_client, $villeclient, $cpclient, $email_client, $raisonS_societe);
+    $pdf->TableauContratLoc($prix_journalier_veh, $date_debut, $date_fin, $interval, $num_contrat_loc, $jsonTabAccessoire);
+    $pdf->BasPage($villeagence);
+    $pdf->FooterPdf();
+    $pdf->Output(); 
+    ob_clean();
+
 ?> 
--->
+

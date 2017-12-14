@@ -1,0 +1,81 @@
+#reservation {
+	background-color: #3F3F3F;
+	width: auto;
+	height: auto;
+	margin-left: 8.5%;
+	margin-right: 10%;
+	margin-bottom: 50px;
+    margin-top: 50px; 
+	padding-bottom: 0px;
+	text-align: center;
+	color: white;
+	border-radius: 10px;
+	-webkit-box-shadow: 0px -2px 10px #757272;
+    -moz-box-shadow: 0px -2px 10px #757272;
+    box-shadow: 0px -2px 10px #757272;
+
+}
+
+#reservation .title{
+	background-color: #FFFFFF;
+	top:0;
+	margin: 0 auto;
+	min-width: 25%;
+	max-width: 35%;
+	width: auto;
+	font-size: 23px;
+	height: 40px;
+	padding: 12px 5px 5px 5px;
+	border-radius: 0px 0px 10px 10px;
+	color: black;
+	text-align: center;
+	font-weight: bold;
+}
+
+#reservation img{
+	margin-left: -2%;
+	margin-right: 4%;
+	margin-top: 2%;
+	margin-bottom: -3%;
+	width: 430px;
+	height: 350px;
+	text-align: left;
+}
+
+#reservation .infos{
+	display: inline-block;
+	margin-right: 8%;
+	color: #ff4242;
+}
+
+#reservation .infos li{
+	list-style: none;
+	font-size: 20px;
+	line-height: 35px;
+	width: auto;
+ 	text-align: left;
+}
+
+#reservation .infos li label{
+ 	color: #ffffff;
+}
+
+#reservation .dateContrat{
+ 	padding-top: 30px;
+}
+
+#reservation .actions{
+	display: inline-block;
+}
+
+#reservation .actions li{
+	list-style: none;
+	font-size: 20px;
+	text-align: left;
+	line-height: 90px;
+}
+
+#reservation .actions li img{
+	width: 40px;
+	height: 40px;
+}
