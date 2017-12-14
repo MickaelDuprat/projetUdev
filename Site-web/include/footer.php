@@ -1,7 +1,7 @@
 <!-- Footer section du bas de page -->
 <div id="footer">
 
-	<a href="#" id="back-to-top" title="Back to top"><img src="ico/back-to-top.png" alt="backToTop" /></a>
+	<a href="#" id="back-to-top" title="Haut de page"><img src="ico/back-to-top.png" alt="backToTop" /></a>
 	
 	<div id="footer-left">
 		<h3>Qui sommes-nous ?</h3>

@@ -10,8 +10,6 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 	header('Location: index.php');    
 }
 
-var_dump($_POST);
-
 ?>
 
 <!doctype html>
@@ -53,12 +51,18 @@ var_dump($_POST);
         <a href="search.php">Sélection du véhicule</a> - <a href="fiche.php">Choix des options</a> - <a class="checked" href="paiement.php">Paiement</a>
     </div>
 
-		<div id="section-white">
-            </div>     
+	<div id="section-white">
+               
         
+        <div id="remerciements">
+            
+            <form id="formulaireRemerciement" method="POST" action="pdf.php"> <div id="remerciement"> <h1> Merci pour votre réservation </h1> <p> Votre demande de réservation a bien été enregistrée et nous vous remercions de votre confiance.</p> <p> Votre contrat de location vous a été automatiquement transmis à votre adresse e-mail mais vous pouvez consulter sa version pdf en cliquant sur le lien suivant :</p> <input type="hidden" name="derniercontrat" value="<?php print($num_contrat_loc); ?>"> <input type="submit" style="background"> <p> Vous pouvez à tout moment modifier votre réservation dans votre espace client. </p> </br> <b> Toute l\'équipe d\'Error404 Location vous souhaite une agréable journée et HAVE FUN ! </b></div> </form>
+
+        </div>
+
         <!--page paiement-->
 
-        <form id="formulairePaiement" method="POST" onsubmit="verification()" action="remerciement.php">
+        <form id="formulairePaiement" method="POST" onsubmit="verification()" action="paiement.php">
 
                 <input type="hidden" name="dateNow" value="<?php print($_POST['dateNow']); ?>"/>
                 <input type="hidden" name="dateDepart" value="<?php print($_POST['dateDepart']); ?>"/>
@@ -66,7 +70,6 @@ var_dump($_POST);
                 <input type="hidden" name="idClient" value="<?php print($_POST['idClient']); ?>"/>
                 <input type="hidden" name="idVehicule" value="<?php print($_POST['idVehicule']); ?>"/>
                 <input type="hidden" name="agence" value="<?php print($_POST['agence']); ?>"/>
-                <input type="hidden" name="accessoires" value="<?php print($_POST['accessoires']); ?>"/>
 
                 <div class="panel panel-info">
                     <div class="panel-heading" style="margin-top: 40px;"><span><i class="fa fa-lock fa-2x"></i></span> <span class="title">Paiement sécurisé</span></div>
@@ -142,19 +145,14 @@ var_dump($_POST);
                         <div class="form-group">
                             <div class="col-md-6 col-sm-6 col-xs-12">
 
-                                <a href="remerciement.php" style="text-decoration:none"> <button type="submit" class="btn btn-primary btn-submit-fix">Paiement</button></a>
+                            <button type="submit" id="paye" name="paye" onClick="validPayment()" class="btn btn-primary btn-submit-fix">Paiement</button>
 
                             </div>
                         </div>
-                    </div>
-                    </div>
-                  
-                </div>
                 
             </form>
-            </div>
-            <div class="row cart-footer">
-           </div>
+    </div>
+
          </div>
 
     </body>
@@ -176,6 +174,11 @@ var_dump($_POST);
     <script src="js/backToTop.js"></script>
 
     <script type="text/javascript">
+
+function validPayment() {
+    $('#formulairePaiement').hide();
+    $('#remerciements').show();
+}
 
 function verification_titulaire() {
     var car_owner = document.getElementById('car_owner');

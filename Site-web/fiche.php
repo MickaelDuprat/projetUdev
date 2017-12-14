@@ -99,7 +99,11 @@ $idClient = $jsonTab['result']['id_membre_client']
 	        
 	        <?php print($infos); ?>
 
-	    <div id="liste-option">
+	    
+
+	   	<form method="POST" action="paiement.php">
+		
+		<div id="liste-option">
 	        <!--<p> Tarif de la location* : </p>  <b> --><span id="prixloc" data="<?php print($prixLoc); ?>"><!--<?php print($prixLoc); ?>--></span> <!--€ </b>-->
 	            <ul>          	
 	            	
@@ -108,21 +112,18 @@ $idClient = $jsonTab['result']['id_membre_client']
 	            </ul>
 		</div>
 
-	   	<form method="POST" action="paiement.php">
-
 	   	<input type="hidden" name="dateDepart" value="<?php echo implode('-', array_reverse(explode('/',$_GET['dateDebut']), FALSE)); ?>"/>
 		<input type="hidden" name="dateArrivee" value="<?php echo implode('-', array_reverse(explode('/',$_GET['dateArrivee']), FALSE)); ?>"/>
 		<input type="hidden" name="idClient" value="<?php print($idClient); ?>"/>
 		<input type="hidden" name="idVehicule" value="<?php print($_GET['id']); ?>"/>
 		<input type="hidden" name="dateNow" value="<?php print(date("Y-m-d")); ?>"/>
 		<input type="hidden" name="agence" value="<?php print($_GET['agence']); ?>"/>
-		<input type="hidden" id="accessoires" name="accessoires" value=""/>
 
 	    <div id="section-paiement">
 
 
 	        <div id="totalFixed"><p>  Prix Total* : </p> <span id="total"></span></div>
-	        <input type="submit" id="valideTarif" onClick="setTab()" value = "J'accepte le tarif et les options"/> 
+	        <input type="submit" name="valideTarif" id="valideTarif" onClick="setTab()" value = "J'accepte le tarif et les options"/> 
 
 	   		</form>
 	        <small> *Prix total TTC incluant la TVA </small>
@@ -170,22 +171,19 @@ $idClient = $jsonTab['result']['id_membre_client']
 	    	$('#total').text(prix.toFixed(2) + " €");
 	    }
 
-	 	var tabAccessoires = {};
+	 	// 	var tabAccessoires = {};
 
-		function setTab(prix){
+		//  function setTab(prix){
 				
-			tabAccessoires = {};
+		// 	tabAccessoires = {};
 			
-			$('.get_value').each(function(){	 
-				 tabAccessoires[$(this).attr("id")] = $(this).find("option:selected").val();
-			});
+		// 	$('.get_value').each(function(){	 
+		// 		 tabAccessoires[$(this).attr("id")] = $(this).find("option:selected").val();
+		// 	});
 
+		// 	$('#accessoires').val(tabAccessoires.toString());
 
-			$('#accessoires').val(tabAccessoires.serializeArray());
-
-		}
-
-	    
+		// }
 
 	</script>
 
