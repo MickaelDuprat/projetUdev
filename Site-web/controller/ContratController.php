@@ -9,7 +9,7 @@ $ctrl = new ContratController();
 
 
 if (isset($_POST['valideTarif'])) {
-  $_SESSION['tab'] = $_POST['tab'];
+    $_SESSION['tab'] = $_POST['tab'];
 }
 
 if (isset($_POST['paye'])) {
@@ -35,17 +35,23 @@ if (isset($_POST['paye'])) {
     }
 }
 
-if (isset($_GET['num_contrat_loc'])) {
-  $pk_num_contrat_loc = $_GET['num_contrat_loc'];
-  $num_contrat_loc = $_GET['num_contrat_loc'];
+if (isset($_GET['supprimer'])) {
+  $str_pk_num_contrat_loc = $_GET['supprimer'];
+  $str_num_contrat_loc = $_GET['supprimer'];
   
-var_dump($pk_num_contrat_loc);
-var_dump($num_contrat_loc);
+  $pk_num_contrat_loc = intVal($str_pk_num_contrat_loc);
+  $num_contrat_loc = intVal($str_num_contrat_loc);
+
+  var_dump($pk_num_contrat_loc);
+  var_dump($num_contrat_loc);
   //on supprime le contrat de location en question de la table choissit dans la BDD
   $jsonTab3 = json_decode($ctrl->delAccessoireContrat($pk_num_contrat_loc), true);
 
   //puis on supprime le contrat de location en question de la table contrat_loc dans la BDD 
   $jsonTab4 = json_decode($ctrl->delContrat($num_contrat_loc), true);
+
+  var_dump($jsonTab3);
+  var_dump($jsonTab4);
 }
 
 
