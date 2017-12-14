@@ -58,7 +58,7 @@ if ($jsonTab['success'] == true) {
 
 				<div class="actions">
 					<ul>
-						<li><a href="#" target="_blanck"><img src="ico/modifier.png" title="Modifier"/></a></li>
+						<li><a href="fiche.php?modifier='.$numero.'" target="_blanck"><img src="ico/modifier.png" title="Modifier"/></a></li>
 
 						<li><a href="?supprimer='.$numero.'" target="_blanck"><img src="ico/annuler.png" title="Annuler"/></a></li>
 

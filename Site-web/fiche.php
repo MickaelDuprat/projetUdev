@@ -10,6 +10,7 @@ include_once(ROOT.'/controller/SearchController.php');
 include_once(ROOT.'/controller/FicheController.php');
 include_once(ROOT.'/controller/AccessoireController.php');
 
+
 $message = '';
 
 if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
@@ -22,9 +23,8 @@ $ctrl = new ContratController();
 
 $jsonTab = json_decode($ctrl->getIdClient($_SESSION['id']), true);
 
-$idClient = $jsonTab['result']['id_membre_client']
-
-    
+$idClient = $jsonTab['result']['id_membre_client'];
+ 
 ?>
 
 <!doctype html>
@@ -64,6 +64,26 @@ $idClient = $jsonTab['result']['id_membre_client']
     </div>
 
 	<div id="section-white">
+
+		<!-- The Modal -->
+		<div id="myModal" class="modal">
+
+		  <!-- Modal content -->
+		  <div class="modal-content">
+		    <div class="modal-header">
+		      <span class="close">&times;</span>
+		      <h2>Modification de la réservation</h2>
+		    </div>
+		    <div class="modal-body">
+		      <p>Insérer le formulaire de sélection des agences et des dates de départ et d'arrivée</p>
+		    </div>
+		    <div class="modal-footer">
+		      <h3>...</h3>
+		    </div>
+		  </div>
+
+		</div>
+
 	    <aside id="resume-voiture">
 	    	<p class="titleDetails" data=""> <?php print($marque.' '.$modele) ?> </p>
 	        <img id="vehselect" <?php print('<img src="'.$path.'"
@@ -174,22 +194,38 @@ $idClient = $jsonTab['result']['id_membre_client']
 	    	$('#total').text(prix.toFixed(2) + " €");
 	    }
 
-	 	// 	var tabAccessoires = {};
+	 	var modal = document.getElementById('myModal');
 
-		//  function setTab(prix){
-				
-		// 	tabAccessoires = {};
-			
-		// 	$('.get_value').each(function(){	 
-		// 		 tabAccessoires[$(this).attr("id")] = $(this).find("option:selected").val();
-		// 	});
+		// Get the button that opens the modal
+		var btn = document.getElementById("myBtn");
 
-		// 	$('#accessoires').val(tabAccessoires.toString());
+		// Get the <span> element that closes the modal
+		var span = document.getElementsByClassName("close")[0];
 
-		// }
+		// When the user clicks the button, open the modal 
+		function modalUpdate() {
+		    modal.style.display = "block";
+		}
+
+		// When the user clicks on <span> (x), close the modal
+		span.onclick = function() {
+		    modal.style.display = "none";
+		}
+
+		// When the user clicks anywhere outside of the modal, close it
+		window.onclick = function(event) {
+		    if (event.target == modal) {
+		        modal.style.display = "none";
+		    }
+		}
 
 	</script>
 
+	<?php 
+		if(isset($_GET['modifier'])) {
+			print("<script>modalUpdate();</script>");
+		}
+	?>
 
 </html>
 
