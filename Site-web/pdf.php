@@ -98,7 +98,7 @@ function TableauClient($nom_client, $add_facturation, $prenom_client, $tel_clien
 }
 
 function TableauContratLoc($prix_journalier_veh, $date_debut, $date_fin, $interval, $num_contrat_loc, $jsonTabAccessoire) {
-    $prixtotal = $prix_journalier_veh;
+    $prixtotal = $prix_journalier_veh * $interval;
      // Couleurs du cadre, du fond et du texte
     $this->SetDrawColor(20, 0, 0); // marche pas 
     $this->SetFillColor(255, 255, 255); // marche pas 
