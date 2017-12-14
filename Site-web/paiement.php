@@ -52,17 +52,10 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
     </div>
 
 	<div id="section-white">
-               
-        
-        <div id="remerciements">
-            
-            <form id="formulaireRemerciement" method="POST" action="pdf.php"> <div id="remerciement"> <h1> Merci pour votre réservation </h1> <p> Votre demande de réservation a bien été enregistrée et nous vous remercions de votre confiance.</p> <p> Votre contrat de location vous a été automatiquement transmis à votre adresse e-mail mais vous pouvez consulter sa version pdf en cliquant sur le lien suivant :</p> <input type="hidden" name="derniercontrat" value="<?php print($num_contrat_loc); ?>"> <input type="submit" style="background"> <p> Vous pouvez à tout moment modifier votre réservation dans votre espace client. </p> </br> <b> Toute l\'équipe d\'Error404 Location vous souhaite une agréable journée et HAVE FUN ! </b></div> </form>
-
-        </div>
 
         <!--page paiement-->
 
-        <form id="formulairePaiement" method="POST" onsubmit="verification()" action="paiement.php">
+        <form id="formulairePaiement" method="POST" onsubmit="verification()" action="remerciement.php">
 
                 <input type="hidden" name="dateNow" value="<?php print($_POST['dateNow']); ?>"/>
                 <input type="hidden" name="dateDepart" value="<?php print($_POST['dateDepart']); ?>"/>
@@ -174,11 +167,6 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
     <script src="js/backToTop.js"></script>
 
     <script type="text/javascript">
-
-function validPayment() {
-    $('#formulairePaiement').hide();
-    $('#remerciements').show();
-}
 
 function verification_titulaire() {
     var car_owner = document.getElementById('car_owner');
@@ -314,7 +302,6 @@ function verification() {
         alert('Le champ du numéro du cryptogramme visuel n\'est pas valide!');
         return false;
     }
-alert('Tous les champs étaient OK!');
 return true
 }
     </script>
