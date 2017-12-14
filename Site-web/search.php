@@ -170,7 +170,7 @@ if ($_POST['agence'] == "" || $_POST['dateDepart'] == "" || $_POST['dateArrivee'
 
 			<!-- La search list représente la liste des résultats de recherche de véhicule -->
 			<div id="search-list">
-			
+				
 				<?php 
 
 					print($list);
@@ -196,6 +196,18 @@ if ($_POST['agence'] == "" || $_POST['dateDepart'] == "" || $_POST['dateArrivee'
 
 	$(document).ready(function(){
 
+						$body = $('body');
+
+						$(document).on({
+						    ajaxStart: function() {
+						     $body.addClass("loading");
+						     },
+						     ajaxStop: function() { 
+						     	$body.removeClass("loading");
+						 	}    
+						});
+
+
 		tabJSON("#Citadine");
 		tabJSON("#Berline");
 		tabJSON("#SUV");
@@ -215,6 +227,7 @@ if ($_POST['agence'] == "" || $_POST['dateDepart'] == "" || $_POST['dateArrivee'
 			var boiteV = {};
 
 			 $(champs).click(function(){
+
 
 				typeVeh = {};
 				$('.get_value').each(function(){
@@ -241,9 +254,9 @@ if ($_POST['agence'] == "" || $_POST['dateDepart'] == "" || $_POST['dateArrivee'
 						dateDepart: $("#dateDepart").attr("name"),
 						dateArrivee: $("#dateArrivee").attr("name"),
 					 },
-					 success:function(data){
+					 success:function(data){ 
 					 	jQuery("#search-list").fadeOut( 0 , function() {
-						    jQuery(this).html( data);
+						    jQuery(this).html(data);
 						}).fadeIn( 400 );
 					 },
 					 error:function(reponse, status, message){
@@ -255,9 +268,9 @@ if ($_POST['agence'] == "" || $_POST['dateDepart'] == "" || $_POST['dateArrivee'
 
 		}
 	});
-
 </script>
 
+<div class="modal"><!-- Place at bottom of page --></div>
 </html>
 
 <?php } ?>

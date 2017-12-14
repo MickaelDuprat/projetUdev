@@ -92,8 +92,9 @@
   position: relative;
   cursor: pointer;
   padding: 4px;
-  margin-left: 30px;
-  margin-right: 30px; 
+  margin-left: 10px;
+  margin-right: 5px;
+  padding: 5px; 
   border-left: 1px solid #ecf0f1;
 }
 
@@ -148,7 +149,7 @@
   position: relative;
   font-weight: 300;
   font-size: 18px;
-  padding: 25px 25px 25px 80px;
+  padding: 20px 20px 10px 80px;
   margin-top: 5px;
   margin-left: -15px;
   height: 30px;
@@ -400,5 +401,33 @@
 	text-align: center;
 	margin-left: -10px;
 	z-index: 999;
+}
+
+.modal {
+    display:    none;
+    position:   fixed;
+    z-index:    1000;
+    top:        0;
+    left:       0;
+    height:     100%;
+    width:      100%;
+    background: rgba( 255, 255, 255, .8 ) 
+                url('http://localhost:8888/github/Site-web/img/ajax-loader.gif') 
+                50% 50% 
+                no-repeat;
+}
+
+
+
+/* When the body has the loading class, we turn
+   the scrollbar off with overflow:hidden */
+body.loading {
+    overflow: hidden;   
+}
+
+/* Anytime the body has the loading class, our
+   modal element will be visible */
+body.loading .modal {
+    display: block;
 }
 
