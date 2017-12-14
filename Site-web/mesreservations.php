@@ -15,7 +15,7 @@ $ctrl = new ContratController();
 
 $jsonTab = json_decode($ctrl->tabContrat($_SESSION['id']), true);
 
-$ligne = "";
+$reservations = "";
 
 if ($jsonTab['success'] == true) {
 
@@ -33,25 +33,39 @@ if ($jsonTab['success'] == true) {
       $dateD = $value['date_debut'];
       $dateA = $value['date_fin'];
 
+      $date = implode("-", array_reverse(explode("-", $date), FALSE));   
+      $dateD = implode("-", array_reverse(explode("-", $dateD), FALSE));
+      $dateA = implode("-", array_reverse(explode("-", $dateA), FALSE));
+
       if($id == $_SESSION['id']){
-        $ligne .= '
-        <tr>
-			<td>'.$numero.'</td>
-			<td>'.$date.'</td>
-			<td>'.$prenom.'</td>
-			<td>'.$nom.'</td>
-			<td>'.$adresse.'</td>
-			<td><img class="imgveh"  src="'.$img.'" width="110px" height="70px"/></td>
-			<td>'.$marque.'</td>
-			<td>'.$modele.'</td>
-			<td>'.$dateD.'</td>
-			<td>'.$dateA.'</td>
-			<td> <input type="submit" class="btnModifier" value="'.$numero.'"></td> //<img class="imgtab" src="ico/modifier.png" title="Modifier" width="25px" height="25px"/>'.'</td>
-     		<td> <input type="submit" class="btnAnnuler" value="'.$numero.'"></td> //<img class="imgtab" src="ico/annuler.png" title="Annuler" width="25px" height="25px"/>'.'</td>
-  			<td> <input type="submit" class="btn!voirPdf" value="'.$numero.'"></td> //<img class="imgtab" src="ico/pdf.png" title="Voir le pdf" width="30px" height="30px"/>'.'</td>
-		</tr>';
+        $reservations .= '<div id="reservation">
+				<div class="title">
+					'.$marque.' '.$modele.'
+				</div>
+				
+				<img src="'.$img.'" alt="'.$marque.' '.$modele.'"/>
+				
+				<div class="infos">
+					<ul>
+						<li><label>Date de location : </label>Du '.$dateD.' au '.$dateA.'</li>
+						<li><label>Nom : </label> '.$nom.'</li>
+						<li><label>Prénom : </label> '.$prenom.'</li>
+						<li><label>Adresse de facturation : </label> '.$adresse.'</li>
+						<li><label>Contrat de location : </label> n°'.$numero.'</li>
+						<li class="dateContrat"><label>Date du contrat : </label>'.$date.'</li>
+					</ul>
+				</div>
+
+				<div class="actions">
+					<ul>
+						<li><a href="#" target="_blanck"><img src="ico/modifier.png" title="Modifier"/></a></li>
+						<li><a href="pdf.php?supprimer='.$numero.'" target="_blanck"><img src="ico/annuler.png" title="Annuler"/></a></li>
+						<li><a href="pdf.php?reservation='.$numero.'" target="_blanck"><img src="ico/pdf.png" title="Voir le pdf"/></a></li>
+					</ul>
+				</div>
+			</div>';
       } else {
-        $ligne = '<td> pas de contrats </td>';
+        $reservations = '<td> Vous ne posséder aucun contrat </td>';
       }
   	}
 
@@ -78,6 +92,7 @@ if (isset($_SESSION['statut']) && $_SESSION['statut'] == 1) {
         <link rel="stylesheet" href="css/equipe.css"> 
         <!-- Importation de la feuille de style formIndex (formulaire de recherche de l'index) -->
         <link rel="stylesheet" href="css/formIndex.css"> 
+        <link rel="stylesheet" href="css/reservation.css"> 
         <!-- Importation de la librairie d'icônes "Font Awesome" -->
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 		<!-- Importation des polices de caractères "Dosis", Poppins" et "Quicksand" via Google Fonts -->
@@ -101,23 +116,8 @@ if (isset($_SESSION['statut']) && $_SESSION['statut'] == 1) {
 		<!-- Première section de page -->
 		<div id="section-white">
 
-			<table border="1">
-				<tr id="tableHead">
-					<td> n° contrat </td>
-					<td> date contrat</td>
-					<td> prenom</td>
-					<td> nom</td>
-					<td> adresse de facturation</td>
-					<td> aperçu vehicule </td>
-					<td> marque </td>
-					<td> modele </td>
-					<td> date départ</td>
-					<td> date arrivée </td>
-					<td colspan="3">Actions</td>
-					<?php print($ligne) ?>
-				</tr>
-			</table>
-
+			<?php print($reservations) ?>
+	
 		</div>
 
     </body>

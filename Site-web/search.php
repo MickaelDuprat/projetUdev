@@ -16,7 +16,10 @@ if ($_POST['agence'] == "" || $_POST['dateDepart'] == "" || $_POST['dateArrivee'
 	header('Location: index.php');   
 } else {
 
+if (isset($_SESSION['id'])) {
+    
 ?>
+
 <!doctype html>
 <html>
     <head>
@@ -260,4 +263,11 @@ if ($_POST['agence'] == "" || $_POST['dateDepart'] == "" || $_POST['dateArrivee'
 
 </html>
 
-<?php } ?>
+<?php 
+	} else { 
+
+		header('Location: index.php'); 
+
+		}
+	} 
+?>

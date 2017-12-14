@@ -10,7 +10,10 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 	header('Location: index.php');    
 }
 
+if (isset($_SESSION['id'])) {
+    
 ?>
+
 
 <!doctype html>
 <html>
@@ -308,3 +311,9 @@ return true
 
 
 </html>
+
+<?php 
+    } else {
+        header('Location: index.php');
+    }  
+?>

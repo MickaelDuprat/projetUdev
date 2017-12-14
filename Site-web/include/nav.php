@@ -50,7 +50,7 @@
 		          		?>
 
 		             	<li><a href="coordonnee.php">Mes informations</a></li><br/><br/>
-		             	<li><a class="redText" href="?action=deconnexion">Déconnexion</a></li>
+		             	<li><a class="redText bold" href="?action=deconnexion">Déconnexion</a></li>
 		           </fieldset>
 		        </div>
 		      </div>

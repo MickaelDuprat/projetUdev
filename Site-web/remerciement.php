@@ -10,7 +10,10 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 	header('Location: index.php');    
 }
 
+if (isset($_SESSION['id'])) {
+
 ?>
+
 
 <!doctype html>
 <html>
@@ -84,3 +87,11 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
     <script src="js/backToTop.js"></script>
 
 </html>
+
+<?php
+
+    } else {
+        header('Location: index.php');
+    }
+
+?>
