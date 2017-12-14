@@ -10,7 +10,21 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 	session_destroy();
 	header('Location: index.php');    
 }
+
+if(isset($_SESSION['id'])){
+	$submit =       	
+	        '<input type="submit" name="search" value="Lancer la recherche" id="button-blue"/>';
+
+	 $action = '<form method="POST" action="search.php" class="form" id="form1">';
 	/* var_dump($srch->searchVehicle()); */
+} else {
+
+	$submit =       	
+	        '<input type="submit" name="search" value="Pas encore inscrit? Inscrivez-vous !" id="button-blue"/>';
+
+	$action = '<form method="POST" action="inscription.php" class="form" id="form1">';
+	 
+}
 ?>
 
 <!doctype html>
@@ -234,7 +248,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
             erreurAgence.css('display', 'block');
         }
 
-	
+  	
 
 	$('#choixAgence').on('change', function(){
 		if($('input[name="agence"]:checked').val() == ''){

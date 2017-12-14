@@ -42,6 +42,7 @@ if ($statutMembre == 1) {
 	$status = "disabled";
 }
 
+
 if (isset($siret)) {
 	$res = '<label for="oui"> Professionnel ? </label>
 				<input type="radio" name="typeClient" value="pro" checked '.$status.'>
@@ -107,7 +108,7 @@ if (isset($_SESSION['id'])) {
 	<div id="section-white">
 			<!-- Formulaire -->	
 	<div id="formulaire">		
-		<form method="POST" action="inscription.php">
+		<form method="POST" action="coordonnee.php">
 			<!-- Div message erreur -->
 			<div id="erreur">
     			<p>Vous n'avez pas rempli correctement les champs du formulaire !</p>
@@ -123,7 +124,7 @@ if (isset($_SESSION['id'])) {
   			</div>
 
   			<!-- demande si présence d'un code promo -->
-  			<div id="codePromo">
+  			<div id="codePromo" hidden="hidden">
   				<div id="choixPromo">
   						<label type="text"> Avez vous un code promotionnel </label><br /><br />
   						<label for="oui"> oui </label>
@@ -135,7 +136,7 @@ if (isset($_SESSION['id'])) {
   			<!-- partie coupon -->
   				<div id="coupon">
   					<label for="codeCoupon">Code coupon</label>
-					<input type="text" id="codeCoupon" class="champ"/><br />
+					<input disabled="disabled" type="text" id="codeCoupon" class="champ"/><br />
   				</div>
 			<!-- haut du formulaire -->	
 				<div id="hautform">
@@ -256,17 +257,16 @@ if (isset($_SESSION['id'])) {
     <script src="js/datepicker.js"></script>
     <script src="js/backToTop.js"></script>
 	<script>
-		var pro = false;
-		<?php
-			if (isset($siret) AND trim($siret) != ''){
-				print('pro = true;');
-			}
-		?>
-		$(document).ready(function(){
-			if (pro){
-				$('#proform').show();
-			}
-		});
-
+		 var pro = false;
+        <?php
+            if (isset($siret) AND trim($siret) != ''){
+                print('pro = true;');
+            }
+        ?>
+        $(document).ready(function(){
+            if (pro){
+                $('#proform').show();
+            }
+        });
 	</script>
 </html>

@@ -57,44 +57,46 @@ $(document).ready(function(){
             $erreur.css('display', 'block');
         }
 
-// login validation
-        $login.keyup(function(){
-            $login.filter(function(){
-            if($(this).val().length < 5) {
-                isNotValide($(this));
-                 $erreurlogin.css('display', 'block');
-            } else {
-                isValide($(this));         
-                $erreurlogin.css('display', 'none');
-            }    
-        });
-        });
- /* validation de la date de naissance par rapport au format */
-  $ddn.on('change', function(){
+// // login validation
+//         $login.keyup(function(){
+//             $login.filter(function(){
+//             if($(this).val().length < 5) {
+//                 isNotValide($(this));
+//                  $erreurlogin.css('display', 'block');
+//             } else {
+//                 isValide($(this));         
+//                 $erreurlogin.css('display', 'none');
+//             }    
+//         });
+//         });
+
+/* validation de la date de naissance par rapport au format */
+   $ddn.on('change', function(){
     try {
-    var dateParse = $.datepicker.parseDate("yy-mm-dd", $(this).val());
-    }
-     catch (e) {}
-    if (dateParse) {
-        isValide($(this));
-                $erreurddn.css('display', 'none');
-    } else {
-        isNotValide($(this));
+     var dateParse = $.datepicker.parseDate("yy-mm-dd", $(this).val());
+     }
+      catch (e) {}
+     if (dateParse) {
+         isValide($(this));
+                 $erreurddn.css('display', 'none');
+     } else {
+         isNotValide($(this));
                 $erreurddn.css('display', 'block');
-    }
-});
+     }
+ });
 
      /* verifier si la civilité est bien sélectionné */
-    $civ.on('click', function(){
-    if($(this).prop(("checked") !== true) && ($('this:checked').val() == "")){
+  /*  $civ.on('change', function(){
+    if($('#civ').attr("selected",false)){
             isNotValide($(this)); 
           } else {
+            $('#civ').attr("selected",true);
             isValide($(this));
             } 
 });
-    
+*/ 
     /* verification code postal regex */
-    $villecp.keyup(function(){
+    $villecp.on('change', function(){
         $villecp.filter(function(){
             var regex = /^(([0-8][0-9])|(9[0-5]))[0-9]{3}$/;
             if( !regex.test( $(this).val() ) ) {
@@ -105,12 +107,13 @@ $(document).ready(function(){
                 $erreurvillecp.css('display', 'none');
             }    
         });
-
+    });
     /* verifier téléphone regex */
-    $tel.keyup(function(){
+    $tel.on('change', function(){
         $tel.filter(function(){
-            var regex = /^0[1-9]\d{8}$/;
-            if( !regex.test( $(this).val() ) ) {
+            var regex = /^(0|\+330|0033|\+33[-. ]?0|\+33|\(\+33\)[-. ]?0)[1-9](([-][0-9]{2}){4}|([0-9]{2}){4}|([.][0-9]{2}){4}|([ ][0-9]{2}){4})$/;
+           if (!regex.test($.trim($(this).val()))){ 
+            //if( !regex.test( $(this).val() ) ) {
                 isNotValide($(this));
                 $erreurtel.css('display', 'block');
             } else {
@@ -121,10 +124,11 @@ $(document).ready(function(){
     }); 
 
     /* verification email regex */
-    $mail.keyup(function(){
+    $mail.on('change', function(){
         $mail.filter(function(){
-            var regex = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
-            if( !regex.test( $(this).val() ) ) {
+            var regex = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+            //if( !regex.test( $(this).val() ) )
+            if(!regex.test($.trim($(this).val()))) {
                 isNotValide($(this));
                 $erreurmail.css('display', 'block'); 
                 } else {
@@ -133,11 +137,11 @@ $(document).ready(function(){
             } 
         });
     });            
-
     /* fonction verification si mdp identique */
+    $confirmation.on('change', function(){
     $confirmation.keyup(function(){
         //var regex = /(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
-        if ($(this).val() != $mdp.val()){ 
+        if ($confirmation.val() != $mdp.val()){ 
             isNotValide($(this));
             $erreurpwd.css('display', 'block');
         } else {
@@ -147,6 +151,7 @@ $(document).ready(function(){
         });
     });
 
+    $confirmation.on('change', function(){
     $mdp.keyup(function(){
        // var regex = /(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
         if($(this).val() != $confirmation.val()){
@@ -156,73 +161,55 @@ $(document).ready(function(){
             $erreurpwd.css('display', 'none');
         }
     });
-    
+});   
 
-    /* event click sur bouton d'envoi */
-    $envoi.click(function(e){
-
-        e.preventDefault(); 
-
-        /* verification de chaque champs */
-        verifier($nom);
-        verifier($prenom);
-        verifier($ddn);
-        verifier($mdp);
-        verifier($adresse);
-        verifier($ville);
-        verifier($villecp);
-        verifier($addfact);
-        verifier($tel);
-        verifier($confirmation);
-        verifier($mail);
-        verifier($raisonSociale);
-        verifier($siret);
-        verifier($nomCSociete);
-        verifier($codeCoupon);
-        verifier($civ);
-        verifier($login);
-    });
-
-    /* afficher  le  label&input codepromo */
+     /* afficher  le  label&input codepromo 
     $promo.click(function() {
-        if($(this).val() == "oui" && $(this).prop('checked') == true){
+   $('input[name=choixPromo]:checked').val() || ''
+        if($('input[name=choixPromo]:checked').val() == "oui"){
+            $('#codeCoupon').removeAttr("disabled");
             $coupon.css({
                 display : 'block'
             });
         } else {
+            $('#codeCoupon').attr('disabled', 'disable');
             $coupon.css({
             display : 'none'
-            })
-            $codeCoupon.text() == '';
+            });
         }
     });
+    */
 
     /* afficher le formulaire client pro si le bouton radio pro est coché */
-    $clientPro.click(function() {
-        if($(this).val() == "pro" && $(this).prop('checked') == true){
+       $typeClient.click(function() {
+        $typeCLient.on('change', function() {
+        $('input[name=clientPro]:checked').val() || ''
+        if( $('input[name=clientPro]:checked').val() == "pro"){
+            $('raisonSociale').removeAttr("disabled");
+            $('#nomCSociete').removeAttr("disabled");
+            $('#siret').removeAttr("disabled");
             $proform.css({
                 display : 'block'
             });
         } else {
+            $('raisonSociale').attr('disabled', 'disabled');
+            $('#nomCSociete').attr('disabled', 'disabled');
+            $('#siret').attr('disabled', 'disabled');
             $proform.css({
                 display : 'none'
-            })
-
-            $raisonSociale.text() == '';
-            $nomCSociete.text() == '';
-            $siret.text() == '';
-
+            });
         }
     });
-
-/* function affichage Pro */
-    function afficherPro($proform) {
-            $proform.css({
-                display : 'block'
-            });
-    }
+});
+    /* function affichage Pro */
+     function afficherPro($proform) {
+             $proform.css({
+                 display : 'block'
+             });
+     }
     
-    /* fonction du bouton reset */
+
+     /* fonction du bouton reset */
     $reset.click(function(){
         $champ.css({ 
             borderColor : '#ccc',
@@ -243,8 +230,24 @@ $(document).ready(function(){
             isNotValide(champ);
             }
         }
+        
+ $envoi.click(function(e){
+        
+        verifier($nom);
+        verifier($prenom);
+        verifier($ddn);
+        verifier($adresse);
+        verifier($ville);
+        verifier($villecp);
+        verifier($addfact);
+        verifier($tel);
+        verifier($mail);
+       
+    });
 
 });
+ 
+
 
 
 

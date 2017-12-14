@@ -129,7 +129,7 @@ print('jsonTab4  ');var_dump($jsonTab4);
 						<div id="choixClient">
 							<label type="text"> Êtes vous un </label><br /><br />
 							<label for="oui"> Professionnel ? </label>
-							<input type="radio" name="typeClient" value="pro">
+							<input class="controle" type="radio" name="typeClient" value="pro">
 							<label for="oui"> Particulier ? </label>
 							<input type="radio" name="typeClient" value="part"> 
 						</div>
