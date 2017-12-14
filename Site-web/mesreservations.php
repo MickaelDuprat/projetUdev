@@ -46,9 +46,9 @@ if ($jsonTab['success'] == true) {
 			<td>'.$modele.'</td>
 			<td>'.$dateD.'</td>
 			<td>'.$dateA.'</td>
-			<td> <img class="imgtab" src="ico/modifier.png" title="Modifier" width="25px" height="25px"/>'.'</td>
-     		<td> <img class="imgtab" src="ico/annuler.png" title="Annuler" width="25px" height="25px"/>'.'</td>
-  			<td> <img class="imgtab" src="ico/pdf.png" title="Voir le pdf" width="30px" height="30px"/>'.'</td>
+			<td> <input type="submit" class="btnModifier" value="'.$numero.'"></td> //<img class="imgtab" src="ico/modifier.png" title="Modifier" width="25px" height="25px"/>'.'</td>
+     		<td> <input type="submit" class="btnAnnuler" value="'.$numero.'"></td> //<img class="imgtab" src="ico/annuler.png" title="Annuler" width="25px" height="25px"/>'.'</td>
+  			<td> <input type="submit" class="btn!voirPdf" value="'.$numero.'"></td> //<img class="imgtab" src="ico/pdf.png" title="Voir le pdf" width="30px" height="30px"/>'.'</td>
 		</tr>';
       } else {
         $ligne = '<td> pas de contrats </td>';
