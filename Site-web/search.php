@@ -173,7 +173,7 @@ if (isset($_SESSION['id'])) {
 
 			<!-- La search list représente la liste des résultats de recherche de véhicule -->
 			<div id="search-list">
-			
+				
 				<?php 
 
 					print($list);
@@ -199,6 +199,18 @@ if (isset($_SESSION['id'])) {
 
 	$(document).ready(function(){
 
+						$body = $('body');
+
+						$(document).on({
+						    ajaxStart: function() {
+						     $body.addClass("loading");
+						     },
+						     ajaxStop: function() { 
+						     	$body.removeClass("loading");
+						 	}    
+						});
+
+
 		tabJSON("#Citadine");
 		tabJSON("#Berline");
 		tabJSON("#SUV");
@@ -218,6 +230,7 @@ if (isset($_SESSION['id'])) {
 			var boiteV = {};
 
 			 $(champs).click(function(){
+
 
 				typeVeh = {};
 				$('.get_value').each(function(){
@@ -244,9 +257,9 @@ if (isset($_SESSION['id'])) {
 						dateDepart: $("#dateDepart").attr("name"),
 						dateArrivee: $("#dateArrivee").attr("name"),
 					 },
-					 success:function(data){
+					 success:function(data){ 
 					 	jQuery("#search-list").fadeOut( 0 , function() {
-						    jQuery(this).html( data);
+						    jQuery(this).html(data);
 						}).fadeIn( 400 );
 					 },
 					 error:function(reponse, status, message){
@@ -258,9 +271,9 @@ if (isset($_SESSION['id'])) {
 
 		}
 	});
-
 </script>
 
+<div class="modal"><!-- Place at bottom of page --></div>
 </html>
 
 <?php 

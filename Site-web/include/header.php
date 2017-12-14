@@ -4,7 +4,7 @@
 	<img src="img/voiture.jpg" alt="Voiture"/>
 	<h3><i>Partons à la recherche de votre véhicule..</i></h3>
 	<div id="search">
-		<form method="POST" action="search.php" class="form" id="form1">
+		<?php print($action); ?>
 		  <br/>
 		  <i class="fa fa-map-marker" style="font-size: 45px;" aria-hidden="true" "></i>
 			
@@ -33,7 +33,7 @@
 		  <br/>
 		  
 	      <div class="submit">
-	        <input type="submit" name="search" value="Lancer la recherche" id="button-blue"/>
+	      	<?php print($submit) ?>
 	      </div>
 
 		</form>

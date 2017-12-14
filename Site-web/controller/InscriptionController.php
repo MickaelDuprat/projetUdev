@@ -23,8 +23,8 @@ class InscriptionController{
     $this->manager = new InscriptionModel();
   }
 
-
 // Fonction d'inscription d'un utilisateur
+
 
 
   function inscription($nom, $prenom, $dateN, $email, $telephone, $codeCoupon, $adresseFact, $adresse, $adresse2, $raisonSociale, $siret, $nomSociete, $civ, $idville){
