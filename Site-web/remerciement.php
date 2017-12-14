@@ -58,7 +58,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
             <p> Votre demande de réservation a bien été enregistrée et nous vous remercions de votre confiance.</p>
             <p> Votre contrat de location vous a été automatiquement transmis à votre adresse e-mail mais vous pouvez consulter sa version pdf en cliquant sur le lien suivant :</p>
             <input type="hidden" name="derniercontrat" value="<?php print($num_contrat_loc); ?>">
-            <input type="submit" style="background">
+            <input type="submit" class="btnPdf" value="">
             <p> Vous pouvez à tout moment modifier votre réservation dans votre espace client. </p> </br>
             <b> Toute l'équipe d'Error404 Location vous souhaite une agréable journée et HAVE FUN ! </b>
             </div>

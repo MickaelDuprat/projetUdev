@@ -41,11 +41,14 @@ if ($jsonTab['success'] == true) {
 			<td>'.$prenom.'</td>
 			<td>'.$nom.'</td>
 			<td>'.$adresse.'</td>
-			<td><img class="imgveh" src="'.$img.'"/></td>
+			<td><img class="imgveh"  src="'.$img.'" width="110px" height="70px"/></td>
 			<td>'.$marque.'</td>
 			<td>'.$modele.'</td>
 			<td>'.$dateD.'</td>
 			<td>'.$dateA.'</td>
+			<td> <input type="submit" class="btnModifier" value="'.$numero.'"></td> //<img class="imgtab" src="ico/modifier.png" title="Modifier" width="25px" height="25px"/>'.'</td>
+     		<td> <input type="submit" class="btnAnnuler" value="'.$numero.'"></td> //<img class="imgtab" src="ico/annuler.png" title="Annuler" width="25px" height="25px"/>'.'</td>
+  			<td> <input type="submit" class="btn!voirPdf" value="'.$numero.'"></td> //<img class="imgtab" src="ico/pdf.png" title="Voir le pdf" width="30px" height="30px"/>'.'</td>
 		</tr>';
       } else {
         $ligne = '<td> pas de contrats </td>';
@@ -100,17 +103,17 @@ if (isset($_SESSION['statut']) && $_SESSION['statut'] == 1) {
 
 			<table border="1">
 				<tr id="tableHead">
-					<td>n° contrat </td>
-					<td>date contrat</td>
-					<td>prenom</td>
-					<td>nom</td>
-					<td>adresse de facturation</td>
+					<td> n° contrat </td>
+					<td> date contrat</td>
+					<td> prenom</td>
+					<td> nom</td>
+					<td> adresse de facturation</td>
 					<td> aperçu vehicule </td>
 					<td> marque </td>
-					<td>'modele </td>
+					<td> modele </td>
 					<td> date départ</td>
 					<td> date arrivée </td>
-					<td colspan="10">Actions</td>
+					<td colspan="3">Actions</td>
 					<?php print($ligne) ?>
 				</tr>
 			</table>

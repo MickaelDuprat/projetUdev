@@ -226,6 +226,7 @@ if (isset($_POST['search'])) {
 
     $agence = $_POST['agence'];
     $dateD = new DateTime($dateDepart);
+    $dateD->modify("-1 day");
     $dateA = new DateTime($dateArrivee);
     $interval = $dateD->diff($dateA);
 

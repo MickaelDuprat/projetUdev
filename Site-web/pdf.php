@@ -2,6 +2,8 @@
 
 session_start();
 
+date_default_timezone_set('Europe/Paris');
+
 include_once('root.php');
 include_once(ROOT.'/controller/AuthentificationController.php');
 include_once(ROOT.'/controller/PdfController.php');
@@ -23,8 +25,8 @@ class PDF extends FPDF
 
 $datedujour = date("d-m-Y");       
 	// Logo
-        $this->Image('C:\MAMP\htdocs\GIT\Site-web\img\logo.png', 10, 2, 50);
-    // Police Arial gras 15
+        $this->Image('img\logo.png', 10, 2, 50);
+    // Police Arial gra$this->SetFillColor(255, 255, 255); // marche pas s 15
         $this->SetFont('Arial','B',24);
     // Décalage à droite
         $this->Cell(100);
@@ -33,6 +35,7 @@ $datedujour = date("d-m-Y");
         $this->SetTextColor(220, 50, 50);
         $this->Cell(50, 10, 'Contrat de location', 0, 'C');
         $this->SetTextColor(0, 0, 0);
+        $this->Ln(8);
     // Saut de ligne
         $this->Ln(12);
         $this->SetFont('Arial', '', 12);
@@ -125,18 +128,40 @@ function TableauContratLoc($prix_journalier_veh, $date_debut, $date_fin, $interv
 
   if ($jsonTabAccessoire['success'] == true) {
 
+    $this->Cell($w[0], 8, '', 'TLR', 0, 'L', true);
+    $this->Cell($w[1], 8, '', 'TLR', 0, 'C', true);
+    $this->Cell($w[2], 8, '', 'TLR', 0, 'C', true);
+    $this->Ln(0);
+    $this->SetFillColor(220, 220, 220);
+    $this->Cell($w[0], 8, 'Accessoires : ', 'BLR', 0, 'L', true);
+    $this->Cell($w[1], 8, '', 'BLR', 0, 'C', true);
+    $this->Cell($w[2], 8, '', 'BLR', 0, 'C', true);
+    $this->SetFillColor(255, 255, 255);
+    $this->Ln(8);
+    $this->Cell($w[0], 3, '', 'TLR', 0, 'L', true);
+    $this->Cell($w[1], 3, '', 'TLR', 0, 'C', true);
+    $this->Cell($w[2], 3, '', 'TLR', 0, 'C', true);
+    $this->Ln(0);
+     
+
     foreach ($jsonTabAccessoire['result'] as $value) {
     $lib_accessoire = $value['lib_accessoire'];
     $prix_journaHT_accessoire = $value['prix_journaHT_accessoire'];
     $qtite = $value['qtite'];
     $prixtotal += $prix_journaHT_accessoire *  $qtite;
-    $this->Cell($w[0], 8, utf8_decode($lib_accessoire), 'LR', 0, 'L', true);
-    $this->Cell($w[1], 8, $qtite, 'LR', 0, 'C', true);
-    $this->Cell($w[2], 8, $prix_journaHT_accessoire, 'LR', 0, 'C', true);
-    $this->Ln(8);
-    }
+        if ($qtite > 0) {
+            $this->Cell($w[0], 8, utf8_decode($lib_accessoire), 'LR', 0, 'L', true);
+            $this->Cell($w[1], 8, $qtite, 'LR', 0, 'C', true);
+            $this->Cell($w[2], 8, $prix_journaHT_accessoire, 'LR', 0, 'C', true);
+            $this->Ln(8);    
+        }
+    }   
   } 
 
+    $this->Cell($w[0], 8, "", 'LR', 0, 'L', true);
+    $this->Cell($w[1], 8, "", 'LR', 0, 'C', true);
+    $this->Cell($w[2], 8, "", 'LR', 0, 'C', true);
+    $this->Ln(8); 
     $this->Cell($w[0], 8, 'Prix total TTC', 'LR', 0, 'L', true);
     $this->Cell($w[1], 8, '', 'LR', 0, 'C', true);
     $this->Cell($w[2], 8, $prixtotal, 'LR', 0, 'C', true);

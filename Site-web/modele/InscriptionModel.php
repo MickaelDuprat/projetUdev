@@ -67,8 +67,8 @@ class InscriptionModel extends Manager {
   $this->pdoStatement->bindValue(':prenom', $prenom, PDO::PARAM_STR);
   $this->pdoStatement->bindValue(':dateN', $dateN, PDO::PARAM_STR);
   $this->pdoStatement->execute();
+  
   $id_client = $this->pdoStatement->fetch(PDO::FETCH_ASSOC);
-  var_dump($id_client);
   return $id_client;   
 
 

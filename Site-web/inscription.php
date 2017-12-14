@@ -33,8 +33,7 @@ if (isset($_POST['inscription'])) {
 	$dateN = $_POST['dateN'];
 	$email = $_POST['email'];
 	$telephone = $_POST['telephone'];
-	$strcodeCoupon = $_POST['codeCoupon'];
-	$codeCoupon = intval($strcodeCoupon); 
+	$codeCoupon = $_POST['cachechoixPromo'];
 	$adresseFact = $_POST['adresseFact'];	
 	$adresse = $_POST['adresse'];
 	$adresse2 = $_POST['adresse2'];
@@ -55,22 +54,15 @@ if (isset($_POST['inscription'])) {
 
 	$str_id_client = $jsonTab3['result']['id_dernier_client'];
 	$id_client = intval($str_id_client);
-	print('id_client  '); var_dump($id_client);
 
-	//on insère le client dans la table membre de la BDD 
 	$login = $_POST['login'];
 	$password = sha1($_POST['password']);
-    //$status_membre = $_POST['status_membre'];
-	$status_membre = 1;
-print('nom  '); var_dump($nom);
-print('prenom  '); var_dump($prenom);
-print('dateN  '); var_dump($dateN);
-    print('login  '); var_dump($login);
- 	print('password  '); var_dump($password);
-    print('status_membre  '); var_dump($status_membre);
-	$jsonTab4 = json_decode($ctrl->inscriptionMembre($login, $password, $id_client, $status_membre), true);
-print('jsonTab4  ');var_dump($jsonTab4);
 
+	$str_status_membre = $_POST['cachetypeClient'];
+	$status_membre = intval($str_status_membre);
+
+	//on insère le client dans la table membre de la BDD 
+	$jsonTab4 = json_decode($ctrl->inscriptionMembre($login, $password, $id_client, $status_membre), true);
 }
 	?>
 
@@ -119,7 +111,7 @@ print('jsonTab4  ');var_dump($jsonTab4);
 		<div id="section-white">
 			<!-- Formulaire -->	
 			<div id="formulaire">		
-				<form method="POST" action="inscription.php">
+				<form name="forminscription" method="POST" action="inscription.php">
 					<!-- Div message erreur -->
 					<div id="erreur">
 						<p>Vous n'avez pas rempli correctement les champs du formulaire !</p>
@@ -129,9 +121,10 @@ print('jsonTab4  ');var_dump($jsonTab4);
 						<div id="choixClient">
 							<label type="text"> Êtes vous un </label><br /><br />
 							<label for="oui"> Professionnel ? </label>
-							<input class="controle" type="radio" name="typeClient" value="pro">
+							<input type="radio" name="typeClient" value="2">
+							<input type="hidden" name="cachetypeClient" value="">
 							<label for="oui"> Particulier ? </label>
-							<input type="radio" name="typeClient" value="part"> 
+							<input type="radio" name="typeClient" value="1">
 						</div>
 					</div>	
 
@@ -140,9 +133,10 @@ print('jsonTab4  ');var_dump($jsonTab4);
 						<div id="choixPromo">
 							<label type="text"> Avez vous un code promotionnel </label><br /><br />
 							<label for="oui"> oui </label>
-							<input type="radio" name="choixPromo" value="oui">
+							<input type="radio" name="choixPromo" value="1.1">
+							<input type="hidden" name="cachechoixPromo" value="">
 							<label for="non"> non</label>
-							<input type="radio" name="choixPromo" value="non"> 
+							<input type="radio" name="choixPromo" value="0"> 
 						</div>
 					</div>
 					<!-- partie coupon -->
@@ -155,9 +149,9 @@ print('jsonTab4  ');var_dump($jsonTab4);
 						<label for="civ"> Civilité </label>
 						<select name="civ" id="civ">
 							<option value=""></option>
-							<option value="1"> Mademoiselle </option>
+							<option value="1"> Monsieur </option>
 							<option value="2"> Madame </option>
-							<option value="3"> Monsieur </option>
+							<option value="3"> Mademoiselle </option>
 						</select><br />
 						<label for="nom">Nom</label>
 						<input type="text" name="nom" id="nom" class="champ" />
@@ -237,7 +231,7 @@ print('jsonTab4  ');var_dump($jsonTab4);
 						<input type="text" name="nomSociete" id="nomCSociete" class="champ" /><br />
 					</div>
 					<!-- boutons -->
-					<input class="btn" type="submit" name="inscription" id="envoi" value="Envoyer" /> <input class="btn" type="reset" id="reset" value="Reset" />
+					<input class="btn" type="submit" name="inscription" id="envoi" value="Envoyer" onclick="verif()" /> <input class="btn" type="reset" id="reset" value="Reset" />
 				</form>
 			</div>
 		</div>
@@ -260,6 +254,7 @@ print('jsonTab4  ');var_dump($jsonTab4);
 	<!--  <script src="js/inscription.js"></script> -->
 	<script src="js/datepicker.js"></script>
 	<script src="js/backToTop.js"></script>
+
 	<script>
 
 		var pro = false;
@@ -276,7 +271,6 @@ print('jsonTab4  ');var_dump($jsonTab4);
 		});
 
 
-
     	$('#envoi').click(function(){
 
 	if($('input[name=typeClient]:checked').val() == "pro"){
@@ -291,6 +285,21 @@ print('jsonTab4  ');var_dump($jsonTab4);
 		$('#codePromo').show();
 		}
 	});
-    </script>
-</html>
 
+function verif() {
+        if (document.forms.forminscription.typeClient[0].checked == true) {
+          document.forms.forminscription.cachetypeClient.value = document.forms.forminscription.typeClient[0].value;
+        } else if (document.forms.forminscription.typeClient[1].checked == true) {
+          document.forms.forminscription.cachetypeClient.value = document.forms.forminscription.typeClient[1].value;       
+        }
+
+        if (document.forms.forminscription.choixPromo[0].checked == true) {
+        document.forms.forminscription.cachechoixPromo.value = document.forms.forminscription.choixPromo[0].value;
+        } else if (document.forms.forminscription.choixPromo[1].checked == true) {
+          document.forms.forminscription.cachechoixPromo.value = document.forms.forminscription.choixPromo[1].value;  
+        }
+
+    }
+
+	</script>
+</html>

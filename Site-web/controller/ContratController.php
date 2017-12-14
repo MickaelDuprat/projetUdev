@@ -24,14 +24,13 @@ if (isset($_POST['paye'])) {
 
     $num_contrat_loc = $jsonTab2['result']['dernier_contrat_loc'];
 
-   
+    
     $sql = "";
     
     foreach ($_SESSION['tab'] as $key => $value) {
         $sql = "INSERT INTO choisit (qtite, pk_num_contrat_loc, pk_id_accessoire, id_choisit_contrat_loc, id_choisit_accessoire) VALUES (".$value.", ".$num_contrat_loc.", ".$key.", ".$num_contrat_loc.", ".$key.");";
         $ctrl->setAccessoires($sql);
     }
-    
 }
 
 // Classe controller 
