@@ -45,12 +45,12 @@ if ($statutMembre == 1) {
 
 if (isset($siret)) {
 	$res = '<label for="oui"> Professionnel ? </label>
-				<input type="radio" name="typeClient" value="pro" checked '.$status.'>
+				<input type="radio" name="typeClient" value="pro" checked '.$status.'><br />
 			<label for="oui"> Particulier ? </label>
 				<input type="radio" name="typeClient" value="part">';
 
 } else {
-	$res = '<label for="oui"> Professionnel ? </label>
+	$res = '<label for="oui"> Professionnel ? </label><br />
 				<input type="radio" name="typeClient" value="pro">
 			<label for="oui"> Particulier ? </label>
 				<input type="radio" name="typeClient" value="part" checked '.$status.'>';
@@ -118,7 +118,7 @@ if (isset($_SESSION['id'])) {
 			<!-- choix client pro ou part -->	
 			<div id="typeClient">
 				<div id="choixClient">
-					<label type="text"> Êtes vous un </label><br /><br />
+					<label type="text"> Êtes vous un </label><br />
 					<?php print($res); ?>
   				</div>
   			</div>
@@ -147,7 +147,7 @@ if (isset($_SESSION['id'])) {
 							<option value="1" <?php if ($civilite == "monsieur"){print("selected");} ?>> Monsieur </option>
 						</select><br/><br/>
 	    			<label for="nom">Nom</label>
-	    				<input type="text" name="nom" id="nom" value="<?php print($nom); ?>" class="champ" <?php print($status); ?>/>
+	    				<input type="text" name="nom" id="nom" value="<?php print($nom); ?>" class="champ" <?php print($status); ?>/><br />
 					<label for="prenom">Prénom</label>
 						<input type="text" name="prenom" id="prenom" value="<?php print($prenom); ?>" class="champ" <?php print($status); ?>/><br />
 					<!-- datepicker pour la date de naissance -->
@@ -175,7 +175,7 @@ if (isset($_SESSION['id'])) {
 						<label for="ville">Ville</label>
 							<input type="text" name="ville" id="ville" value="<?php print($ville); ?>" class="champ" <?php print($status); ?>/><br />			
 						<label for='pays'>Pays</label>
-							<select name="pays" id="pays" class="champ" <?php print($status); ?>>
+							<select name="pays" id="pays" class="champ" <?php print($status); ?>><br />
 							<option value="France">France</option>
 								<!-- <?php 
 									// foreach ($tabPays['result'] as $value) {
@@ -194,7 +194,7 @@ if (isset($_SESSION['id'])) {
 			<!-- partie information mdp -->
 				<div id="mid2form">
 	    			<label for="tel">Téléphone</label>
-	    				<input type="tel" name="telephone" id="tel" value="<?php print($tel); ?>" class="champ" <?php print($status); ?>/>
+	    				<input type="tel" name="telephone" id="tel" value="<?php print($tel); ?>" class="champ" <?php print($status); ?>/><br />
 	    				<div id="erreurtel">
     						<p>numéro de télépone invalide
     						</p>
@@ -210,11 +210,11 @@ if (isset($_SESSION['id'])) {
 	   		 <!-- partie client pro -->
 	   		 	<div id="proform">
 	   		 		<label for="raisonSociale">Raison sociale</label>
-	    				<input type="text" name="raisonSociale" id="raisonSociale" value="<?php print($raison); ?>" class="champ" <?php print($status); ?>/>
+	    				<input type="text" name="raisonSociale" id="raisonSociale" value="<?php print($raison); ?>" class="champ" <?php print($status); ?>/> <br />
 	    			<label for="siret">Numéro SIRET</label>
 	    				<input type="text" name="siret" id="siret" value="<?php print($siret); ?>" class="champ" <?php print($status); ?>/><br />
 	    			<label for="nomCSociete">Nom contact société</label>
-	    				<input type="text" name="nomSociete" id="nomCSociete" value="<?php print($nomS); ?>" class="champ" <?php print($status); ?> /><br />
+	    				<input type="text" name="nomSociete" id="nomCSociete" value="<?php print($nomS); ?>" class="champ" <?php print($status); ?> />
 	    		</div>
 
 	    		<!-- partie information contact -->
@@ -230,7 +230,7 @@ if (isset($_SESSION['id'])) {
 	   			</div>
 
 	   			<!-- boutons -->
-	    			<input class='btn' name="submit" type="submit" id="envoi" value="Modifier" /> <input class='btn' type="reset" id="reset" value="Remettre à zéro" />
+	    			<input class='btn' name="submit" type="submit" id="envoi" value="Modifier" />
 			</form>
 		</div>
 	</div>

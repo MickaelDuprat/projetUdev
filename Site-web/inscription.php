@@ -17,11 +17,12 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 
 $ctrl = new InscriptionController();
 
+
 if (isset($_POST['inscription'])) {
 
-	// on récupère la valeur de code postal entrée par l'utlisateur 
-	$cpVille = $_POST['codePostal'];
+	// on récupère la valeur de code postal entrée par l'utlisateur
 
+	$cpVille = $_POST['codePostal'];
 	// on récupère l'Id de la ville entré par l'utilisateur avec la fonction getIdVille
 	$jsonTab = json_decode($ctrl->getIdVille($cpVille), true);
 	$stridville = $jsonTab['result']['id_villecp'];
@@ -62,7 +63,7 @@ if (isset($_POST['inscription'])) {
 	$status_membre = intval($str_status_membre);
 
 	//on insère le client dans la table membre de la BDD 
-	$jsonTab4 = json_decode($ctrl->inscriptionMembre($login, $password, $id_client, $status_membre), true);
+	$jsonTab4 = json_decode($ctrl->inscriptionMembre($login, $password, $id_client, $status_membre), true);	
 }
 	?>
 
@@ -94,11 +95,12 @@ if (isset($_POST['inscription'])) {
 		<link rel="stylesheet" href="css/formInscription.css" />
 		<!--Import de la library css jquery datepicker -->
 		<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css"/>
+		<!-- Import css jquery ui -->
+		<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
 	</head>
 
 	<!-- Corps général de la page -->
 	<body>
-
 		<!-- Barre de naviguation du site -->
 		<?php include_once('include/nav.php'); ?>
 
@@ -131,7 +133,7 @@ if (isset($_POST['inscription'])) {
 					<!-- demande si présence d'un code promo -->
 					<div id="codePromo">
 						<div id="choixPromo">
-							<label type="text"> Avez vous un code promotionnel </label><br /><br />
+							<label type="text"> Avez vous un code<br /><br />promotionnel ? </label><br /><br />
 							<label for="oui"> oui </label>
 							<input type="radio" name="choixPromo" value="1.1">
 							<input type="hidden" name="cachechoixPromo" value="">
@@ -154,7 +156,7 @@ if (isset($_POST['inscription'])) {
 							<option value="3"> Mademoiselle </option>
 						</select><br />
 						<label for="nom">Nom</label>
-						<input type="text" name="nom" id="nom" class="champ" />
+						<input type="text" name="nom" id="nom" class="champ" /><br />
 						<label for="prenom">Prénom</label>
 						<input type="text" name="prenom" id="prenom" class="champ"/><br />
 						<!-- datepicker pour la date de naissance -->
@@ -179,8 +181,10 @@ if (isset($_POST['inscription'])) {
 							<p>code postale invalide
 							</p>
 						</div>
-						<label for="ville">Ville</label>
-						<input type="text" name="ville" id="ville" class="champ"/><br />			
+			            
+            			<label for="ville">ville </label>
+           				 <input type="text" id="ville" class="champ"/><br/>
+       							       				
 						<label for='pays'>Pays</label>
 						<select name="pays" id="pays" class="champ">
 							<option value="France"> France </option>
@@ -212,7 +216,7 @@ if (isset($_POST['inscription'])) {
 						<div id="erreurtel">
 							<p>numéro de télépone invalide
 							</p>
-						</div>
+						</div><br />
 						<label for="mail">E-mail</label>
 						<input type="text" name="email" id="mail" class="champ" /><br />
 						<div id="erreurmail">
@@ -247,6 +251,8 @@ if (isset($_POST['inscription'])) {
 	<script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	<script src="https://cdn.jsdelivr.net/leaflet/1/leaflet.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/zxcvbn/4.2.0/zxcvbn.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+	
 
 	<!-- Importation de la librairie js concernant le formulaire du profil -->
 	<script src="js/datedropper.js"></script>
@@ -270,7 +276,6 @@ if (isset($_POST['inscription'])) {
 			}
 		});
 
-
     	$('#envoi').click(function(){
 
 	if($('input[name=typeClient]:checked').val() == "pro"){
@@ -285,6 +290,7 @@ if (isset($_POST['inscription'])) {
 		$('#codePromo').show();
 		}
 	});
+ 
 
 function verif() {
         if (document.forms.forminscription.typeClient[0].checked == true) {
@@ -302,4 +308,5 @@ function verif() {
     }
 
 	</script>
+
 </html>
