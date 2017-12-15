@@ -58,9 +58,9 @@ if ($jsonTab['success'] == true) {
 
 				<div class="actions">
 					<ul>
-						<li><a href="fiche.php?modifier='.$numero.'" target="_blanck"><img src="ico/modifier.png" title="Modifier"/></a></li>
+						<li><a href="?modifier='.$numero.'"><img src="ico/modifier.png" title="Modifier"/></a></li>
 
-						<li><a href="?supprimer='.$numero.'" target="_blanck"><img src="ico/annuler.png" title="Annuler"/></a></li>
+						<li><a href="?supprimer='.$numero.'"><img src="ico/annuler.png" title="Annuler"/></a></li>
 
 						<li><a href="pdf.php?reservation='.$numero.'" target="_blanck"><img src="ico/pdf.png" title="Voir le pdf"/></a></li>
 					</ul>
@@ -117,6 +117,67 @@ if (isset($_SESSION['statut']) && $_SESSION['statut'] == 1) {
 
 		<!-- Première section de page -->
 		<div id="section-white">
+			
+			<!-- The Modal -->
+		<div id="myModal" class="modal">
+
+		  <!-- Modal content -->
+		  <div class="modal-content">
+		    <div class="modal-header">
+		      <span class="close">&times;</span>
+		      <h2>Modification de la réservation</h2>
+		    </div>
+			    <div class="modal-body">
+			  	<div id="search">
+			      <form method="GET" action="fiche.php" class="form" id="form1">
+				  <br/>
+				  <input type="hidden" name="dateDepart" value="<?php echo implode('-', array_reverse(explode('/',$_GET['dateDebut']), FALSE)); ?>"/>
+				  <input type="hidden" name="dateArrivee" value="<?php echo implode('-', array_reverse(explode('/',$_GET['dateArrivee']), FALSE)); ?>"/>
+			      <input type="hidden" name="idClient" value="<?php print($idClient); ?>"/>
+				  <input type="hidden" name="idVehicule" value="<?php print($_GET['id']); ?>"/>
+			      <input type="hidden" name="dateNow" value="<?php print(date("Y-m-d")); ?>"/>
+				  <input type="hidden" name="agence" value="<?php print($_GET['agence']); ?>"/>
+				  <i class="fa fa-map-marker" style="font-size: 45px;" aria-hidden="true" "></i>
+					
+				  <div class="select" id="choixAgence" tabindex="1">
+
+				  <input class="selectopt" name="agence" value="1" type="radio" id="opt1">
+				  <label for="opt1" class="option">Agence de Bordeaux</label>
+				  <input class="selectopt" name="agence" value="2" type="radio" id="opt2">
+				  <label for="opt2" class="option">Agence de Niort</label>
+				  <input class="selectopt" name="agence" value="3" type="radio" id="opt3">
+				  <label for="opt3" class="option">Agence de Courçon</label>
+				  <input class="selectopt" name="agence" value="4" type="radio" id="opt4">
+				  <label for="opt4" class="option">Agence de Châtellerault</label>
+				  <input class="selectopt" name="agence" value="5" type="radio" id="opt5">
+				  <label for="opt5" class="option">Agence de Poey d'Oloron</label>
+				  <input class="selectopt" name="agence" type="radio" value="" id="opt6">
+				  <label for="opt6" class="option">Choisissez une agence</label>
+			  	</div>
+			  	<p id="erreurAgence"> Veuillez choisir une agence </p>
+				<div id="date">
+				  <i class="fa fa-calendar fa-2x" aria-hidden="true"></i><br/><br/>
+			      <input class="date feedback-input" id="dateDepart" name="dateDepart" type="text" placeholder="Date de départ" />
+				  <input class="date feedback-input" name="dateArrivee" id="dateArrivee" type="text" placeholder="Date d'arrivée" />
+			      <p id="erreurDate"> Veuillez renseignez des dates correctes </p>
+			  	</div>
+
+			  <br/>
+			  
+		      <div class="submit">
+		      	<input type="submit" value="Etape suivante" id="button-blue"/>
+		      </div>
+
+			</form>
+			</div>
+		    </div>
+		    <!-- <div class="modal-footer">
+		      <h3>...</h3>
+		    </div> -->
+		  </div>
+
+
+		</div>
 
 			<?php print($reservations) ?>
 	
@@ -141,4 +202,39 @@ if (isset($_SESSION['statut']) && $_SESSION['statut'] == 1) {
 	<script src="js/formLogin.js"></script>
 	<script src="js/backToTop.js"></script>
 	
+	<script>
+
+	var modal = document.getElementById('myModal');
+
+		// Get the button that opens the modal
+		var btn = document.getElementById("myBtn");
+
+		// Get the <span> element that closes the modal
+		var span = document.getElementsByClassName("close")[0];
+
+		// When the user clicks the button, open the modal 
+		function modalUpdate() {
+		    modal.style.display = "block";
+		}
+
+		// When the user clicks on <span> (x), close the modal
+		span.onclick = function() {
+		    modal.style.display = "none";
+		}
+
+		// When the user clicks anywhere outside of the modal, close it
+		window.onclick = function(event) {
+		    if (event.target == modal) {
+		        modal.style.display = "none";
+		    }
+		}
+
+	</script>
+
+	<?php 
+		if(isset($_GET['modifier'])) {
+			print("<script>modalUpdate();</script>");
+		}
+	?>
+
 </html>
