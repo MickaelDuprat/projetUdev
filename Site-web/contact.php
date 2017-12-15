@@ -64,11 +64,10 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
  	<span> <a id="formcontact" href="contact-email.php" rel="stylesheet"> Contactez-nous !</a> </span>
 	</div>
 	
-	<div id="coordonnees"> 
+	<div id="coordonnees">	
 		<h1> Nos coordonnées </h1>
 		<span> Nous nous ferons un plaisir de répondre à toutes vos questions, n'hésitez pas à contacter une de nos agences : </span>
 		<img src="img/hotesse.png" id="hotesse" alt="contact">
-
 		<div class="horaire" id="horaireBordeaux"> 
 			<b> Horaire d'ouverture : </b>
 			<p> Lundi : 08h30 - 12 h ; 13h30 - 18h30 </p>
@@ -77,8 +76,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 			<p> Jeudi : 08h30 - 12 h ; 13h30 - 18h30 </p>
 			<p> Vendredi : 08h30 - 12 h ; 13h30 - 18h30 </p>
 		</div>
-
-		<div class="essai" pseudo class="target" id="Bordeaux"> 
+		<div class="essai" id="Bordeaux"> 			
 			<h3> Agence de Bordeaux </h3>
 			<b> Adresse postale : </b>
 			<p> 10, place de la bourse 33000 Bordeaux </p> </br>
@@ -89,17 +87,16 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 			<b> Email : </b>
 			<a href="mailto:agence-Bordeaux@error404.fr" class="mail"> agence-Bordeaux@error404.fr </a>
 		</div>
-
 		<div class="horaire" id="horaireChatellerault"> 
-			<b> Horaire d'ouverture : </b>
-			<p> Lundi : 08h30 - 12 h ; 13h30 - 18h30 </p>
-			<p> Mardi : 08h30 - 12 h ; 13h30 - 18h30 </p>
-			<p> Mercredi : 08h30 - 12 h ; 13h30 - 18h30 </p>
-			<p> Jeudi : 08h30 - 12 h ; 13h30 - 18h30 </p>
-			<p> Vendredi : 08h30 - 12 h ; 13h30 - 18h30 </p>
+				<b> Horaire d'ouverture : </b>
+				<p> Lundi : 08h30 - 12 h ; 13h30 - 18h30 </p>
+				<p> Mardi : 08h30 - 12 h ; 13h30 - 18h30 </p>
+				<p> Mercredi : 08h30 - 12 h ; 13h30 - 18h30 </p>
+				<p> Jeudi : 08h30 - 12 h ; 13h30 - 18h30 </p>
+				<p> Vendredi : 08h30 - 12 h ; 13h30 - 18h30 </p>
 		</div>
 
-		<div class="essai" id="Chatellerault"> 
+		<div class="essai" id="Chatellerault"> 		
 			<h3> Agence de Châtellerault </h3>
 			<b> Adresse postale : </b>
 			<p> 222, boulevard de blossac 86100 Châtellerault </p> </br>
@@ -108,7 +105,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 			<b> Fax : </b>
 			<p> 05-47-00-00-01 </p> </br>
 			<b> Email : </b>
-			<a href="mailto:agence-Chatellerault@error404.fr" class="mail"> agence-Chatellerault@error404.fr </a>
+			<a href="mailto:agence-Chatellerault@error404.fr" class="mail"> agence-Chatellerault@error404.fr </a>		
 		</div>
 
 		<div class="horaire" id="horaireCourcon"> 
@@ -152,7 +149,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 			<b> Email : </b>
 			<a href="mailto:agence-Niort@error404.fr" class="mail"> agence-Niort@error404.fr </a>
 		</div>
-
+		
 		<div class="horaire" id="horairePoey"> 
 			<b> Horaire d'ouverture : </b>
 			<p> Lundi : 08h30 - 12 h ; 13h30 - 18h30 </p>
@@ -160,9 +157,9 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 			<p> Mercredi : 08h30 - 12 h ; 13h30 - 18h30 </p>
 			<p> Jeudi : 08h30 - 12 h ; 13h30 - 18h30 </p>
 			<p> Vendredi : 08h30 - 12 h ; 13h30 - 18h30 </p>
-		</div>
+		</div>	
 
-		<div class="essai" id="Poey"> 
+		<div class="essai" id="Poey">
 			<h3> Agence de Poey d'Oloron </h3>
 			<b> Adresse postale : </b>
 			<p> 7, rue de la mairie 64400 Poey d'Oloron </p> </br>
@@ -173,6 +170,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 			<b> Email : </b>
 			<a href="mailto:agence-Poey-Oloron@error404.fr" class="mail"> agence-Poey-Oloron@error404.fr </a> </br>
 		</div>
+
 	</div>
     </body>
 
@@ -191,5 +189,8 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
     <script src="js/inscription.js"></script>
     <script src="js/datepicker.js"></script>
     <script src="js/backToTop.js"></script>
+
+
+    </script>
 
 </html>

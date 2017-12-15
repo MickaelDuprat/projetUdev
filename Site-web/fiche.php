@@ -1,12 +1,15 @@
 <?php 
 session_start();
 
+if (isset($_SESSION['id'])) {
+	
 include_once('root.php');
 include_once(ROOT.'/controller/AuthentificationController.php');
 include_once(ROOT.'/controller/ContratController.php');
 include_once(ROOT.'/controller/SearchController.php');
 include_once(ROOT.'/controller/FicheController.php');
 include_once(ROOT.'/controller/AccessoireController.php');
+
 
 $message = '';
 
@@ -20,8 +23,8 @@ $ctrl = new ContratController();
 
 $jsonTab = json_decode($ctrl->getIdClient($_SESSION['id']), true);
 
-$idClient = $jsonTab['result']['id_membre_client']
-
+$idClient = $jsonTab['result']['id_membre_client'];
+ 
 ?>
 
 <!doctype html>
@@ -61,6 +64,7 @@ $idClient = $jsonTab['result']['id_membre_client']
     </div>
 
 	<div id="section-white">
+
 	    <aside id="resume-voiture">
 	    	<p class="titleDetails" data=""> <?php print($marque.' '.$modele) ?> </p>
 	        <img id="vehselect" <?php print('<img src="'.$path.'"
@@ -171,21 +175,12 @@ $idClient = $jsonTab['result']['id_membre_client']
 	    	$('#total').text(prix.toFixed(2) + " €");
 	    }
 
-	 	// 	var tabAccessoires = {};
-
-		//  function setTab(prix){
-				
-		// 	tabAccessoires = {};
-			
-		// 	$('.get_value').each(function(){	 
-		// 		 tabAccessoires[$(this).attr("id")] = $(this).find("option:selected").val();
-		// 	});
-
-		// 	$('#accessoires').val(tabAccessoires.toString());
-
-		// }
-
 	</script>
 
-
 </html>
+
+<?php 
+    } else {
+        header('Location: index.php');
+    }  
+?>

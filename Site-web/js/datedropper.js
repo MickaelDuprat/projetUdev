@@ -46,7 +46,7 @@ jQuery.easing._dd_easing = function(x, t, b, c, d) {
                         yearsRange: 10,
 
                         //CSS PRIOPRIETIES//
-                        dropPrimaryColor: "#ff0000",
+                        dropPrimaryColor: "#FC5555",
                         dropTextColor: "#333333",
                         dropBackgroundColor: "#FFFFFF",
                         dropBorder: "1px solid #08C",

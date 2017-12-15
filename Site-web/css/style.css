@@ -70,6 +70,10 @@ nav ul li i{
   color: #ec1c24;
 }
 
+.bold:hover{
+  font-weight: bold !important;
+}
+
 
 /** LOGIN FORM **/
 
@@ -726,3 +730,4 @@ header img{
   height: 100px;
   margin-left: 10px;
 }
+

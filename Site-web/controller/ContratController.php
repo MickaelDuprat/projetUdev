@@ -7,7 +7,7 @@ include_once(ROOT .'/modele/ContratModel.php');
 $ctrl = new ContratController();
 
 if (isset($_POST['valideTarif'])) {
-  $_SESSION['tab'] = $_POST['tab'];
+    $_SESSION['tab'] = $_POST['tab'];
 }
 
 if (isset($_POST['paye'])) {
@@ -24,7 +24,6 @@ if (isset($_POST['paye'])) {
 
     $num_contrat_loc = $jsonTab2['result']['dernier_contrat_loc'];
 
-    
     $sql = "";
     
     foreach ($_SESSION['tab'] as $key => $value) {
@@ -32,6 +31,22 @@ if (isset($_POST['paye'])) {
         $ctrl->setAccessoires($sql);
     }
 }
+
+if (isset($_GET['supprimer'])) {
+  $str_pk_num_contrat_loc = $_GET['supprimer'];
+  $str_num_contrat_loc = $_GET['supprimer'];
+
+  $pk_num_contrat_loc = intval($str_pk_num_contrat_loc); 
+  $num_contrat_loc = intval($str_num_contrat_loc);
+
+  //on supprime le contrat de location en question de la table choissit dans la BDD
+  $jsonTab3 = json_decode($ctrl->delAccessoireContrat($pk_num_contrat_loc), true);
+
+  //puis on supprime le contrat de location en question de la table contrat_loc dans la BDD 
+  $jsonTab4 = json_decode($ctrl->delContrat($num_contrat_loc), true);
+
+}
+
 
 // Classe controller 
 class ContratController{
@@ -130,6 +145,33 @@ class ContratController{
       
       return $json;
 
+  }
+
+ // Fonction de suppression d'un contrat de location dans la table choissit
+  public function delAccessoireContrat($pk_num_contrat_loc){
+     
+      $infos = $this->manager->deleteAccessoireContrat($pk_num_contrat_loc);
+
+      if($infos){
+        $json = json_encode(['success' => true, 'result' => $infos]);
+      } else {
+        $json = json_encode(['success' => false]);
+      }
+      
+      return $json;
+  }
+
+   // Fonction de suppression d'un contrat de location dans la table contrat_loc
+  public function delContrat($num_contrat_loc){
+     
+      $infos = $this->manager->deleteContrat($num_contrat_loc);
+
+      if($infos){
+        $json = json_encode(['success' => true, 'result' => $infos]);
+      } else {
+        $json = json_encode(['success' => false]);
+      }                                                                                                                 
+      return $json;
   }
 
 }

@@ -3,8 +3,6 @@
 	<a href = "index.php"><img src="img/logo.png" alt="Logo"/></a>
 	<ul>
 	    <a href="index.php"><li>Accueil</li></a>
-	    <a href="search.php"><li>Recherche</li></a>
-	    <a href="fiche.php"><li>Fiche</li></a>
 	    <a href="contact.php"><li>Contact</li></a>
 	    <li>
 	    <?php 
@@ -52,7 +50,7 @@
 		          		?>
 
 		             	<li><a href="coordonnee.php">Mes informations</a></li><br/><br/>
-		             	<li><a class="redText" href="?action=deconnexion">Déconnexion</a></li>
+		             	<li><a class="redText bold" href="?action=deconnexion">Déconnexion</a></li>
 		           </fieldset>
 		        </div>
 		      </div>

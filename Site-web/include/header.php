@@ -25,9 +25,9 @@
 		  </div>
 		  	<p id="erreurAgence"> Veuillez choisir une agence </p>
 		  <div id="date">
-	      <i class="fa fa-calendar fa-2x" aria-hidden="true" "></i><input class="date feedback-input" id="dateDepart" name="dateDepart" type="text" placeholder="Date de départ" />
+	      <input class="date feedback-input" id="dateDepart" name="dateDepart" type="text" placeholder="Date de départ" />
 
-	      <i class="fa fa-calendar fa-2x" aria-hidden="true"></i><input class="date feedback-input" name="dateArrivee" id="dateArrivee" type="text" placeholder="Date d'arrivée" />
+	      <input class="date feedback-input" name="dateArrivee" id="dateArrivee" type="text" placeholder="Date d'arrivée" />
 	      <p id="erreurDate"> Veuillez renseignez des dates correctes </p>
 	  	</div>
 		  <br/>

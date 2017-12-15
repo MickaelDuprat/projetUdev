@@ -55,7 +55,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 		<div id="section-white">
             <div id="erreur404">
             <p style="text-align:center; margin:0px;">
-            <img src="img/erreur404.png"  width=450px height=450px> </br>
+            <img src="img/erreur404.png"  width=350px height=350px style="margin-top: 7%"> </br>
             <b font-size=200%> Cette page est encore en construction </b> </p>
             </div>
         </div>

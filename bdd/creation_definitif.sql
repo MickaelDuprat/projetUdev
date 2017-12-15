@@ -1,6 +1,4 @@
-DROP database projetudev;
-create database projetudev;
-use projetudev;
+use mickaeldul64;
 set names utf8;
 
 create table contrat_loc (
