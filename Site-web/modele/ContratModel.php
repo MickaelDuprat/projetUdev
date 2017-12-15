@@ -106,6 +106,35 @@ class ContratModel extends Manager {
     return $infos;
   }
 
+ // Fonction de lecture des informations afin de permettre des modifications d'un contrat de location
+  public function modifContrat($num_contrat_loc) {
+    $this->pdoStatement = $this->pdo->prepare("SELECT num_contrat_loc, date_debut, date_fin, nom_client, prenom_client, id_client, add_facturation, ville_villecp, cp_villecp, lib_marque, lib_modele, path_img, id_agence, id_veh, lib_agence, nbre_bagage_veh, nbre_passager_veh, nbre_portes_veh, prix_journalier_veh, qtite, id_accessoire, lib_accessoire
+    FROM contrat_loc
+    LEFT JOIN client
+    on client.id_client = contrat_loc.id_contrat_loc_client
+    LEFT JOIN villecp
+    on villecp.id_villecp = client.id_client_villecp
+    left join agence
+    on agence.id_agence = contrat_loc.id_contrat_loc_agence
+    LEFT JOIN vehicule
+    on vehicule.id_veh = contrat_loc.id_contrat_loc_vehicule
+    LEFT JOIN modele
+    on modele.id_modele = vehicule.id_modele_vehicule
+    LEFT JOIN marque 
+    on marque.id_marque = modele.id_marque_modele
+    LEFT JOIN choisit
+    on choisit.id_choisit_contrat_loc = contrat_loc.num_contrat_loc
+    LEFT JOIN accessoire
+    on accessoire.id_accessoire = choisit.id_choisit_accessoire
+    WHERE num_contrat_loc = :num_contrat_loc");
+    $this->pdoStatement->bindValue(':num_contrat_loc', $num_contrat_loc, PDO::PARAM_INT);
+    $this->pdoStatement->execute();
+
+    $infos = $this->pdoStatement->fetch(PDO::FETCH_ASSOC);
+    var_dump($infos);
+    return $infos;
+  }
+
 // Fonction de suppression d'un contrat de location à partir du numéro de contrat de la table choissit (à faire en premier étant donné la clé étrangère)
   public function deleteAccessoireContrat($pk_num_contrat_loc) {
 

@@ -58,11 +58,11 @@ if ($jsonTab['success'] == true) {
 
 				<div class="actions">
 					<ul>
-						<li><a href="?modifier='.$numero.'"><img src="ico/modifier.png" title="Modifier"/></a></li>
+						<li><a href="?modifier='.$numero.'"><img src="ico/modifier.png" title="Modifier la réservation"/></a></li>
 
-						<li><a href="?supprimer='.$numero.'"><img src="ico/annuler.png" title="Annuler"/></a></li>
+						<li><a href="?supprimer='.$numero.'"><img src="ico/annuler.png" title="Annuler la réservation"/></a></li>
 
-						<li><a href="pdf.php?reservation='.$numero.'" target="_blanck"><img src="ico/pdf.png" title="Voir le pdf"/></a></li>
+						<li><a href="pdf.php?reservation='.$numero.'" target="_blanck"><img src="ico/pdf.png" title="Voir le pdf du contrat"/></a></li>
 					</ul>
 				</div>
 			</div>';
@@ -72,6 +72,47 @@ if ($jsonTab['success'] == true) {
   	}
 
 }
+
+// if (isset($_GET['modifier'])) {
+//     $str_num_contrat_loc = $_GET['modifier'];
+//     $num_contrat_loc = intval($str_num_contrat_loc);
+
+// $jsonTab5 = json_decode($ctrl->modifierContrat($num_contrat_loc), true);
+
+// $num_contrat_loc = $jsonTab5['result']['num_contrat_loc'];
+// $date_debut = $jsonTab5['result']['date_debut'];
+// $date_fin = $jsonTab5['result']['date_fin'];
+// $nom_client = $jsonTab5['result']['nom_client'];
+// $prenom_client = $jsonTab5['result']['prenom_client'];
+// $id_client = $jsonTab5['result']['id_client'];
+// $add_facturation = $jsonTab5['result']['add_facturation'];
+// $ville_client = $jsonTab5['result']['ville_villecp'];
+// $cp_client = $jsonTab5['result']['cp_villecp'];
+// $lib_marque = $jsonTab5['result']['lib_marque'];
+// $lib_modele = $jsonTab5['result']['lib_modele'];
+// $path_img = $jsonTab5['result']['path_img'];
+// $lib_agence = $jsonTab5['result']['lib_agence'];
+// $nbre_bagage_veh = $jsonTab5['result']['nbre_bagage_veh'];
+// $nbre_passager_veh = $jsonTab5['result']['nbre_passager_veh'];
+// $nbre_portes_veh = $jsonTab5['result']['nbre_portes_veh'];
+// $prix_journalier_veh = $jsonTab5['result']['prix_journalier_veh'];
+
+
+// $qtite = $jsonTab5['result']['qtite'];
+// $lib_accessoire = $jsonTab5['result']['lib_accessoire'];
+
+
+// if ($jsonTab5['success'] == true) {
+
+//         foreach ($jsonTab5['result'] as $value) {
+
+//         $qtite = $value['qtite'];
+//         $lib_accessoire = $value['lib_accessoire'];
+//         }
+// }
+
+
+// }
 
 
 if (isset($_SESSION['statut']) && $_SESSION['statut'] == 1) {
@@ -129,14 +170,11 @@ if (isset($_SESSION['statut']) && $_SESSION['statut'] == 1) {
 		    </div>
 			    <div class="modal-body">
 			  	<div id="search">
-			      <form method="GET" action="fiche.php" class="form" id="form1">
+			      <form method="POST" action="search.php" class="form" id="form1">
 				  <br/>
-				  <input type="hidden" name="dateDepart" value="<?php echo implode('-', array_reverse(explode('/',$_GET['dateDebut']), FALSE)); ?>"/>
-				  <input type="hidden" name="dateArrivee" value="<?php echo implode('-', array_reverse(explode('/',$_GET['dateArrivee']), FALSE)); ?>"/>
-			      <input type="hidden" name="idClient" value="<?php print($idClient); ?>"/>
-				  <input type="hidden" name="idVehicule" value="<?php print($_GET['id']); ?>"/>
-			      <input type="hidden" name="dateNow" value="<?php print(date("Y-m-d")); ?>"/>
-				  <input type="hidden" name="agence" value="<?php print($_GET['agence']); ?>"/>
+				  <input type="hidden" name="action" value="update">
+				  <input type="hidden" name="contrat" value="">
+
 				  <i class="fa fa-map-marker" style="font-size: 45px;" aria-hidden="true" "></i>
 					
 				  <div class="select" id="choixAgence" tabindex="1">
