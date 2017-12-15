@@ -8,10 +8,6 @@ include_once(ROOT . '/modele/SearchModel.php');
 
 $srch = new SearchController();
 
-if (isset($_GET['action']) && $_GET['action'] == "update" && $_GET['contrat'] == "numContrat") {
-  $actionPage = '&action='.$_GET['action'].'&contrat='.$_GET['numContrat'].'';
-}
-
 if (isset($_GET['action']) && $_GET['action'] == "refresh") {
 
   $catV = "";
@@ -146,14 +142,9 @@ WHERE id_agence = ".$_GET['agence']." ".$catV." ".$boiteV." ".$prixV." AND id_ve
 if (isset($_POST['search']) || isset($_POST['action']) == "update") {
 
   if (isset($_POST['action']) == "update") {
-    $dateDepart = implode('-', array_reverse(explode('/',$_POST['dateDepart']), FALSE));
-    $dateArrivee = implode('-', array_reverse(explode('/',$_POST['dateArrivee']), FALSE));
-
-    $agence = $_POST['agence'];
-    $dateD = new DateTime($dateDepart);
-    $dateD->modify("-1 day");
-    $dateA = new DateTime($dateArrivee);
-    $interval = $dateD->diff($dateA);
+    $action = $_POST['action'];
+    $contrat = $_POST['contrat'];
+    $actionPage = '&action='.$action.'&contrat='.$contrat.'';
   }
 
   // On va boucler sur un tableau
@@ -222,7 +213,7 @@ if (isset($_POST['search']) || isset($_POST['action']) == "update") {
         <div class="title"><h3>'.$marque.' '.$modele.'</h3></div>
         '.$infos.'
         <div class="footer">
-          <a href="fiche.php?id='.$id.'&agence='.$_POST['agence']. '&dateDebut='.$_POST['dateDepart'].'&dateArrivee='.$_POST['dateArrivee'].'">
+          <a href="fiche.php?id='.$id.'&agence='.$_POST['agence']. '&dateDebut='.$_POST['dateDepart'].'&dateArrivee='.$_POST['dateArrivee'].''.$actionPage.'">
             <div class="bouton">
               RÉSERVER
             </div>

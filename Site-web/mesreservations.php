@@ -173,7 +173,7 @@ if (isset($_SESSION['statut']) && $_SESSION['statut'] == 1) {
 			      <form method="POST" action="search.php" class="form" id="form1">
 				  <br/>
 				  <input type="hidden" name="action" value="update">
-				  <input type="hidden" name="contrat" value="">
+				  <input type="hidden" name="contrat" value="<?php print($numero); ?>">
 
 				  <i class="fa fa-map-marker" style="font-size: 45px;" aria-hidden="true" "></i>
 					
