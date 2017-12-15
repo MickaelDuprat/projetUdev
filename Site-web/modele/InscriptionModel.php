@@ -3,8 +3,7 @@ include_once(ROOT .'/root.php');
 
 include_once(ROOT .'/modele/Manager.php');
 
-
-
+   
 
 class InscriptionModel extends Manager {
 
@@ -19,6 +18,7 @@ class InscriptionModel extends Manager {
   }
 
 
+    
   // Fonction d'insert de plusieurs informations
 
 
