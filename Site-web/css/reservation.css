@@ -141,6 +141,7 @@
 
 .modal-header {
     padding: 2px 16px;
+    font-size: 20px;
     background-color: #fc5555;
     color: white;
 }
@@ -264,8 +265,9 @@ input:-moz-placeholder {
 #date input{
 	border-radius: 10px;
 	border: 1px solid #757575;
-	margin-left: 5px;
-	margin-right: 5px;
+	margin-left: 8px;
+	margin-right: 8px;
+	margin-bottom: 20px;
 }
 
 input {
@@ -275,15 +277,17 @@ input {
 }
 
 .modal-body {
-  margin-bottom: 90px;
+  margin-bottom: 85px;
 }
 
 .submit input#button-blue {
   background-color: #424242; 
+  border-radius: 10px;
 }
 
 .submit input#button-blue:hover {
   background-color: #FC5555; 
+  border-radius: 70px;
 }
 
 div.datedropper.my-style {

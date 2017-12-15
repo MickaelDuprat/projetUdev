@@ -147,6 +147,22 @@ class ContratController{
 
   }
 
+  // Fonction de liaison d'accessoires à un contrat
+
+  public function modifierContrat($num_contrat_loc){
+     
+      $infos = $this->manager->modifContrat($num_contrat_loc);
+
+      if($infos){
+        $json = json_encode(['success' => true, 'result' => $infos]);
+      } else {
+        $json = json_encode(['success' => false]);
+      }
+      
+      return $json;
+
+  }
+
  // Fonction de suppression d'un contrat de location dans la table choissit
   public function delAccessoireContrat($pk_num_contrat_loc){
      

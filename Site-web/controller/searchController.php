@@ -120,7 +120,7 @@ WHERE id_agence = ".$_GET['agence']." ".$catV." ".$boiteV." ".$prixV." AND id_ve
         <div class="title"><h3>'.$marque.' '.$modele.'</h3></div>
         '.$infos.'
         <div class="footer">
-          <a href="fiche.php?id='.$id.'&agence='.$_GET['agence']. '&dateDebut='.implode('/', array_reverse(explode('-',$_GET['dateDepart']), FALSE)).'&dateArrivee='.implode('/', array_reverse(explode('-',$_GET['dateArrivee']), FALSE)).'">
+          <a href="fiche.php?id='.$id.'&agence='.$_GET['agence']. '&dateDebut='.implode('/', array_reverse(explode('-',$_GET['dateDepart']), FALSE)).'&dateArrivee='.implode('/', array_reverse(explode('-',$_GET['dateArrivee']), FALSE)).''.$actionPage.'">
             <div class="bouton">
               RÉSERVER
             </div>
@@ -139,7 +139,13 @@ WHERE id_agence = ".$_GET['agence']." ".$catV." ".$boiteV." ".$prixV." AND id_ve
   }
 }
 
-if (isset($_POST['search'])) {
+if (isset($_POST['search']) || isset($_POST['action']) == "update") {
+
+  if (isset($_POST['action']) == "update") {
+    $action = $_POST['action'];
+    $contrat = $_POST['contrat'];
+    $actionPage = '&action='.$action.'&contrat='.$contrat.'';
+  }
 
   // On va boucler sur un tableau
   $jsonTab = json_decode($srch->getVehiculeByAgence(), true);
@@ -207,7 +213,7 @@ if (isset($_POST['search'])) {
         <div class="title"><h3>'.$marque.' '.$modele.'</h3></div>
         '.$infos.'
         <div class="footer">
-          <a href="fiche.php?id='.$id.'&agence='.$_POST['agence']. '&dateDebut='.$_POST['dateDepart'].'&dateArrivee='.$_POST['dateArrivee'].'">
+          <a href="fiche.php?id='.$id.'&agence='.$_POST['agence']. '&dateDebut='.$_POST['dateDepart'].'&dateArrivee='.$_POST['dateArrivee'].''.$actionPage.'">
             <div class="bouton">
               RÉSERVER
             </div>
